@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.orhava.trivia2.Game"
+    android:background="@color/teal_200"
+    android:padding="24dp">
+
+    <ImageButton
+        android:id="@+id/mute_unmute"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/mute_or_unmute"
+        android:src="@mipmap/mutenewproblem11"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/whichGameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/whichGame2Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/whichGameTxt"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/whichGameImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/whichGame2Txt"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/whichGameImage2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/whichGame2Txt"
+        android:layout_centerHorizontal="false"
+     android:layout_marginRight="50dp"
+        android:layout_alignRight="@+id/whichGameImage" />
+    <ImageView
+        android:id="@+id/whichGameImage3"
+        android:layout_width="50dp"
+        android:layout_alignLeft="@+id/whichGameImage"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/whichGame2Txt"
+        android:layout_centerHorizontal="false"
+         />
+
+
+    <ImageButton
+        android:id="@+id/navToMain"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/teal_200"
+        android:src="@mipmap/backarrow_foreground"
+        android:text="Go To Menu"
+        android:textSize="10sp"
+        tools:ignore="ContentDescription,HardcodedText,SmallSp" />
+
+
+    <TextView
+        android:id="@+id/total_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:paddingTop="20dp"
+        android:text="Total Questions "
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+
+    <ImageView
+        android:id="@+id/flags"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:contentDescription="Flags"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="This will be the question"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/choices_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+       android:layout_marginTop="260dp"
+
+        >
+
+
+        <Button
+            android:id="@+id/ans_A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Ans A"
+
+
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/ans_B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Ans B"
+
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/ans_C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Ans C"
+
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/ans_D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Ans D"
+
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/choices_layout"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Submit"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit_btn"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/press_start_2p"
+        android:text=""
+        android:textSize="25sp" />
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/timerProgress"-->
+<!--        style="@style/Widget.AppCompat.ProgressBar.Horizontal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/timerText"-->
+<!--        android:layout_centerHorizontal="true" />-->
+    <ImageView
+        android:id="@+id/CorrectOrWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timerText"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="Flags"
+        android:layout_marginStart="200dp"
+        tools:ignore="HardcodedText" />
+
+
+</RelativeLayout>
+
+
+

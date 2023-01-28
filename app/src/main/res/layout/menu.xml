@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    tools:context="com.orhava.trivia2.Game"
+    android:background="#03A9F4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            tools:ignore="UselessParent">
+            <ImageButton
+                android:id="@+id/mute_unmute"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:contentDescription="@string/mute_or_unmute"
+                android:src="@mipmap/mutenewproblem11"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <ImageButton
+                android:id="@+id/navToMainMenu"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#03A9F4"
+                android:src="@mipmap/backarrow_foreground"
+                android:text="Go To Menu"
+                android:textSize="10sp"
+                tools:ignore="ContentDescription,HardcodedText,SmallSp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreNovice"
+                android:layout_toLeftOf="@+id/navToGame1"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/learner"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreLearner"
+                android:layout_toLeftOf="@+id/navToGame2"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/apprenticee"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreApprentice"
+                android:layout_toLeftOf="@+id/navToGame3"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/novice12"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreCompetent"
+                android:layout_toLeftOf="@+id/navToGame4"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/competent123"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreChampion"
+                android:layout_toLeftOf="@+id/navToGame5"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/champion"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreExpert"
+                android:layout_toLeftOf="@+id/navToGame6"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/expert"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreMaster"
+                android:layout_toLeftOf="@+id/navToGame7"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/master"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreLegendary"
+                android:layout_toLeftOf="@+id/navToGame8"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/legendary"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreDivine"
+                android:layout_toLeftOf="@+id/navToGame9"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/divinie"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreMasterYoda"
+                android:layout_toLeftOf="@+id/navToGame10"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/masteryoda"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                android:layout_below="@+id/bestScoreBabyYoda"
+                android:layout_toLeftOf="@+id/navToGame11"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-5dp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription"
+                app:cardPreventCornerOverlap="false"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="#03A9F4"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/babyyoda"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <Button
+                android:id="@+id/navToGame1"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/bestScoreNovice"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/novice"
+                android:textColor="@color/black"
+
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/bestScoreNovice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToMainMenu"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Novice"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreLearner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Learner"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreApprentice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Apprentice"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreCompetent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Competent"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreChampion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Champion"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreExpert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Expert"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreMaster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Master"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreLegendary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame7"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Legendary"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreDivine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame8"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Divine"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreMasterYoda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame9"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Master Yoda"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bestScoreBabyYoda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame10"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Baby Yoda"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/navToGame2"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/learner"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame3"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/apprentice"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame4"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/competent"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame5"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/champion"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/navToGame6"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/expert"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/navToGame7"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/master"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame8"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame7"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/legendary"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame9"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame8"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/divine"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame10"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame9"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/master_yoda"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navToGame11"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/navToGame10"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:text="@string/baby_yoda"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_Mongolia1_background.xml" value="0.165" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_Mongolia_background.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_australia_background.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_flags_background2_background.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_israel_background.xml" value="0.2035" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.235" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_easy_game.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_hard_game.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_main2.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_medium_game.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_splash.xml" value="0.32779456193353473" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/easy_game.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/entry.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/flag_game.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/menu.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/menu/main_activity2.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/mipmap-anydpi-v26/ic_Mong.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/mipmap-anydpi-v26/ic_Turkmenistan.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/button_round.xml" value="0.1985" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/.xml" value="0.11757161179991449" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/alfa_slab_one.xml" value="0.11757161179991449" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/annie_use_your_telescope.xml" value="0.11757161179991449" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/beth_ellen.xml" value="0.11757161179991449" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/bungee_shade.xml" value="0.12441214194100043" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.23046875" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.190625" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_ads.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_avatar_name.xml" value="0.36933333333333335" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_buypemiumavatars.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_leader_board.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_multi_player.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_profile.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_results.xml" value="0.5032397408207343" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_results_multi_player.xml" value="0.19709277469003847" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_second.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/content_scrolling.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/flag_game.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/menu.xml" value="0.3585598824393828" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/recyclerview_row.xml" value="0.13039760581445062" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/row_layout.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/settings_activity.xml" value="0.176" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/menu/activity_main_drawer.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/menu/main_activity2.xml" value="0.11842667806755024" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/menu/menu_scrolling.xml" value="0.11842667806755024" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/backarrow.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/flag_round.xml" value="0.1985" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_Novice.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_Novice123.xml" value="0.186" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar10_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar13_round.xml" value="0.1425" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar15_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar18_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar2.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar4.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_avatar7.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew2.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew2_round.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew3_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew4.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew4_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_earthbacknew_round.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_emptyavatar.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_emptyavatar_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flagicon.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flagicon_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flags_background.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flags_background2.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flags_background2_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_flags_background_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_mute.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_novice1234.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_pen_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_pennew.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_setting1234_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_setting255.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_settingicon_round.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_teal_200_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_unmute.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/ic_unmute_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/menu_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/mutenewproblem22_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/retry.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/right.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/right123456_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/right_round.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother.xml" value="0.2185" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother2.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother2_round.xml" value="0.124" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/xml/root_preferences.xml" value="0.11302083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

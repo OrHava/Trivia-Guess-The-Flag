@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "578522315755",
+    "firebase_url": "https://guess-the-flag-3468198-default-rtdb.firebaseio.com",
+    "project_id": "guess-the-flag-3468198",
+    "storage_bucket": "guess-the-flag-3468198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578522315755:android:ec3d7f1fa0055b6f9737ae",
+        "android_client_info": {
+          "package_name": "com.orhava.trivia2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578522315755-7vllh55accc5gci1i7v51hffq0pd6ptj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orhava.trivia2",
+            "certificate_hash": "9f8f8eeb6a87ef06f1c1bf6e75450d5a4e33bc5a"
+          }
+        },
+        {
+          "client_id": "578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwfFz7ZfyCcDGB8FUu4tNFVo-3TK59t5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

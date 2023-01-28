@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.orhava.trivia2.ResultsMultiPlayer"
+    android:id="@+id/backgroundResults">
+
+
+    <TextView
+        android:id="@+id/resultWINlOSETxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:text=" "
+        android:textSize="35sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/resultTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Results: "
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/resultTxtPlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Wait for the results..."
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <ImageButton
+        android:id="@+id/restartQuizBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/resultTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:src="@mipmap/retry_foreground"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <ImageButton
+        android:id="@+id/FinishQuiz"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/resultTxt"
+        android:layout_alignEnd="@+id/restartQuizBtn"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:background="@color/white"
+        android:src="@mipmap/home_foreground"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/win"
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_below="@+id/FinishQuiz"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp"
+        app:lottie_rawRes="@raw/trophy" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lose"
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_below="@+id/FinishQuiz"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="30dp"
+        app:lottie_rawRes="@raw/failed" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/drawAnim"
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_below="@+id/FinishQuiz"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/swords" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingAnim"
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_below="@+id/FinishQuiz"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="30dp"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
+
+
+</RelativeLayout>

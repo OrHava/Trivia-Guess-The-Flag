@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ads"
+    android:background="#45B5E8"
+   >
+
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="@string/loadings_ads_make_sure_the_app_is_free"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+
+
+
+</RelativeLayout>

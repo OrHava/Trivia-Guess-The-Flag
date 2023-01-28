@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.orhava.trivia2.MainMenu"
+    android:background="@color/teal_200">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="-5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#D394DD"
+        android:clickable="false"
+        android:drawableEnd="@mipmap/flag_round"
+        android:fontFamily="@font/alfa_slab_one"
+        android:maxWidth="25dp"
+        android:maxHeight="25dp"
+        android:scaleType="fitCenter"
+        android:text="@string/become_a_flag_master_today"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/Cv_Flags_GameBtn"
+        android:backgroundTint="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        app:cardCornerRadius="10dp">
+        <Button
+            android:id="@+id/Flags_GameBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/alfa_slab_one"
+            android:background="@android:color/transparent"
+            android:text="@string/flags_game"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/Cv_Name_AvatarBtn"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/Cv_Flags_GameBtn"
+        app:cardCornerRadius="10dp">
+        <Button
+            android:id="@+id/Name_AvatarBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/name_and_avatar"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/Cv_btnLeaderBoard"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/Cv_Name_AvatarBtn"
+        app:cardCornerRadius="10dp">
+
+        <Button
+            android:id="@+id/btnLeaderBoard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/leaderboard"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/Cv_btnMultiPlayer"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/Cv_btnLeaderBoard"
+        app:cardCornerRadius="10dp">
+
+        <Button
+            android:id="@+id/btnMultiPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="MultiPlayer"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/txtNameandPoints"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/Cv_btnMultiPlayer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgViewShowAvatar"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/txtNameandPoints"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/SignOut"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/SignOut"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:text="@string/sign_out"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+
+    <ImageButton
+        android:id="@+id/mute_unmute"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/mute_or_unmute"
+        android:src="@mipmap/mutenewproblem11"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/settingsBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/setting_icon"
+        android:src="@mipmap/ic_setting255"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
+
+</RelativeLayout>

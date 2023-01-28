@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/globesnew123"
+    tools:context="com.orhava.trivia2.Game">
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Reset game scores"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnReset"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="About"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/EasterEggBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnReset"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Easter Egg"
+        android:visibility="gone"
+        tools:ignore="HardcodedText" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/EasterEggAnim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        app:lottie_rawRes="@raw/confetticannons" />
+
+    <TextView
+        android:id="@+id/easterTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="You Won A Secret Avatar! Press Avatar to Use" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easterTxtView"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imgViewAvatar"
+        tools:ignore="ContentDescription" />
+
+
+</RelativeLayout>

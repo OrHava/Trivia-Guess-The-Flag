@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.orhava.trivia2.Game"
+    android:background="@color/teal_200"
+    android:padding="24dp">
+
+
+    <ImageButton
+        android:id="@+id/navToMain"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/backarrow_foreground"
+        android:text="Go To Menu"
+        android:textSize="10sp"
+        tools:ignore="ContentDescription,HardcodedText,SmallSp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/searchAnim"
+        android:layout_width="98dp"
+        android:layout_height="84dp"
+        android:layout_below="@+id/EnterCodeEdit"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/btnEnterCode"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/searching" />
+
+    <TextView
+        android:id="@+id/amountOfUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEnterCode"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ReadUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amountOfUsers"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:scrollbars="vertical"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/EnterCodeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:text="To Play Enter/Create The Same Code of Your Opponent:"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/EnterCodeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EnterCodeTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:maxLength="10"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:hint="Enter Code"
+        android:inputType="number"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btnEnterCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EnterCodeEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Search For A Match"
+        android:textColor="@color/teal_200" />
+
+
+
+</RelativeLayout>
+
+
+

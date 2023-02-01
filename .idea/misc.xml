@@ -10,11 +10,15 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_israel_background.xml" value="0.2035" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.235" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1215" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_avatar_name.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_buypemiumavatars.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_easy_game.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_hard_game.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_leader_board.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_main2.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_medium_game.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/activity_splash.xml" value="0.32779456193353473" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
@@ -22,6 +26,9 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/entry.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/flag_game.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/menu.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/recyclerview_row.xml" value="0.30092592592592593" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/row_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/layout/settings_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/menu/main_activity2.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/Trivia2/app/src/main/res/mipmap-anydpi-v26/ic_Mong.xml" value="0.1215" />

@@ -3,11 +3,13 @@ public class Score {
     private String username;
     private int score;
     private int place;
+    private int index_pic;
     public Score(){}
 
-    public Score(String username, int score) {
+    public Score(String username, int score, int index_pic) {
         this.username = username;
         this.score = score;
+        this.index_pic=index_pic;
     }
 
     public String getUsername() {
@@ -32,5 +34,9 @@ public class Score {
 
     public void setPlace(int place) {
         this.place = place;
+    }
+
+    public int getIndex_pic() {
+        return index_pic;
     }
 }

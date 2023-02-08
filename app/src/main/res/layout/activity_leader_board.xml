@@ -9,7 +9,7 @@
         android:id="@+id/RelativeLayoutText"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#45B5E8">
+        android:background="#68BCE3">
 
         <ImageButton
             android:id="@+id/navToMainMenu2"
@@ -43,94 +43,175 @@
         android:layout_below="@+id/RelativeLayoutText"
         android:background="@color/teal_200">
 
+        <ImageView
+            android:id="@+id/IVFirstPlace"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/first_place" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@id/RLTop3"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/second_place" />
+
+        <ImageView
+            android:id="@+id/ImgThirdPlace"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/RLTop3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/third_place" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/RLtop3Helpers"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/IVFirstPlace"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-10dp"
+
+            android:background="@drawable/rounded_corner">
+
+            <ImageView
+                android:id="@+id/ImgCountry_top_3_First_Place"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="-35dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/world_map_icon_for_leaderboard" />
+
+        </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/RLTop3"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/RLtop3Helpers"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="#F1EFEF">
+            android:background="@drawable/rounded_corner">
+
+
+            <TextView
+                android:id="@+id/FirstPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="User 1"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FirstPlaceScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/FirstPlace"
+                android:layout_centerHorizontal="true"
+                android:text="User 1 Score"
+                android:textColor="@color/teal_200"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ImgCountry_top_3_Second_Place"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="3dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/world_map_icon_for_leaderboard" />
+
+
+            <ImageView
+                android:id="@+id/ImgCountry_top_3_Third_Place"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="35dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/world_map_icon_for_leaderboard" />
+
+            <TextView
+                android:id="@+id/SecondPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ImgCountry_top_3_Second_Place"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:text="User 2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/SecondPlaceScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/SecondPlace"
+                android:layout_marginStart="35dp"
+                android:text="User 2 Score"
+                android:textColor="@color/teal_200"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/ThirdPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ImgCountry_top_3_Third_Place"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:text="User 3"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ThirdPlaceScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/SecondPlace"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="35dp"
+                android:text="User 3 Score"
+                android:textColor="@color/teal_200"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/FirstPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:text="User 1"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <ImageView
-            android:id="@+id/IVFirstPlace"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/first_place" />
-
-        <TextView
-            android:id="@+id/SecondPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/IVFirstPlace"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_toStartOf="@+id/IVFirstPlace"
-            android:text="User 2"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/IVFirstPlace"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="30dp"
-            android:layout_toStartOf="@+id/IVFirstPlace"
-            android:background="@android:color/transparent"
-            android:src="@drawable/second_place" />
-
-        <TextView
-            android:id="@+id/ThirdPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/IVFirstPlace"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="-40dp"
-            android:layout_toEndOf="@+id/IVFirstPlace"
-            android:text="User 3"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/ImgThirdPlace"
-            android:layout_width="60dp"
-
-            android:layout_height="60dp"
-            android:layout_below="@+id/IVFirstPlace"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@+id/IVFirstPlace"
-            android:background="@android:color/transparent"
-            android:src="@drawable/third_place" />
 
         <ListView
             android:id="@+id/ReadUsers"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="420dp"
+            android:layout_above="@+id/UserPeronalScoreLayout"
             android:layout_below="@+id/RLTop3"
             android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
@@ -142,11 +223,79 @@
             android:divider="@color/teal_200"
             android:dividerHeight="8dp"
             android:fontFamily="@font/alfa_slab_one"
+            android:foregroundGravity="center"
             android:scrollbars="vertical"
             android:textAlignment="center" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id="@+id/UserPeronalScoreLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="1dp"
+            android:background="#F1EFEF">
+
+
+            <TextView
+                android:id="@+id/Personal_place_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:text="Place"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/Personal_ImgCountry"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/Personal_place_textView"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/world_map_icon_for_leaderboard" />
+
+            <TextView
+                android:id="@+id/Personal_username_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="170dp"
+                android:layout_toEndOf="@+id/Personal_ImgCountry"
+                android:maxLines="1"
+                android:text="Username"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/Personal_score_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Personal_username_textView"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/Personal_ImgCountry"
+                android:maxLines="1"
+                android:text="Score"
+                android:textAlignment="viewStart"
+                android:textColor="@color/teal_200"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
 
     </RelativeLayout>
+
+
+
+
 
 
 

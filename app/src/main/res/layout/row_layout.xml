@@ -2,70 +2,83 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/Cv_Flags_GameBtn"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/Cv_Flags_GameBtn"
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
         android:backgroundTint="#F1EFEF"
+        android:foregroundGravity="center"
         app:cardCornerRadius="10dp">
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/place_textView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:text="Place"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/place_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
-                    android:text="Place"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/ImgCountry"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/place_textView"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/world_map_icon_for_leaderboard" />
 
-                <TextView
-                    android:id="@+id/username_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="170dp"
-                    android:layout_weight="1"
-                    android:text="Username"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/username_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="170dp"
+                android:layout_toEndOf="@+id/ImgCountry"
+                android:text="Username"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/score_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="125dp"
-                android:layout_weight="1"
+                android:layout_below="@+id/username_textView"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/ImgCountry"
                 android:text="Score"
-              android:textStyle="bold"
-                android:textAlignment="center"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
                 android:textColor="@color/teal_200"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+
 
     </androidx.cardview.widget.CardView>
 

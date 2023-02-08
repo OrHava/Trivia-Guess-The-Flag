@@ -105,9 +105,12 @@ public class MainMenu extends AppCompatActivity  {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             user = FirebaseAuth.getInstance().getCurrentUser();
             DatabaseReference myRef1 = database.getReference("Scores").child(userId);
+            SharedPreferences prefs3;
+            prefs3 = MainMenu.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
+            int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
 
 
-            myRef1.setValue(new Score(prefs2.getString("autoSave", ""),amountOfGeneralPoints()));
+            myRef1.setValue(new Score(prefs2.getString("autoSave", ""),amountOfGeneralPoints(), oldAvatarChoice));
         }
     }
 
@@ -457,11 +460,6 @@ void connectToPlayGamesAnSaveScores(){
     }
 
 
-    private void showLeaderboard() {
-        PlayGames.getLeaderboardsClient(this)
-                .getLeaderboardIntent(getString(R.string.leaderboard_id))
-                .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
-    }
 
 
     private void  Mute_UnMute() {

@@ -109,11 +109,11 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="40dp"
             android:layout_marginTop="-40dp"
-            android:textStyle="bold"
             android:layout_toEndOf="@+id/IVFirstPlace"
             android:text="User 3"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ImgThirdPlace"
@@ -147,6 +147,7 @@
 
 
     </RelativeLayout>
+
 
 
 

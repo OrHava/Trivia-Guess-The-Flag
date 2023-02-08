@@ -123,7 +123,7 @@ public class LeaderBoard extends AppCompatActivity  {
                             usernameTextView.setText(score.getUsername());
                             usernameTextView.setTextColor(Color.BLACK);
                             scoreTextView.setText(String.valueOf(score.getScore()));
-                            scoreTextView.setTextColor(Color.BLACK);
+//                            scoreTextView.setTextColor(Color.BLACK);
                             return view;
                         }
                     };

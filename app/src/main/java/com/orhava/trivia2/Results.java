@@ -53,7 +53,7 @@ public class Results extends AppCompatActivity {
         String passStatus;
        mp2 = MediaPlayer.create(this, R.raw.goodresult);
        mp3 = MediaPlayer.create(this, R.raw.lose);
-        if (Game.scoreNovice > Menu.totalQuestions * 0.59 || Game.scoreLearner > Menu.totalQuestions * 0.59 || Game.scoreApprentice > Menu.totalQuestions * 0.59|| Game.scoreCompetent > Menu.totalQuestions * 0.59 || Game.scoreChampion > Menu.totalQuestions * 0.59 || Game.scoreExpert > Menu.totalQuestions * 0.59 || Game.scoreMaster > Menu.totalQuestions * 0.59 || Game.scoreLegendary > Menu.totalQuestions * 0.59 || Game.scoreDivine > Menu.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu.totalQuestions * 0.59) {
+        if (Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59) {
             passStatus = "Passed";
             layout.setBackgroundColor(Color.BLUE);
                 if (!MainMenu.flag){
@@ -90,45 +90,45 @@ public class Results extends AppCompatActivity {
         TextView resultTxt=findViewById(R.id.resultTxt);
         TextView resultWINlOSETxt=findViewById(R.id.resultWINlOSETxt);
         resultWINlOSETxt.setText(passStatus);
-        if ( Menu.WhichGame==1){
+        if ( Menu_Game.WhichGame==1){
             resultTxt.setText(String.format("Best Score %s", Game.scoreNovice));
         }
-        if (Menu.WhichGame==2){
+        if (Menu_Game.WhichGame==2){
             resultTxt.setText(String.format("Best Score %s", Game.scoreLearner));
         }
-        if(Menu.WhichGame==3){
+        if(Menu_Game.WhichGame==3){
             resultTxt.setText(String.format("Best Score %s", Game.scoreApprentice));
 
         }
-        if(Menu.WhichGame==4){
+        if(Menu_Game.WhichGame==4){
             resultTxt.setText(String.format("Best Score %s", Game.scoreCompetent));
 
         }
-        if(Menu.WhichGame==5){
+        if(Menu_Game.WhichGame==5){
             resultTxt.setText(String.format("Best Score %s", Game.scoreChampion));
 
         }
-        if(Menu.WhichGame==6){
+        if(Menu_Game.WhichGame==6){
             resultTxt.setText(String.format("Best Score %s", Game.scoreExpert));
 
         }
-        if(Menu.WhichGame==7){
+        if(Menu_Game.WhichGame==7){
             resultTxt.setText(String.format("Best Score %s", Game.scoreMaster));
 
         }
-        if(Menu.WhichGame==8){
+        if(Menu_Game.WhichGame==8){
             resultTxt.setText(String.format("Best Score %s", Game.scoreLegendary));
 
         }
-        if(Menu.WhichGame==9){
+        if(Menu_Game.WhichGame==9){
             resultTxt.setText(String.format("Best Score %s", Game.scoreDivine));
 
         }
-        if(Menu.WhichGame==10){
+        if(Menu_Game.WhichGame==10){
             resultTxt.setText(String.format("Best Score %s", Game.scoreMasterYoda));
 
         }
-        if(Menu.WhichGame==11){
+        if(Menu_Game.WhichGame==11){
             resultTxt.setText(String.format("Best Score %s", Game.scoreBabyYoda));
 
         }
@@ -148,44 +148,44 @@ public class Results extends AppCompatActivity {
         ImageButton nextLevel=findViewById(R.id.nextLevel);
 
 
-        if(Game.scoreNovice < Menu.totalQuestions * 0.59 && Menu.WhichGame==1 ){
+        if(Game.scoreNovice < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==1 ){
             nextLevel.setVisibility(View.GONE);
         }
-        else if(Game.scoreLearner < Menu.totalQuestions * 0.59 && Menu.WhichGame==2 ){
+        else if(Game.scoreLearner < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==2 ){
             nextLevel.setVisibility(View.GONE);
         }
-        else if(Game.scoreApprentice < Menu.totalQuestions * 0.59 && Menu.WhichGame==3 ){
+        else if(Game.scoreApprentice < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==3 ){
             nextLevel.setVisibility(View.GONE);
         }
-        else if(Game.scoreCompetent < Menu.totalQuestions * 0.59 && Menu.WhichGame==4 ){
-            nextLevel.setVisibility(View.GONE);
-        }
-
-        else if(Game.scoreChampion < Menu.totalQuestions * 0.59 && Menu.WhichGame==5 ){
+        else if(Game.scoreCompetent < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==4 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else  if(Game.scoreExpert < Menu.totalQuestions * 0.59 && Menu.WhichGame==6 ){
+        else if(Game.scoreChampion < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==5 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else if(Game.scoreMaster < Menu.totalQuestions * 0.59 && Menu.WhichGame==7 ){
+        else  if(Game.scoreExpert < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==6 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else  if(Game.scoreLegendary < Menu.totalQuestions * 0.59 && Menu.WhichGame==8 ){
+        else if(Game.scoreMaster < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==7 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else if(Game.scoreDivine < Menu.totalQuestions * 0.59 && Menu.WhichGame==9 ){
+        else  if(Game.scoreLegendary < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==8 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else  if(Game.scoreMasterYoda < Menu.totalQuestions * 0.59 && Menu.WhichGame==10 ){
+        else if(Game.scoreDivine < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==9 ){
             nextLevel.setVisibility(View.GONE);
         }
 
-        else  if (Menu.WhichGame==11){
+        else  if(Game.scoreMasterYoda < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==10 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+        else  if (Menu_Game.WhichGame==11){
             nextLevel.setVisibility(View.GONE);
         }
 
@@ -207,54 +207,54 @@ public class Results extends AppCompatActivity {
             }
 
 
-            if (Menu.WhichGame==1){
-                Menu.WhichGame=2;
+            if (Menu_Game.WhichGame==1){
+                Menu_Game.WhichGame=2;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==2){
-                Menu.WhichGame=3;
+            else if (Menu_Game.WhichGame==2){
+                Menu_Game.WhichGame=3;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==3){
-                Menu.WhichGame=4;
+            else if (Menu_Game.WhichGame==3){
+                Menu_Game.WhichGame=4;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==4){
-                Menu.WhichGame=5;
+            else if (Menu_Game.WhichGame==4){
+                Menu_Game.WhichGame=5;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==5){
-                Menu.WhichGame=6;
+            else if (Menu_Game.WhichGame==5){
+                Menu_Game.WhichGame=6;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==6){
-                Menu.WhichGame=7;
+            else if (Menu_Game.WhichGame==6){
+                Menu_Game.WhichGame=7;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==7){
-                Menu.WhichGame=8;
+            else if (Menu_Game.WhichGame==7){
+                Menu_Game.WhichGame=8;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==8){
-                Menu.WhichGame=9;
+            else if (Menu_Game.WhichGame==8){
+                Menu_Game.WhichGame=9;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else if (Menu.WhichGame==9){
-                Menu.WhichGame=10;
+            else if (Menu_Game.WhichGame==9){
+                Menu_Game.WhichGame=10;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else {
-                Menu.totalQuestions = QuestionAnswerBabyYoda.question.length;
-                Menu.WhichGame=11;
+                Menu_Game.totalQuestions = QuestionAnswerBabyYoda.question.length;
+                Menu_Game.WhichGame=11;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
@@ -288,7 +288,7 @@ public class Results extends AppCompatActivity {
 
             mp.start();
 
-            startActivity(new Intent(Results.this, Menu.class));
+            startActivity(new Intent(Results.this, Menu_Game.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
 
@@ -319,7 +319,7 @@ public class Results extends AppCompatActivity {
 
 
                     overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-                    startActivity(new Intent(Results.this, Menu.class));
+                    startActivity(new Intent(Results.this, Menu_Game.class));
 
 
                 })

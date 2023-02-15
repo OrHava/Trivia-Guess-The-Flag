@@ -30,7 +30,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
     private TextInputEditText Email,password;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signin);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();
         start();
@@ -82,13 +82,13 @@ public class MainActivity extends AppCompatActivity {
     void start(){
 
         btnEnterNormal.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, MainMenu.class));
+            startActivity(new Intent(SignIn.this, MainMenu.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
 
         forgotPass.setOnClickListener(view -> {
             if(Email == null || isEmpty(Email)){
-                Toast.makeText(MainActivity.this, "Please Provide Email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignIn.this, ""+R.string.Please_Provide_Email, Toast.LENGTH_SHORT).show();
             }
             else{
 
@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Log.d(TAG, "Email sent.");
-                                Toast.makeText(MainActivity.this, "Password Sent to Email "+Email.getText().toString()+" Make Sure to Check Your Spam Folder", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, ""+getString(R.string.Password_Sent_to_Email)+Email.getText().toString()+" Make Sure to Check Your Spam Folder", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(MainActivity.this, "Password Not Sending to Email", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this,""+R.string.Password_Not_Sending_to_Email, Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         signIn.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, SignUp.class));
+            startActivity(new Intent(SignIn.this, SignUp.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
 
@@ -146,10 +146,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void signupEmail(){
         if(Email==null || Objects.requireNonNull(Email.getText()).toString().isEmpty() ){
-            Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+R.string.Enter_Email, Toast.LENGTH_SHORT).show();
         }
         if(password==null || Objects.requireNonNull(password.getText()).toString().isEmpty() ) {
-            Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+R.string.Enter_Password, Toast.LENGTH_SHORT).show();
         }
         if(password!=null && Email!=null && !(Objects.requireNonNull(password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(Email.getText()).toString().isEmpty())){
 
@@ -160,12 +160,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            startActivity(new Intent(MainActivity.this, MainMenu.class));
+                            startActivity(new Intent(SignIn.this, MainMenu.class));
                             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.makeText(SignIn.this, ""+R.string.Authentication_failed,
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -195,12 +195,12 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
-                Toast.makeText(this, "firebaseAuthWithGoogle:" + account.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+getString(R.string.firebaseAuthWithGoogle) + account.getId(), Toast.LENGTH_SHORT).show();
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+R.string.Google_sign_in_failed, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         updateUI(user);
                         //gotoProfile();
-                        startActivity(new Intent(MainActivity.this, MainMenu.class));
+                        startActivity(new Intent(SignIn.this, MainMenu.class));
                         overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                     } else {
                         // If sign in fails, display a message to the user.
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void gotoProfile(){
-        Intent intent = new Intent(MainActivity.this, MainMenu.class);
+        Intent intent = new Intent(SignIn.this, MainMenu.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

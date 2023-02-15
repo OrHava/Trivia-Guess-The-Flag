@@ -67,8 +67,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/teal_200"
-        android:src="@mipmap/backarrow_foreground"
+        android:background="@android:color/transparent"
+        android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
         tools:ignore="ContentDescription,HardcodedText,SmallSp" />
@@ -183,8 +183,8 @@
         android:layout_below="@id/choices_layout"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Submit"
-        tools:ignore="HardcodedText" />
+        android:text="@string/submit"
+     />
 
     <TextView
         android:id="@+id/timerText"

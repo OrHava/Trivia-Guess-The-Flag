@@ -41,7 +41,7 @@ public class SignUp extends AppCompatActivity {
 
     void startButtons(){
         button_login.setOnClickListener(view -> {
-            startActivity(new Intent(SignUp.this, MainActivity.class));
+            startActivity(new Intent(SignUp.this, SignIn.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
     }
@@ -59,7 +59,7 @@ public class SignUp extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Toast.makeText(this, "User is already connected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+R.string.User_is_already_connected, Toast.LENGTH_SHORT).show();
         } else {
             reload();
         }
@@ -69,10 +69,10 @@ public class SignUp extends AppCompatActivity {
     public void reload() {
         button_register.setOnClickListener(view -> {
             if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() ){
-                Toast.makeText(SignUp.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+R.string.Enter_Email, Toast.LENGTH_SHORT).show();
             }
             if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() ) {
-                Toast.makeText(SignUp.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+R.string.Enter_Password, Toast.LENGTH_SHORT).show();
             }
 
             if(edit_password!=null && edit_email!=null && !(Objects.requireNonNull(edit_password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(edit_email.getText()).toString().isEmpty())){
@@ -84,13 +84,11 @@ public class SignUp extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in    user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(SignUp.this, "Authentication successful.",
-                                            Toast.LENGTH_SHORT).show();
 
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(SignUp.this, "Authentication failed.",
+                                    Toast.makeText(SignUp.this, ""+R.string.Authentication_failed,
                                             Toast.LENGTH_SHORT).show();
                                     updateUI(null);
                                 }
@@ -98,7 +96,7 @@ public class SignUp extends AppCompatActivity {
 
                             private void updateUI(FirebaseUser user) {
                                 if(user!=null) {
-                                    startActivity(new Intent(SignUp.this, MainActivity.class));
+                                    startActivity(new Intent(SignUp.this, SignIn.class));
                                     overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                                 }
                             }

@@ -27,9 +27,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.games.GamesSignInClient;
-import com.google.android.gms.games.PlayGames;
-import com.google.android.gms.games.PlayGamesSdk;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,7 +79,6 @@ public class MainMenu extends AppCompatActivity  {
 
         signOut();
         setPicturesName();
-        connectToPlayGamesAnSaveScores();
         Mute_UnMute();
         settingNext();
         StartButtons();
@@ -129,7 +125,7 @@ public class MainMenu extends AppCompatActivity  {
 
         mp.start();
 
-        startActivity(new Intent(MainMenu.this, Menu.class));
+        startActivity(new Intent(MainMenu.this, Menu_Game.class));
         overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
     });
 
@@ -150,17 +146,26 @@ public class MainMenu extends AppCompatActivity  {
     });
 
     btnLeaderBoard.setOnClickListener(view -> {
-        if (!flag){
-            mp.setVolume(0,0);
-        }
-        else{
-            mp.setVolume(0,1);
+
+        if(user != null){
+
+            if (!flag){
+                mp.setVolume(0,0);
+            }
+            else{
+                mp.setVolume(0,1);
+            }
+
+            mp.start();
+            startActivity(new Intent(MainMenu.this, LeaderBoard.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
         }
 
-        mp.start();
-       // showLeaderboard();
-        startActivity(new Intent(MainMenu.this, LeaderBoard.class));
-        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+        else{
+            Toast.makeText(this, "Please Connect to a User To Watch LeaderBoard", Toast.LENGTH_SHORT).show();
+
+        }
 
 
     });
@@ -193,47 +198,47 @@ public class MainMenu extends AppCompatActivity  {
 
 
 }
-void connectToPlayGamesAnSaveScores(){
-    mAuth = FirebaseAuth.getInstance();
-    signInRequest = BeginSignInRequest.builder()
-            .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // Your server's client ID, not your Android client ID.
-                    .setServerClientId(getString(R.string.Google_id))
-                    // Only show accounts previously used to sign in.
-                    .setFilterByAuthorizedAccounts(true)
-                    .build())
-            .build();
-    onStart();
-
-    PlayGamesSdk.initialize(this);
-    GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(this);
-
-    gamesSignInClient.isAuthenticated().addOnCompleteListener(isAuthenticatedTask -> {
-        boolean isAuthenticated =
-                (isAuthenticatedTask.isSuccessful() &&
-                        isAuthenticatedTask.getResult().isAuthenticated());
-
-        if (isAuthenticated) {
-            // Continue with Play Games Services
-        } else {
-
-            // Disable your integration with Play Games Services or show a
-            // login button to ask  players to sign-in. Clicking it should
-            // call GamesSignInClient.signIn().
-        }
-    });
-
-
-
-    PlayGames.getLeaderboardsClient(this)
-            .submitScore(getString(R.string.leaderboard_id), amountOfGeneralPoints());
-
-
-
-
-
-}
+//void connectToPlayGamesAnSaveScores(){
+//    mAuth = FirebaseAuth.getInstance();
+//    signInRequest = BeginSignInRequest.builder()
+//            .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+//                    .setSupported(true)
+//                    // Your server's client ID, not your Android client ID.
+//                    .setServerClientId(getString(R.string.Google_id))
+//                    // Only show accounts previously used to sign in.
+//                    .setFilterByAuthorizedAccounts(true)
+//                    .build())
+//            .build();
+//    onStart();
+//
+//    PlayGamesSdk.initialize(this);
+//    GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(this);
+//
+//    gamesSignInClient.isAuthenticated().addOnCompleteListener(isAuthenticatedTask -> {
+//        boolean isAuthenticated =
+//                (isAuthenticatedTask.isSuccessful() &&
+//                        isAuthenticatedTask.getResult().isAuthenticated());
+//
+//        if (isAuthenticated) {
+//            // Continue with Play Games Services
+//        } else {
+//
+//            // Disable your integration with Play Games Services or show a
+//            // login button to ask  players to sign-in. Clicking it should
+//            // call GamesSignInClient.signIn().
+//        }
+//    });
+//
+//
+//
+//    PlayGames.getLeaderboardsClient(this)
+//            .submitScore(getString(R.string.leaderboard_id), amountOfGeneralPoints());
+//
+//
+//
+//
+//
+//}
 
 
     @Override
@@ -290,6 +295,7 @@ void connectToPlayGamesAnSaveScores(){
 
 
 
+    @SuppressLint("SetTextI18n")
     void signOut(){
         user=FirebaseAuth.getInstance().getCurrentUser();
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
@@ -312,7 +318,7 @@ void connectToPlayGamesAnSaveScores(){
 
                 if(user != null){
                     FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(MainMenu.this, MainActivity.class));
+                    startActivity(new Intent(MainMenu.this, SignIn.class));
                     overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                     finish();
                 }
@@ -320,7 +326,7 @@ void connectToPlayGamesAnSaveScores(){
                 if(acct!=null){
                     FirebaseAuth.getInstance().signOut();
                     mGoogleSignInClient.signOut();
-                    startActivity(new Intent(MainMenu.this, MainActivity.class));
+                    startActivity(new Intent(MainMenu.this, SignIn.class));
                     overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                     finish();
                 }
@@ -340,7 +346,7 @@ void connectToPlayGamesAnSaveScores(){
             SignOut.setText("Sign In");
             SignOut.setVisibility(View.VISIBLE);
             SignOut.setOnClickListener(view -> {
-                startActivity(new Intent(MainMenu.this, MainActivity.class));
+                startActivity(new Intent(MainMenu.this, SignIn.class));
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             });
 
@@ -445,6 +451,7 @@ void connectToPlayGamesAnSaveScores(){
         txtNameAndPoints =findViewById(R.id.txtNameandPoints);
         imgViewShowAvatar = findViewById(R.id.imgViewShowAvatar);
         btnMultiPlayer= findViewById(R.id.btnMultiPlayer);
+        mAuth = FirebaseAuth.getInstance();
 
     }
 

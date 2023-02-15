@@ -37,7 +37,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SignIn"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -61,7 +61,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Menu"
+            android:name=".Menu_Game"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

@@ -20,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-public class Menu extends AppCompatActivity {
+public class Menu_Game extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public static TextView bestScoreNovice, bestScoreLearner, bestScoreApprentice,bestScoreCompetent,bestScoreChampion,bestScoreExpert,bestScoreMaster,bestScoreLegendary,bestScoreDivine,bestScoreMasterYoda,bestScoreBabyYoda;
     public static int WhichGame=0;
@@ -58,12 +58,12 @@ public class Menu extends AppCompatActivity {
 
             if (i[0] % 2==0) {
 
-                Toast.makeText(Menu.this, "UnMute", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Game.this, "UnMute", Toast.LENGTH_SHORT).show();
                 flag = true;
                 btnMute.setImageResource(R.mipmap.mutenewproblem11);
 
             } else {
-                Toast.makeText(Menu.this, "Mute", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Game.this, "Mute", Toast.LENGTH_SHORT).show();
                 flag = false;
                 btnMute.setImageResource(R.mipmap.mutenewproblem22);
             }
@@ -75,37 +75,37 @@ void savePrefs(){
 
     SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
     int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-    bestScoreNovice.setText(String.format("Best Score %s", scoreNewNovice));
+    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewNovice));
     NovicePointsForDataBase= scoreNewNovice;
     int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-    bestScoreLearner.setText(String.format("Best Score %s", scoreNewLearner));
+    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLearner));
 
     int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-    bestScoreApprentice.setText(String.format("Best Score %s", scoreNewApprentice));
+    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewApprentice));
 
     int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-    bestScoreCompetent.setText(String.format("Best Score %s", scoreNewCompetent));
+    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewCompetent));
 
     int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-    bestScoreChampion.setText(String.format("Best Score %s", scoreNewChampion));
+    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewChampion));
 
     int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-    bestScoreExpert.setText(String.format("Best Score %s", scoreNewExpert));
+    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewExpert));
 
     int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-    bestScoreMaster.setText(String.format("Best Score %s", scoreNewMaster));
+    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMaster));
 
     int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-    bestScoreLegendary.setText(String.format("Best Score %s", scoreNewLegendary));
+    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLegendary));
 
     int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-    bestScoreDivine.setText(String.format("Best Score %s", scoreNewDivine));
+    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewDivine));
 
     int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-    bestScoreMasterYoda.setText(String.format("Best Score %s", scoreNewMasterYoda));
+    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMasterYoda));
 
     int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-    bestScoreBabyYoda.setText(String.format("Best Score %s", scoreNewBabyYoda));
+    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewBabyYoda));
 }
    void initialize(){
 
@@ -154,11 +154,11 @@ void savePrefs(){
     private void configureNextButtonHelper(int score)
     {
         if(score > totalQuestions * 0.59 ){
-            startActivity(new Intent(Menu.this, Game.class));
+            startActivity(new Intent(Menu_Game.this, Game.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         }
         else{
-            Toast.makeText(Menu.this, "You need to Pass Previous Level at 6 Points, Now you have only "+ score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+ score, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -171,7 +171,7 @@ void savePrefs(){
             configureNextButtonHelperSound();
              totalQuestions = QuestionAnswerNovice.question.length;
             WhichGame=1;
-            startActivity(new Intent(Menu.this, Game.class));
+            startActivity(new Intent(Menu_Game.this, Game.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
         });
@@ -281,11 +281,11 @@ void savePrefs(){
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
             if(oldScoreMasterYoda > 10 * 0.59 ){
-                startActivity(new Intent(Menu.this, Game.class));
+                startActivity(new Intent(Menu_Game.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else{
-                Toast.makeText(Menu.this, "You need to Pass Previous Level at 6 Points, Now you have only "+ oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+ oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
             }
 
 
@@ -295,7 +295,7 @@ void savePrefs(){
 
         navToMainMenu.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            startActivity(new Intent(Menu.this, MainMenu.class));
+            startActivity(new Intent(Menu_Game.this, MainMenu.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
 

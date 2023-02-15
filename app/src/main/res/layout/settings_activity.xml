@@ -13,8 +13,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Reset game scores"
-        tools:ignore="HardcodedText" />
+        android:text="@string/reset_game_scores"
+      />
 
     <Button
         android:id="@+id/btnAbout"
@@ -24,8 +24,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="About"
-        tools:ignore="HardcodedText" />
+        android:text="@string/about"
+        />
     <Button
         android:id="@+id/EasterEggBtn"
         android:layout_width="wrap_content"
@@ -34,9 +34,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Easter Egg"
+        android:text="@string/easter_egg"
         android:visibility="gone"
-        tools:ignore="HardcodedText" />
+     />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/EasterEggAnim"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="You Won A Secret Avatar! Press Avatar to Use" />
+        android:text="@string/you_won_a_secret_avatar_press_avatar_to_use" />
 
     <ImageButton
         android:layout_width="wrap_content"

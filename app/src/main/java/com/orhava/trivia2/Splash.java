@@ -35,7 +35,7 @@ public class Splash extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new Handler().postDelayed(() -> {
-            Intent intent= new Intent(Splash.this,MainActivity.class);
+            Intent intent= new Intent(Splash.this, SignIn.class);
             startActivity(intent);
             finish();
 

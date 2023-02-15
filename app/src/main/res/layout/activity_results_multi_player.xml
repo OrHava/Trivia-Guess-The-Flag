@@ -26,9 +26,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Results: "
+        android:text="@string/results"
         android:textSize="20sp"
-        tools:ignore="HardcodedText" />
+   />
 
     <TextView
         android:id="@+id/resultTxtPlayers"
@@ -37,9 +37,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Wait for the results..."
+        android:text="@string/wait_for_the_results"
         android:textSize="20sp"
-        tools:ignore="HardcodedText" />
+        />
 
     <ImageButton
         android:id="@+id/restartQuizBtn"

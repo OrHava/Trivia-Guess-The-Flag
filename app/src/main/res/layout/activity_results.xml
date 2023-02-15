@@ -26,9 +26,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Results: "
+        android:text="@string/results"
         android:textSize="30sp"
-        tools:ignore="HardcodedText" />
+        />
 
     <ImageButton
         android:id="@+id/restartQuizBtn"

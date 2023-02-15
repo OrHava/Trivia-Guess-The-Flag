@@ -20,8 +20,11 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:src="@mipmap/backarrow_foreground"
+            android:padding="1dp"
+            android:scaleType="center"
+            android:src="@drawable/previous_smaller2"
             android:text="Go To Menu" />
 
 
@@ -30,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/top_100_single_players"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -75,11 +79,10 @@
             android:src="@drawable/third_place" />
 
 
-
         <RelativeLayout
             android:id="@+id/RLtop3Helpers"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
             android:layout_below="@+id/IVFirstPlace"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
@@ -89,10 +92,10 @@
 
             <ImageView
                 android:id="@+id/ImgCountry_top_3_First_Place"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="-35dp"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
@@ -116,9 +119,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="User 1"
+                android:text="@string/user_1"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -127,16 +131,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/FirstPlace"
                 android:layout_centerHorizontal="true"
-                android:text="User 1 Score"
+                android:text="@string/user_1_score"
+                android:textAlignment="center"
                 android:textColor="@color/teal_200"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/ImgCountry_top_3_Second_Place"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="35dp"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
@@ -145,11 +150,11 @@
 
             <ImageView
                 android:id="@+id/ImgCountry_top_3_Third_Place"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="3dp"
-                android:layout_marginEnd="35dp"
+                android:layout_marginEnd="15dp"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/world_map_icon_for_leaderboard" />
@@ -161,9 +166,10 @@
                 android:layout_below="@+id/ImgCountry_top_3_Second_Place"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="5dp"
-                android:text="User 2"
+                android:text="@string/user_2"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -172,9 +178,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/SecondPlace"
                 android:layout_marginStart="35dp"
-                android:text="User 2 Score"
+                android:text="@string/user_2_score"
+                android:textAlignment="center"
                 android:textColor="@color/teal_200"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -186,9 +193,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="35dp"
-                android:text="User 3"
+                android:text="@string/user_3"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -198,9 +206,10 @@
                 android:layout_below="@+id/SecondPlace"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="35dp"
-                android:text="User 3 Score"
+                android:text="@string/user_3_score"
+                android:textAlignment="center"
                 android:textColor="@color/teal_200"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -228,9 +237,9 @@
             android:textAlignment="center" />
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
             android:id="@+id/UserPeronalScoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="1dp"
             android:background="#F1EFEF">
@@ -242,15 +251,15 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:text="Place"
+                android:text="@string/place"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/Personal_ImgCountry"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
                 android:layout_toEndOf="@+id/Personal_place_textView"
@@ -262,12 +271,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="170dp"
+                android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/Personal_ImgCountry"
                 android:maxLines="1"
-                android:text="Username"
-                android:textAlignment="viewStart"
+                android:text="@string/username"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -281,8 +288,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/Personal_ImgCountry"
                 android:maxLines="1"
-                android:text="Score"
-                android:textAlignment="viewStart"
+                android:text="@string/score"
                 android:textColor="@color/teal_200"
                 android:textSize="18sp"
                 android:textStyle="bold" />

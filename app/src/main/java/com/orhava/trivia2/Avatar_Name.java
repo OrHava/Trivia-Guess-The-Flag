@@ -62,39 +62,39 @@ public class Avatar_Name extends AppCompatActivity {
         SharedPreferences prefs4 = Avatar_Name.this.getSharedPreferences("myPrefsAvatarPremium", Context.MODE_PRIVATE);
         int PremiumPoints1 = prefs4.getInt("PremiumPoints1", 0); //0 is the default value
         if(PremiumPoints1==1){
-            txtAvatar14.setText("Avatar is Usable");
+            txtAvatar14.setText(R.string.Avatar_is_Usable2);
             txtAvatar14.setTextSize(6);
         }
 
         int PremiumPoints2 = prefs4.getInt("PremiumPoints2", 0); //0 is the default value
         if(PremiumPoints2==1){
-            txtAvatar15.setText("Avatar is Usable");
+            txtAvatar15.setText(R.string.Avatar_is_Usable2);
             txtAvatar15.setTextSize(6);
         }
         int PremiumPoints3 = prefs4.getInt("PremiumPoints3", 0); //0 is the default value
         if(PremiumPoints3==1){
-            txtAvatar16.setText("Avatar is Usable");
+            txtAvatar16.setText(R.string.Avatar_is_Usable2);
             txtAvatar16.setTextSize(6);
         }
         int PremiumPoints4 = prefs4.getInt("PremiumPoints4", 0); //0 is the default value
         if(PremiumPoints4==1){
-            txtAvatar17.setText("Avatar is Usable");
+            txtAvatar17.setText(R.string.Avatar_is_Usable2);
             txtAvatar17.setTextSize(6);
         }
 
         int PremiumPoints5 = prefs4.getInt("PremiumPoints5", 0); //0 is the default value
         if(PremiumPoints5==1){
-            txtAvatar18.setText("Avatar is Usable");
+            txtAvatar18.setText(R.string.Avatar_is_Usable2);
             txtAvatar18.setTextSize(6);
         }
         int PremiumPoints6 = prefs4.getInt("PremiumPoints6", 0); //0 is the default value
         if(PremiumPoints6==1){
-            txtAvatar19.setText("Avatar is Usable");
+            txtAvatar19.setText(R.string.Avatar_is_Usable2);
             txtAvatar19.setTextSize(6);
         }
 
 
-        txtPoints.setText("Points: "+ amountOfGeneralPoints());
+        txtPoints.setText(getString(R.string.Pointss)+ amountOfGeneralPoints());
         prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
         if(oldAvatarChoice==1){
@@ -214,7 +214,7 @@ public class Avatar_Name extends AppCompatActivity {
             }
 
             else {
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -228,7 +228,7 @@ public class Avatar_Name extends AppCompatActivity {
                 profilePic.setImageResource(R.mipmap.ic_avatar3_foreground);
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -241,7 +241,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar6.setOnClickListener(view -> {
@@ -253,7 +253,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar5.setOnClickListener(view -> {
@@ -266,7 +266,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar7.setOnClickListener(view -> {
@@ -278,7 +278,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar9.setOnClickListener(view -> {
@@ -290,7 +290,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar8.setOnClickListener(view -> {
@@ -302,7 +302,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar10.setOnClickListener(view -> {
@@ -314,7 +314,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar12.setOnClickListener(view -> {
@@ -326,7 +326,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar11.setOnClickListener(view -> {
@@ -338,7 +338,7 @@ public class Avatar_Name extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar13.setOnClickListener(view -> {
@@ -351,7 +351,7 @@ public class Avatar_Name extends AppCompatActivity {
                 profilePic.setImageResource(R.mipmap.ic_avatar3_foreground);
             }
             else{
-                Toast.makeText(Avatar_Name.this, "You Don't have Enough Points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
             }
         });
         avatar15.setOnClickListener(view -> {
@@ -590,7 +590,7 @@ public class Avatar_Name extends AppCompatActivity {
                     InputMethodManager imm = (InputMethodManager) view.getContext()
                             .getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                    Toast.makeText(Avatar_Name.this, "Hello "+ UserName, Toast.LENGTH_SHORT).show(); //fix because it show the old
+                    Toast.makeText(Avatar_Name.this, getString(R.string.Hello)+ UserName, Toast.LENGTH_SHORT).show(); //fix because it show the old
                     UserNameForDataBase= txtName.getText().toString();
                 });
             }
@@ -605,7 +605,7 @@ public class Avatar_Name extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) view.getContext()
                     .getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            Toast.makeText(Avatar_Name.this, "Hello "+ UserName, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Avatar_Name.this, getString(R.string.Hello)+ UserName, Toast.LENGTH_SHORT).show();
 
 
 

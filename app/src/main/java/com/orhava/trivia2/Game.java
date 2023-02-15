@@ -376,62 +376,62 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
 void whichGame(){
-if( Menu.WhichGame==1){
+if( Menu_Game.WhichGame==1){
     whichGameTxt.setText(R.string.novice);
     whichGame2Txt.setText(R.string.Level1);
     whichGameImage.setImageResource(R.drawable.learner);
 }
-else if(Menu.WhichGame==2){
+else if(Menu_Game.WhichGame==2){
     whichGameTxt.setText(R.string.learner);
     whichGame2Txt.setText(R.string.Level2);
     whichGameImage.setImageResource(R.drawable.apprenticee);
 }
-else if(Menu.WhichGame==3){
+else if(Menu_Game.WhichGame==3){
     whichGameTxt.setText(R.string.apprentice);
     whichGame2Txt.setText(R.string.Level3);
     whichGameImage.setImageResource(R.drawable.novice12);
 }
-else if(Menu.WhichGame==4){
+else if(Menu_Game.WhichGame==4){
     whichGameTxt.setText(R.string.competent);
     whichGame2Txt.setText(R.string.Level4);
     whichGameImage.setImageResource(R.drawable.competent123);
 }
-else if(Menu.WhichGame==5){
+else if(Menu_Game.WhichGame==5){
     whichGameTxt.setText(R.string.champion);
     whichGame2Txt.setText(R.string.Level5);
     whichGameImage.setImageResource(R.drawable.champion);
 }
-else if(Menu.WhichGame==6){
+else if(Menu_Game.WhichGame==6){
     whichGameTxt.setText(R.string.expert);
     whichGame2Txt.setText(R.string.Level6);
     whichGameImage.setImageResource(R.drawable.expert);
 }
-else if(Menu.WhichGame==7){
+else if(Menu_Game.WhichGame==7){
     whichGameTxt.setText(R.string.master);
     whichGame2Txt.setText(R.string.Level7);
     whichGameImage.setImageResource(R.drawable.master);
 }
-else if(Menu.WhichGame==8){
+else if(Menu_Game.WhichGame==8){
     whichGameTxt.setText(R.string.legendary);
     whichGame2Txt.setText(R.string.Level8);
     whichGameImage.setImageResource(R.drawable.legendary);
 }
-else if(Menu.WhichGame==9){
+else if(Menu_Game.WhichGame==9){
     whichGameTxt.setText(R.string.divine);
     whichGame2Txt.setText(R.string.Level9);
     whichGameImage.setImageResource(R.drawable.divinie);
 }
-else if(Menu.WhichGame==10){
+else if(Menu_Game.WhichGame==10){
     whichGameTxt.setText(R.string.master_yoda);
     whichGame2Txt.setText(R.string.Level10);
     whichGameImage.setImageResource(R.drawable.masteryoda);
 }
-else if(Menu.WhichGame==11){
+else if(Menu_Game.WhichGame==11){
     whichGameTxt.setText(R.string.baby_yoda);
     whichGame2Txt.setText(R.string.Level11);
     whichGameImage.setImageResource(R.drawable.babyyoda);
 }
-else if(Menu.WhichGame==12){
+else if(Menu_Game.WhichGame==12){
     whichGameTxt.setText(R.string.MultiPlayer);
     whichGameImage.setImageResource(R.mipmap.vs_foreground);
     setName_AvatarHelper();
@@ -457,8 +457,8 @@ else if(Menu.WhichGame==12){
         // do something when the button is clicked
         // do something when the button is clicked
         new AlertDialog.Builder(this)
-                .setMessage("Do you want to exit Game?")
-                .setPositiveButton("Yes", (arg0, arg1) -> {
+                .setMessage(R.string.Do_you_want_to_exit_Game)
+                .setPositiveButton(R.string.Yes, (arg0, arg1) -> {
 
                     countDownTimer.cancel();
                     if (countDownTimer != null) {
@@ -477,19 +477,19 @@ else if(Menu.WhichGame==12){
                     shuffleArray(randomNumbers);
                     shuffleArray(randomNumbersBabyYoda);
                     shuffleArray(randomNumbersQuestions);
-                    if(Menu.WhichGame==12){
+                    if(Menu_Game.WhichGame==12){
                         removeUser();
                         startActivity(new Intent(Game.this, ResultsMultiPlayer.class));
 
                     }
                     else{
-                        startActivity(new Intent(Game.this, Menu.class));
+                        startActivity(new Intent(Game.this, Menu_Game.class));
                     }
                     overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
 
                 })
-                .setNegativeButton("No", (arg0, arg1) -> {
+                .setNegativeButton(R.string.No, (arg0, arg1) -> {
                 })
                 .show();
 
@@ -520,7 +520,7 @@ else if(Menu.WhichGame==12){
         @Override
         public void onFinish() {
             Log.e("Times up", "Times up");
-            if ((indexOfQuestions > 9 || indexOfQuestions < 0) && ( Menu.WhichGame!=11)) {
+            if ((indexOfQuestions > 9 || indexOfQuestions < 0) && ( Menu_Game.WhichGame!=11)) {
                 cancel();
                 finishQuiz();
 
@@ -572,9 +572,7 @@ else if(Menu.WhichGame==12){
     private void configureNextButton() {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
         ImageButton nextButton = findViewById(R.id.navToMain);
-        nextButton.setOnClickListener(view -> {
-            exitByBackKey();
-        });
+        nextButton.setOnClickListener(view -> exitByBackKey());
 
     }
 
@@ -594,7 +592,7 @@ else if(Menu.WhichGame==12){
 
 
 
-        if ((indexOfQuestions > 9 || indexOfQuestions < 0) && ( Menu.WhichGame!=11)) {
+        if ((indexOfQuestions > 9 || indexOfQuestions < 0) && ( Menu_Game.WhichGame!=11)) {
             finishQuiz();
 
         }
@@ -602,40 +600,40 @@ else if(Menu.WhichGame==12){
 
             finishQuiz();
         }
-         else  if (clickedButton.getId() == R.id.submit_btn && Menu.WhichGame!=11 &&  (Objects.equals(selectedAns, ansA.getText().toString()) || Objects.equals(selectedAns, ansB.getText().toString()) || Objects.equals(selectedAns, ansC.getText().toString()) || Objects.equals(selectedAns, ansD.getText().toString()))) {
+         else  if (clickedButton.getId() == R.id.submit_btn && Menu_Game.WhichGame!=11 &&  (Objects.equals(selectedAns, ansA.getText().toString()) || Objects.equals(selectedAns, ansB.getText().toString()) || Objects.equals(selectedAns, ansC.getText().toString()) || Objects.equals(selectedAns, ansD.getText().toString()))) {
 
-                if(Menu.WhichGame==1){
+                if(Menu_Game.WhichGame==1){
                     loadClass(QuestionAnswerNovice.correctAnswwrs[randomNumbers[indexOfQuestions]],1);
                 }
-                else if(Menu.WhichGame==2){
+                else if(Menu_Game.WhichGame==2){
                     loadClass(QuestionAnswerLearner.correctAnswwrs[randomNumbers[indexOfQuestions]],2);
                 }
-                else if(Menu.WhichGame==3){
+                else if(Menu_Game.WhichGame==3){
                     loadClass(QuestionAnswerApprentice.correctAnswwrs[randomNumbers[indexOfQuestions]],3);
                 }
-                else if(Menu.WhichGame==4){
+                else if(Menu_Game.WhichGame==4){
                     loadClass(QuestionAnswerCompetent.correctAnswwrs[randomNumbers[indexOfQuestions]],4);
                 }
-                else if(Menu.WhichGame==5){
+                else if(Menu_Game.WhichGame==5){
                     loadClass(QuestionAnswerChampion.correctAnswwrs[randomNumbers[indexOfQuestions]],5);
                 }
-                else if(Menu.WhichGame==6){
+                else if(Menu_Game.WhichGame==6){
                     loadClass(QuestionAnswerExpert.correctAnswwrs[randomNumbers[indexOfQuestions]],6);
                 }
-                else if(Menu.WhichGame==7){
+                else if(Menu_Game.WhichGame==7){
                     loadClass(QuestionAnswerMaster.correctAnswwrs[randomNumbers[indexOfQuestions]],7);
                 }
-                else if(Menu.WhichGame==8){
+                else if(Menu_Game.WhichGame==8){
                     loadClass(QuestionAnswerLegendary.correctAnswwrs[randomNumbers[indexOfQuestions]],8);
                 }
-                else if(Menu.WhichGame==9){
+                else if(Menu_Game.WhichGame==9){
                     loadClass(QuestionAnswerDivine.correctAnswwrs[randomNumbers[indexOfQuestions]],9);
                 }
-                else if(Menu.WhichGame==10){
+                else if(Menu_Game.WhichGame==10){
                     loadClass(QuestionAnswerMasterYoda.correctAnswwrs[randomNumbers[indexOfQuestions]],10);
                 }
 
-                else if(Menu.WhichGame==12){
+                else if(Menu_Game.WhichGame==12){
                     if(multiPlayerHelper==1){
                         loadClass(QuestionAnswerNovice.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
 
@@ -687,7 +685,7 @@ else if(Menu.WhichGame==12){
 
 
             }
-            else if (clickedButton.getId() == R.id.submit_btn && Menu.WhichGame==11 ){
+            else if (clickedButton.getId() == R.id.submit_btn && Menu_Game.WhichGame==11 ){
                 loadClass(QuestionAnswerBabyYoda.correctAnswwrs[randomNumbersBabyYoda[indexOfQuestions]],11);
                submitBtn.setEnabled(false);
                 indexOfQuestions++;
@@ -699,7 +697,7 @@ else if(Menu.WhichGame==12){
             }
 
         else if(clickedButton.getId() == R.id.submit_btn ){
-            Toast.makeText(this, "Chose Option ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+R.string.Chose_Option, Toast.LENGTH_SHORT).show();
         }
 
         else{
@@ -716,7 +714,7 @@ else if(Menu.WhichGame==12){
         mp3 = MediaPlayer.create(this, R.raw.losesound);
         mp2 = MediaPlayer.create(this, R.raw.winsound);
 
-        if (selectedAns.equals(newAnswer) && Menu.WhichGame==newWhichGame) {
+        if (selectedAns.equals(newAnswer) && Menu_Game.WhichGame==newWhichGame) {
             if (!MainMenu.flag){
                 mp2.setVolume(0,0);
             }
@@ -726,40 +724,40 @@ else if(Menu.WhichGame==12){
 
             mp2.start();
 
-            if(Menu.WhichGame==1){
+            if(Menu_Game.WhichGame==1){
                 scoreNovice++;
             }
-            else if(Menu.WhichGame==2){
+            else if(Menu_Game.WhichGame==2){
                 scoreLearner++;
             }
-            else if(Menu.WhichGame==3){
+            else if(Menu_Game.WhichGame==3){
                 scoreApprentice++;
             }
-            else if(Menu.WhichGame==4){
+            else if(Menu_Game.WhichGame==4){
                 scoreCompetent++;
             }
-            else if(Menu.WhichGame==5){
+            else if(Menu_Game.WhichGame==5){
                 scoreChampion++;
             }
-            else if(Menu.WhichGame==6){
+            else if(Menu_Game.WhichGame==6){
                 scoreExpert++;
             }
-            else if(Menu.WhichGame==7){
+            else if(Menu_Game.WhichGame==7){
                 scoreMaster++;
             }
-            else if(Menu.WhichGame==8){
+            else if(Menu_Game.WhichGame==8){
                 scoreLegendary++;
             }
-            else if(Menu.WhichGame==9){
+            else if(Menu_Game.WhichGame==9){
                 scoreDivine++;
             }
-            else if(Menu.WhichGame==10){
+            else if(Menu_Game.WhichGame==10){
                 scoreMasterYoda++;
             }
-            else if(Menu.WhichGame==11){
+            else if(Menu_Game.WhichGame==11){
                 scoreBabyYoda++;
             }
-            else if(Menu.WhichGame==12){
+            else if(Menu_Game.WhichGame==12){
                 scoreMultiPlayer++;
             }
 
@@ -779,7 +777,7 @@ else if(Menu.WhichGame==12){
             }
 
         }
-        else if(Menu.WhichGame==newWhichGame){
+        else if(Menu_Game.WhichGame==newWhichGame){
             if (!MainMenu.flag){
                 mp3.setVolume(0,0);
             }
@@ -838,14 +836,14 @@ else if(Menu.WhichGame==12){
 
 
 
-        if (indexOfQuestions == Menu.totalQuestions) {
+        if (indexOfQuestions == Menu_Game.totalQuestions) {
 
             finishQuiz();
             return;
         }
 
-        totalQuestionsTextView.setText("Question : " + (indexOfQuestions+1)   +"/"+ Menu.totalQuestions);
-        if ( Menu.WhichGame==1){
+        totalQuestionsTextView.setText(getString(R.string.Question) + (indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
+        if ( Menu_Game.WhichGame==1){
 
             questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerNovice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -855,7 +853,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerNovice.images[randomNumbers[indexOfQuestions]]);
 
         }
-         if (Menu.WhichGame==2){
+         if (Menu_Game.WhichGame==2){
             questionTextView.setText(QuestionAnswerLearner.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerLearner.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
              ansB.setText(QuestionAnswerLearner.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
@@ -863,7 +861,7 @@ else if(Menu.WhichGame==12){
              ansD.setText(QuestionAnswerLearner.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
             iv.setImageResource(QuestionAnswerLearner.images[randomNumbers[indexOfQuestions]]);
         }
-         if(Menu.WhichGame==3){
+         if(Menu_Game.WhichGame==3){
 
             questionTextView.setText(QuestionAnswerApprentice.question[randomNumbers[indexOfQuestions]]);
              ansA.setText(QuestionAnswerApprentice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -872,7 +870,7 @@ else if(Menu.WhichGame==12){
              ansD.setText(QuestionAnswerApprentice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
             iv.setImageResource(QuestionAnswerApprentice.images[randomNumbers[indexOfQuestions]]);
         }
-        if(Menu.WhichGame==4){
+        if(Menu_Game.WhichGame==4){
 
             questionTextView.setText(QuestionAnswerCompetent.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerCompetent.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -882,7 +880,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerCompetent.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==5){
+        if(Menu_Game.WhichGame==5){
 
             questionTextView.setText(QuestionAnswerChampion.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerChampion.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -892,7 +890,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerChampion.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==6){
+        if(Menu_Game.WhichGame==6){
 
             questionTextView.setText(QuestionAnswerExpert.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerExpert.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -902,7 +900,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerExpert.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==7){
+        if(Menu_Game.WhichGame==7){
 
             questionTextView.setText(QuestionAnswerMaster.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerMaster.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -912,7 +910,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerMaster.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==8){
+        if(Menu_Game.WhichGame==8){
 
             questionTextView.setText(QuestionAnswerLegendary.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerLegendary.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -922,7 +920,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerLegendary.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==9){
+        if(Menu_Game.WhichGame==9){
 
             questionTextView.setText(QuestionAnswerDivine.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerDivine.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -932,7 +930,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerDivine.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==10){
+        if(Menu_Game.WhichGame==10){
 
             questionTextView.setText(QuestionAnswerMasterYoda.question[randomNumbers[indexOfQuestions]]);
             ansA.setText(QuestionAnswerMasterYoda.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -942,7 +940,7 @@ else if(Menu.WhichGame==12){
             iv.setImageResource(QuestionAnswerMasterYoda.images[randomNumbers[indexOfQuestions]]);
         }
 
-        if(Menu.WhichGame==11){
+        if(Menu_Game.WhichGame==11){
 
             questionTextView.setText(QuestionAnswerBabyYoda.question[randomNumbersBabyYoda[indexOfQuestions]]);
             ansA.setText(QuestionAnswerBabyYoda.choices[randomNumbersBabyYoda[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -951,7 +949,7 @@ else if(Menu.WhichGame==12){
             ansD.setText(QuestionAnswerBabyYoda.choices[randomNumbersBabyYoda[indexOfQuestions]][randomNumbersQuestions[3]]);
             iv.setImageResource(QuestionAnswerBabyYoda.images[randomNumbersBabyYoda[indexOfQuestions]]);
         }
-        if(Menu.WhichGame==12){
+        if(Menu_Game.WhichGame==12){
             if(multiPlayerHelper==0){
                 questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);
                 ansA.setText(QuestionAnswerNovice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -1146,7 +1144,7 @@ else if(Menu.WhichGame==12){
         countDownTimer.cancel();
 
 
-        if(Menu.WhichGame==12){
+        if(Menu_Game.WhichGame==12){
             user= FirebaseAuth.getInstance().getCurrentUser();
             if (user != null){
                 String userId = user.getUid();//check if its null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1166,7 +1164,7 @@ else if(Menu.WhichGame==12){
         }
        else{
             saveScore();
-            if(Game.scoreNovice > Menu.totalQuestions * 0.59 || Game.scoreLearner > Menu.totalQuestions * 0.59 || Game.scoreApprentice > Menu.totalQuestions * 0.59|| Game.scoreCompetent > Menu.totalQuestions * 0.59 || Game.scoreChampion > Menu.totalQuestions * 0.59 || Game.scoreExpert > Menu.totalQuestions * 0.59 || Game.scoreMaster > Menu.totalQuestions * 0.59 || Game.scoreLegendary > Menu.totalQuestions * 0.59 || Game.scoreDivine > Menu.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu.totalQuestions * 0.59){
+            if(Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59){
                 startActivity(new Intent(Game.this, Results.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
@@ -1186,40 +1184,40 @@ else if(Menu.WhichGame==12){
     void saveScore( ){
 
         //getting preferences
-        if(Menu.bestScoreNovice!=null && Menu.bestScoreLearner!=null&& Menu.bestScoreApprentice!=null&& Menu.bestScoreCompetent!=null&& Menu.bestScoreChampion!=null&& Menu.bestScoreExpert!=null&& Menu.bestScoreMaster!=null&& Menu.bestScoreLegendary!=null&& Menu.bestScoreDivine!=null&& Menu.bestScoreMasterYoda!=null&& Menu.bestScoreBabyYoda!=null){
+        if(Menu_Game.bestScoreNovice!=null && Menu_Game.bestScoreLearner!=null&& Menu_Game.bestScoreApprentice!=null&& Menu_Game.bestScoreCompetent!=null&& Menu_Game.bestScoreChampion!=null&& Menu_Game.bestScoreExpert!=null&& Menu_Game.bestScoreMaster!=null&& Menu_Game.bestScoreLegendary!=null&& Menu_Game.bestScoreDivine!=null&& Menu_Game.bestScoreMasterYoda!=null&& Menu_Game.bestScoreBabyYoda!=null){
             SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-            Menu.bestScoreNovice.setText(String.format("Best Score %s", scoreNewNovice));
+            Menu_Game.bestScoreNovice.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewNovice));
 
             int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-            Menu.bestScoreLearner.setText(String.format("Best Score %s", scoreNewLearner));
+            Menu_Game.bestScoreLearner.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewLearner));
 
             int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-            Menu.bestScoreApprentice.setText(String.format("Best Score %s", scoreNewApprentice));
+            Menu_Game.bestScoreApprentice.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewApprentice));
 
             int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-            Menu.bestScoreCompetent.setText(String.format("Best Score %s", scoreNewCompetent));
+            Menu_Game.bestScoreCompetent.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewCompetent));
 
             int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-            Menu.bestScoreChampion.setText(String.format("Best Score %s", scoreNewChampion));
+            Menu_Game.bestScoreChampion.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewChampion));
 
             int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-            Menu.bestScoreExpert.setText(String.format("Best Score %s", scoreNewExpert));
+            Menu_Game.bestScoreExpert.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewExpert));
 
             int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-            Menu.bestScoreMaster.setText(String.format("Best Score %s", scoreNewMaster));
+            Menu_Game.bestScoreMaster.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewMaster));
 
             int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-            Menu.bestScoreLegendary.setText(String.format("Best Score %s", scoreNewLegendary));
+            Menu_Game.bestScoreLegendary.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewLegendary));
 
             int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-            Menu.bestScoreDivine.setText(String.format("Best Score %s", scoreNewDivine));
+            Menu_Game.bestScoreDivine.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewDivine));
 
             int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-            Menu.bestScoreMasterYoda.setText(String.format("Best Score %s", scoreNewMasterYoda));
+            Menu_Game.bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewMasterYoda));
 
             int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-            Menu.bestScoreBabyYoda.setText(String.format("Best Score %s", scoreNewBabyYoda));
+            Menu_Game.bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewBabyYoda));
 
         }
 

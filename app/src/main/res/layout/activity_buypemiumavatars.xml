@@ -11,14 +11,15 @@
     <ImageButton
         android:id="@+id/navToMainMenu3"
         android:layout_width="60dp"
+
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/white"
-        android:src="@mipmap/backarrow_foreground"
+        android:background="@android:color/transparent"
+        android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
         tools:ignore="ContentDescription,HardcodedText,SmallSp" />
@@ -40,8 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/buy_avatar"
-       />
+        android:text="@string/buy_avatar" />
 
     <Button
         android:id="@+id/ButtonUse"
@@ -51,8 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/use_avatar"
-        />
+        android:text="@string/use_avatar" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

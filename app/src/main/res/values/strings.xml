@@ -242,7 +242,7 @@
     <string name="No">No</string>
     <string name="Chose_Option">\"Chose Option \"</string>
     <string name="Question">\"Question : \"</string>
-    <string name="Best_Score">\"Best Score \"</string>
+    <string name="Best_Score">\Best Score \</string>
     <string name="Please_Provide_Email">Please Provide Email</string>
     <string name="Password_Sent_to_Email">\"Password Sent to Email \"</string>
     <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
@@ -257,7 +257,7 @@
     <string name="Hello">\"Hello \"</string>
     <string name="Pointss">\"Points: \"</string>
     <string name="Avatar_is_Usable2">Avatar is Usable</string>
-    <string name="Best_Score2">\"Best Score \"</string>
+    <string name="Best_Score2">\Best Score \</string>
     <string name="pass_six_points">\"You need to Pass Previous Level at 6 Points, Now you have only \"</string>
     <string name="Guess">Guess the flag</string>
     <string name="Kuwait">Kuwait</string>

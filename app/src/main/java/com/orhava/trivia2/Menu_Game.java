@@ -194,7 +194,7 @@ void savePrefs(){
 
         nextButton3.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerApprentice.question.length;
+            totalQuestions = 10;
             WhichGame=3;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreLearner = prefs.getInt("scoreLearner", 0); //0 is the default value

@@ -143,6 +143,17 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         mp2 = MediaPlayer.create(this, R.raw.winsound);
         multiPlayerHelper=0;
         QuestionAnswerApprentice.initializeData(this);
+        QuestionAnswerBabyYoda.initializeData(this);
+        QuestionAnswerChampion.initializeData(this);
+        QuestionAnswerCompetent.initializeData(this);
+        QuestionAnswerDivine.initializeData(this);
+        QuestionAnswerExpert.initializeData(this);
+        QuestionAnswerLearner.initializeData(this);
+        QuestionAnswerLegendary.initializeData(this);
+        QuestionAnswerMaster.initializeData(this);
+        QuestionAnswerMasterYoda.initializeData(this);
+        QuestionAnswerNovice.initializeData(this);
+
     }
     void restart(){
         countDownTimer.cancel();
@@ -843,7 +854,7 @@ else if(Menu_Game.WhichGame==12){
             return;
         }
 
-        totalQuestionsTextView.setText(getString(R.string.Question) + (indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
+        totalQuestionsTextView.setText(getString(R.string.Question) +" "+(indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
         if ( Menu_Game.WhichGame==1){
 
             questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);

@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +37,7 @@ import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.Nullabl
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainMenu extends AppCompatActivity  {
@@ -51,9 +54,13 @@ public class MainMenu extends AppCompatActivity  {
     private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     private FirebaseAuth mAuth;
    public BeginSignInRequest signInRequest ;
-   private TextView txtNameAndPoints;
+   private TextView txtNameAndPoints,name_of_language;
    private ImageView imgViewShowAvatar;
     private FirebaseUser user;
+
+    private ImageButton btnHebrew, btnEnglish, Philippines_Language, India_Language, Indonesia_Language, Malaysia_Language, Spain_Language, bangladesh_Language,Brazil_Language;
+    private  Context context;
+    private  Resources resources;
 
 
 
@@ -83,12 +90,167 @@ public class MainMenu extends AppCompatActivity  {
         settingNext();
         StartButtons();
         SaveScore();
+        ChangeLanguage();
 
 
 
 
 
 
+
+
+    }
+
+    public static void setLocale(String langCode, Context context) {
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+        // Save the language code and name in the SharedPreferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("langCode", langCode);
+        editor.putString("langName", getLanguageName(langCode, context));
+        editor.apply();
+
+        // Restart the activity to apply the new locale
+        Intent intent = new Intent(context, MainMenu.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
+    }
+
+    private static String getLanguageName(String langCode, Context context) {
+        switch (langCode) {
+            case "iw":
+                return context.getString(R.string.Hebrew);
+            case "en":
+                return context.getString(R.string.English);
+            case "bn":
+                return context.getString(R.string.Bengali);
+            case "fil":
+                return context.getString(R.string.Filipino);
+            case "gl":
+                return context.getString(R.string.Spanish);
+            case "hi":
+                return context.getString(R.string.Hindi);
+            case "in":
+                return context.getString(R.string.Indonesian);
+            case "ms":
+                return context.getString(R.string.Malay);
+            case "pt":
+                return context.getString(R.string.Portuguese);
+            default:
+                return langCode;
+        }
+    }
+
+
+
+    private void ChangeLanguage() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String langCode = preferences.getString("langCode", "");
+        boolean localeSet = preferences.getBoolean("localeSet", false); // Retrieve the flag
+
+
+        if (!localeSet && !langCode.isEmpty()) {
+            setLocale(langCode, this);
+            // Update the flag in the SharedPreferences
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("localeSet", true);
+            editor.apply();
+        }
+        // Retrieve the language name from the SharedPreferences
+        String langName = preferences.getString("langName", "");
+        name_of_language.setText(langName);
+        btnHebrew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                setLocale("iw", MainMenu.this);
+
+                name_of_language.setText(R.string.Hebrew);
+
+            }
+        });
+
+        btnEnglish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setLocale("en", MainMenu.this);
+
+                name_of_language.setText(R.string.English);
+
+            }
+        });
+
+
+        Philippines_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("fil", MainMenu.this);
+
+                name_of_language.setText(R.string.Filipino);
+
+            }
+        });
+
+        India_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("hi", MainMenu.this);
+
+                name_of_language.setText(R.string.Hindi);
+
+            }
+        });
+        Indonesia_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("in", MainMenu.this);
+
+                name_of_language.setText(R.string.Indonesian);
+
+            }
+        });
+        Malaysia_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("ms", MainMenu.this);
+
+                name_of_language.setText(R.string.Malay);
+
+            }
+        });
+        Spain_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("gl", MainMenu.this);
+
+                name_of_language.setText(R.string.Spanish);
+
+            }
+        });
+        bangladesh_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("bn", MainMenu.this);
+
+                name_of_language.setText(R.string.Bengali);
+
+            }
+        });
+        Brazil_Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("pt", MainMenu.this);
+
+                name_of_language.setText(R.string.Portuguese);
+
+            }
+        });
 
 
     }
@@ -452,6 +614,18 @@ public class MainMenu extends AppCompatActivity  {
         imgViewShowAvatar = findViewById(R.id.imgViewShowAvatar);
         btnMultiPlayer= findViewById(R.id.btnMultiPlayer);
         mAuth = FirebaseAuth.getInstance();
+        btnHebrew= findViewById(R.id.Israel_Language);
+        btnEnglish= findViewById(R.id.England_Language);
+        name_of_language= findViewById(R.id.name_of_language);
+
+        Philippines_Language=findViewById(R.id.Philippines_Language);
+        India_Language=findViewById(R.id.India_Language);
+        Indonesia_Language=findViewById(R.id.Indonesia_Language);
+        Malaysia_Language=findViewById(R.id.Malaysia_Language);
+        Spain_Language=findViewById(R.id.Spain_Language);
+        bangladesh_Language=findViewById(R.id.bangladesh_Language);
+        Brazil_Language=findViewById(R.id.Brazil_Language);
+
 
     }
 

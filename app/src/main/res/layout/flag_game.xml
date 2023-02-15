@@ -82,6 +82,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
+        android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/alfa_slab_one"
         android:paddingTop="20dp"
@@ -129,6 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textStyle="bold"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans A"
@@ -145,7 +147,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans B"
-
+            android:textStyle="bold"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -157,7 +159,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans C"
-
+            android:textStyle="bold"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -169,7 +171,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans D"
-
+            android:textStyle="bold"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -182,9 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/choices_layout"
         android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/submit"
-     />
+        android:text="@string/submit" />
 
     <TextView
         android:id="@+id/timerText"

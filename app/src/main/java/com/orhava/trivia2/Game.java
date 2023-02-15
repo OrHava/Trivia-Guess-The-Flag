@@ -843,7 +843,7 @@ else if(Menu_Game.WhichGame==12){
             return;
         }
 
-        totalQuestionsTextView.setText(getString(R.string.Question) + (indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
+        totalQuestionsTextView.setText(getString(R.string.Question) +" "+(indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
         if ( Menu_Game.WhichGame==1){
 
             questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);

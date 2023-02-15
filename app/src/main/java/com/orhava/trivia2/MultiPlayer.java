@@ -281,7 +281,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
                 public void onDataChange(@androidx.annotation.NonNull DataSnapshot dataSnapshot) {
                     // int hello=  Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
                     int numberOfUsers = (int) dataSnapshot.getChildrenCount();
-                    amountOfUsers.setText(getString(R.string.number_of_online_users)+ numberOfUsers);
+                    amountOfUsers.setText(getString(R.string.number_of_online_users)+" "+numberOfUsers);
 
 
                 }

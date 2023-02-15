@@ -197,7 +197,7 @@
     <string name="Level11">Level 11</string>
     <string name="MultiPlayer">MultiPlayer</string>
     <string name="loadings_ads_make_sure_the_app_is_free">Loadings: Ads Make Sure The App is Free…</string>
-    <string name="points1">Points:</string>
+    <string name="points1">Points: </string>
     <string name="user_name1">User Name</string>
     <string name="_10_points1">10 Points</string>
     <string name="_20_points1">20 Points</string>
@@ -229,7 +229,7 @@
     <string name="enter_code">Enter Code</string>
     <string name="search_for_a_match">Search For A Match</string>
     <string name="results">Results:</string>
-    <string name="wait_for_the_results">Wait for the results...</string>
+    <string name="wait_for_the_results">Wait for the results…</string>
     <string name="register">register</string>
     <string name="go_to_login">Go To login</string>
     <string name="submit">Submit</string>
@@ -240,11 +240,11 @@
     <string name="Do_you_want_to_exit_Game">Do you want to exit Game?</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
-    <string name="Chose_Option">\"Chose Option \"</string>
-    <string name="Question">\"Question : \"</string>
-    <string name="Best_Score">\Best Score \</string>
+    <string name="Chose_Option">\Chose Option \</string>
+    <string name="Question">\Question: \</string>
+    <string name="Best_Score">\Best Score\ \</string>
     <string name="Please_Provide_Email">Please Provide Email</string>
-    <string name="Password_Sent_to_Email">\"Password Sent to Email \"</string>
+    <string name="Password_Sent_to_Email">\Password Sent to Email \</string>
     <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
     <string name="Enter_Email">Enter Email</string>
     <string name="Enter_Password">Enter Password</string>
@@ -252,10 +252,10 @@
     <string name="firebaseAuthWithGoogle">firebaseAuthWithGoogle:</string>
     <string name="Google_sign_in_failed">Google sign in failed</string>
     <string name="User_is_already_connected">User is already connected</string>
-    <string name="number_of_online_users">\"number of online users: \"</string>
+    <string name="number_of_online_users">\ number of online users: \</string>
     <string name="You_Dont_have_Enough_Points">You Don\'t have Enough Points</string>
-    <string name="Hello">\"Hello \"</string>
-    <string name="Pointss">\"Points: \"</string>
+    <string name="Hello">\Hello \</string>
+    <string name="Pointss">\Points: \</string>
     <string name="Avatar_is_Usable2">Avatar is Usable</string>
     <string name="Best_Score2">\Best Score \</string>
     <string name="pass_six_points">\"You need to Pass Previous Level at 6 Points, Now you have only \"</string>

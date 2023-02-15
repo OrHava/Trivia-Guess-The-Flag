@@ -75,37 +75,37 @@ void savePrefs(){
 
     SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
     int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewNovice));
+    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewNovice));
     NovicePointsForDataBase= scoreNewNovice;
     int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLearner));
+    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLearner));
 
     int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewApprentice));
+    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewApprentice));
 
     int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewCompetent));
+    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewCompetent));
 
     int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewChampion));
+    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewChampion));
 
     int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewExpert));
+    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewExpert));
 
     int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMaster));
+    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMaster));
 
     int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLegendary));
+    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLegendary));
 
     int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewDivine));
+    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewDivine));
 
     int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMasterYoda));
+    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMasterYoda));
 
     int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewBabyYoda));
+    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewBabyYoda));
 }
    void initialize(){
 
@@ -285,7 +285,7 @@ void savePrefs(){
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else{
-                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+ oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+" " + oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
             }
 
 

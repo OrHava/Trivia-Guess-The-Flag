@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -101,12 +103,14 @@ public class MainMenu extends AppCompatActivity  {
 
     }
 
-    public static void setLocale(String langCode, Context context) {
+    public void setLocale(String langCode, Context context) {
         Locale locale = new Locale(langCode);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.setLocale(locale);
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+
+
         // Save the language code and name in the SharedPreferences
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
@@ -191,7 +195,6 @@ public class MainMenu extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 setLocale("fil", MainMenu.this);
-
                 name_of_language.setText(R.string.Filipino);
 
             }

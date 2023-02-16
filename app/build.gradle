@@ -12,7 +12,6 @@ android {
         targetSdk 32
         versionCode 14
         versionName '14'
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

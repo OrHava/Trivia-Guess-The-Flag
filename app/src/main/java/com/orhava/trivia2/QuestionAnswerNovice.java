@@ -1,63 +1,61 @@
 package com.orhava.trivia2;
 
 
-public class QuestionAnswerNovice {
+import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
 
+public class QuestionAnswerNovice extends AppCompatActivity {
+    public static String[] question;
+    public static String[][] choices;
+    public static String[] correctAnswwrs;
+    public static int[] images;
 
+    public static void initializeData(Context context) {
+        question = new String[]{
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess),
+                context.getString(R.string.Guess)
+        };
 
-    public static String[] question = {
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag",
-            "Guess the flag"
+        choices = new String[][]{
+                {context.getString(R.string.Argentina), context.getString(R.string.Botswana), context.getString(R.string.El_Salvador), context.getString(R.string.Israel)},
+                {context.getString(R.string.Portugal), context.getString(R.string.Belgium), context.getString(R.string.Italy), context.getString(R.string.Denmark)},
+                {context.getString(R.string.Jamaica), context.getString(R.string.Christmas_Island),context.getString(R.string.Nigeria), context.getString(R.string.Djibouti)},
+                {context.getString(R.string.Brazil), context.getString(R.string.Bolivia), context.getString(R.string.Guatemala), context.getString(R.string.Colombia)},
+                {context.getString(R.string.Seychelles), context.getString(R.string.Saint_Vincent_and_the_Grenadines), context.getString(R.string.New_Zealand), context.getString(R.string.Australia)},
+                {context.getString(R.string.Myanmar), context.getString(R.string.China), context.getString(R.string.Laos), context.getString(R.string.Vietnam)},
+                {context.getString(R.string.Belarus), context.getString(R.string.Russia), context.getString(R.string.Denmark), context.getString(R.string.Estonia)},
+                {context.getString(R.string.China), context.getString(R.string.Belgium), context.getString(R.string.Laos), context.getString(R.string.Japan)},
+                {context.getString(R.string.Saudi_Arabia), context.getString(R.string.Iraq),context.getString(R.string.Egypt),context.getString(R.string.Djibouti)},
+                {context.getString(R.string.Iceland), context.getString(R.string.Switzerland), context.getString(R.string.Sweden), context.getString(R.string.Finland)}
+        };
 
-    };
+        correctAnswwrs = new String[]{
+                context.getString(R.string.Israel),
+                context.getString(R.string.Italy),
+                context.getString(R.string.Jamaica),
+                context.getString(R.string.Brazil),
+                context.getString(R.string.Australia),
+                context.getString(R.string.China),
+                context.getString(R.string.Russia),
+                context.getString(R.string.Japan),
+                context.getString(R.string.Saudi_Arabia),
+                context.getString(R.string.Sweden)
+        };
 
-    public static String[][] choices = {
-
-            {"Argentina", "Botswana", "El Salvador", "Israel"},
-            {"Portugal", "Belgium", "Italy", "Denmark"},
-            {"Jamaica", "Christmas Island", "Nigeria", "Djibouti"},
-            {"Brazil", "Bolivia", "Guatemala", "Colombia"},
-            {"Seychelles", "Saint Vincent and the Grenadines", "New Zealand", "Australia"},
-            {"Myanmar", "China", "Laos", "Vietnam"},
-            {"Belarus", "Russia", "Denmark", "Estonia"},
-            {"China", "Belgium", "Laos", "Japan"},
-            {"Saudi Arabia", "Iraq", "Egypt", "Djibouti"},
-            {"Iceland", "Switzerland", "Sweden", "Finland"}
-    };
-
-    public static String[] correctAnswwrs = {
-            "Israel",
-            "Italy",
-            "Jamaica",
-            "Brazil",
-            "Australia",
-            "China",
-            "Russia",
-            "Japan",
-            "Saudi Arabia",
-            "Sweden"
-
-    };
-
-    public static int[] images = {
-            R.drawable.israel, R.drawable.italy, R.drawable.jamaica,
-            R.drawable.brazil, R.drawable.australia, R.drawable.china,
-            R.drawable.russian_federation, R.drawable.japan, R.drawable.saudi_arabia,
-            R.drawable.sweden
-    };
-
-
-
-
-
+        images = new int[]{
+                R.drawable.israel, R.drawable.italy, R.drawable.jamaica,
+                R.drawable.brazil, R.drawable.australia, R.drawable.china,
+                R.drawable.russian_federation, R.drawable.japan, R.drawable.saudi_arabia,
+                R.drawable.sweden
+        };
+    }
 }
-
 

@@ -75,37 +75,37 @@ void savePrefs(){
 
     SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
     int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewNovice));
+    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewNovice));
     NovicePointsForDataBase= scoreNewNovice;
     int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLearner));
+    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLearner));
 
     int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewApprentice));
+    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewApprentice));
 
     int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewCompetent));
+    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewCompetent));
 
     int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewChampion));
+    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewChampion));
 
     int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewExpert));
+    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewExpert));
 
     int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMaster));
+    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMaster));
 
     int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewLegendary));
+    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLegendary));
 
     int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewDivine));
+    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewDivine));
 
     int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewMasterYoda));
+    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMasterYoda));
 
     int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+"%s", scoreNewBabyYoda));
+    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewBabyYoda));
 }
    void initialize(){
 
@@ -169,7 +169,7 @@ void savePrefs(){
 
         nextButton1.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-             totalQuestions = QuestionAnswerNovice.question.length;
+             totalQuestions = 10;
             WhichGame=1;
             startActivity(new Intent(Menu_Game.this, Game.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
@@ -179,7 +179,7 @@ void savePrefs(){
         nextButton2.setOnClickListener(view -> {
 
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerLearner.question.length;
+            totalQuestions = 10;
             WhichGame=2;
 
 
@@ -194,7 +194,7 @@ void savePrefs(){
 
         nextButton3.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerApprentice.question.length;
+            totalQuestions = 10;
             WhichGame=3;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
@@ -206,7 +206,7 @@ void savePrefs(){
 
         nextButton4.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerCompetent.question.length;
+            totalQuestions = 10;
             WhichGame=4;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
@@ -215,7 +215,7 @@ void savePrefs(){
         });
         nextButton5.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerChampion.question.length;
+            totalQuestions = 10;
             WhichGame=5;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
@@ -225,7 +225,7 @@ void savePrefs(){
 
         nextButton6.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerExpert.question.length;
+            totalQuestions = 10;
             WhichGame=6;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
@@ -235,7 +235,7 @@ void savePrefs(){
 
         nextButton7.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerMaster.question.length;
+            totalQuestions = 10;
             WhichGame=7;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
@@ -245,7 +245,7 @@ void savePrefs(){
 
         nextButton8.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerLegendary.question.length;
+            totalQuestions = 10;
             WhichGame=8;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
@@ -255,7 +255,7 @@ void savePrefs(){
 
         nextButton9.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerDivine.question.length;
+            totalQuestions = 10;
             WhichGame=9;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
@@ -266,7 +266,7 @@ void savePrefs(){
 
         nextButton10.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerMasterYoda.question.length;
+            totalQuestions = 10;
             WhichGame=10;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
@@ -276,7 +276,7 @@ void savePrefs(){
 
         nextButton11.setOnClickListener(view -> {
             configureNextButtonHelperSound();
-            totalQuestions = QuestionAnswerBabyYoda.question.length;
+            totalQuestions = 20;
             WhichGame=11;
             prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
             int oldScoreMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
@@ -285,7 +285,7 @@ void savePrefs(){
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else{
-                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+ oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+" " + oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
             }
 
 

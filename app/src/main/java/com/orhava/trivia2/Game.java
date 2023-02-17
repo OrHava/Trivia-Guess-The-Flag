@@ -4,7 +4,7 @@ package com.orhava.trivia2;
 import static com.orhava.trivia2.MainMenu.flag;
 import static com.orhava.trivia2.MainMenu.i;
 import static com.orhava.trivia2.MultiPlayer.opponentUser;
-
+import com.orhava.trivia2.QuestionAnswerApprentice;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -62,6 +62,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     public int avatarMultiPlayerChoice=0;
     public String NameMultiPlayer="";
     private FirebaseUser user;
+
 
 
     @SuppressLint("SetTextI18n")
@@ -141,6 +142,17 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         mp3 = MediaPlayer.create(this, R.raw.losesound);
         mp2 = MediaPlayer.create(this, R.raw.winsound);
         multiPlayerHelper=0;
+        QuestionAnswerApprentice.initializeData(this);
+        QuestionAnswerBabyYoda.initializeData(this);
+        QuestionAnswerChampion.initializeData(this);
+        QuestionAnswerCompetent.initializeData(this);
+        QuestionAnswerDivine.initializeData(this);
+        QuestionAnswerExpert.initializeData(this);
+        QuestionAnswerLearner.initializeData(this);
+        QuestionAnswerLegendary.initializeData(this);
+        QuestionAnswerMaster.initializeData(this);
+        QuestionAnswerMasterYoda.initializeData(this);
+        QuestionAnswerNovice.initializeData(this);
 
     }
     void restart(){
@@ -842,7 +854,7 @@ else if(Menu_Game.WhichGame==12){
             return;
         }
 
-        totalQuestionsTextView.setText(getString(R.string.Question) + (indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
+        totalQuestionsTextView.setText(getString(R.string.Question) +" "+(indexOfQuestions+1)   +"/"+ Menu_Game.totalQuestions);
         if ( Menu_Game.WhichGame==1){
 
             questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);
@@ -861,8 +873,9 @@ else if(Menu_Game.WhichGame==12){
              ansD.setText(QuestionAnswerLearner.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
             iv.setImageResource(QuestionAnswerLearner.images[randomNumbers[indexOfQuestions]]);
         }
-         if(Menu_Game.WhichGame==3){
 
+
+         if(Menu_Game.WhichGame==3){
             questionTextView.setText(QuestionAnswerApprentice.question[randomNumbers[indexOfQuestions]]);
              ansA.setText(QuestionAnswerApprentice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
              ansB.setText(QuestionAnswerApprentice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);

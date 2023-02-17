@@ -206,7 +206,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
                              opponentUser=dsp.getKey();
                              Toast.makeText(MultiPlayer.this, "There is a match!", Toast.LENGTH_SHORT).show();
                              configureNextButtonHelperSound();
-                             Menu_Game.totalQuestions=QuestionAnswerNovice.question.length;
+                             Menu_Game.totalQuestions=10;
                              Menu_Game.WhichGame=12;
                              startActivity(new Intent(MultiPlayer.this, Game.class));
                              overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
@@ -281,7 +281,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
                 public void onDataChange(@androidx.annotation.NonNull DataSnapshot dataSnapshot) {
                     // int hello=  Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
                     int numberOfUsers = (int) dataSnapshot.getChildrenCount();
-                    amountOfUsers.setText(getString(R.string.number_of_online_users)+ numberOfUsers);
+                    amountOfUsers.setText(getString(R.string.number_of_online_users)+" "+numberOfUsers);
 
 
                 }

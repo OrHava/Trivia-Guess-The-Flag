@@ -45,6 +45,15 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/play"
+                    android:adjustViewBounds="true"
+                   android:layout_marginStart="240dp"/>
+
+
                 <Button
                     android:id="@+id/Flags_GameBtn"
                     android:layout_width="match_parent"
@@ -52,6 +61,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/flags_game"
+
                     android:textColor="@color/teal_200"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -68,6 +78,7 @@
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
+
 
                 <Button
                     android:id="@+id/Name_AvatarBtn"
@@ -135,6 +146,7 @@
             </androidx.cardview.widget.CardView>
 
             <RelativeLayout
+                android:id="@+id/RLProfileName"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_below="@+id/Cv_btnMultiPlayer"
@@ -168,9 +180,161 @@
 
             </RelativeLayout>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SwitchLanguages"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/RLProfileName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                 android:background="@color/black"
+                    android:layout_height="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/English"
+                        android:id="@+id/name_of_language"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/Israel_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_toEndOf="@+id/England_Language"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/israel" />
+
+                    <ImageButton
+                        android:id="@+id/England_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="25dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/united_kingdom" />
+
+                    <ImageButton
+                        android:id="@+id/Philippines_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginTop="25dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/philippines" />
+
+                    <ImageButton
+                        android:layout_width="50dp"
+                        android:id="@+id/India_Language"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="25dp"
+                        android:adjustViewBounds="true"
+                        android:layout_marginStart="20dp"
+                      android:layout_toEndOf="@+id/Israel_Language"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/india"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/Indonesia_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="25dp"
+
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/indonesia" />
+
+                    <ImageButton
+                        android:id="@+id/Malaysia_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="80dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/malaysia" />
+
+                    <ImageButton
+                        android:id="@+id/Spain_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="80dp"
+                        android:layout_toEndOf="@+id/Malaysia_Language"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/spain_flag" />
+
+                    <ImageButton
+                        android:id="@+id/bangladesh_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginTop="80dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/bangladesh" />
+
+                    <ImageButton
+                        android:id="@+id/Brazil_Language"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="80dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/brazil" />
+
+
+
+
+
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
 
 
         </RelativeLayout>
+
+
+
+
+
 
 
 

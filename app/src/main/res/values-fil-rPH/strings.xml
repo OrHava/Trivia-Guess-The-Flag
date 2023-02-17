@@ -1,144 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Flags Game of All Countries</string>
-    <string name="title_activity_login" translatable="false">LoginActivity</string>
-
-    <string name="title_activity_main2" translatable="false">MainActivity2</string>
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="nav_header_title" translatable="false">Android Studio</string>
-    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
-    <string name="nav_header_desc" translatable="false">Navigation header</string>
-    <string name="action_settings" translatable="false">Settings</string>
-    <string name="menu_home" translatable="false">Home</string>
-    <string name="menu_gallery" translatable="false">Gallery</string>
-    <string name="menu_slideshow" translatable="false">Slideshow</string>
-    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header" translatable="false">Messages</string>
-    <string name="sync_header" translatable="false">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title" translatable="false">Your signature</string>
-    <string name="reply_title" translatable="false">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title" translatable="false">Sync email periodically</string>
-    <string name="attachment_title" translatable="false">Download incoming attachments</string>
-    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
-    <string name="title_activity_scrolling" translatable="false">ScrollingActivity</string>
-    <string name="large_text" translatable="false">
-        "Material is the metaphor.\n\n"
-
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
-        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
-        "technologically advanced and open to imagination and magic.\n"
-        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
-        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
-        "flexibility of the material creates new affordances that supercede those in the physical "
-        "world, without breaking the rules of physics.\n"
-        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
-        "interact, and exist in space and in relation to each other. Realistic lighting shows "
-        "seams, divides space, and indicates moving parts.\n\n"
-
-        "Bold, graphic, intentional.\n\n"
-
-        "The foundational elements of print based design typography, grids, space, scale, color, "
-        "and use of imagery guide visual treatments. These elements do far more than please the "
-        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
-        "imagery, large scale typography, and intentional white space create a bold and graphic "
-        "interface that immerse the user in the experience.\n"
-        "An emphasis on user actions makes core functionality immediately apparent and provides "
-        "waypoints for the user.\n\n"
-
-        "Motion provides meaning.\n\n"
-
-        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
-        "inflection points that initiate motion, transforming the whole design.\n"
-        "All action takes place in a single environment. Objects are presented to the user without "
-        "breaking the continuity of experience even as they transform and reorganize.\n"
-        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
-        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
-
-        "3D world.\n\n"
-
-        "The material environment is a 3D space, which means all objects have x, y, and z "
-        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
-        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
-        "position along the z-axis and has a standard 1dp thickness.\n"
-        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
-        "emulated by manipulating the y-axis.\n\n"
-
-        "Light and shadow.\n\n"
-
-        "Within the material environment, virtual lights illuminate the scene. Key lights create "
-        "directional shadows, while ambient light creates soft shadows from all angles.\n"
-        "Shadows in the material environment are cast by these two light sources. In Android "
-        "development, shadows occur when light sources are blocked by sheets of material at "
-        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
-        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
-
-        "Resting elevation.\n\n"
-
-        "All material objects, regardless of size, have a resting elevation, or default elevation "
-        "that does not change. If an object changes elevation, it should return to its resting "
-        "elevation as soon as possible.\n\n"
-
-        "Component elevations.\n\n"
-
-        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
-        "does not vary from 6dp in one app to 16dp in another app).\n"
-        "Components may have different resting elevations across platforms, depending on the depth "
-        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
-
-        "Responsive elevation and dynamic elevation offsets.\n\n"
-
-        "Some component types have responsive elevation, meaning they change elevation in response "
-        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
-        "changes are consistently implemented using dynamic elevation offsets.\n"
-        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
-        "to the component’s resting state. They ensure that elevation changes are consistent "
-        "across actions and component types. For example, all components that lift on press have "
-        "the same elevation change relative to their resting elevation.\n"
-        "Once the input event is completed or cancelled, the component will return to its resting "
-        "elevation.\n\n"
-
-        "Avoiding elevation interference.\n\n"
-
-        "Components with responsive elevations may encounter other components as they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
-    </string>
+    <string name="app_name">Flags Game of All Countries</string>
 
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="became_a_flag_master_today">Became a Flag Master Today!</string>
+    <string name="action_sign_in">Mag-sign in o magparehistro</string>
+    <string name="action_sign_in_short">Mag-sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Hindi wastong username</string>
+    <string name="invalid_password">Ang password ay dapat na >5 character</string>
+    <string name="login_failed">"Nabigo ang pag-login"</string>
+    <string name="became_a_flag_master_today">Naging Flag Master Ngayon!</string>
+
     <string name="Avatar_is_Usable">Avatar_is_Usable</string>
     <string name="flags_game">Flags Game</string>
     <string name="Points">Points</string>
-    <string name="name_and_avatar">Name and Avatar</string>
-    <string name="mute_or_unmute">Mute Or UnMute</string>
-    <string name="setting_icon" translatable="false">setting Icon</string>
+    <string name="name_and_avatar">Pangalan at Avatar</string>
+    <string name="mute_or_unmute">I-mute O Unmute</string>
+    <string name="setting_icon" translatable="false">Icon ng setting</string>
     <string name="game_services_project_id" translatable="false"> 578522315755 </string>
     <string name="leaderboard_id" translatable="false">CgkI6_f3lOsQEAIQBA</string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
     <string name="Google_id2" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="points">Points:</string>
+    <string name="points">Punts:</string>
     <string name="todo" translatable="false">TODO</string>
     <string name="user_name">User Name</string>
     <string name="todo1" translatable="false">TODO</string>
@@ -151,25 +35,25 @@
     <string name="_80_points">80 Points</string>
     <string name="_70_points">70 Points</string>
     <string name="_90_points">90 Points</string>
-    <string name="press_to_buy">Press to Buy</string>
+    <string name="press_to_buy">Pindutin para Bumili</string>
     <string name="_110_points">110 Points</string>
     <string name="_100_points">100 Points</string>
     <string name="_120_points">120 Points</string>
-    <string name="not_available">Not Available</string>
+    <string name="not_available">Hindi Magagamit</string>
     <string name="todo2">TODO</string>
     <string name="todo3">TODO</string>
     <string name="todo4">TODO</string>
-    <string name="sign_in">Sign in</string>
+    <string name="sign_in">Mag-sign in</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
-    <string name="forgot_password">Forgot password?</string>
+    <string name="forgot_password">Nakalimutan ang password?</string>
     <string name="enter_as_guest">Enter As Guest</string>
-    <string name="or_sign_in_with">or sign in with</string>
+    <string name="or_sign_in_with">o mag-sign in gamit ang</string>
     <string name="sign_up">SIGN UP</string>
-    <string name="become_a_flag_master_today">become a flag master today</string>
+    <string name="become_a_flag_master_today">maging flag master ngayon</string>
     <string name="leaderboard">LeaderBoard</string>
-    <string name="sign_out">Sign Out</string>
+    <string name="sign_out">Mag-sign Out</string>
     <string name="name">name</string>
     <string name="id">id</string>
     <string name="logout">Logout</string>
@@ -197,25 +81,26 @@
     <string name="Level10">Level 10</string>
     <string name="Level11">Level 11</string>
     <string name="MultiPlayer">MultiPlayer</string>
-    <string name="loadings_ads_make_sure_the_app_is_free">Loadings: Ads Make Sure The App is Free…</string>
-    <string name="points1">Points: </string>
-    <string name="user_name1">User Name</string>
-    <string name="_10_points1">10 Points</string>
-    <string name="_20_points1">20 Points</string>
-    <string name="_30_points1">30 Points</string>
-    <string name="_90_points1">90 Points</string>
-    <string name="_80_points1">80 Points</string>
-    <string name="_70_points1">70 Points</string>
-    <string name="_40_points1">40 Points</string>
-    <string name="_50_points1">50 Points</string>
-    <string name="_100_points1">100 Points</string>
-    <string name="_110_points1">110 Points</string>
-    <string name="_120_points1">120 Points</string>
-    <string name="press_to_buy1">Press to Buy</string>
-    <string name="_60_points1">60 Points</string>
-    <string name="buy_avatar">Buy Avatar</string>
-    <string name="use_avatar">Use Avatar</string>
-    <string name="top_100_single_players">Top 100 Single Players</string>
+    <string name="loadings_ads_make_sure_the_app_is_free">Mga Naglo-load: Mga Ad Tiyaking Libre Ang App...</string>
+    <string name="points1">Mga Puntos: </string>
+    <string name="user_name1">Pangalan ng User</string>
+    <string name="_10_points1">10 Puntos</string>
+    <string name="_20_points1">20 Puntos</string>
+    <string name="_30_points1">30 Puntos</string>
+    <string name="_90_points1">90 Puntos</string>
+    <string name="_80_points1">80 Puntos</string>
+    <string name="_70_points1">70 Puntos</string>
+    <string name="_40_points1">40 Puntos</string>
+    <string name="_50_points1">50 Puntos</string>
+    <string name="_100_points1">100 Puntos</string>
+    <string name="_110_points1">110 Puntos</string>
+    <string name="_120_points1">120 Puntos</string>
+    <string name="press_to_buy1">Pindutin para Bumili</string>
+    <string name="_60_points1">60 Puntos</string>
+
+    <string name="buy_avatar">Bumili ng Avatar</string>
+    <string name="use_avatar">Gumamit ng Avatar</string>
+    <string name="top_100_single_players">Nangungunang 100 Single Player</string>
     <string name="user_1">User 1</string>
     <string name="user_1_score">User 1 Score</string>
     <string name="user_2">User 2</string>
@@ -224,43 +109,43 @@
     <string name="user_3_score">User 3 Score</string>
     <string name="place">Place</string>
     <string name="username">Username</string>
-    <string name="score">Score</string>
+    <string name="score">Iskor</string>
     <string name="multiplayer">MultiPlayer</string>
-    <string name="to_play_enter_create_the_same_code_of_your_opponent">To Play Enter/Create The Same Code of Your Opponent:</string>
-    <string name="enter_code">Enter Code</string>
+    <string name="to_play_enter_create_the_same_code_of_your_opponent">Upang Maglaro Enter/Gumawa ng Parehong Code ng Iyong Kalaban:</string>
+    <string name="enter_code">Ilagay ang Code</string>
     <string name="search_for_a_match">Search For A Match</string>
-    <string name="results">Results:</string>
-    <string name="wait_for_the_results">Wait for the results…</string>
+    <string name="results">Resulta:</string>
+    <string name="wait_for_the_results">Hintayin ang mga resulta…</string>
     <string name="register">register</string>
     <string name="go_to_login">Go To login</string>
-    <string name="submit">Submit</string>
-    <string name="you_won_a_secret_avatar_press_avatar_to_use">You Won A Secret Avatar! Press Avatar to Use</string>
+    <string name="submit">Isumite</string>
+    <string name="you_won_a_secret_avatar_press_avatar_to_use">Nanalo Ka ng Lihim na Avatar! Pindutin ang Avatar para Gamitin</string>
     <string name="about">About</string>
     <string name="easter_egg">Easter Egg</string>
-    <string name="reset_game_scores">Reset game scores</string>
-    <string name="Do_you_want_to_exit_Game">Do you want to exit Game?</string>
-    <string name="Yes">Yes</string>
-    <string name="No">No</string>
+    <string name="reset_game_scores">I-reset ang mga marka ng laro</string>
+    <string name="Do_you_want_to_exit_Game">Gusto mo bang lumabas sa Laro?</string>
+    <string name="Yes">Oo</string>
+    <string name="No">Hindi</string>
     <string name="Chose_Option">\Chose Option \</string>
     <string name="Question">\Question: \</string>
     <string name="Best_Score">\Best Score\ \</string>
-    <string name="Please_Provide_Email">Please Provide Email</string>
-    <string name="Password_Sent_to_Email">\Password Sent to Email \</string>
-    <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
-    <string name="Enter_Email">Enter Email</string>
-    <string name="Enter_Password">Enter Password</string>
-    <string name="Authentication_failed">Authentication failed.</string>
+    <string name="Please_Provide_Email">Mangyaring Magbigay ng Email</string>
+    <string name="Password_Sent_to_Email">\Password Ipinadala sa Email \</string>
+    <string name="Password_Not_Sending_to_Email">Hindi Ipinapadala ang Password sa Email</string>
+    <string name="Enter_Email">Ipasok ang Email</string>
+    <string name="Enter_Password">Ipasok ang Password</string>
+    <string name="Authentication_failed">Nabigo ang authentication.</string>
     <string name="firebaseAuthWithGoogle">firebaseAuthWithGoogle:</string>
-    <string name="Google_sign_in_failed">Google sign in failed</string>
-    <string name="User_is_already_connected">User is already connected</string>
-    <string name="number_of_online_users">\ number of online users: \</string>
-    <string name="You_Dont_have_Enough_Points">You Don\'t have Enough Points</string>
+    <string name="Google_sign_in_failed">Nabigo ang pag-sign in sa Google</string>
+    <string name="User_is_already_connected">Ang user ay nakakonekta na</string>
+    <string name="number_of_online_users">\ bilang ng mga online na user: \</string>
+    <string name="You_Dont_have_Enough_Points">Wala kang Sapat na Puntos</string>
     <string name="Hello">\Hello \</string>
     <string name="Pointss">\Points: \</string>
-    <string name="Avatar_is_Usable2">Avatar is Usable</string>
+    <string name="Avatar_is_Usable2">Magagamit ang Avatar</string>
     <string name="Best_Score2">\Best Score \</string>
-    <string name="pass_six_points">\"You need to Pass Previous Level at 6 Points, Now you have only \"</string>
-    <string name="Guess">Guess the flag</string>
+    <string name="pass_six_points">\"Kailangan mong Pumasa sa Nakaraang Antas sa 6 na Puntos, Ngayon ay mayroon ka na lang \"</string>
+    <string name="Guess">Hulaan ang bandila</string>
     <string name="Kuwait">Kuwait</string>
     <string name="Albania">Albania</string>
     <string name="Sri_Lanka">Sri Lanka</string>
@@ -300,7 +185,7 @@
     <string name="Switzerland">Switzerland</string>
     <string name="Netherlands">Netherlands</string>
     <string name="Latvia">Latvia</string>
-    <string name="Hebrew">Hebrew</string>
+    <string name="Hebrew">Hebreo</string>
     <string name="English">English</string>
     <string name="Burkina_Faso">Burkina Faso</string>
     <string name="Serbia">Serbia</string>
@@ -315,7 +200,7 @@
     <string name="Suriname">Suriname</string>
     <string name="Cape_Verde">Cape Verde</string>
     <string name="Nauru">Nauru</string>
-    <string name="Marshall_islands">Marshall islands</string>
+    <string name="Marshall_islands">Mga isla ng Marshall</string>
     <string name="Belize">Belize</string>
     <string name="Angola">Angola</string>
     <string name="East_Timor">East Timor</string>
@@ -402,7 +287,7 @@
     <string name="Syria">Syria</string>
     <string name="Djibouti">Djibouti</string>
     <string name="Mauritania">Mauritania</string>
-    <string name="Philippines">Philippines</string>
+    <string name="Philippines">Pilipinas</string>
     <string name="Democratic_Republic_of_the_Congo">Democratic Republic of the Congo</string>
     <string name="Saint_Kitts_And_Nevis">Saint Kitts And Nevis</string>
     <string name="Bahamas">Bahamas</string>
@@ -410,8 +295,6 @@
     <string name="Ivory_Coast">Ivory Coast</string>
     <string name="Vatican_City">Vatican City</string>
     <string name="Saint_Vincent_and_the_Grenadines">Saint Vincent and the Grenadines</string>
-
-
     <string name="Sao_Tome_and_Príncipe">Sao Tome and Príncipe</string>
     <string name="Kyrgyzstan">Kyrgyzstan</string>
     <string name="Kazakhstan">Kazakhstan</string>
@@ -458,6 +341,5 @@
     <string name="Indonesian">Indonesian</string>
     <string name="Malay">Malay</string>
     <string name="Portuguese">Portuguese</string>
-
 
 </resources>

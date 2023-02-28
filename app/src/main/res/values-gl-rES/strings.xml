@@ -348,12 +348,13 @@
     <string name="Colombia">Colombia</string>
     <string name="Russia">Rusia</string>
     <string name="Saudi_Arabia">Arabia Saudita</string>
-    <string name="Bengali">Bengali</string>
+    <string name="Bengali">Bengalí</string>
     <string name="Filipino">Filipino</string>
-    <string name="Spanish">Spanish</string>
+    <string name="Spanish">Español</string>
     <string name="Hindi">Hindi</string>
-    <string name="Indonesian">Indonesian</string>
-    <string name="Malay">Malay</string>
-    <string name="Portuguese">Portuguese</string>
-
+    <string name="Indonesian">Indonesio</string>
+    <string name="Malay">Malayo</string>
+    <string name="Portuguese">Portugués</string>
+    <string name="Connect_to_Internet">Por favor, conéctese a Internet para ver la tabla de clasificación</string>
+    <string name="Connect_to_a_User">Por favor, conéctese a un usuario para ver la tabla de clasificación</string>
 </resources>

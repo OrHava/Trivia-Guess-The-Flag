@@ -341,5 +341,6 @@
     <string name="Indonesian">Indonesian</string>
     <string name="Malay">Malay</string>
     <string name="Portuguese">Portuguese</string>
-
+    <string name="Connect_to_Internet">Please Connect to Internet To Watch LeaderBoard</string>
+    <string name="Connect_to_a_User">Please Connect to a User To Watch LeaderBoard</string>
 </resources>

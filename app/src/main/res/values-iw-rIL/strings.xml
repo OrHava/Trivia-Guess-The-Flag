@@ -330,4 +330,6 @@
     <string name="Indonesian">אינדונזית</string>
     <string name="Malay">מאלית</string>
     <string name="Portuguese">פורטוגזית</string>
+    <string name="Connect_to_Internet">בבקשה תתחבר לאינרטנט.</string>
+    <string name="Connect_to_a_User">בבקשה תתחבר למשתמש.</string>
 </resources>

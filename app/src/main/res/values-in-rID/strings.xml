@@ -2,73 +2,90 @@
 <resources>
     <string name="app_name">Flags Game of All Countries</string>
 
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="became_a_flag_master_today">Became a Flag Master Today!</string>
+    <string name="prompt_email">Surel</string>
+    <string name="prompt_password">Kata sandi</string>
+    <string name="action_sign_in">Masuk atau daftar</string>
+    <string name="action_sign_in_short">Masuk</string>
+    <string name="welcome">"Selamat Datang !"</string>
+    <string name="invalid_username">Bukan nama pengguna yang valid</string>
+    <string name="invalid_password">Kata sandi harus >5 karakter</string>
+    <string name="login_failed">"Gagal masuk"</string>
+    <string name="became_a_flag_master_today">Menjadi Flag Master Hari Ini!</string>
 
-    <string name="Avatar_is_Usable">Avatar_is_Usable</string>
-    <string name="flags_game">Flags Game</string>
-    <string name="Points">Points</string>
-    <string name="name_and_avatar">Name and Avatar</string>
-    <string name="mute_or_unmute">Mute Or UnMute</string>
-    <string name="setting_icon" translatable="false">setting Icon</string>
+
+
+
+    <string name="Avatar_is_Usable">Avatar dapat digunakan</string>
+    <string name="flags_game">Permainan Bendera</string>
+    <string name="Points">Poin</string>
+    <string name="name_and_avatar">Nama dan Avatar</string>
+    <string name="mute_or_unmute">Bisukan atau Aktifkan suara</string>
+    <string name="setting_icon" translatable="false">Ikon pengaturan</string>
+
+
+
     <string name="game_services_project_id" translatable="false"> 578522315755 </string>
     <string name="leaderboard_id" translatable="false">CgkI6_f3lOsQEAIQBA</string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
     <string name="Google_id2" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="points">Points:</string>
+
+
+
+    <string name="points">Poin:</string>
     <string name="todo" translatable="false">TODO</string>
-    <string name="user_name">User Name</string>
+    <string name="user_name">Nama Pengguna</string>
     <string name="todo1" translatable="false">TODO</string>
-    <string name="_20_points">20 Points</string>
-    <string name="_10_points">10 Points</string>
-    <string name="_30_points">30 Points</string>
-    <string name="_50_points">50 Points</string>
-    <string name="_40_points">40 Points</string>
-    <string name="_60_points">60 Points</string>
-    <string name="_80_points">80 Points</string>
-    <string name="_70_points">70 Points</string>
-    <string name="_90_points">90 Points</string>
-    <string name="press_to_buy">Press to Buy</string>
-    <string name="_110_points">110 Points</string>
-    <string name="_100_points">100 Points</string>
-    <string name="_120_points">120 Points</string>
-    <string name="not_available">Not Available</string>
+    <string name="_20_points">20 Poin</string>
+    <string name="_10_points">10 Poin</string>
+    <string name="_30_points">30 Poin</string>
+    <string name="_50_points">50 Poin</string>
+    <string name="_40_points">40 Poin</string>
+    <string name="_60_points">60 Poin</string>
+    <string name="_80_points">80 Poin</string>
+    <string name="_70_points">70 Poin</string>
+    <string name="_90_points">90 Poin</string>
+
+
+
+    <string name="press_to_buy">Tekan untuk membeli</string>
+    <string name="_110_points">110 Poin</string>
+    <string name="_100_points">100 Poin</string>
+    <string name="_120_points">120 Poin</string>
+    <string name="not_available">Tidak tersedia</string>
     <string name="todo2">TODO</string>
     <string name="todo3">TODO</string>
     <string name="todo4">TODO</string>
-    <string name="sign_in">Sign in</string>
+    <string name="sign_in">Masuk</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="login">LOGIN</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="enter_as_guest">Enter As Guest</string>
-    <string name="or_sign_in_with">or sign in with</string>
-    <string name="sign_up">SIGN UP</string>
-    <string name="become_a_flag_master_today">become a flag master today</string>
-    <string name="leaderboard">LeaderBoard</string>
-    <string name="sign_out">Sign Out</string>
-    <string name="name">name</string>
+    <string name="password">Kata Sandi</string>
+    <string name="login">MASUK</string>
+    <string name="forgot_password">Lupa kata sandi?</string>
+    <string name="enter_as_guest">Masuk sebagai Tamu</string>
+    <string name="or_sign_in_with">atau masuk dengan</string>
+    <string name="sign_up">DAFTAR</string>
+    <string name="become_a_flag_master_today">menjadi raja bendera hari ini</string>
+    <string name="leaderboard">Papan Peringkat</string>
+    <string name="sign_out">Keluar</string>
+    <string name="name">nama</string>
     <string name="id">id</string>
     <string name="logout">Logout</string>
-    <string name="enter_game">Enter Game</string>
-    <string name="novice">Novice</string>
-    <string name="learner">Learner</string>
-    <string name="apprentice">Apprentice</string>
-    <string name="competent">Competent</string>
-    <string name="champion">Champion</string>
-    <string name="expert">Expert</string>
-    <string name="master">Master</string>
-    <string name="legendary">Legendary</string>
-    <string name="divine">Divine</string>
-    <string name="master_yoda">Master Yoda</string>
-    <string name="baby_yoda">Baby Yoda</string>
+    <string name="enter_game">Masuk Game</string>
+    <string name="novice">Pemula</string>
+
+
+
+
+
+    <string name="learner">Pemula</string>
+    <string name="apprentice">Siswa</string>
+    <string name="competent">Terampil</string>
+    <string name="champion">Juara</string>
+    <string name="expert">Ahli</string>
+    <string name="master">Mastah</string>
+    <string name="legendary">Legendaris</string>
+    <string name="divine">Ilahi</string>
+    <string name="master_yoda">Mastah Yoda</string>
+    <string name="baby_yoda">Bayi Yoda</string>
     <string name="Level1">Level 1</string>
     <string name="Level2">Level 2</string>
     <string name="Level3">Level 3</string>
@@ -80,148 +97,162 @@
     <string name="Level9">Level 9</string>
     <string name="Level10">Level 10</string>
     <string name="Level11">Level 11</string>
-    <string name="MultiPlayer">MultiPlayer</string>
-    <string name="loadings_ads_make_sure_the_app_is_free">Loadings: Ads Make Sure The App is Free…</string>
-    <string name="points1">Points: </string>
-    <string name="user_name1">User Name</string>
-    <string name="_10_points1">10 Points</string>
-    <string name="_20_points1">20 Points</string>
-    <string name="_30_points1">30 Points</string>
-    <string name="_90_points1">90 Points</string>
-    <string name="_80_points1">80 Points</string>
-    <string name="_70_points1">70 Points</string>
-    <string name="_40_points1">40 Points</string>
-    <string name="_50_points1">50 Points</string>
-    <string name="_100_points1">100 Points</string>
-    <string name="_110_points1">110 Points</string>
-    <string name="_120_points1">120 Points</string>
-    <string name="press_to_buy1">Press to Buy</string>
-    <string name="_60_points1">60 Points</string>
-    <string name="buy_avatar">Buy Avatar</string>
-    <string name="use_avatar">Use Avatar</string>
-    <string name="top_100_single_players">Top 100 Single Players</string>
-    <string name="user_1">User 1</string>
-    <string name="user_1_score">User 1 Score</string>
-    <string name="user_2">User 2</string>
-    <string name="user_2_score">User 2 Score</string>
-    <string name="user_3">User 3</string>
-    <string name="user_3_score">User 3 Score</string>
-    <string name="place">Place</string>
-    <string name="username">Username</string>
-    <string name="score">Score</string>
+    <string name="MultiPlayer">MultiPemain</string>
+    <string name="loadings_ads_make_sure_the_app_is_free">Memuat: Iklan Pastikan Aplikasi Gratis…</string>
+    <string name="points1">Poin: </string>
+    <string name="user_name1">Nama Pengguna</string>
+    <string name="_10_points1">10 Poin</string>
+    <string name="_20_points1">20 Poin</string>
+    <string name="_30_points1">30 Poin</string>
+    <string name="_90_points1">90 Poin</string>
+    <string name="_80_points1">80 Poin</string>
+    <string name="_70_points1">70 Poin</string>
+    <string name="_40_points1">40 Poin</string>
+    <string name="_50_points1">50 Poin</string>
+    <string name="_100_points1">100 Poin</string>
+    <string name="_110_points1">110 Poin</string>
+    <string name="_120_points1">120 Poin</string>
+    <string name="press_to_buy1">Tekan untuk Beli</string>
+    <string name="_60_points1">60 Poin</string>
+
+
+
+    <string name="buy_avatar">Beli Avatar</string>
+    <string name="use_avatar">Gunakan Avatar</string>
+    <string name="top_100_single_players">100 Pemain Tunggal Teratas</string>
+    <string name="user_1">Pengguna 1</string>
+    <string name="user_1_score">Skor Pengguna 1</string>
+    <string name="user_2">Pengguna 2</string>
+    <string name="user_2_score">Skor Pengguna 2</string>
+    <string name="user_3">Pengguna 3</string>
+    <string name="user_3_score">Skor Pengguna 3</string>
+    <string name="place">Tempat</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="score">Skor</string>
     <string name="multiplayer">MultiPlayer</string>
-    <string name="to_play_enter_create_the_same_code_of_your_opponent">To Play Enter/Create The Same Code of Your Opponent:</string>
-    <string name="enter_code">Enter Code</string>
-    <string name="search_for_a_match">Search For A Match</string>
-    <string name="results">Results:</string>
-    <string name="wait_for_the_results">Wait for the results…</string>
-    <string name="register">register</string>
-    <string name="go_to_login">Go To login</string>
-    <string name="submit">Submit</string>
-    <string name="you_won_a_secret_avatar_press_avatar_to_use">You Won A Secret Avatar! Press Avatar to Use</string>
-    <string name="about">About</string>
-    <string name="easter_egg">Easter Egg</string>
-    <string name="reset_game_scores">Reset game scores</string>
-    <string name="Do_you_want_to_exit_Game">Do you want to exit Game?</string>
-    <string name="Yes">Yes</string>
-    <string name="No">No</string>
-    <string name="Chose_Option">\Chose Option \</string>
-    <string name="Question">\Question: \</string>
-    <string name="Best_Score">\Best Score\ \</string>
-    <string name="Please_Provide_Email">Please Provide Email</string>
-    <string name="Password_Sent_to_Email">\Password Sent to Email \</string>
-    <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
-    <string name="Enter_Email">Enter Email</string>
-    <string name="Enter_Password">Enter Password</string>
-    <string name="Authentication_failed">Authentication failed.</string>
+    <string name="to_play_enter_create_the_same_code_of_your_opponent">Untuk Bermain, Masukkan/Buat Kode Yang Sama Dengan Lawanmu:</string>
+    <string name="enter_code">Masukkan Kode</string>
+    <string name="search_for_a_match">Cari Pertandingan</string>
+    <string name="results">Hasil:</string>
+    <string name="wait_for_the_results">Tunggu hasil…</string>
+    <string name="register">Daftar</string>
+    <string name="go_to_login">Menuju ke Login</string>
+    <string name="submit">Kirim</string>
+    <string name="you_won_a_secret_avatar_press_avatar_to_use">Anda Menang Avatar Rahasia! Tekan Avatar untuk Menggunakan</string>
+    <string name="about">Tentang</string>
+    <string name="easter_egg">Telur Paskah</string>
+    <string name="reset_game_scores">Reset Skor Permainan</string>
+
+
+    <string name="Do_you_want_to_exit_Game">Apakah kamu ingin keluar dari permainan?</string>
+    <string name="Yes">Ya</string>
+    <string name="No">Tidak</string>
+    <string name="Chose_Option">\Pilih Opsi </string>
+    <string name="Question">\Pertanyaan: </string>
+    <string name="Best_Score">\Skor Terbaik\ </string>
+    <string name="Please_Provide_Email">Silahkan Masukkan Email</string>
+    <string name="Password_Sent_to_Email">\Password Terkirim ke Email </string>
+    <string name="Password_Not_Sending_to_Email">Password Tidak Terkirim ke Email</string>
+    <string name="Enter_Email">Masukkan Email</string>
+    <string name="Enter_Password">Masukkan Password</string>
+    <string name="Authentication_failed">Autentikasi gagal.</string>
     <string name="firebaseAuthWithGoogle">firebaseAuthWithGoogle:</string>
-    <string name="Google_sign_in_failed">Google sign in failed</string>
-    <string name="User_is_already_connected">User is already connected</string>
-    <string name="number_of_online_users">\ number of online users: \</string>
-    <string name="You_Dont_have_Enough_Points">You Don\'t have Enough Points</string>
-    <string name="Hello">\Hello \</string>
-    <string name="Pointss">\Points: \</string>
-    <string name="Avatar_is_Usable2">Avatar is Usable</string>
-    <string name="Best_Score2">\Best Score \</string>
-    <string name="pass_six_points">\"You need to Pass Previous Level at 6 Points, Now you have only \"</string>
-    <string name="Guess">Guess the flag</string>
+    <string name="Google_sign_in_failed">Masuk dengan Google gagal</string>
+    <string name="User_is_already_connected">Pengguna sudah terhubung</string>
+    <string name="number_of_online_users">\ jumlah pengguna online: </string>
+    <string name="You_Dont_have_Enough_Points">Kamu tidak memiliki cukup poin</string>
+    <string name="Hello">\Halo </string>
+    <string name="Pointss">\Poin: </string>
+    <string name="Avatar_is_Usable2">Avatar dapat digunakan</string>
+    <string name="Best_Score2">\Skor Terbaik </string>
+    <string name="pass_six_points">"Anda perlu melewati level sebelumnya dengan 6 poin, Sekarang kamu hanya memiliki "</string>
+    <string name="Guess">Tebak bendera</string>
     <string name="Kuwait">Kuwait</string>
     <string name="Albania">Albania</string>
     <string name="Sri_Lanka">Sri Lanka</string>
-    <string name="Poland">Poland</string>
+    <string name="Poland">Polandia</string>
+
+
     <string name="Senegal">Senegal</string>
     <string name="Myanmar">Myanmar</string>
-    <string name="Cameroon">Cameroon</string>
+    <string name="Cameroon">Kamerun</string>
     <string name="Venezuela">Venezuela</string>
-    <string name="New_Zealand">New Zealand</string>
+    <string name="New_Zealand">Selandia Baru</string>
     <string name="Fiji">Fiji</string>
     <string name="Tuvalu">Tuvalu</string>
     <string name="Australia">Australia</string>
-    <string name="Greece">Greece</string>
+    <string name="Greece">Yunani</string>
     <string name="Uruguay">Uruguay</string>
     <string name="Malaysia">Malaysia</string>
     <string name="Liberia">Liberia</string>
-    <string name="Iceland">Iceland</string>
-    <string name="Norway">Norway</string>
-    <string name="Finland">Finland</string>
+    <string name="Iceland">Islandia</string>
+    <string name="Norway">Norwegia</string>
+    <string name="Finland">Finlandia</string>
     <string name="Denmark">Denmark</string>
     <string name="Burundi">Burundi</string>
     <string name="Georgia">Georgia</string>
-    <string name="Dominica">Dominica</string>
-    <string name="United_Kingdom">United Kingdom</string>
+    <string name="Dominica">Dominika</string>
+    <string name="United_Kingdom">Inggris Raya</string>
     <string name="Uzbekistan">Uzbekistan</string>
     <string name="Brunei">Brunei</string>
-    <string name="Maldives">Maldives</string>
-    <string name="Monaco">Monaco</string>
-    <string name="Belarus">Belarus</string>
-    <string name="Ukraine">Ukraine</string>
+    <string name="Maldives">Maladewa</string>
+    <string name="Monaco">Monako</string>
+    <string name="Belarus">Belarusia</string>
+    <string name="Ukraine">Ukraina</string>
     <string name="Indonesia">Indonesia</string>
+
+
+
+
     <string name="Laos">Laos</string>
     <string name="Niger">Niger</string>
     <string name="Bangladesh">Bangladesh</string>
-    <string name="Japan">Japan</string>
-    <string name="Lithuania">Lithuania</string>
-    <string name="Switzerland">Switzerland</string>
-    <string name="Netherlands">Netherlands</string>
+    <string name="Japan">Jepang</string>
+    <string name="Lithuania">Lituania</string>
+    <string name="Switzerland">Swiss</string>
+    <string name="Netherlands">Belanda</string>
     <string name="Latvia">Latvia</string>
-    <string name="Hebrew">Hebrew</string>
-    <string name="English">English</string>
+    <string name="Hebrew">Ibrani</string>
+    <string name="English">Inggris</string>
     <string name="Burkina_Faso">Burkina Faso</string>
     <string name="Serbia">Serbia</string>
-    <string name="Slovakia">Slovakia</string>
+    <string name="Slovakia">Slowakia</string>
     <string name="Slovenia">Slovenia</string>
     <string name="Bulgaria">Bulgaria</string>
     <string name="Malta">Malta</string>
-    <string name="Mona">Monaco</string>
+    <string name="Mona">Monako</string>
     <string name="Malawi">Malawi</string>
     <string name="Kenya">Kenya</string>
-    <string name="South_Sudan">South Sudan</string>
+    <string name="South_Sudan">Sudan Selatan</string>
     <string name="Suriname">Suriname</string>
-    <string name="Cape_Verde">Cape Verde</string>
+    <string name="Cape_Verde">Tanjung Verde</string>
     <string name="Nauru">Nauru</string>
-    <string name="Marshall_islands">Marshall islands</string>
+    <string name="Marshall_islands">Kepulauan Marshall</string>
     <string name="Belize">Belize</string>
     <string name="Angola">Angola</string>
-    <string name="East_Timor">East Timor</string>
-    <string name="Antigua_and_Barbuda">Antigua and Barbuda</string>
-    <string name="Papua_New_Guinea">Papua New Guinea</string>
+
+    <string name="East_Timor">Timor Leste</string>
+    <string name="Antigua_and_Barbuda">Antigua dan Barbuda</string>
+    <string name="Papua_New_Guinea">Papua Nugini</string>
     <string name="El_Salvador">El Salvador</string>
     <string name="Honduras">Honduras</string>
-    <string name="Nicaragua">Nicaragua</string>
+    <string name="Nicaragua">Nikaragua</string>
     <string name="Guatemala">Guatemala</string>
-    <string name="Comoros">Comoros</string>
+    <string name="Comoros">Komoro</string>
     <string name="Grenada">Grenada</string>
     <string name="Barbados">Barbados</string>
     <string name="Namibia">Namibia</string>
     <string name="Seychelles">Seychelles</string>
-    <string name="Solomon_Islands">Solomon Islands</string>
-    <string name="Congo">Congo</string>
-    <string name="Croatia">Croatia</string>
-    <string name="Luxembourg">Luxembourg</string>
-    <string name="Dominican_Republic">Dominican Republic</string>
-    <string name="Hungary">Hungary</string>
+    <string name="Solomon_Islands">Kepulauan Solomon</string>
+    <string name="Congo">Kongo</string>
+    <string name="Croatia">Kroasia</string>
+    <string name="Luxembourg">Luksemburg</string>
+    <string name="Dominican_Republic">Republik Dominika</string>
+    <string name="Hungary">Hungaria</string>
     <string name="Tajikistan">Tajikistan</string>
     <string name="Guinea">Guinea</string>
+
+
     <string name="Moldova">Moldova</string>
     <string name="Qatar">Qatar</string>
     <string name="Bahrain">Bahrain</string>
@@ -233,112 +264,128 @@
     <string name="Austria">Austria</string>
     <string name="Sierra_Leone">Sierra Leone</string>
     <string name="Guinea_Bissau">Guinea Bissau</string>
-    <string name="Equatorial_Guinea">Equatorial Guinea</string>
+    <string name="Equatorial_Guinea">Guinea Khatulistiwa</string>
     <string name="Uganda">Uganda</string>
     <string name="Botswana">Botswana</string>
-    <string name="Costa_Rica">Costa Rica</string>
+    <string name="Costa_Rica">Kosta Rika</string>
     <string name="Samoa">Samoa</string>
     <string name="Togo">Togo</string>
-    <string name="Chile">Chile</string>
+    <string name="Chile">Cile</string>
     <string name="Rwanda">Rwanda</string>
     <string name="Armenia">Armenia</string>
     <string name="Estonia">Estonia</string>
-    <string name="Cambodia">Cambodia</string>
+    <string name="Cambodia">Kamboja</string>
     <string name="Mongolia">Mongolia</string>
-    <string name="South_Korea">South Korea</string>
-    <string name="North_Korea">North Korea</string>
+    <string name="South_Korea">Korea Selatan</string>
+    <string name="North_Korea">Korea Utara</string>
+
+
+
     <string name="Palau">Palau</string>
     <string name="Taiwan">Taiwan</string>
-    <string name="Spain">Spain</string>
+    <string name="Spain">Spanyol</string>
     <string name="Paraguay">Paraguay</string>
     <string name="Portugal">Portugal</string>
-    <string name="Ecuador">Ecuador</string>
-    <string name="Romania">Romania</string>
+    <string name="Ecuador">Ekuador</string>
+    <string name="Romania">Rumania</string>
     <string name="Chad">Chad</string>
     <string name="Andorra">Andorra</string>
     <string name="Eritrea">Eritrea</string>
     <string name="Zimbabwe">Zimbabwe</string>
-    <string name="South_Africa">South Africa</string>
+    <string name="South_Africa">Afrika Selatan</string>
     <string name="Vanuatu">Vanuatu</string>
     <string name="Montenegro">Montenegro</string>
     <string name="Tonga">Tonga</string>
-    <string name="Turkey">Turkey</string>
+    <string name="Turkey">Turki</string>
     <string name="Tunisia">Tunisia</string>
     <string name="Libya">Libya</string>
     <string name="Zambia">Zambia</string>
     <string name="Pakistan">Pakistan</string>
     <string name="Turkmenistan">Turkmenistan</string>
     <string name="Azerbaijan">Azerbaijan</string>
-    <string name="United_Arab_Emirates">United Arab Emirates</string>
+    <string name="United_Arab_Emirates">Uni Emirat Arab</string>
     <string name="Sudan">Sudan</string>
-    <string name="Jordan">Jordan</string>
-    <string name="Micronesia">Micronesia</string>
+    <string name="Jordan">Yordania</string>
+    <string name="Micronesia">Mikronesia</string>
     <string name="Somalia">Somalia</string>
     <string name="Benin">Benin</string>
-    <string name="Madagascar">Madagascar</string>
-    <string name="Saint_Lucia">Saint Lucia</string>
-    <string name="Ethiopia">Ethiopia</string>
+    <string name="Madagascar">Madagaskar</string>
+    <string name="Saint_Lucia">Santa Lusia</string>
+
+
+
+
+    <string name="Ethiopia">Etiopia</string>
     <string name="Bhutan">Bhutan</string>
     <string name="China">China</string>
     <string name="Oman">Oman</string>
-    <string name="Central_African_Republic">Central African Republic</string>
+    <string name="Central_African_Republic">Republik Afrika Tengah</string>
     <string name="Gambia">Gambia</string>
-    <string name="Syria">Syria</string>
+    <string name="Syria">Suriah</string>
     <string name="Djibouti">Djibouti</string>
     <string name="Mauritania">Mauritania</string>
-    <string name="Philippines">Philippines</string>
-    <string name="Democratic_Republic_of_the_Congo">Democratic Republic of the Congo</string>
-    <string name="Saint_Kitts_And_Nevis">Saint Kitts And Nevis</string>
-    <string name="Bahamas">Bahamas</string>
-    <string name="Mozambique">Mozambique</string>
-    <string name="Ivory_Coast">Ivory Coast</string>
-    <string name="Vatican_City">Vatican City</string>
-    <string name="Saint_Vincent_and_the_Grenadines">Saint Vincent and the Grenadines</string>
-    <string name="Sao_Tome_and_Príncipe">Sao Tome and Príncipe</string>
-    <string name="Kyrgyzstan">Kyrgyzstan</string>
+    <string name="Philippines">Filipina</string>
+    <string name="Democratic_Republic_of_the_Congo">Republik Demokratik Kongo</string>
+    <string name="Saint_Kitts_And_Nevis">Saint Kitts dan Nevis</string>
+    <string name="Bahamas">Bahama</string>
+    <string name="Mozambique">Mozambik</string>
+    <string name="Ivory_Coast">Pantai Gading</string>
+    <string name="Vatican_City">Vatikan</string>
+    <string name="Saint_Vincent_and_the_Grenadines">Saint Vincent dan Grenadines</string>
+    <string name="Sao_Tome_and_Príncipe">Sao Tome dan Principe</string>
+    <string name="Kyrgyzstan">Kirgistan</string>
     <string name="Kazakhstan">Kazakhstan</string>
-    <string name="Sweden">Sweden</string>
+    <string name="Sweden">Swedia</string>
     <string name="Argentina">Argentina</string>
-    <string name="Ireland">Ireland</string>
-    <string name="Germany">Germany</string>
-    <string name="Iraq">Iraq</string>
-    <string name="Egypt">Egypt</string>
+    <string name="Ireland">Irlandia</string>
+    <string name="Germany">Jerman</string>
+    <string name="Iraq">Irak</string>
+    <string name="Egypt">Mesir</string>
+
+
+
+
     <string name="Iran">Iran</string>
     <string name="Bosnia">Bosnia</string>
-    <string name="Mexico">Mexico</string>
+    <string name="Mexico">Meksiko</string>
     <string name="Bolivia">Bolivia</string>
     <string name="Peru">Peru</string>
     <string name="Kiribati">Kiribati</string>
-    <string name="Cyprus">Cyprus</string>
+    <string name="Cyprus">Siprus</string>
     <string name="Lebanon">Lebanon</string>
-    <string name="Belgium">Belgium</string>
-    <string name="Italy">Italy</string>
-    <string name="France">France</string>
+    <string name="Belgium">Belgia</string>
+    <string name="Italy">Italia</string>
+    <string name="France">Perancis</string>
     <string name="Vietnam">Vietnam</string>
-    <string name="Morocco">Morocco</string>
+    <string name="Morocco">Maroko</string>
     <string name="India">India</string>
     <string name="Eswatini">Eswatini</string>
     <string name="Nepal">Nepal</string>
-    <string name="Canada">Canada</string>
-    <string name="Singapore">Singapore</string>
-    <string name="Czech_Republic">Czech Republic</string>
-    <string name="Afghanistan">Afghanistan</string>
-    <string name="Christmas_Island">Christmas Island</string>
+    <string name="Canada">Kanada</string>
+    <string name="Singapore">Singapura</string>
+    <string name="Czech_Republic">Republik Ceko</string>
+
+
+
+
+    <string name="Afghanistan">Afganistan</string>
+    <string name="Christmas_Island">Pulau Christmas</string>
     <string name="Lesotho">Lesotho</string>
     <string name="Mali">Mali</string>
     <string name="Nigeria">Nigeria</string>
     <string name="Israel">Israel</string>
-    <string name="Jamaica">Jamaica</string>
-    <string name="Brazil">Brazil</string>
-    <string name="Colombia">Colombia</string>
-    <string name="Russia">Russia</string>
-    <string name="Saudi_Arabia">Saudi Arabia</string>
+    <string name="Jamaica">Jamaika</string>
+    <string name="Brazil">Brasil</string>
+    <string name="Colombia">Kolombia</string>
+    <string name="Russia">Rusia</string>
+    <string name="Saudi_Arabia">Arab Saudi</string>
     <string name="Bengali">Bengali</string>
     <string name="Filipino">Filipino</string>
-    <string name="Spanish">Spanish</string>
+    <string name="Spanish">Spanyol</string>
     <string name="Hindi">Hindi</string>
-    <string name="Indonesian">Indonesian</string>
-    <string name="Malay">Malay</string>
-    <string name="Portuguese">Portuguese</string>
-
+    <string name="Indonesian">Indonesia</string>
+    <string name="Malay">Melayu</string>
+    <string name="Portuguese">Portugis</string>
+    <string name="Connect_to_Internet">Silakan Hubungkan ke Internet untuk Melihat Papan Peringkat</string>
+    <string name="Connect_to_a_User">Silakan Hubungkan ke Pengguna untuk Melihat Papan Peringkat</string>
 </resources>

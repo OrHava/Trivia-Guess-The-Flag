@@ -8,10 +8,10 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
-import android.os.Build;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -312,7 +312,7 @@ public class MainMenu extends AppCompatActivity  {
 
     btnLeaderBoard.setOnClickListener(view -> {
 
-        if(user != null){
+        if(user != null && isNetworkConnected()) {
 
             if (!flag){
                 mp.setVolume(0,0);
@@ -327,8 +327,14 @@ public class MainMenu extends AppCompatActivity  {
 
         }
 
+        else if (!isNetworkConnected()){
+            Toast.makeText(this, ""+R.string.Connect_to_Internet, Toast.LENGTH_SHORT).show();
+
+
+        }
+
         else{
-            Toast.makeText(this, "Please Connect to a User To Watch LeaderBoard", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -338,7 +344,8 @@ public class MainMenu extends AppCompatActivity  {
 
         btnMultiPlayer.setOnClickListener(view -> {
 
-            if(user != null){
+
+            if(user != null && isNetworkConnected() ){
                 if (!flag){
                     mp.setVolume(0,0);
                 }
@@ -350,6 +357,14 @@ public class MainMenu extends AppCompatActivity  {
                 startActivity(new Intent(MainMenu.this, MultiPlayer.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
+
+            else if (!isNetworkConnected()){
+                Toast.makeText(this, "Please Connect to Internet To Play MultiPLayer", Toast.LENGTH_SHORT).show();
+
+
+            }
+
+
             else{
                 Toast.makeText(this, "Please Connect to a User To Play MultiPLayer", Toast.LENGTH_SHORT).show();
             }
@@ -363,6 +378,12 @@ public class MainMenu extends AppCompatActivity  {
 
 
 }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
 //void connectToPlayGamesAnSaveScores(){
 //    mAuth = FirebaseAuth.getInstance();
 //    signInRequest = BeginSignInRequest.builder()

@@ -339,12 +339,13 @@
     <string name="Colombia">কলোম্বিয়া</string>
     <string name="Russia">রাশিয়া</string>
     <string name="Saudi_Arabia">সৌদি আরব</string>৷
-    <string name="Bengali">Bengali</string>
-    <string name="Filipino">Filipino</string>
-    <string name="Spanish">Spanish</string>
-    <string name="Hindi">Hindi</string>
-    <string name="Indonesian">Indonesian</string>
-    <string name="Malay">Malay</string>
-    <string name="Portuguese">Portuguese</string>
-
+    <string name="Bengali">বাংলা</string>
+    <string name="Filipino">ফিলিপিনো</string>
+    <string name="Spanish">স্পেনীয়</string>
+    <string name="Hindi">হিন্দি</string>
+    <string name="Indonesian">ইন্দোনেশীয়</string>
+    <string name="Malay">মালায়</string>
+    <string name="Portuguese">পর্তুগীজ</string>
+    <string name="Connect_to_Internet">লিডারবোর্ড দেখতে ইন্টারনেটে সংযোগ করুন</string>
+    <string name="Connect_to_a_User">লিডারবোর্ড দেখতে একজন ব্যবহারকারীর সাথে সংযোগ করুন</string>
 </resources>

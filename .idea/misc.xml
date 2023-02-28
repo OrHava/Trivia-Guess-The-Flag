@@ -30,6 +30,7 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/button_round.xml" value="0.1985" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/button_shape.xml" value="0.2085" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/flag_foreground.xml" value="0.208" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/shape_border.xml" value="0.2085" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/.xml" value="0.11757161179991449" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/alfa_slab_one.xml" value="0.11757161179991449" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/annie_use_your_telescope.xml" value="0.11757161179991449" />
@@ -43,7 +44,7 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_buypemiumavatars.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_leader_board.xml" value="0.4" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.264" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_multi_player.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_profile.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_results.xml" value="0.152" />

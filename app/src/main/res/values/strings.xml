@@ -259,7 +259,7 @@
     <string name="Pointss">\Points: \</string>
     <string name="Avatar_is_Usable2">Avatar is Usable</string>
     <string name="Best_Score2">\Best Score \</string>
-    <string name="pass_six_points">\"You need to Pass Previous Level at 6 Points, Now you have only \"</string>
+    <string name="pass_six_points">\You need to Pass Previous Level at 6 Points, Now you have only \</string>
     <string name="Guess">Guess the flag</string>
     <string name="Kuwait">Kuwait</string>
     <string name="Albania">Albania</string>
@@ -458,6 +458,8 @@
     <string name="Indonesian">Indonesian</string>
     <string name="Malay">Malay</string>
     <string name="Portuguese">Portuguese</string>
+    <string name="Connect_to_Internet">Please Connect to Internet To Watch LeaderBoard</string>
+    <string name="Connect_to_a_User">Please Connect to a User To Watch LeaderBoard</string>
 
 
 </resources>

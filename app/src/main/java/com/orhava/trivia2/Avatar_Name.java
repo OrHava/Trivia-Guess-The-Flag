@@ -94,7 +94,7 @@ public class Avatar_Name extends AppCompatActivity {
         }
 
 
-        txtPoints.setText(getString(R.string.Pointss)+ amountOfGeneralPoints());
+        txtPoints.setText(getString(R.string.Pointss)+" "+ amountOfGeneralPoints());
         prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
         if(oldAvatarChoice==1){

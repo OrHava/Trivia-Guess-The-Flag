@@ -204,7 +204,6 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
                          if(String.valueOf(dsp.getValue()).equals(code) && !Objects.equals(dsp.getKey(), userId) && times==0){
                              codeHelper=code;
                              opponentUser=dsp.getKey();
-                             Toast.makeText(MultiPlayer.this, "There is a match!", Toast.LENGTH_SHORT).show();
                              configureNextButtonHelperSound();
                              Menu_Game.totalQuestions=10;
                              Menu_Game.WhichGame=12;
@@ -371,7 +370,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
     @Override
     public void onItemClick(View view, int position) {
       //  Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "To Start The Game Write The Same Code", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.To_Start_The_Game_Write_The_Same_Code, Toast.LENGTH_SHORT).show();
 
     }
 

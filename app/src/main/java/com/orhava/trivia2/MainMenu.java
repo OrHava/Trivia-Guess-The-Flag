@@ -6,10 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -22,7 +22,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
@@ -51,18 +50,14 @@ public class MainMenu extends AppCompatActivity  {
     public static boolean flag=true;
     public static final int[] i = {0};
     private Button btnLeaderBoard,SignOut, flags_GameBtn,name_AvatarBtn,btnMultiPlayer;
-    //public  static  String playerName;
-    private static final int RC_LEADERBOARD_UI = 9004;
     private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     private FirebaseAuth mAuth;
-   public BeginSignInRequest signInRequest ;
-   private TextView txtNameAndPoints,name_of_language;
-   private ImageView imgViewShowAvatar;
+    private TextView txtNameAndPoints,name_of_language;
+    private ImageView imgViewShowAvatar;
     private FirebaseUser user;
-
+    private Button btnShareGame,btnRateUs,btnFunFacts,btnMoreApps;
     private ImageButton btnHebrew, btnEnglish, Philippines_Language, India_Language, Indonesia_Language, Malaysia_Language, Spain_Language, bangladesh_Language,Brazil_Language;
-    private  Context context;
-    private  Resources resources;
+
 
 
 
@@ -93,6 +88,11 @@ public class MainMenu extends AppCompatActivity  {
         StartButtons();
         SaveScore();
         ChangeLanguage();
+        ShareApp();
+        RateApp();
+        MoreApps();
+        FunFacts();
+
 
 
 
@@ -103,12 +103,69 @@ public class MainMenu extends AppCompatActivity  {
 
     }
 
+    private void FunFacts() {
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
+        btnFunFacts.setOnClickListener(view -> {
+            if (!flag){
+                mp.setVolume(0,0);
+            }
+            else{
+                mp.setVolume(0,1);
+            }
+
+            mp.start();
+
+            startActivity(new Intent(MainMenu.this, Fun_Facts.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
+        });
+    }
+
+    private void MoreApps() {
+        btnMoreApps.setOnClickListener(view -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=7010355545573406247&pli=1"));
+            startActivity(browserIntent);
+
+        });
+
+    }
+
+    private void RateApp() {
+        btnRateUs.setOnClickListener(view -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.orhava.trivia2"));
+            startActivity(browserIntent);
+        });
+
+    }
+
+    private void ShareApp() {
+
+        btnShareGame.setOnClickListener(view -> {
+            try {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+                String shareMessage= "\nLet me recommend you this application\n\n";
+                shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=com.orhava.trivia2" +"\n\n";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(shareIntent, "choose one"));
+            } catch(Exception e) {
+                //e.toString();
+            }
+
+        });
+
+
+    }
+
     public void setLocale(String langCode, Context context) {
         Locale locale = new Locale(langCode);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.setLocale(locale);
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+
+
 
 
         // Save the language code and name in the SharedPreferences
@@ -167,92 +224,65 @@ public class MainMenu extends AppCompatActivity  {
         // Retrieve the language name from the SharedPreferences
         String langName = preferences.getString("langName", "");
         name_of_language.setText(langName);
-        btnHebrew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnHebrew.setOnClickListener(view -> {
 
 
-                setLocale("iw", MainMenu.this);
+            setLocale("iw", MainMenu.this);
 
-                name_of_language.setText(R.string.Hebrew);
+            name_of_language.setText(R.string.Hebrew);
 
-            }
         });
 
-        btnEnglish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnEnglish.setOnClickListener(view -> {
 
-                setLocale("en", MainMenu.this);
+            setLocale("en", MainMenu.this);
 
-                name_of_language.setText(R.string.English);
+            name_of_language.setText(R.string.English);
 
-            }
         });
 
 
-        Philippines_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("fil", MainMenu.this);
-                name_of_language.setText(R.string.Filipino);
+        Philippines_Language.setOnClickListener(view -> {
+            setLocale("fil", MainMenu.this);
+            name_of_language.setText(R.string.Filipino);
 
-            }
         });
 
-        India_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("hi", MainMenu.this);
+        India_Language.setOnClickListener(view -> {
+            setLocale("hi", MainMenu.this);
 
-                name_of_language.setText(R.string.Hindi);
+            name_of_language.setText(R.string.Hindi);
 
-            }
         });
-        Indonesia_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("in", MainMenu.this);
+        Indonesia_Language.setOnClickListener(view -> {
+            setLocale("in", MainMenu.this);
 
-                name_of_language.setText(R.string.Indonesian);
+            name_of_language.setText(R.string.Indonesian);
 
-            }
         });
-        Malaysia_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("ms", MainMenu.this);
+        Malaysia_Language.setOnClickListener(view -> {
+            setLocale("ms", MainMenu.this);
 
-                name_of_language.setText(R.string.Malay);
+            name_of_language.setText(R.string.Malay);
 
-            }
         });
-        Spain_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("gl", MainMenu.this);
+        Spain_Language.setOnClickListener(view -> {
+            setLocale("gl", MainMenu.this);
 
-                name_of_language.setText(R.string.Spanish);
+            name_of_language.setText(R.string.Spanish);
 
-            }
         });
-        bangladesh_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("bn", MainMenu.this);
+        bangladesh_Language.setOnClickListener(view -> {
+            setLocale("bn", MainMenu.this);
 
-                name_of_language.setText(R.string.Bengali);
+            name_of_language.setText(R.string.Bengali);
 
-            }
         });
-        Brazil_Language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale("pt", MainMenu.this);
+        Brazil_Language.setOnClickListener(view -> {
+            setLocale("pt", MainMenu.this);
 
-                name_of_language.setText(R.string.Portuguese);
+            name_of_language.setText(R.string.Portuguese);
 
-            }
         });
 
 
@@ -328,13 +358,14 @@ public class MainMenu extends AppCompatActivity  {
         }
 
         else if (!isNetworkConnected()){
-            Toast.makeText(this, ""+R.string.Connect_to_Internet, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Connect_to_Internet, Toast.LENGTH_SHORT).show();
 
 
         }
 
         else{
-            Toast.makeText(this, ""+R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, ""+R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -359,14 +390,14 @@ public class MainMenu extends AppCompatActivity  {
             }
 
             else if (!isNetworkConnected()){
-                Toast.makeText(this, "Please Connect to Internet To Play MultiPLayer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Please_Connect_to_Internet_To_Play_MultiPLayer, Toast.LENGTH_SHORT).show();
 
 
             }
 
 
             else{
-                Toast.makeText(this, "Please Connect to a User To Play MultiPLayer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Please_Connect_to_a_User_To_Play_MultiPLayer, Toast.LENGTH_SHORT).show();
             }
 
 
@@ -384,47 +415,6 @@ public class MainMenu extends AppCompatActivity  {
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();
     }
-//void connectToPlayGamesAnSaveScores(){
-//    mAuth = FirebaseAuth.getInstance();
-//    signInRequest = BeginSignInRequest.builder()
-//            .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-//                    .setSupported(true)
-//                    // Your server's client ID, not your Android client ID.
-//                    .setServerClientId(getString(R.string.Google_id))
-//                    // Only show accounts previously used to sign in.
-//                    .setFilterByAuthorizedAccounts(true)
-//                    .build())
-//            .build();
-//    onStart();
-//
-//    PlayGamesSdk.initialize(this);
-//    GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(this);
-//
-//    gamesSignInClient.isAuthenticated().addOnCompleteListener(isAuthenticatedTask -> {
-//        boolean isAuthenticated =
-//                (isAuthenticatedTask.isSuccessful() &&
-//                        isAuthenticatedTask.getResult().isAuthenticated());
-//
-//        if (isAuthenticated) {
-//            // Continue with Play Games Services
-//        } else {
-//
-//            // Disable your integration with Play Games Services or show a
-//            // login button to ask  players to sign-in. Clicking it should
-//            // call GamesSignInClient.signIn().
-//        }
-//    });
-//
-//
-//
-//    PlayGames.getLeaderboardsClient(this)
-//            .submitScore(getString(R.string.leaderboard_id), amountOfGeneralPoints());
-//
-//
-//
-//
-//
-//}
 
 
     @Override
@@ -529,7 +519,7 @@ public class MainMenu extends AppCompatActivity  {
         }
 
         else {
-            SignOut.setText("Sign In");
+            SignOut.setText(R.string.Sign_In);
             SignOut.setVisibility(View.VISIBLE);
             SignOut.setOnClickListener(view -> {
                 startActivity(new Intent(MainMenu.this, SignIn.class));
@@ -551,7 +541,7 @@ public class MainMenu extends AppCompatActivity  {
         SharedPreferences prefs2 = PreferenceManager
                 .getDefaultSharedPreferences(this);
 
-        txtNameAndPoints.setText("Hello "+prefs2.getString("autoSave", "")+ " you have " +amountOfGeneralPoints() +" Points");
+        txtNameAndPoints.setText(getString(R.string.Hello2)+" "+prefs2.getString("autoSave", "")+ " "+getString(R.string.you_have)+" " +amountOfGeneralPoints() + " " +getString(R.string.Points2));
         SharedPreferences prefs3;
         prefs3 = MainMenu.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
@@ -638,8 +628,13 @@ public class MainMenu extends AppCompatActivity  {
         imgViewShowAvatar = findViewById(R.id.imgViewShowAvatar);
         btnMultiPlayer= findViewById(R.id.btnMultiPlayer);
         mAuth = FirebaseAuth.getInstance();
+        btnShareGame= findViewById(R.id.btnShareGame);
+        btnRateUs=findViewById(R.id.btnRateUs);
+        btnFunFacts=findViewById(R.id.btnFunFacts);
         btnHebrew= findViewById(R.id.Israel_Language);
         btnEnglish= findViewById(R.id.England_Language);
+        btnMoreApps= findViewById(R.id.btnMoreApps);
+
         name_of_language= findViewById(R.id.name_of_language);
 
         Philippines_Language=findViewById(R.id.Philippines_Language);

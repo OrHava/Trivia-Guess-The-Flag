@@ -2,57 +2,17 @@
 <resources>
     <string name="app_name">Flags Game of All Countries</string>
 
-    <string name="prompt_email">Emel</string>
-    <string name="prompt_password">Kata Laluan</string>
-    <string name="action_sign_in">Daftar masuk atau mendaftar</string>
-    <string name="action_sign_in_short">Daftar masuk</string>
-    <string name="welcome">"Selamat datang!"</string>
-    <string name="invalid_username">Bukan nama pengguna yang sah</string>
-    <string name="invalid_password">Kata laluan mesti >5 aksara</string>
-    <string name="login_failed">"Gagal daftar masuk"</string>
-    <string name="became_a_flag_master_today">Menjadi Penguasa Bendera Hari Ini!</string>
 
-
-
-
-    <string name="Avatar_is_Usable">Avatar boleh digunakan</string>
     <string name="flags_game">Permainan Bendera</string>
-    <string name="Points">Mata</string>
     <string name="name_and_avatar">Nama dan Avatar</string>
     <string name="mute_or_unmute">Senyap atau Buka suara</string>
     <string name="setting_icon" translatable="false">Ikon tetapan</string>
 
 
     <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="leaderboard_id" translatable="false">CgkI6_f3lOsQEAIQBA</string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="Google_id2" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
 
 
-
-
-    <string name="points">Mata:</string>
-    <string name="todo" translatable="false">TODO</string>
-    <string name="user_name">Nama Pengguna</string>
-    <string name="todo1" translatable="false">TODO</string>
-    <string name="_20_points">20 Mata</string>
-    <string name="_10_points">10 Mata</string>
-    <string name="_30_points">30 Mata</string>
-    <string name="_50_points">50 Mata</string>
-    <string name="_40_points">40 Mata</string>
-    <string name="_60_points">60 Mata</string>
-    <string name="_80_points">80 Mata</string>
-    <string name="_70_points">70 Mata</string>
-    <string name="_90_points">90 Mata</string>
-    <string name="press_to_buy">Tekan untuk Beli</string>
-    <string name="_110_points">110 Mata</string>
-    <string name="_100_points">100 Mata</string>
-    <string name="_120_points">120 Mata</string>
-    <string name="not_available">Tidak Tersedia</string>
-    <string name="todo2">TODO</string>
-    <string name="todo3">TODO</string>
-    <string name="todo4">TODO</string>
-    <string name="sign_in">Masuk</string>
     <string name="email">Email</string>
     <string name="password">Kata Sandi</string>
     <string name="login">MASUK</string>
@@ -71,10 +31,6 @@
     <string name="become_a_flag_master_today">jadi tuan bendera hari ini</string>
     <string name="leaderboard">Papan peringkat</string>
     <string name="sign_out">Log keluar</string>
-    <string name="name">nama</string>
-    <string name="id">ID</string>
-    <string name="logout">Log Keluar</string>
-    <string name="enter_game">Masuk Permainan</string>
     <string name="novice">Pemula</string>
     <string name="learner">Pelajar</string>
     <string name="apprentice">Penyegini</string>
@@ -383,5 +339,18 @@
     <string name="Portuguese">Bahasa Portugis</string>
     <string name="Connect_to_Internet">Sila Sambung ke Internet untuk Melihat Papan Pemimpin</string>
     <string name="Connect_to_a_User">Sila Sambung ke Pengguna untuk Melihat Papan Pemimpin</string>
+    <string name="Please_Connect_to_Internet_To_Play_MultiPLayer">Please Connect to Internet To Play MultiPLayer</string>
+    <string name="Please_Connect_to_a_User_To_Play_MultiPLayer">Please Connect to a User To Play MultiPLayer</string>
+    <string name="Hello2">Hello</string>
+    <string name="Points2">Points</string>
+    <string name="you_have">you have</string>
+    <string name="Sign_In">Sign In</string>
+    <string name="To_Start_The_Game_Write_The_Same_Code">To Start The Game Write The Same Code</string>
+    <string name="VS">VS</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="fun_facts">Fun Facts</string>
+    <string name="more_apps">More Apps</string>
+
 
 </resources>

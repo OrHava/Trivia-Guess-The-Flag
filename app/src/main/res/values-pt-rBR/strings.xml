@@ -2,51 +2,16 @@
 <resources>
     <string name="app_name">Flags Game of All Countries</string>
 
-    <string name="prompt_email">E-mail</string>
-    <string name="prompt_password">Senha</string>
-    <string name="action_sign_in">Entrar ou registrar</string>
-    <string name="action_sign_in_short">Entrar</string>
-    <string name="welcome">"Bem-vindo!"</string>
-    <string name="invalid_username">Nome de usuário inválido</string>
-    <string name="invalid_password">A senha deve ter mais de 5 caracteres</string>
-    <string name="login_failed">"Falha no login"</string>
-    <string name="became_a_flag_master_today">Tornou-se um Mestre de Bandeiras Hoje!</string>
-    <string name="Avatar_is_Usable">Avatar está disponível para uso</string>
     <string name="flags_game">Jogo das bandeiras</string>
-    <string name="Points">Pontos</string>
     <string name="name_and_avatar">Nome e Avatar</string>
     <string name="mute_or_unmute">Silenciar ou Ativar Som</string>
     <string name="setting_icon" translatable="false">Ícone de configurações</string>
 
 
     <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="leaderboard_id" translatable="false">CgkI6_f3lOsQEAIQBA</string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="Google_id2" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
 
 
-    <string name="points">Pontos:</string>
-    <string name="todo" translatable="false">A FAZER</string>
-    <string name="user_name">Nome de usuário</string>
-    <string name="todo1" translatable="false">A FAZER</string>
-    <string name="_20_points">20 pontos</string>
-    <string name="_10_points">10 pontos</string>
-    <string name="_30_points">30 pontos</string>
-    <string name="_50_points">50 pontos</string>
-    <string name="_40_points">40 pontos</string>
-    <string name="_60_points">60 pontos</string>
-    <string name="_80_points">80 pontos</string>
-    <string name="_70_points">70 pontos</string>
-    <string name="_90_points">90 pontos</string>
-    <string name="press_to_buy">Pressione para comprar</string>
-    <string name="_110_points">110 pontos</string>
-    <string name="_100_points">100 pontos</string>
-    <string name="_120_points">120 pontos</string>
-    <string name="not_available">Não disponível</string>
-    <string name="todo2">A FAZER</string>
-    <string name="todo3">A FAZER</string>
-    <string name="todo4">A FAZER</string>
-    <string name="sign_in">Entrar</string>
     <string name="email">Email</string>
     <string name="password">Senha</string>
     <string name="login">ENTRAR</string>
@@ -57,10 +22,6 @@
     <string name="become_a_flag_master_today">torne-se um mestre das bandeiras hoje</string>
     <string name="leaderboard">LeaderBoard</string>
     <string name="sign_out">Sair</string>
-    <string name="name">nome</string>
-    <string name="id">ID</string>
-    <string name="logout">Sair</string>
-    <string name="enter_game">Entrar no jogo</string>
     <string name="novice">Novato</string>
     <string name="learner">Aprendiz</string>
     <string name="apprentice">Aprendiz</string>
@@ -364,5 +325,18 @@
     <string name="Portuguese">Português</string>
     <string name="Connect_to_Internet">Por favor, conecte-se à internet para ver a tabela de classificação</string>
     <string name="Connect_to_a_User">Por favor, conecte-se a um usuário para ver a tabela de classificação</string>
+    <string name="Please_Connect_to_Internet_To_Play_MultiPLayer">Please Connect to Internet To Play MultiPLayer</string>
+    <string name="Please_Connect_to_a_User_To_Play_MultiPLayer">Please Connect to a User To Play MultiPLayer</string>
+    <string name="Hello2">Hello</string>
+    <string name="Points2">Points</string>
+    <string name="you_have">you have</string>
+    <string name="Sign_In">Sign In</string>
+    <string name="To_Start_The_Game_Write_The_Same_Code">To Start The Game Write The Same Code</string>
+    <string name="VS">VS</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="fun_facts">Fun Facts</string>
+    <string name="more_apps">More Apps</string>
+
 
 </resources>

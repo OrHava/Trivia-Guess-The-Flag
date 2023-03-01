@@ -29,6 +29,7 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable-v24/rounded_corner.xml" value="0.208" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/button_round.xml" value="0.1985" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/button_shape.xml" value="0.2085" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/circular_progress_bar.xml" value="0.251" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/flag_foreground.xml" value="0.208" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/drawable/shape_border.xml" value="0.2085" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/font/.xml" value="0.11757161179991449" />
@@ -42,9 +43,10 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_ads.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_avatar_name.xml" value="0.36933333333333335" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_buypemiumavatars.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_fun_facts.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_leader_board.xml" value="0.4" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_main_menu.xml" value="0.3866559485530547" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_multi_player.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_profile.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/layout/activity_results.xml" value="0.152" />
@@ -110,6 +112,10 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother2.xml" value="0.2595" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother2_round.xml" value="0.124" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/rightnewmother_round.xml" value="0.2595" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/vs.xml" value="0.251" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/vs_round.xml" value="0.251" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/world_map_icon_for_leaderboard.xml" value="0.251" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/mipmap-anydpi-v26/world_map_icon_for_leaderboard_round.xml" value="0.251" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/newTrivia2/app/src/main/res/xml/root_preferences.xml" value="0.11302083333333333" />
       </map>
     </option>

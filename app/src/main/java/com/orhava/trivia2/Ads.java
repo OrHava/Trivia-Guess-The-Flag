@@ -11,8 +11,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
@@ -25,7 +23,6 @@ import io.reactivex.annotations.NonNull;
  */
 public class Ads extends AppCompatActivity {
 
-    private static final long GAME_LENGTH_MILLISECONDS = 3000;
     //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/8691691433"; //just testing not real ad, video
     //private static final String AD_UNIT_ID = "ca-app-pub-8096185122491583/8714822405"; //real ad video
     private static final String TAG = "Ads";
@@ -39,10 +36,7 @@ public class Ads extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@androidx.annotation.NonNull InitializationStatus initializationStatus) {}
-        });
+        MobileAds.initialize(this, initializationStatus -> {});
         AdRequest adRequest = new AdRequest.Builder().build();
 
         InterstitialAd.load(this,"ca-app-pub-8096185122491583/8714822405", adRequest,

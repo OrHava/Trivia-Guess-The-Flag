@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="prompt_email">איימל</string>
-    <string name="prompt_password">סיסמא</string>
-    <string name="action_sign_in">הרשמה</string>
-    <string name="action_sign_in_short">כניסה</string>
-    <string name="welcome">ברוך הבא!</string>
-    <string name="invalid_username">שם משתמש לא אפשרי</string>
-    <string name="invalid_password">סיסמא צריכה להיות גדולה מ5 מספרים</string>
-    <string name="login_failed">כניסה נכשלה</string>
-    <string name="became_a_flag_master_today">הפוך למאסטר דגלים היום!</string>
-    <string name="Avatar_is_Usable">אווטאר ניתן לשימוש</string>
     <string name="flags_game">משחק דגלים</string>
-    <string name="Points">נקודות</string>
     <string name="name_and_avatar">שם ואווטאר</string>
     <string name="mute_or_unmute">השתקה או אי השתקה</string>
-    <string name="points">נקודות:</string>
-    <string name="user_name">שם משתמש:</string>
-    <string name="_20_points">20 נקודות</string>
-    <string name="_10_points">10 נקודות</string>
-    <string name="_30_points">30 נקודות</string>
-    <string name="_50_points">50 נקודות</string>
-    <string name="_40_points">40 נקודות</string>
-    <string name="_60_points">60 נקודות</string>
-    <string name="_80_points">80 נקודות</string>
-    <string name="_70_points">70 נקודות</string>
-    <string name="_90_points">90 נקודות</string>
-    <string name="press_to_buy">לחיצה לקנייה</string>
-    <string name="_110_points">110 נקודות</string>
-    <string name="_100_points">100 נקודות</string>
-    <string name="_120_points">120 נקודות</string>
-    <string name="not_available">לא ניתן לשימוש</string>
-    <string name="todo2">TODO</string>
-    <string name="todo3">TODO</string>
-    <string name="todo4">TODO</string>
-    <string name="sign_in">כניסה</string>
     <string name="email">איימל</string>
     <string name="password">סיסמא</string>
     <string name="login">כניסה</string>
@@ -44,10 +13,6 @@
     <string name="become_a_flag_master_today">הפוך למאסטר דגלים היום!</string>
     <string name="leaderboard">לוח תוצאות</string>
     <string name="sign_out">יציאה</string>
-    <string name="name">שם</string>
-    <string name="id">ת"ז</string>
-    <string name="logout">יציאה</string>
-    <string name="enter_game">כניסה למשחק</string>
     <string name="novice">מתחיל</string>
     <string name="learner">תלמיד</string>
     <string name="apprentice">חניך</string>
@@ -332,4 +297,16 @@
     <string name="Portuguese">פורטוגזית</string>
     <string name="Connect_to_Internet">בבקשה תתחבר לאינרטנט.</string>
     <string name="Connect_to_a_User">בבקשה תתחבר למשתמש.</string>
+    <string name="Please_Connect_to_Internet_To_Play_MultiPLayer">בבקשה תתחבר לאינרטנט.</string>
+    <string name="Please_Connect_to_a_User_To_Play_MultiPLayer">בבקשה תתחבר למשתמש.</string>
+    <string name="Hello2">שלום</string>
+    <string name="Points2">נקודות</string>
+    <string name="you_have">יש לך</string>
+    <string name="Sign_In">כניסה</string>
+    <string name="To_Start_The_Game_Write_The_Same_Code">כדי להתחיל משחק רשום אותו קוד</string>
+    <string name="VS">נגד</string>
+    <string name="share">שיתוף</string>
+    <string name="rate_us">דרגו אותנו</string>
+    <string name="fun_facts">עובדות מעניינות</string>
+    <string name="more_apps">עוד אפליקציות</string>
 </resources>

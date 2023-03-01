@@ -35,7 +35,6 @@ public class ResultsMultiPlayer extends AppCompatActivity {
     private FirebaseUser user;
     private TextView resultTxtPlayers;
     private int ScoreOtherUser=0 ;
-    private String passStatus ="";
     private int times=0,times2=0;
     private ImageButton FinishQuiz,restartQuizBtn;
     private  LottieAnimationView loadingAnim;
@@ -82,6 +81,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         mp2 = MediaPlayer.create(this, R.raw.goodresult);
         mp3 = MediaPlayer.create(this, R.raw.lose);
         mp4 = MediaPlayer.create(this, R.raw.drawsound);
+        String passStatus;
         if (Game.scoreMultiPlayer > ScoreOtherUser ) {
             passStatus = "You Won";
             layout.setBackgroundColor(Color.BLUE);
@@ -344,7 +344,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         // do something when the button is clicked
         new AlertDialog.Builder(this)
                 .setMessage("Do you want to exit Game?")
-                .setPositiveButton("Yes", (arg0, arg1) -> {;
+                .setPositiveButton("Yes", (arg0, arg1) -> {
                     if(mp4!=null){
                         mp4.release();
                     }

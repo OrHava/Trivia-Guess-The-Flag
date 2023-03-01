@@ -93,8 +93,8 @@
 
     <ImageView
         android:id="@+id/flags"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
+        android:layout_width="400dp"
+        android:layout_height="160dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
         android:contentDescription="Flags"
@@ -103,47 +103,45 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
+        android:layout_below="@+id/flags"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="This will be the question"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/choices_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-       android:layout_marginTop="260dp"
+     android:layout_below="@+id/question"
 
         >
 
 
         <Button
             android:id="@+id/ans_A"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans A"
-
-
             android:textColor="@color/black"
+            android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/ans_B"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
+            android:layout_alignParentEnd="true"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans B"
@@ -153,9 +151,9 @@
 
         <Button
             android:id="@+id/ans_C"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/ans_A"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans C"
@@ -165,18 +163,19 @@
 
         <Button
             android:id="@+id/ans_D"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
+            android:layout_alignParentEnd="true"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ans D"
-            android:textStyle="bold"
+            android:layout_below="@id/ans_A"
             android:textColor="@color/black"
+            android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/submit_btn"
@@ -184,32 +183,40 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/choices_layout"
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/submit" />
+        android:text="@string/submit"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/timerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/submit_btn"
+        android:layout_marginTop="28dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/press_start_2p"
         android:text=""
         android:textSize="25sp" />
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/timerProgress"-->
-<!--        style="@style/Widget.AppCompat.ProgressBar.Horizontal"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/timerText"-->
-<!--        android:layout_centerHorizontal="true" />-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/submit_btn"
+        android:max="100"
+        android:layout_marginTop="2dp"
+        android:layout_centerHorizontal="true"
+        android:progress="100"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:indeterminate="false" />
+
+
     <ImageView
         android:id="@+id/CorrectOrWrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timerText"
+        android:layout_below="@+id/submit_btn"
         android:layout_centerHorizontal="true"
         android:contentDescription="Flags"
         android:layout_marginStart="200dp"

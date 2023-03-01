@@ -158,7 +158,7 @@ void savePrefs(){
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         }
         else{
-            Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+ score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+" "+score, Toast.LENGTH_SHORT).show();
         }
     }
 

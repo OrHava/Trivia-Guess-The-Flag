@@ -51,14 +51,16 @@
                     android:layout_height="40dp"
                     android:src="@drawable/play"
                     android:adjustViewBounds="true"
-                   android:layout_marginStart="255dp"/>
+                   android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/flag_icon"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
 
 
                 <Button
@@ -69,7 +71,7 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/flags_game"
                     android:textColor="@color/teal_200"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -91,7 +93,8 @@
                     android:layout_height="40dp"
                     android:src="@drawable/play"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"/>
+                    android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -99,7 +102,8 @@
                     android:layout_height="20dp"
                     android:src="@drawable/user"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
 
 
                 <Button
@@ -133,14 +137,16 @@
                     android:layout_height="40dp"
                     android:src="@drawable/play"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"/>
+                    android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/podium"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
 
 
                 <Button
@@ -152,7 +158,7 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/leaderboard"
                     android:textColor="@color/teal_200"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
 
@@ -175,14 +181,16 @@
                     android:layout_height="40dp"
                     android:src="@drawable/play"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"/>
+                    android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/online_game"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
 
 
                 <Button
@@ -194,16 +202,185 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/multiplayer"
                     android:textColor="@color/teal_200"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_FunFacts"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Cv_btnMultiPlayer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/play"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/fun_fact"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/btnFunFacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="@string/fun_facts"
+                    android:textColor="@color/teal_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_MoreApps"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Cv_FunFacts"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/play"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="255dp"
+                    tools:ignore="ContentDescription" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/more_apps"
+                    android:adjustViewBounds="true"
+
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/btnMoreApps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="@string/more_apps"
+                    android:textColor="@color/teal_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/Cv_Center"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Cv_MoreApps"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="10dp">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Cv_ShareGame"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/share"
+                        android:adjustViewBounds="true"
+                        android:layout_marginStart="60dp"
+                        tools:ignore="ContentDescription" />
+
+
+                    <Button
+                        android:id="@+id/btnShareGame"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                     android:layout_marginBottom="25dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/alfa_slab_one"
+                        android:text="@string/share"
+                        android:textColor="@color/teal_200"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Cv_RateUs"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="160dp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="10dp">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/rating"
+                        android:layout_marginStart="55dp"
+                        android:adjustViewBounds="true"
+                        tools:ignore="ContentDescription" />
+
+
+                    <Button
+                        android:id="@+id/btnRateUs"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="25dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/alfa_slab_one"
+                        android:text="@string/rate_us"
+                        android:textColor="@color/teal_200"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+
+
 
             <RelativeLayout
                 android:id="@+id/RLProfileName"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:layout_below="@+id/Cv_btnMultiPlayer"
+                android:layout_below="@+id/Cv_Center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/frametwo"
@@ -223,19 +400,15 @@
                     android:textStyle="bold" />
 
 
-
-
-                    <ImageView
-                        android:id="@+id/imgViewShowAvatar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:layout_below="@+id/txtNameandPoints"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/shape_border"
-                        tools:ignore="ContentDescription" />
-
-
+                <ImageView
+                    android:id="@+id/imgViewShowAvatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtNameandPoints"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape_border"
+                    android:scaleType="centerCrop"
+                    tools:ignore="ContentDescription" />
 
 
             </RelativeLayout>
@@ -281,7 +454,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/israel" />
+                        android:src="@drawable/israel"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/England_Language"
@@ -293,7 +467,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/united_kingdom" />
+                        android:src="@drawable/united_kingdom"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/Philippines_Language"
@@ -304,7 +479,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/philippines" />
+                        android:src="@drawable/philippines"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:layout_width="50dp"
@@ -317,7 +493,7 @@
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
                         android:src="@drawable/india"
-                        />
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/Indonesia_Language"
@@ -329,7 +505,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/indonesia" />
+                        android:src="@drawable/indonesia"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/Malaysia_Language"
@@ -340,7 +517,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/malaysia" />
+                        android:src="@drawable/malaysia"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/Spain_Language"
@@ -352,7 +530,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/spain_flag" />
+                        android:src="@drawable/spain_flag"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/bangladesh_Language"
@@ -363,7 +542,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/bangladesh" />
+                        android:src="@drawable/bangladesh"
+                        tools:ignore="ContentDescription" />
 
                     <ImageButton
                         android:id="@+id/Brazil_Language"
@@ -374,7 +554,8 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/brazil" />
+                        android:src="@drawable/brazil"
+                        tools:ignore="ContentDescription" />
 
 
 

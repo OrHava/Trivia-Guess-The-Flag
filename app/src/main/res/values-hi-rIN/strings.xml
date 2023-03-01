@@ -2,51 +2,12 @@
 <resources>
     <string name="app_name">Flags Game of All Countries</string>
 
-    <string name="prompt_email">ईमेल</string>
-    <string name="prompt_password">पासवर्ड</string>
-    <string name="action_sign_in">साइन इन या रजिस्टर करें</string>
-    <string name="action_sign_in_short">साइन इन करें</string>
-    <string name = "welcome"> "स्वागत है!" </string>
-    <string name="invalid_username">मान्य उपयोगकर्ता नाम नहीं है</string>
-    <string name="invalid_password">पासवर्ड >5 अक्षर का होना चाहिए</string>
-    <string name="login_failed">"लॉगिन विफल"</string>
-    <string name="became_a_flag_master_today">आज फ्लैग मास्टर बन गए!</string>
-    <string name="Avatar_is_Usable">Avatar_is_Usable</string>
     <string name="flags_game">झंडे का खेल</string>
-    <string name="Points">Points</string>
     <string name="name_and_avatar">नाम और अवतार</string>
     <string name="mute_or_unmute">म्यूट या अनम्यूट करें</string>
     <string name="setting_icon" translatable="false">सेटिंग आइकन</string>
     <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="leaderboard_id" translatable="false">CgkI6_f3lOsQEAIQBA</string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="Google_id2" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
-    <string name="points">Points:</string>
-    <string name="todo" translatable="false">TODO</string>
-    <string name="user_name">उपयोगकर्ता नाम</string>
-    <string name="todo1" translatable="false">TODO</string>
-    <string name="_20_points">20 पॉइंट</string>
-    <string name="_10_points">10 पॉइंट</string>
-    <string name="_30_points">30 पॉइंट</string>
-    <string name="_50_points">50 पॉइंट</string>
-    <string name="_40_points">40 पॉइंट</string>
-    <string name="_60_points">60 पॉइंट</string>
-    <string name="_80_points">80 पॉइंट</string>
-    <string name="_70_points">70 पॉइंट</string>
-    <string name="_90_points">90 पॉइंट</string>
-    <string name="press_to_buy">खरीदने के लिए दबाएं</string>
-
-
-
-
-    <string name="_110_points">110 पॉइंट</string>
-    <string name="_100_points">100 पॉइंट</string>
-    <string name="_120_points">120 पॉइंट</string>
-    <string name = "not_available"> उपलब्ध नहीं है </string>
-    <string name="todo2">TODO</string>
-    <string name="todo3">TODO</string>
-    <string name="todo4">TODO</string>
-    <string name="sign_in">साइन इन करें</string>
     <string name="email">ईमेल</string>
     <string name = "password"> पासवर्ड </string>
     <string name="login">लॉग इन करें</string>
@@ -54,22 +15,10 @@
     <string name="enter_as_guest">अतिथि के रूप में प्रवेश करें</string>
     <string name="or_sign_in_with">या साइन इन करें</string>
     <string name="sign_up">साइन अप करें</string>
-
-
-
-
-
     <string name="become_a_flag_master_today">आज ही बनें फ्लैग मास्टर</string>
     <string name="leaderboard">लीडरबोर्ड</string>
     <string name="sign_out">साइन आउट</string>
-    <string name="name">नाम</string>
-    <string name="id">पहचान</string>
-    <string name="logout">लॉग आउट</string>
-    <string name="enter_game">खेल में प्रवेश करें</string>
     <string name="novice">नौसिखिए</string>
-
-
-
     <string name="learner">सिखाने वाला</string>
     <string name="apprentice">शिक्षु</string>
     <string name="competent">सक्षम</string>
@@ -92,10 +41,6 @@
     <string name="Level10">स्तर 10</string>
     <string name="Level11">स्तर 11</string>
     <string name="MultiPlayer">मल्टीप्लेयर</string>
-
-
-
-
     <string name="loadings_ads_make_sure_the_app_is_free">लोड हो रहा है: विज्ञापन सुनिश्चित करें कि ऐप मुफ़्त है …</string>
     <string name="points1">स्तर: </string>
     <string name="user_name1">उपयोगकर्ता नाम</string>
@@ -139,11 +84,6 @@
     <string name="reset_game_scores">गेम स्कोर रीसेट करें</string>
     <string name="Do_you_want_to_exit_Game">क्या आप गेम से बाहर निकलना चाहते हैं?</string>
     <string name="Yes">हाँ</string>
-
-
-
-
-
     <string name="No">नहीं</string>
     <string name="Chose_Option">\विकल्प चुना \</string>
     <string name="Question">\सवाल: \</string>
@@ -176,10 +116,6 @@
     <string name="New_Zealand">न्यूज़ीलैंड</string>
     <string name="Fiji">फ़िजी</string>
     <string name="Tuvalu">तुवालू</string>
-
-
-
-
     <string name="Australia">ऑस्ट्रेलिया</string>
     <string name="Greece">ग्रीस</string>
     <string name="Uruguay">उरुग्वे</string>
@@ -221,17 +157,12 @@
     <string name="Kenya">केन्या</string>
     <string name="South_Sudan">दक्षिण सूडान</string>
     <string name="Suriname">सूरीनाम</string>
-
     <string name="Cape_Verde">केप वर्दे</string>
     <string name="Nauru">नाउरु</string>
     <string name="Marshall_islands">मार्शल द्वीप समूह</string>
     <string name="Belize">बेलीज़</string>
     <string name="Angola">अंगोला</string>
     <string name="East_Timor">पूर्वी तिमोर</string>
-
-
-
-
     <string name="Antigua_and_Barbuda">एंटीगुआ और बार्बूडा</string>
     <string name="Papua_New_Guinea">पापुआ न्यू गिनी</string>
     <string name="El_Salvador">एल सल्वाडोर</string>
@@ -265,8 +196,6 @@
     <string name="Equatorial_Guinea">इक्वेटोरियल गिनी</string>
     <string name="Uganda">युगांडा</string>
     <string name="Botswana">बोत्सवाना</string>
-
-
     <string name="Costa_Rica">कोस्टा रिका</string>
     <string name="Samoa">समोआ</string>
     <string name="Togo">टोगो</string>
@@ -294,8 +223,6 @@
     <string name="Montenegro">मोंटेनेग्रो</string>
     <string name="Tonga">टोंगा</string>
     <string name="Turkey">तुर्की</string>
-
-
     <string name="Tunisia">ट्यूनीशिया</string>
     <string name="Libya">लीबिया</string>
     <string name="Zambia">ज़ाम्बिया</string>
@@ -327,7 +254,6 @@
     <string name="Ivory_Coast">आइवरी कोस्ट</string>
     <string name="Vatican_City">वेटिकन सिटी</string>
     <string name="Saint_Vincent_and_the_Grenadines">सेंट विंसेंट और ग्रेनाडाइंस</string>
-
     <string name="Sao_Tome_and_Príncipe">साओ टोम और प्रिन्सिपी</string>
     <string name="Kyrgyzstan">किर्गिजस्तान</string>
     <string name="Kazakhstan">कजाखस्तान</string>
@@ -339,7 +265,6 @@
     <string name="Egypt">मिस्र</string>
     <string name="Iran">ईरान</string>
     <string name="Bosnia">बोस्निया</string>
-
     <string name="Mexico">मेक्सिको</string>
     <string name="Bolivia">बोलीविया</string>
     <string name="Peru">पेरू</string>
@@ -361,9 +286,6 @@
     <string name="Christmas_Island">क्रिसमस द्वीप</string>
     <string name="Lesotho">लेसोथो</string>
     <string name="Mali">माली</string>
-
-
-
     <string name="Nigeria">नाइजीरिया</string>
     <string name="Israel">इज़राइल</string>
     <string name="Jamaica">जमैका</string>
@@ -380,5 +302,17 @@
     <string name="Portuguese">पुर्तगाली</string>
     <string name="Connect_to_Internet">लीडरबोर्ड देखने के लिए कृपया इंटरनेट से कनेक्ट करें</string>
     <string name="Connect_to_a_User">लीडरबोर्ड देखने के लिए कृपया एक उपयोगकर्ता से कनेक्ट करें</string>
+    <string name="Please_Connect_to_Internet_To_Play_MultiPLayer">Please Connect to Internet To Play MultiPLayer</string>
+    <string name="Please_Connect_to_a_User_To_Play_MultiPLayer">Please Connect to a User To Play MultiPLayer</string>
+    <string name="Hello2">Hello</string>
+    <string name="Points2">Points</string>
+    <string name="you_have">you have</string>
+    <string name="Sign_In">Sign In</string>
+    <string name="To_Start_The_Game_Write_The_Same_Code">To Start The Game Write The Same Code</string>
+    <string name="VS">VS</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="fun_facts">Fun Facts</string>
+    <string name="more_apps">More Apps</string>
 
 </resources>

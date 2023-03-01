@@ -3,6 +3,7 @@ package com.orhava.trivia2;
 
 import static com.orhava.trivia2.MainMenu.flag;
 import static com.orhava.trivia2.MainMenu.i;
+import static com.orhava.trivia2.MultiPlayer.codeHelper;
 import static com.orhava.trivia2.MultiPlayer.opponentUser;
 
 import android.annotation.SuppressLint;
@@ -22,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,11 +58,14 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private ImageButton btnMute;
     private final int[] randomNumbersBabyYoda = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19};
     private MyCountDownTimer countDownTimer = new MyCountDownTimer(10000 /* 10 Sec */, 1000);
+    private ProgressBar progressBar;
+    private long timeLeftInMillis = 10000;
     public static SharedPreferences prefs;
     private int multiPlayerHelper=0;
     public MediaPlayer mp3 = null;
     public int times=0,times2=0;
     public MediaPlayer mp2 = null;
+    private int counter;
     public int avatarMultiPlayerChoice=0;
     public String NameMultiPlayer="";
     private FirebaseUser user;
@@ -94,6 +99,50 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
 
+
+    }
+
+    private void CheckIfOtherPlayerQuizMultiPlayer() {
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        if (user != null){
+            DatabaseReference myRef3 = database.getReference("Test");
+
+
+            myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    counter= 0;
+                    for (DataSnapshot dsp : dataSnapshot.child("usersCodes").getChildren()) {
+
+                        if( Objects.equals(dsp.getKey(), opponentUser) && Objects.equals(dsp.getValue(), codeHelper)){
+                            counter++;
+
+                        }
+
+                    }
+
+                    if (counter==0){
+
+                        finishQuiz();
+                    }
+
+
+
+
+                }
+
+                @Override
+                public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
     }
 
     private void  Mute_UnMute() {
@@ -134,6 +183,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         mTextField = findViewById(R.id.timerText);
         CorrectOrWrong=findViewById(R.id.CorrectOrWrong);
         whichGameImage2=findViewById(R.id.whichGameImage2);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setMax(100);
         whichGameImage3=findViewById(R.id.whichGameImage3);
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -360,7 +411,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
                         if(Objects.equals(dsp.getKey(), opponentUser)  && times==0){
                             NameMultiPlayer= Objects.requireNonNull(dsp.getValue()).toString();
-                            whichGame2Txt.setText(currentUserName+" VS "+ NameMultiPlayer);
+                            whichGame2Txt.setText(currentUserName+" "+getString(R.string.VS)+" "+ NameMultiPlayer);
                             times++;
                             break;
 
@@ -524,6 +575,8 @@ else if(Menu_Game.WhichGame==12){
             Log.e("Second Gone", "Another Second Gone");
             Log.e("Time Remaining", "seconds remaining: " + millisUntilFinished / 1000);
 
+            int progress = (int) (((float) millisUntilFinished / 10000) * 100);
+            progressBar.setProgress(progress);
             if (millisUntilFinished / 1000<4){
                 mTextField.setTextColor(Color.RED);
             }
@@ -569,6 +622,8 @@ else if(Menu_Game.WhichGame==12){
         }
     }
 
+
+
     // Implementing Fisher–Yates shuffle
     static void shuffleArray(int[] ar) {
         // If running on Java 6 or older, use `new Random()` on RHS here
@@ -584,7 +639,6 @@ else if(Menu_Game.WhichGame==12){
 
 
     private void configureNextButton() {
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
         ImageButton nextButton = findViewById(R.id.navToMain);
         nextButton.setOnClickListener(view -> exitByBackKey());
 
@@ -711,7 +765,7 @@ else if(Menu_Game.WhichGame==12){
             }
 
         else if(clickedButton.getId() == R.id.submit_btn ){
-            Toast.makeText(this, ""+R.string.Chose_Option, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Chose_Option, Toast.LENGTH_SHORT).show();
         }
 
         else{
@@ -724,6 +778,9 @@ else if(Menu_Game.WhichGame==12){
     }
 
     void loadClass(String newAnswer,int newWhichGame){
+
+
+
 
         mp3 = MediaPlayer.create(this, R.raw.losesound);
         mp2 = MediaPlayer.create(this, R.raw.winsound);
@@ -846,7 +903,11 @@ else if(Menu_Game.WhichGame==12){
         ansD.setBackgroundColor(Color.WHITE);
         CorrectOrWrong.setImageResource(R.color.teal_200);
         countDownTimer.cancel();
+        if (Menu_Game.WhichGame==12){
+            CheckIfOtherPlayerQuizMultiPlayer();
+        }
         countDownTimer.start();
+        progressBar.setMax(100);
 
 
 

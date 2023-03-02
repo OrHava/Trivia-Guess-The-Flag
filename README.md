@@ -34,4 +34,4 @@ Please note that this project was built as a team, and if anyone would like to c
 
 
 ------------
-![image](https://user-images.githubusercontent.com/81467919/212494505-2b2fd625-db0a-4feb-a14b-e3daa5232447.png)
+![P](https://user-images.githubusercontent.com/116579286/222568386-ddaff2c0-0e9d-4879-b691-9b250c3fc2a0.png)

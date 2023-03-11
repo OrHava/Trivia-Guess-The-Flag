@@ -9,6 +9,9 @@ In addition to the gameplay, the app also includes a fun fact section with 30 in
 
 Players also have the option to disable sound or turn it on based on their preferences. Overall, Guess the Flag offers a fun and educational way to test your knowledge of world flags and compete with friends.
 
+## Link
+https://play.google.com/store/apps/details?id=com.orhava.trivia2
+
 ##  Technologies
 - Java programming language
 - Android Studio

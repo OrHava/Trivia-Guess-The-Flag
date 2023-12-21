@@ -73,12 +73,13 @@ public class MainMenu extends AppCompatActivity  {
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();
         if (i[0] % 2==0) {
-            btnMute.setImageResource(R.mipmap.mutenewproblem11);
+            flag = true;
+            btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
-            btnMute.setImageResource(R.mipmap.mutenewproblem22);
+            flag = false;
+            btnMute.setImageResource( R.drawable.mute_50);
         }
-
 
 
         signOut();
@@ -541,7 +542,7 @@ public class MainMenu extends AppCompatActivity  {
         SharedPreferences prefs2 = PreferenceManager
                 .getDefaultSharedPreferences(this);
 
-        txtNameAndPoints.setText(getString(R.string.Hello2)+" "+prefs2.getString("autoSave", "")+ " "+getString(R.string.you_have)+" " +amountOfGeneralPoints() + " " +getString(R.string.Points2));
+        txtNameAndPoints.setText(getString(R.string.Hello2)+" "+prefs2.getString("autoSave", "")+ " "+getString(R.string.you_have)+"\n" +amountOfGeneralPoints() + " " +getString(R.string.Points2));
         SharedPreferences prefs3;
         prefs3 = MainMenu.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
@@ -672,14 +673,13 @@ public class MainMenu extends AppCompatActivity  {
 
             if (i[0] % 2==0) {
 
-                Toast.makeText(MainMenu.this, "UnMute", Toast.LENGTH_SHORT).show();
                 flag = true;
-                btnMute.setImageResource(R.mipmap.mutenewproblem11);
+                btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
-                Toast.makeText(MainMenu.this, "Mute", Toast.LENGTH_SHORT).show();
+
                 flag = false;
-                btnMute.setImageResource(R.mipmap.mutenewproblem22);
+                btnMute.setImageResource( R.drawable.mute_50);
             }
         });
 
@@ -709,7 +709,10 @@ public class MainMenu extends AppCompatActivity  {
         int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
         int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
         int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        points=scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
+        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+
+        points=scoreNewDeathMarch +scoreNewStepOnLego + scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
         return points;
     }
 

@@ -6,33 +6,145 @@
     android:background="@drawable/globesnew123"
     tools:context="com.orhava.trivia2.Game">
 
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/reset_game_scores"
-      />
 
-    <Button
-        android:id="@+id/btnAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnReset"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv_Reset_game"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/about"
-        />
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp">
+
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="20dp"
+            android:src="@drawable/play_icon"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="265dp"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="255dp"
+            android:background="@drawable/vertical_dotted_line" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/vertical_dotted_line" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="20dp"
+            android:src="@drawable/reset_icon"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="10dp"
+            tools:ignore="ContentDescription" />
+
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/reset_game_scores"
+            />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv_About"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/Cv_Reset_game"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp">
+
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="20dp"
+            android:src="@drawable/play_icon"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="265dp"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="255dp"
+            android:background="@drawable/vertical_dotted_line" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/vertical_dotted_line" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="20dp"
+            android:src="@drawable/about_icon"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="10dp"
+            tools:ignore="ContentDescription" />
+
+
+        <Button
+            android:id="@+id/btnAbout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/about"
+            />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
     <Button
         android:id="@+id/EasterEggBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnReset"
+        android:layout_below="@+id/Cv_Reset_game"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
+        android:backgroundTint="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/easter_egg"
         android:visibility="gone"
@@ -58,6 +170,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/easterTxtView"
         android:layout_marginTop="80dp"
+        android:textColor="@color/teal_200"
+        android:backgroundTint="@color/white"
         android:layout_centerHorizontal="true"
         android:id="@+id/imgViewAvatar"
         tools:ignore="ContentDescription" />

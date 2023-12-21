@@ -103,7 +103,7 @@ public class LeaderBoard extends AppCompatActivity  {
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef3 = database.getReference("Scores");
-            Query myQuery = myRef3.orderByChild("score").limitToFirst(100);
+            Query myQuery = myRef3.orderByChild("score");
             String userId = user.getUid();
             myQuery.addValueEventListener(new ValueEventListener() {
 
@@ -227,7 +227,9 @@ public class LeaderBoard extends AppCompatActivity  {
         int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
         int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
         int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        points=scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
+        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+        points= scoreNewDeathMarch +scoreNewStepOnLego + scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
         return points;
     }
 

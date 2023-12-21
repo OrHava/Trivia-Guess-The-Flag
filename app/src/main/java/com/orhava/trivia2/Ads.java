@@ -1,9 +1,11 @@
 package com.orhava.trivia2;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
+import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdError;
@@ -26,7 +28,8 @@ public class Ads extends AppCompatActivity {
     //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/8691691433"; //just testing not real ad, video
     //private static final String AD_UNIT_ID = "ca-app-pub-8096185122491583/8714822405"; //real ad video
     private static final String TAG = "Ads";
-    private InterstitialAd mInterstitialAd;
+    public static InterstitialAd mInterstitialAd;
+    private static Context applicationContext; // Add this line
 
 
     @Override
@@ -56,11 +59,71 @@ public class Ads extends AppCompatActivity {
                         Log.d(TAG, loadAdError.toString());
                         mInterstitialAd = null;
                     }
+
+
+
+
+
+
                 });
 
 
 
     }
+
+
+    public static void showInterstitialAd(Activity activity) {
+        if (mInterstitialAd != null) {
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    // Called when ad is dismissed.
+                    // Set the ad reference to null so you don't show the ad a second time.
+                    Log.d(TAG, "Ad dismissed fullscreen content.");
+                    mInterstitialAd = null;
+                    startNewActivity(activity);
+                }
+
+                // ... (other callback methods)
+            });
+
+            mInterstitialAd.show(activity);
+        } else {
+            Log.d(TAG, "The interstitial ad wasn't ready yet.");
+        }
+    }
+    private static void startNewActivity(Activity activity) {
+        activity.startActivity(new Intent(activity, Results.class));
+        // Add overridePendingTransition if you want to specify transition animations
+    }
+
+
+    public static void preloadInterstitialAd(Context context) {
+        applicationContext = context.getApplicationContext();
+        MobileAds.initialize(applicationContext, initializationStatus -> {});
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(applicationContext, "ca-app-pub-8096185122491583/8714822405", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@androidx.annotation.NonNull @NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@androidx.annotation.NonNull @NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+
+                });
+
+    }
+
 
     private void StartAd() {
 
@@ -106,7 +169,12 @@ public class Ads extends AppCompatActivity {
         } else {
             Log.d("TAG", "The interstitial ad wasn't ready yet.");
         }
+
+
+
     }
+
+
 
 
 }

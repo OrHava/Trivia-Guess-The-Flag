@@ -1,0 +1,4 @@
+<!-- res/drawable/background_color.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#30B8B7"/>
+</shape>

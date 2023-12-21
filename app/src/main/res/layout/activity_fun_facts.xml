@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,7 +14,6 @@
         android:id="@+id/navToMain"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -28,51 +28,59 @@
         android:id="@+id/mute_unmute"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/mute_or_unmute"
-        android:src="@mipmap/mutenewproblem11"
+        android:src="@drawable/unmute_50"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:layout_width="700dp"
         android:layout_height="700dp"
-        android:layout_centerHorizontal="true"
         android:src="@drawable/gallery">
 
     </ImageView>
 
-    <TextView
-        android:id="@+id/Txt_Fact"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginTop="250dp"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:text="1. The Vatican City is the smallest country in the world, with an area of just 0.17 square miles."
-        />
 
-    <ImageButton
-        android:id="@+id/Btn_Next_Fact"
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="530dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/right_arrow"
-        tools:ignore="ContentDescription" />
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
+            />
+
+
+        <TextView
+            android:id="@+id/Txt_Fact"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="250dp"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:text="1. The Vatican City is the smallest country in the world, with an area of just 0.17 square miles."
+            />
+
+        <ImageButton
+            android:id="@+id/Btn_Next_Fact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="530dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/right_arrow"
+            tools:ignore="ContentDescription" />
 
 
 
 
-
-
-
-
-
-</RelativeLayout>
+    </RelativeLayout>

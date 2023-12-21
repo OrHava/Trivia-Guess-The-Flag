@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     tools:context="com.orhava.trivia2.Game"
-    android:background="#03A9F4">
+    android:background="@color/teal_200">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,16 +25,33 @@
                 android:id="@+id/mute_unmute"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentEnd="true"
                 android:contentDescription="@string/mute_or_unmute"
-                android:src="@mipmap/mutenewproblem11"
+                android:src="@drawable/unmute_50"
+                android:background="@android:color/transparent"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/navToMainMenu"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
+                />
+
 
 
             <ImageButton
                 android:id="@+id/navToMainMenu"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_alignParentEnd="true"
+
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
@@ -45,300 +62,13 @@
                 android:textSize="10sp"
                 tools:ignore="ContentDescription,HardcodedText,SmallSp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreNovice"
-                android:layout_toLeftOf="@+id/navToGame1"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/learner"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreLearner"
-                android:layout_toLeftOf="@+id/navToGame2"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/apprenticee"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreApprentice"
-                android:layout_toLeftOf="@+id/navToGame3"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/novice12"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreCompetent"
-                android:layout_toLeftOf="@+id/navToGame4"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/competent123"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreChampion"
-                android:layout_toLeftOf="@+id/navToGame5"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/champion"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreExpert"
-                android:layout_toLeftOf="@+id/navToGame6"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/expert"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreMaster"
-                android:layout_toLeftOf="@+id/navToGame7"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/master"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreLegendary"
-                android:layout_toLeftOf="@+id/navToGame8"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/legendary"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreDivine"
-                android:layout_toLeftOf="@+id/navToGame9"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/divinie"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreMasterYoda"
-                android:layout_toLeftOf="@+id/navToGame10"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/masteryoda"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25dp"
-                android:layout_below="@+id/bestScoreBabyYoda"
-                android:layout_toLeftOf="@+id/navToGame11"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="-5dp"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription"
-                app:cardPreventCornerOverlap="false"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="#03A9F4"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/babyyoda"
-
-                    />
-            </androidx.cardview.widget.CardView>
-
-
-            <Button
-                android:id="@+id/navToGame1"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/bestScoreNovice"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/novice"
-                android:textColor="@color/black"
-
-                android:textSize="20sp" />
 
 
             <TextView
                 android:id="@+id/bestScoreNovice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToMainMenu"
+                android:layout_below="@+id/adView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="-10dp"
@@ -349,11 +79,62 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame1Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreNovice"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/bestScoreNovice"
+
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/novice"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreNovice"
+                    android:layout_toLeftOf="@+id/navToGame1"
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/novice"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/bestScoreLearner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame1"
+                android:layout_below="@+id/navToGame1Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -363,11 +144,65 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame2Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreLearner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame1Cv"
+
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/learner"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreLearner"
+                    android:layout_toLeftOf="@+id/navToGame2"
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/learner"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/bestScoreApprentice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame2"
+                android:layout_below="@+id/navToGame2Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -377,11 +212,64 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame3Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreApprentice"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+
+
+                <Button
+                    android:id="@+id/navToGame3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/apprentice"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/apprentice"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
             <TextView
                 android:id="@+id/bestScoreCompetent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame3"
+                android:layout_below="@+id/navToGame3Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -391,11 +279,61 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame4Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreCompetent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+
+                <Button
+                    android:id="@+id/navToGame4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/competent"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/competent"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
             <TextView
                 android:id="@+id/bestScoreChampion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame4"
+                android:layout_below="@+id/navToGame4Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -405,11 +343,63 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame5Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreChampion"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+
+                <Button
+                    android:id="@+id/navToGame5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/champion"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/champion"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
             <TextView
                 android:id="@+id/bestScoreExpert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame5"
+                android:layout_below="@+id/navToGame5Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -419,11 +409,63 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame6Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreExpert"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/expert"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/expert"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
             <TextView
                 android:id="@+id/bestScoreMaster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame6"
+                android:layout_below="@+id/navToGame6Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -433,11 +475,62 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame7Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreMaster"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/master"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/master"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
             <TextView
                 android:id="@+id/bestScoreLegendary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame7"
+                android:layout_below="@+id/navToGame7Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -447,11 +540,62 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame8Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreLegendary"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/legendary"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/legendary"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
             <TextView
                 android:id="@+id/bestScoreDivine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame8"
+                android:layout_below="@+id/navToGame8Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -461,11 +605,61 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame9Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreDivine"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/divine"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/divinie"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/bestScoreMasterYoda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame9"
+                android:layout_below="@+id/navToGame9Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -475,11 +669,61 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame10Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreMasterYoda"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <Button
+                    android:id="@+id/navToGame10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/master_yoda"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/master_yoda"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/bestScoreBabyYoda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navToGame10"
+                android:layout_below="@+id/navToGame10Cv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/alfa_slab_one"
@@ -489,167 +733,204 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
-            <Button
-                android:id="@+id/navToGame2"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame1"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame11Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreBabyYoda"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/learner"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                app:cardCornerRadius="10dp">
 
-            <Button
-                android:id="@+id/navToGame3"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame2"
+                <Button
+                    android:id="@+id/navToGame11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/baby_yoda"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/babyyoda"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/bestScoreDeathMarch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame11Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Death March"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame12Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreDeathMarch"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/apprentice"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                app:cardCornerRadius="10dp">
 
-            <Button
-                android:id="@+id/navToGame4"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame3"
+                <Button
+                    android:id="@+id/navToGame12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/death_march"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/death_march"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <TextView
+                android:id="@+id/bestScoreStepOnLego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navToGame12Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Best Score Step On Lego"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navToGame13Cv"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/bestScoreStepOnLego"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/competent"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                app:cardCornerRadius="10dp">
 
-            <Button
-                android:id="@+id/navToGame5"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame4"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/champion"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                <Button
+                    android:id="@+id/navToGame13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navToGame2Cv"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/holtwood_one_sc"
+                    android:text="@string/step_on_lego"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/bestScoreApprentice"
+                    android:layout_toLeftOf="@+id/navToGame3"
+
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/step_on_lego"
+
+                        />
+                </androidx.cardview.widget.CardView>
 
 
-            <Button
-                android:id="@+id/navToGame6"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame5"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/expert"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
 
 
-            <Button
-                android:id="@+id/navToGame7"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame6"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/master"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/navToGame8"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame7"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/legendary"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/navToGame9"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame8"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/divine"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/navToGame10"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame9"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/master_yoda"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/navToGame11"
-                android:layout_width="250dp"
-                android:layout_height="90dp"
-                android:layout_below="@+id/navToGame10"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/baby_yoda"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+
+
+
+
+
+
+
+
+
 
 
 

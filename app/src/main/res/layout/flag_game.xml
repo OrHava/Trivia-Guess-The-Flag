@@ -5,14 +5,21 @@
     android:layout_height="match_parent"
     tools:context="com.orhava.trivia2.Game"
     android:background="@color/teal_200"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="24dp">
 
     <ImageButton
         android:id="@+id/mute_unmute"
         android:layout_width="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_height="60dp"
         android:contentDescription="@string/mute_or_unmute"
-        android:src="@mipmap/mutenewproblem11"
+        android:src="@drawable/unmute_50"
+        android:background="@android:color/transparent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -39,6 +46,10 @@
         android:layout_below="@+id/whichGame2Txt"
         android:layout_centerHorizontal="true" />
 
+
+
+
+
     <ImageView
         android:id="@+id/whichGameImage2"
         android:layout_width="50dp"
@@ -62,7 +73,7 @@
         android:id="@+id/navToMain"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
+
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -121,66 +132,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-     android:layout_below="@+id/question"
+        android:layout_below="@+id/question">
 
-        >
+        <!-- Horizontal LinearLayout for Buttons A and B -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/liner_layout"
+            android:gravity="center">
 
+            <Button
+                android:id="@+id/ans_A"
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Ans A"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
-        <Button
-            android:id="@+id/ans_A"
-            android:layout_width="150dp"
-            android:layout_height="90dp"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="Ans A"
-            android:layout_marginStart="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/ans_B"
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Ans B"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/ans_B"
-            android:layout_width="150dp"
-            android:layout_height="90dp"
-            android:layout_alignParentEnd="true"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="Ans B"
-            android:layout_marginEnd="15dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+        <!-- Horizontal LinearLayout for Buttons C and D -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/liner_layout"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/ans_C"
-            android:layout_width="150dp"
-            android:layout_height="90dp"
-            android:layout_below="@id/ans_A"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="Ans C"
-            android:textStyle="bold"
-            android:layout_marginStart="15dp"
-            android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/ans_C"
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Ans C"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:ignore="HardcodedText" />
 
-        <Button
-            android:id="@+id/ans_D"
-            android:layout_width="150dp"
-            android:layout_height="90dp"
-            android:layout_alignParentEnd="true"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="Ans D"
-
-            android:layout_marginEnd="15dp"
-            android:layout_below="@id/ans_A"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
-
+            <Button
+                android:id="@+id/ans_D"
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="Ans D"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
 
     </RelativeLayout>
+
 
     <Button
         android:id="@+id/submit_btn"

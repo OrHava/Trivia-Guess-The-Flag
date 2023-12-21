@@ -525,7 +525,9 @@ public class Avatar_Name extends AppCompatActivity {
         int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
         int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
         int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        points=scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
+        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+        points=scoreNewDeathMarch +scoreNewStepOnLego +scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
        return points;
     }
 

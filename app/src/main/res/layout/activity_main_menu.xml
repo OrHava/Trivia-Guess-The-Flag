@@ -14,7 +14,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="-5dp"
         android:adjustViewBounds="true"
-        android:backgroundTint="#D394DD"
+        android:backgroundTint="#30B8B7"
         android:clickable="false"
         android:drawableEnd="@mipmap/flag_round"
         android:fontFamily="@font/alfa_slab_one"
@@ -45,14 +45,31 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
+
+
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
                     android:adjustViewBounds="true"
-                   android:layout_marginStart="255dp"
+                   android:layout_marginStart="265dp"
                     tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
@@ -61,6 +78,7 @@
                     android:adjustViewBounds="true"
                     android:layout_marginStart="10dp"
                     tools:ignore="ContentDescription" />
+
 
 
                 <Button
@@ -87,20 +105,36 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
-                    android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"
-                    tools:ignore="ContentDescription" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/user"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/profile_icon"
                     android:adjustViewBounds="true"
                     android:layout_marginStart="10dp"
                     tools:ignore="ContentDescription" />
@@ -132,18 +166,33 @@
                 app:cardCornerRadius="10dp">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"
+                    android:layout_marginStart="265dp"
                     tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/podium"
+                    android:src="@drawable/leaderboard_icon"
                     android:adjustViewBounds="true"
                     android:layout_marginStart="10dp"
                     tools:ignore="ContentDescription" />
@@ -175,19 +224,35 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
-                    android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"
-                    tools:ignore="ContentDescription" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/online_game"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/multiplayer_icon"
                     android:adjustViewBounds="true"
                     android:layout_marginStart="10dp"
                     tools:ignore="ContentDescription" />
@@ -217,19 +282,35 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
-                    android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"
-                    tools:ignore="ContentDescription" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/fun_fact"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/fun_facts_icon"
                     android:adjustViewBounds="true"
                     android:layout_marginStart="10dp"
                     tools:ignore="ContentDescription" />
@@ -259,19 +340,35 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/play"
-                    android:adjustViewBounds="true"
-                    android:layout_marginStart="255dp"
-                    tools:ignore="ContentDescription" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_marginTop="25dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/more_apps"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/more_apps_icon"
                     android:adjustViewBounds="true"
 
                     android:layout_marginStart="10dp"
@@ -315,7 +412,7 @@
                         android:layout_width="30dp"
                         android:layout_marginTop="35dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/share"
+                        android:src="@drawable/share_icon"
                         android:adjustViewBounds="true"
                         android:layout_marginStart="60dp"
                         tools:ignore="ContentDescription" />
@@ -348,7 +445,7 @@
                         android:layout_width="30dp"
                         android:layout_marginTop="35dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/rating"
+                        android:src="@drawable/rate_icon"
                         android:layout_marginStart="55dp"
                         android:adjustViewBounds="true"
                         tools:ignore="ContentDescription" />
@@ -383,7 +480,7 @@
                 android:layout_below="@+id/Cv_Center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/frametwo"
+                android:background="@drawable/flags_frame"
 
                 >
 
@@ -396,19 +493,23 @@
                     android:fontFamily="@font/holtwood_one_sc"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
 
-                <ImageView
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/imgViewShowAvatar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_below="@+id/txtNameandPoints"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/shape_border"
-                    android:scaleType="centerCrop"
-                    tools:ignore="ContentDescription" />
+                    android:layout_marginBottom="30dp"
+                    app:civ_border_width="4dp"
+                    app:civ_shadow="true" />
+
+
+
+
 
 
             </RelativeLayout>
@@ -612,7 +713,8 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:contentDescription="@string/mute_or_unmute"
-            android:src="@mipmap/mutenewproblem11"
+            android:src="@drawable/unmute_50"
+            android:background="@android:color/transparent"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton

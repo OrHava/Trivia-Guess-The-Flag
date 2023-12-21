@@ -53,7 +53,7 @@ public class Results extends AppCompatActivity {
         String passStatus;
        mp2 = MediaPlayer.create(this, R.raw.goodresult);
        mp3 = MediaPlayer.create(this, R.raw.lose);
-        if (Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59) {
+        if (Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59) {
             passStatus = "Passed";
             layout.setBackgroundColor(Color.BLUE);
                 if (!MainMenu.flag){
@@ -132,6 +132,14 @@ public class Results extends AppCompatActivity {
             resultTxt.setText(String.format("Best Score %s", Game.scoreBabyYoda));
 
         }
+        if(Menu_Game.WhichGame==12){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreDeathMarch));
+
+        }
+        if(Menu_Game.WhichGame==13){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreStepOnLego));
+
+        }
 
     }
 
@@ -184,8 +192,16 @@ public class Results extends AppCompatActivity {
         else  if(Game.scoreMasterYoda < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==10 ){
             nextLevel.setVisibility(View.GONE);
         }
+        else  if(Game.scoreBabyYoda < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==11 ){
+            nextLevel.setVisibility(View.GONE);
+        }
 
-        else  if (Menu_Game.WhichGame==11){
+        else  if(Game.scoreDeathMarch < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==12 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+
+        else  if (Menu_Game.WhichGame==13){
             nextLevel.setVisibility(View.GONE);
         }
 
@@ -252,9 +268,20 @@ public class Results extends AppCompatActivity {
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else {
+            else if (Menu_Game.WhichGame==10){
                 Menu_Game.totalQuestions = QuestionAnswerBabyYoda.question.length;
                 Menu_Game.WhichGame=11;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==11){
+                Menu_Game.WhichGame=12;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else {
+
+                Menu_Game.WhichGame=13;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }

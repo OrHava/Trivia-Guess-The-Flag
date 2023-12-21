@@ -50,7 +50,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private TextView questionTextView,totalQuestionsTextView,mTextField,whichGameTxt,whichGame2Txt;  //mTextField to use for the timer
     private Button ansA, ansB, ansC, ansD,submitBtn;
     private String selectedAns = " ";
-    protected static int scoreMultiPlayer=0,scoreNovice = 0,scoreLearner = 0,scoreApprentice = 0,scoreCompetent = 0,scoreChampion = 0,scoreExpert = 0,scoreMaster = 0,scoreLegendary = 0,scoreDivine = 0,scoreMasterYoda = 0,scoreBabyYoda = 0;
+    protected static int scoreMultiPlayer=0,scoreNovice = 0,scoreLearner = 0,scoreApprentice = 0,scoreCompetent = 0,scoreChampion = 0,scoreExpert = 0,scoreMaster = 0,scoreLegendary = 0,scoreDivine = 0,scoreMasterYoda = 0,scoreBabyYoda = 0, scoreDeathMarch =0 , scoreStepOnLego = 0;
     private static int indexOfQuestions;
     private ImageView iv,CorrectOrWrong,whichGameImage,whichGameImage2,whichGameImage3;
     private final int[] randomNumbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -87,16 +87,16 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         restart();
         initialize();
         if (i[0] % 2==0) {
-            btnMute.setImageResource(R.mipmap.mutenewproblem11);
+            btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
-            btnMute.setImageResource(R.mipmap.mutenewproblem22);
+            btnMute.setImageResource( R.drawable.mute_50);
         }
         whichGame();
         Mute_UnMute();
         configureNextButton();
         loadNewQuestion();
-
+        Ads.preloadInterstitialAd(this);
 
 
 
@@ -154,15 +154,12 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             new Handler();
 
             if (i[0] % 2==0) {
-
-                Toast.makeText(Game.this, "UnMute", Toast.LENGTH_SHORT).show();
                 flag = true;
-                btnMute.setImageResource(R.mipmap.mutenewproblem11);
+                btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
-                Toast.makeText(Game.this, "Mute", Toast.LENGTH_SHORT).show();
                 flag = false;
-                btnMute.setImageResource(R.mipmap.mutenewproblem22);
+                btnMute.setImageResource( R.drawable.mute_50);
             }
         });
 
@@ -197,6 +194,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         multiPlayerHelper=0;
         QuestionAnswerApprentice.initializeData(this);
         QuestionAnswerBabyYoda.initializeData(this);
+        QuestionAnswerDeathMarch.initializeData(this);
+        QuestionAnswerStepOnLego.initializeData(this);
         QuestionAnswerChampion.initializeData(this);
         QuestionAnswerCompetent.initializeData(this);
         QuestionAnswerDivine.initializeData(this);
@@ -225,6 +224,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         scoreDivine = 0;
         scoreMasterYoda = 0;
         scoreBabyYoda = 0;
+        scoreStepOnLego =0;
+        scoreDeathMarch=0;
         scoreMultiPlayer=0;
     }
 
@@ -444,22 +445,22 @@ void whichGame(){
 if( Menu_Game.WhichGame==1){
     whichGameTxt.setText(R.string.novice);
     whichGame2Txt.setText(R.string.Level1);
-    whichGameImage.setImageResource(R.drawable.learner);
+    whichGameImage.setImageResource(R.drawable.novice);
 }
 else if(Menu_Game.WhichGame==2){
     whichGameTxt.setText(R.string.learner);
     whichGame2Txt.setText(R.string.Level2);
-    whichGameImage.setImageResource(R.drawable.apprenticee);
+    whichGameImage.setImageResource(R.drawable.learner);
 }
 else if(Menu_Game.WhichGame==3){
     whichGameTxt.setText(R.string.apprentice);
     whichGame2Txt.setText(R.string.Level3);
-    whichGameImage.setImageResource(R.drawable.novice12);
+    whichGameImage.setImageResource(R.drawable.apprentice);
 }
 else if(Menu_Game.WhichGame==4){
     whichGameTxt.setText(R.string.competent);
     whichGame2Txt.setText(R.string.Level4);
-    whichGameImage.setImageResource(R.drawable.competent123);
+    whichGameImage.setImageResource(R.drawable.competent);
 }
 else if(Menu_Game.WhichGame==5){
     whichGameTxt.setText(R.string.champion);
@@ -489,19 +490,36 @@ else if(Menu_Game.WhichGame==9){
 else if(Menu_Game.WhichGame==10){
     whichGameTxt.setText(R.string.master_yoda);
     whichGame2Txt.setText(R.string.Level10);
-    whichGameImage.setImageResource(R.drawable.masteryoda);
+    whichGameImage.setImageResource(R.drawable.master_yoda);
 }
 else if(Menu_Game.WhichGame==11){
     whichGameTxt.setText(R.string.baby_yoda);
     whichGame2Txt.setText(R.string.Level11);
     whichGameImage.setImageResource(R.drawable.babyyoda);
 }
+
 else if(Menu_Game.WhichGame==12){
+    whichGameTxt.setText(R.string.death_march);
+    whichGameImage.setImageResource(R.drawable.death_march);
+    setName_AvatarHelper();
+
+}
+
+else if(Menu_Game.WhichGame==13){
+    whichGameTxt.setText(R.string.step_on_lego);
+    whichGameImage.setImageResource(R.drawable.step_on_lego);
+    setName_AvatarHelper();
+
+}
+
+
+else if(Menu_Game.WhichGame==888){
     whichGameTxt.setText(R.string.MultiPlayer);
     whichGameImage.setImageResource(R.mipmap.vs_foreground);
     setName_AvatarHelper();
 
 }
+
 
 
 }
@@ -542,7 +560,7 @@ else if(Menu_Game.WhichGame==12){
                     shuffleArray(randomNumbers);
                     shuffleArray(randomNumbersBabyYoda);
                     shuffleArray(randomNumbersQuestions);
-                    if(Menu_Game.WhichGame==12){
+                    if(Menu_Game.WhichGame==888){
                         removeUser();
                         startActivity(new Intent(Game.this, ResultsMultiPlayer.class));
 
@@ -700,46 +718,52 @@ else if(Menu_Game.WhichGame==12){
                 else if(Menu_Game.WhichGame==10){
                     loadClass(QuestionAnswerMasterYoda.correctAnswwrs[randomNumbers[indexOfQuestions]],10);
                 }
-
                 else if(Menu_Game.WhichGame==12){
+                    loadClass(QuestionAnswerDeathMarch.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                }
+                else if(Menu_Game.WhichGame==13){
+                    loadClass(QuestionAnswerStepOnLego.correctAnswwrs[randomNumbers[indexOfQuestions]],13);
+                }
+
+                else if(Menu_Game.WhichGame==888){
                     if(multiPlayerHelper==1){
-                        loadClass(QuestionAnswerNovice.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerNovice.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==2){
-                        loadClass(QuestionAnswerLearner.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerLearner.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
                     }
                     else if(multiPlayerHelper==3){
-                        loadClass(QuestionAnswerApprentice.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerApprentice.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==4){
-                        loadClass(QuestionAnswerCompetent.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerCompetent.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==5){
-                        loadClass(QuestionAnswerChampion.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerChampion.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==6){
-                        loadClass(QuestionAnswerExpert.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerExpert.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==7){
-                        loadClass(QuestionAnswerMaster.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerMaster.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==8){
-                        loadClass(QuestionAnswerLegendary.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerLegendary.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
                     }
                     else if(multiPlayerHelper==9){
-                        loadClass(QuestionAnswerDivine.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerDivine.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
 
 
                     }
                     else if(multiPlayerHelper==10){
-                        loadClass(QuestionAnswerMasterYoda.correctAnswwrs[randomNumbers[indexOfQuestions]],12);
+                        loadClass(QuestionAnswerMasterYoda.correctAnswwrs[randomNumbers[indexOfQuestions]],888);
                     }
                 }
 
@@ -829,6 +853,12 @@ else if(Menu_Game.WhichGame==12){
                 scoreBabyYoda++;
             }
             else if(Menu_Game.WhichGame==12){
+                scoreDeathMarch++;
+            }
+            else if(Menu_Game.WhichGame==13){
+                scoreStepOnLego++;
+            }
+            else if(Menu_Game.WhichGame==888){
                 scoreMultiPlayer++;
             }
 
@@ -903,7 +933,7 @@ else if(Menu_Game.WhichGame==12){
         ansD.setBackgroundColor(Color.WHITE);
         CorrectOrWrong.setImageResource(R.color.teal_200);
         countDownTimer.cancel();
-        if (Menu_Game.WhichGame==12){
+        if (Menu_Game.WhichGame==888){
             CheckIfOtherPlayerQuizMultiPlayer();
         }
         countDownTimer.start();
@@ -1026,6 +1056,25 @@ else if(Menu_Game.WhichGame==12){
             iv.setImageResource(QuestionAnswerBabyYoda.images[randomNumbersBabyYoda[indexOfQuestions]]);
         }
         if(Menu_Game.WhichGame==12){
+
+            questionTextView.setText(QuestionAnswerDeathMarch.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerDeathMarch.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerDeathMarch.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerDeathMarch.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerDeathMarch.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerDeathMarch.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if(Menu_Game.WhichGame==13){
+
+            questionTextView.setText(QuestionAnswerStepOnLego.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerStepOnLego.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerStepOnLego.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerStepOnLego.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerStepOnLego.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerStepOnLego.images[randomNumbers[indexOfQuestions]]);
+        }
+        if(Menu_Game.WhichGame==888){
             if(multiPlayerHelper==0){
                 questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);
                 ansA.setText(QuestionAnswerNovice.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
@@ -1149,6 +1198,9 @@ else if(Menu_Game.WhichGame==12){
         int oldScoreDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
         int oldScoreMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
         int oldScoreBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
+        int oldScoreDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+        int oldScoreStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+
 
         if (scoreNovice >oldScoreNovice){
             SharedPreferences.Editor editor = prefs.edit();
@@ -1206,6 +1258,18 @@ else if(Menu_Game.WhichGame==12){
             editor.apply();
         }
 
+        if (scoreDeathMarch >oldScoreDeathMarch){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreDeathMarch", scoreDeathMarch);
+            editor.apply();
+        }
+        if (scoreStepOnLego >oldScoreStepOnLego){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreStepOnLego", scoreStepOnLego);
+            editor.apply();
+        }
+
+
 
         if(mp3!=null){
             mp3.release();
@@ -1220,7 +1284,7 @@ else if(Menu_Game.WhichGame==12){
         countDownTimer.cancel();
 
 
-        if(Menu_Game.WhichGame==12){
+        if(Menu_Game.WhichGame==888){
             user= FirebaseAuth.getInstance().getCurrentUser();
             if (user != null){
                 String userId = user.getUid();//check if its null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1240,13 +1304,13 @@ else if(Menu_Game.WhichGame==12){
         }
        else{
             saveScore();
-            if( !isNetworkConnected() || Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59){
+            if( !isNetworkConnected() || Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59){
                 startActivity(new Intent(Game.this, Results.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else{
-                startActivity(new Intent(Game.this, Ads.class));
-
+              //  startActivity(new Intent(Game.this, Ads.class));
+                Ads.showInterstitialAd(this);
             }
 
         }

@@ -206,7 +206,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
                              opponentUser=dsp.getKey();
                              configureNextButtonHelperSound();
                              Menu_Game.totalQuestions=10;
-                             Menu_Game.WhichGame=12;
+                             Menu_Game.WhichGame=888;
                              startActivity(new Intent(MultiPlayer.this, Game.class));
                              overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                              times++;

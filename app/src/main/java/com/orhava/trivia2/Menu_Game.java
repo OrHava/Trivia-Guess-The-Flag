@@ -18,14 +18,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.Objects;
 
 public class Menu_Game extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
-    public static TextView bestScoreNovice, bestScoreLearner, bestScoreApprentice,bestScoreCompetent,bestScoreChampion,bestScoreExpert,bestScoreMaster,bestScoreLegendary,bestScoreDivine,bestScoreMasterYoda,bestScoreBabyYoda;
+    public static TextView bestScoreNovice, bestScoreLearner, bestScoreApprentice,bestScoreCompetent,bestScoreChampion,bestScoreExpert,bestScoreMaster,bestScoreLegendary,bestScoreDivine,bestScoreMasterYoda,bestScoreBabyYoda, bestScoreDeathMarch, BestScoreStepOnLego;
     public static int WhichGame=0;
     public static int totalQuestions = 0;
-    private Button nextButton1,nextButton2,nextButton3,nextButton4,nextButton5,nextButton6,nextButton7,nextButton8,nextButton9,nextButton10,nextButton11;
+    private Button nextButton1,nextButton2,nextButton3,nextButton4,nextButton5,nextButton6,nextButton7,nextButton8,nextButton9,nextButton10,nextButton11,nextButton12,nextButton13;
     private ImageButton navToMainMenu,btnMute;
     public static int NovicePointsForDataBase= 0;
     @Override
@@ -35,16 +38,36 @@ public class Menu_Game extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();
         if (i[0] % 2==0) {
-            btnMute.setImageResource(R.mipmap.mutenewproblem11);
+
+            flag = true;
+            btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
-            btnMute.setImageResource(R.mipmap.mutenewproblem22);
+            flag = false;
+            btnMute.setImageResource( R.drawable.mute_50);
         }
         Mute_UnMute();
         savePrefs();
         configureNextButton();
 
+        // Find the AdView element in your layout
+        AdView adView = findViewById(R.id.adView);
 
+        // Create an ad request
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        // Load the ad into the AdView
+        adView.loadAd(adRequest);
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Start the new activity when the back button is pressed
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+        finish(); // Optional: If you want to finish the current activity
     }
 
 
@@ -57,15 +80,12 @@ public class Menu_Game extends AppCompatActivity {
             new Handler();
 
             if (i[0] % 2==0) {
-
-                Toast.makeText(Menu_Game.this, "UnMute", Toast.LENGTH_SHORT).show();
                 flag = true;
-                btnMute.setImageResource(R.mipmap.mutenewproblem11);
+                btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
-                Toast.makeText(Menu_Game.this, "Mute", Toast.LENGTH_SHORT).show();
                 flag = false;
-                btnMute.setImageResource(R.mipmap.mutenewproblem22);
+                btnMute.setImageResource( R.drawable.mute_50);
             }
         });
 
@@ -106,6 +126,12 @@ void savePrefs(){
 
     int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
     bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewBabyYoda));
+
+    int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+    bestScoreDeathMarch.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewDeathMarch));
+
+    int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+    BestScoreStepOnLego.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewStepOnLego));
 }
    void initialize(){
 
@@ -120,6 +146,8 @@ void savePrefs(){
        bestScoreDivine =findViewById(R.id.bestScoreDivine);
        bestScoreMasterYoda =findViewById(R.id.bestScoreMasterYoda);
        bestScoreBabyYoda =findViewById(R.id.bestScoreBabyYoda);
+       bestScoreDeathMarch =findViewById(R.id.bestScoreDeathMarch);
+       BestScoreStepOnLego =findViewById(R.id.bestScoreStepOnLego);
        navToMainMenu=findViewById(R.id.navToMainMenu);
        btnMute=findViewById(R.id.mute_unmute);
        nextButton1= findViewById(R.id.navToGame1);
@@ -133,6 +161,8 @@ void savePrefs(){
        nextButton9= findViewById(R.id.navToGame9);
        nextButton10= findViewById(R.id.navToGame10);
        nextButton11= findViewById(R.id.navToGame11);
+       nextButton12= findViewById(R.id.navToGame12);
+       nextButton13= findViewById(R.id.navToGame13);
     }
 
 
@@ -288,6 +318,32 @@ void savePrefs(){
                 Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+" " + oldScoreMasterYoda, Toast.LENGTH_SHORT).show();
             }
 
+
+        });
+
+        nextButton12.setOnClickListener(view -> {
+            configureNextButtonHelperSound();
+            totalQuestions = 10;
+            WhichGame=12;
+            prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+            int oldScoreBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
+            if(oldScoreBabyYoda > 20 * 0.59 ){
+                startActivity(new Intent(Menu_Game.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else{
+                Toast.makeText(Menu_Game.this, ""+getString(R.string.pass_six_points)+" "+oldScoreBabyYoda, Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+        nextButton13.setOnClickListener(view -> {
+            configureNextButtonHelperSound();
+            totalQuestions = 10;
+            WhichGame=13;
+            prefs = view.getContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+            int oldScoreDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
+            configureNextButtonHelper(oldScoreDeathMarch);
 
         });
 

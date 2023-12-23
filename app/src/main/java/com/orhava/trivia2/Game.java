@@ -32,6 +32,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -59,7 +61,6 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private final int[] randomNumbersBabyYoda = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19};
     private MyCountDownTimer countDownTimer = new MyCountDownTimer(10000 /* 10 Sec */, 1000);
     private ProgressBar progressBar;
-    private long timeLeftInMillis = 10000;
     public static SharedPreferences prefs;
     private int multiPlayerHelper=0;
     public MediaPlayer mp3 = null;
@@ -1304,13 +1305,22 @@ else if(Menu_Game.WhichGame==888){
         }
        else{
             saveScore();
-            if( !isNetworkConnected() || Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59){
+            if( !isNetworkConnected(this) || Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59){
                 startActivity(new Intent(Game.this, Results.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else{
-              //  startActivity(new Intent(Game.this, Ads.class));
-                Ads.showInterstitialAd(this);
+
+                if (!PurchaseManager.isRemoveAdsPurchased(this)) {
+                    // Show ads
+                    Ads.showInterstitialAd(this);
+                }
+                else{
+                    startActivity(new Intent(Game.this, Results.class));
+                    overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                }
+
+
             }
 
         }
@@ -1321,10 +1331,18 @@ else if(Menu_Game.WhichGame==888){
 
     }
 
-    private boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnected();
+    private boolean isNetworkConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            // connected to the internet
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                return true;
+            } else return activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE;
+        } else {
+            return false;
+        }
     }
 
     void saveScore( ){

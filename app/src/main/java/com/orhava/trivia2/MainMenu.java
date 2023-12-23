@@ -1,6 +1,9 @@
 package com.orhava.trivia2;
 
 
+
+import static com.orhava.trivia2.Avatar_Name.avatarPremiumChoice;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +15,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,9 +23,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.ProductDetails;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.QueryProductDetailsParams;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
@@ -30,6 +45,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.common.collect.ImmutableList;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,6 +54,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.Nullable;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.Locale;
 import java.util.Objects;
@@ -55,10 +73,10 @@ public class MainMenu extends AppCompatActivity  {
     private TextView txtNameAndPoints,name_of_language;
     private ImageView imgViewShowAvatar;
     private FirebaseUser user;
-    private Button btnShareGame,btnRateUs,btnFunFacts,btnMoreApps;
+    private Button btnShareGame,btnRateUs,btnFunFacts,btnMoreApps, btnRemoveAds;
     private ImageButton btnHebrew, btnEnglish, Philippines_Language, India_Language, Indonesia_Language, Malaysia_Language, Spain_Language, bangladesh_Language,Brazil_Language;
-
-
+    private BillingClient billingClient;
+    private ProductDetails productDetails;
 
 
 
@@ -95,6 +113,9 @@ public class MainMenu extends AppCompatActivity  {
         FunFacts();
 
 
+        if (isNetworkConnected(this)){
+            initializeBillingClient();
+        }
 
 
 
@@ -102,6 +123,112 @@ public class MainMenu extends AppCompatActivity  {
 
 
 
+
+
+    }
+
+
+
+    public void onRemoveAdsButtonClick(View view) {
+
+
+        QueryProductDetailsParams queryProductDetailsParams =
+                QueryProductDetailsParams.newBuilder()
+                        .setProductList(
+                                ImmutableList.of(
+                                        QueryProductDetailsParams.Product.newBuilder()
+                                                .setProductId("remove_ads")
+                                                .setProductType(BillingClient.ProductType.INAPP)
+                                                .build()))
+                        .build();
+
+        billingClient.queryProductDetailsAsync(
+                queryProductDetailsParams,
+                (billingResult, productDetailsList) -> {
+                    if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && !productDetailsList.isEmpty()) {
+                        runOnUiThread(() -> {
+                            productDetails = productDetailsList.get(0);
+
+                            BillingFlowParams billingFlowParams =
+                                    BillingFlowParams.newBuilder()
+                                            .setProductDetailsParamsList(
+                                                    ImmutableList.of(
+                                                            BillingFlowParams.ProductDetailsParams.newBuilder()
+                                                                    .setProductDetails(productDetails)
+                                                                    .build()
+                                                    )
+                                            )
+                                            .build();
+
+                            billingClient.launchBillingFlow(this, billingFlowParams);
+                        });
+                    } else {
+                        Log.e("TAG", "onProductDetailsResponse: No products or an error occurred");
+                    }
+                }
+        );
+    }
+
+
+    private void initializeBillingClient() {
+        billingClient = BillingClient.newBuilder(this)
+                .setListener(purchasesUpdatedListener)
+                .enablePendingPurchases()
+                .build();
+
+        billingClient.startConnection(new BillingClientStateListener() {
+            @Override
+            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    // BillingClient is ready
+                    Log.d("BillingClient", "Billing client setup finished");
+                } else {
+                    // Handle error
+                    Log.e("BillingClient", "Error code: " + billingResult.getResponseCode());
+                }
+            }
+
+            @Override
+            public void onBillingServiceDisconnected() {
+                // Try to restart the connection on the next request to
+                // Google Play by calling the startConnection() method.
+                Log.w("BillingClient", "Billing service disconnected");
+            }
+        });
+    }
+
+    // Define a PurchasesUpdatedListener
+    private final PurchasesUpdatedListener purchasesUpdatedListener = (billingResult, purchases) -> {
+        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchases != null) {
+            for (Purchase purchase : purchases) {
+                handlePurchase(purchase);
+            }
+        }
+        else if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED) {
+            PurchaseManager.setRemoveAdsPurchased(this, true);
+
+            // Replace the rootLayout with the id of the root layout in your activity
+            View rootLayout = findViewById(R.id.RlMainMenu);
+
+            Snackbar snackbar = Snackbar.make(rootLayout, "Ads are already removed.", Snackbar.LENGTH_SHORT);
+            snackbar.setAction("OK", v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
+        }
+        else if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED) {
+            // User canceled the purchase
+            Log.d("BillingClient", "User canceled the purchase");
+        } else {
+            // Handle other errors
+            Log.e("BillingClient", "Error code: " + billingResult.getResponseCode());
+        }
+    };
+
+    private void handlePurchase(Purchase purchase) {
+        if ( purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+            PurchaseManager.setRemoveAdsPurchased(this, true);
+            // Update your app's state to remove ads
+            Log.d("BillingClient", "Remove Ads purchased successfully");
+        }
     }
 
     private void FunFacts() {
@@ -341,9 +468,26 @@ public class MainMenu extends AppCompatActivity  {
 
     });
 
+
+        btnRemoveAds.setOnClickListener(view -> {
+            if (!flag){
+                mp.setVolume(0,0);
+            }
+            else{
+                mp.setVolume(0,1);
+            }
+
+            mp.start();
+
+            onRemoveAdsButtonClick(view);
+
+
+        });
+
+
     btnLeaderBoard.setOnClickListener(view -> {
 
-        if(user != null && isNetworkConnected()) {
+        if(user != null && isNetworkConnected(this)) {
 
             if (!flag){
                 mp.setVolume(0,0);
@@ -358,7 +502,7 @@ public class MainMenu extends AppCompatActivity  {
 
         }
 
-        else if (!isNetworkConnected()){
+        else if (!isNetworkConnected(this)){
             Toast.makeText(this, R.string.Connect_to_Internet, Toast.LENGTH_SHORT).show();
 
 
@@ -377,7 +521,7 @@ public class MainMenu extends AppCompatActivity  {
         btnMultiPlayer.setOnClickListener(view -> {
 
 
-            if(user != null && isNetworkConnected() ){
+            if(user != null && isNetworkConnected(this) ){
                 if (!flag){
                     mp.setVolume(0,0);
                 }
@@ -390,7 +534,7 @@ public class MainMenu extends AppCompatActivity  {
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
 
-            else if (!isNetworkConnected()){
+            else if (!isNetworkConnected(this)){
                 Toast.makeText(this, R.string.Please_Connect_to_Internet_To_Play_MultiPLayer, Toast.LENGTH_SHORT).show();
 
 
@@ -411,11 +555,21 @@ public class MainMenu extends AppCompatActivity  {
 
 }
 
-    private boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnected();
+    private boolean isNetworkConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            // connected to the internet
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                return true;
+            } else return activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE;
+        } else {
+            return false;
+        }
     }
+
+
 
 
     @Override
@@ -635,7 +789,7 @@ public class MainMenu extends AppCompatActivity  {
         btnHebrew= findViewById(R.id.Israel_Language);
         btnEnglish= findViewById(R.id.England_Language);
         btnMoreApps= findViewById(R.id.btnMoreApps);
-
+        btnRemoveAds = findViewById(R.id.btnRemoveAds);
         name_of_language= findViewById(R.id.name_of_language);
 
         Philippines_Language=findViewById(R.id.Philippines_Language);

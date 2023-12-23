@@ -81,6 +81,7 @@
                 android:id="@+id/factImageView"
                 android:layout_width="120dp"
                 android:layout_height="150dp"
+                android:paddingStart="10dp"
                android:layout_below="@+id/IVFactImage"
                 android:layout_marginTop="40dp"
 
@@ -89,22 +90,13 @@
                 app:civ_border_width="4dp"
                 app:civ_shadow="true" />
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
-                />
-
 
             <TextView
                 android:id="@+id/Txt_Fact"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:paddingEnd="10dp"
 android:layout_marginTop="50dp"
                 android:layout_marginStart="10dp"
                 android:textStyle="italic"
@@ -120,9 +112,9 @@ android:layout_marginTop="50dp"
                 android:id="@+id/Cv_next"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                android:layout_below="@+id/Txt_Fact"
+                android:layout_above="@+id/adView"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
@@ -168,6 +160,7 @@ android:layout_marginTop="50dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="Next Fact"
+
                     android:textColor="@color/teal_200"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -175,6 +168,18 @@ android:layout_marginTop="50dp"
 
 
             </androidx.cardview.widget.CardView>
+
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
+                />
+
 
 
         </RelativeLayout>

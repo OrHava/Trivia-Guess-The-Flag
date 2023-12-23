@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -49,18 +50,33 @@ public class Menu_Game extends AppCompatActivity {
         Mute_UnMute();
         savePrefs();
         configureNextButton();
-
-        // Find the AdView element in your layout
-        AdView adView = findViewById(R.id.adView);
-
-        // Create an ad request
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        // Load the ad into the AdView
-        adView.loadAd(adRequest);
+        showAd();
 
 
     }
+
+
+    void showAd(){
+
+        if (!PurchaseManager.isRemoveAdsPurchased(this)) {
+            // Show ads
+            // Your ad display logic here
+
+            // Find the AdView element in your layout
+            AdView adView = findViewById(R.id.adView);
+            adView.setVisibility(View.VISIBLE);
+            // Create an ad request
+            AdRequest adRequest = new AdRequest.Builder().build();
+
+            // Load the ad into the AdView
+            adView.loadAd(adRequest);
+        }
+        else{
+            AdView adView = findViewById(R.id.adView);
+            adView.setVisibility(View.GONE);
+        }
+    }
+
 
     @Override
     public void onBackPressed() {

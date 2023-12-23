@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/RlMainMenu"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.orhava.trivia2.MainMenu"
@@ -213,12 +214,70 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_btnRemoveAds"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Cv_btnLeaderBoard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_remove_ads"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/btnRemoveAds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="@string/remove_ads"
+                    android:textColor="@color/teal_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Cv_btnMultiPlayer"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                android:layout_below="@+id/Cv_btnLeaderBoard"
+                android:layout_below="@+id/Cv_btnRemoveAds"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"

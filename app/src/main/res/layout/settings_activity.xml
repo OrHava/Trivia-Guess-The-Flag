@@ -6,13 +6,24 @@
     android:background="@drawable/globesnew123"
     tools:context="com.orhava.trivia2.Game">
 
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/returnAdsButton"
+ android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/allow_ads"/>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Cv_Reset_game"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+   android:layout_below="@+id/returnAdsButton"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="10dp">
 
@@ -202,11 +213,11 @@
         android:id="@+id/EasterEggBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Cv_Reset_game"
+        android:layout_below="@+id/Cv_About"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/teal_200"
         android:fontFamily="@font/alfa_slab_one"
@@ -225,7 +236,8 @@
         android:id="@+id/easterTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/EasterEggBtn"
+    android:layout_centerHorizontal="true"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/you_won_a_secret_avatar_press_avatar_to_use" />
 
@@ -233,11 +245,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/easterTxtView"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/teal_200"
         android:backgroundTint="@color/white"
         android:layout_centerHorizontal="true"
         android:id="@+id/imgViewAvatar"
+        android:visibility="gone"
         tools:ignore="ContentDescription" />
 
 

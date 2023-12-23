@@ -42,8 +42,11 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/navToMainMenu"
                 ads:adSize="BANNER"
+                android:visibility="gone"
                 ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
                 />
+
+
 
 
 

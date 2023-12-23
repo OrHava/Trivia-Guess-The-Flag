@@ -1,7 +1,6 @@
 package com.orhava.trivia2;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -23,8 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,7 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
     private static int Count = 0; //use private static int globally
     private SharedPreferences sharedPreferences2,prefs3;  //Declare Globally
     SharedPreferences.Editor editor2;      //Declare Globally
-    Button EasterEggBtn, btnDeleteAccount;
+    Button EasterEggBtn;
+    ImageButton returnAdsButton;
     private  MediaPlayer mp2=null;
     TextView tv;
     ImageButton imgViewAvatar;
@@ -55,14 +53,10 @@ public class SettingsActivity extends AppCompatActivity {
         tv = findViewById(R.id.easterTxtView);
         tv.setVisibility(View.GONE);
         imgViewAvatar=findViewById(R.id.imgViewAvatar);
+        returnAdsButton = findViewById(R.id.returnAdsButton);
 
 
-        btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onDeleteAccountClick(v);
-            }
-        });
+        btnDeleteAccount.setOnClickListener(this::onDeleteAccountClick);
 
 
 
@@ -90,6 +84,28 @@ public class SettingsActivity extends AppCompatActivity {
 
         });
 
+        returnAdsButton.setOnClickListener(view -> { //here my man
+
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(SettingsActivity.this);
+            alert.setTitle("Return Ads");
+            alert.setMessage("Are you sure you want to return ads?");
+            alert.setPositiveButton("Yes", (dialog, which) -> {
+                PurchaseManager.setRemoveAdsPurchased(this, false);
+
+                Toast.makeText(SettingsActivity.this, "Game Ads Returned", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            });
+
+            alert.setNegativeButton("No", (dialog, which) -> {
+                Toast.makeText(SettingsActivity.this, "Game Ads Has Not Returned", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            });
+
+            alert.show();
+
+        });
+
         btnAbout.setOnClickListener(view -> {
 
             putValueInSharedPrefs(++Count);
@@ -107,6 +123,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         LottieAnimationView EasterEggAnim=findViewById(R.id.EasterEggAnim);
         EasterEggBtn.setOnClickListener(view -> {
+
             EasterEggAnim.playAnimation();
             if (!MainMenu.flag){
                 mp2.setVolume(0,0);
@@ -117,6 +134,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             mp2.start();
             RunAnimation();
+            imgViewAvatar.setVisibility(View.VISIBLE);
             imgViewAvatar.setImageResource(R.mipmap.avatersecret_foreground);
 
             imgViewAvatar.setOnClickListener(view1 -> {
@@ -158,20 +176,12 @@ public class SettingsActivity extends AppCompatActivity {
         builder.setTitle("Confirm Delete Account");
         builder.setMessage("Are you sure you want to delete your account? This action cannot be undone.");
 
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Call a method to delete the account
-                deleteAccount();
-            }
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // Call a method to delete the account
+            deleteAccount();
         });
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
 
         builder.show();
     }
@@ -182,20 +192,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (user != null) {
             user.delete()
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                // Account deleted successfully
-                                // You can also sign out the user if needed
-                                FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(SettingsActivity.this, SignIn.class));
-                                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
-                                // Redirect to the sign-in screen or perform any other action
-                            } else {
-                                // Handle failure
-                                Toast.makeText(SettingsActivity.this, "Failed to delete account", Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            // Account deleted successfully
+                            // You can also sign out the user if needed
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(SettingsActivity.this, SignIn.class));
+                            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                            // Redirect to the sign-in screen or perform any other action
+                        } else {
+                            // Handle failure
+                            Toast.makeText(SettingsActivity.this, "Failed to delete account", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -226,6 +233,7 @@ public class SettingsActivity extends AppCompatActivity {
       //  Toast.makeText(SettingsActivity.this, "Example Button is clicked " +newCurrentCounter+ " time(s)", Toast.LENGTH_SHORT).show();
         if(newCurrentCounter>=15){
             EasterEggBtn.setVisibility(View.VISIBLE);
+
         }
 
     }

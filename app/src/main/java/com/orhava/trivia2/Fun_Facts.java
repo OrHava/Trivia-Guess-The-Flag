@@ -50,14 +50,21 @@ public class Fun_Facts extends AppCompatActivity {
 
         NextFact();
 
-        // Find the AdView element in your layout
-        AdView adView = findViewById(R.id.adView);
 
-        // Create an ad request
-        AdRequest adRequest = new AdRequest.Builder().build();
+        if (!PurchaseManager.isRemoveAdsPurchased(this)) {
+            // Show ads
+            // Your ad display logic here
 
-        // Load the ad into the AdView
-        adView.loadAd(adRequest);
+            // Find the AdView element in your layout
+            AdView adView = findViewById(R.id.adView);
+
+            // Create an ad request
+            AdRequest adRequest = new AdRequest.Builder().build();
+
+            // Load the ad into the AdView
+            adView.loadAd(adRequest);
+        }
+
 
 
         ButtonsNav();

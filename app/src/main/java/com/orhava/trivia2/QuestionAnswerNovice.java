@@ -53,7 +53,7 @@ public class QuestionAnswerNovice extends AppCompatActivity {
         images = new int[]{
                 R.drawable.israel, R.drawable.italy, R.drawable.jamaica,
                 R.drawable.brazil, R.drawable.australia, R.drawable.china,
-                R.drawable.russian_federation, R.drawable.japan, R.drawable.saudi_arabia,
+                R.drawable.russia, R.drawable.japan, R.drawable.saudi_arabia,
                 R.drawable.sweden
         };
     }

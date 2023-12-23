@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_200"
-    tools:context=".Fun_Facts">
+  >
 
 
 
@@ -22,7 +22,7 @@
         android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
-        tools:ignore="ContentDescription,HardcodedText,SmallSp" />
+        tools:ignore="HardcodedText,SmallSp" />
 
     <ImageButton
         android:id="@+id/mute_unmute"
@@ -38,47 +38,152 @@
         android:src="@drawable/unmute_50"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:layout_width="700dp"
-        android:layout_height="700dp"
-        android:src="@drawable/gallery">
-
-    </ImageView>
 
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
-            />
 
 
-        <TextView
-            android:id="@+id/Txt_Fact"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginTop="250dp"
-            android:textStyle="italic"
-            android:textSize="20sp"
-            android:layout_centerHorizontal="true"
-            android:text="1. The Vatican City is the smallest country in the world, with an area of just 0.17 square miles."
-            />
 
-        <ImageButton
-            android:id="@+id/Btn_Next_Fact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="530dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/right_arrow"
-            tools:ignore="ContentDescription" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners"
+            android:layout_below="@+id/mute_unmute"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fun Facts!"
+                android:fontFamily="@font/alfa_slab_one"
+                android:id="@+id/funFactsTxt"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+           android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/funFactsTxt"
+                android:layout_marginTop="20dp"
+                android:id="@+id/IVFactImage"
+                android:scaleType="fitXY"
+                android:src="@drawable/fact_picture"
+                />
+
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/factImageView"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+               android:layout_below="@+id/IVFactImage"
+                android:layout_marginTop="40dp"
+
+                android:scaleType="fitCenter"
+                android:src="@drawable/vatican_city"
+                app:civ_border_width="4dp"
+                app:civ_shadow="true" />
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-8096185122491583/5605959553"
+                />
+
+
+            <TextView
+                android:id="@+id/Txt_Fact"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+android:layout_marginTop="50dp"
+                android:layout_marginStart="10dp"
+                android:textStyle="italic"
+                android:fontFamily="@font/alfa_slab_one"
+                android:layout_below="@+id/IVFactImage"
+                android:layout_toEndOf="@+id/factImageView"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:text="1. The Vatican City is the smallest country in the world, with an area of just 0.17 square miles."
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_next"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Txt_Fact"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/fun_facts_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/Btn_Next_Fact"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Next Fact"
+                    android:textColor="@color/teal_200"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+
+
+
+
 
 
 

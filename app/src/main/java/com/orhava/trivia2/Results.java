@@ -275,12 +275,13 @@ public class Results extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else if (Menu_Game.WhichGame==11){
+                Menu_Game.totalQuestions = QuestionAnswerDeathMarch.question.length;
                 Menu_Game.WhichGame=12;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
             else {
-
+                    Menu_Game.totalQuestions = QuestionAnswerStepOnLego.question.length;
                 Menu_Game.WhichGame=13;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);

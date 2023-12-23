@@ -1,6 +1,7 @@
 package com.orhava.trivia2;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -22,13 +23,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private static int Count = 0; //use private static int globally
     private SharedPreferences sharedPreferences2,prefs3;  //Declare Globally
     SharedPreferences.Editor editor2;      //Declare Globally
-    Button EasterEggBtn;
+    Button EasterEggBtn, btnDeleteAccount;
     private  MediaPlayer mp2=null;
     TextView tv;
     ImageButton imgViewAvatar;
@@ -45,10 +50,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         Button btnReset = findViewById(R.id.btnReset);
         Button btnAbout = findViewById(R.id.btnAbout);
+        Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
         EasterEggBtn = findViewById(R.id.EasterEggBtn);
         tv = findViewById(R.id.easterTxtView);
         tv.setVisibility(View.GONE);
         imgViewAvatar=findViewById(R.id.imgViewAvatar);
+
+
+        btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDeleteAccountClick(v);
+            }
+        });
 
 
 
@@ -118,6 +132,73 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
+    }
+
+    // Add this in your activity's or fragment's onResume() method
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Check if the user is signed in
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        Button deleteAccountButton = findViewById(R.id.btnDeleteAccount);
+        // User is signed in, enable the button
+        // User is not signed in, disable the button
+        deleteAccountButton.setEnabled(currentUser != null);
+    }
+
+
+    public void onDeleteAccountClick(View view) {
+        showDeleteAccountConfirmationDialog();
+    }
+
+    private void showDeleteAccountConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Delete Account");
+        builder.setMessage("Are you sure you want to delete your account? This action cannot be undone.");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Call a method to delete the account
+                deleteAccount();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void deleteAccount() {
+        // Use Firebase Authentication to delete the account
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            user.delete()
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                // Account deleted successfully
+                                // You can also sign out the user if needed
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(SettingsActivity.this, SignIn.class));
+                                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                                // Redirect to the sign-in screen or perform any other action
+                            } else {
+                                // Handle failure
+                                Toast.makeText(SettingsActivity.this, "Failed to delete account", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
     }
 
     // this event will enable the back

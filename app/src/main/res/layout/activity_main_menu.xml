@@ -97,10 +97,74 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_Geography_GameBtn"
+                android:layout_width="300dp"
+
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/Cv_Flags_GameBtn"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_map"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+
+                <Button
+                    android:id="@+id/Geography_GameBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="@string/geography_game"
+                    android:textColor="@color/teal_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/Cv_Name_AvatarBtn"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                android:layout_below="@+id/Cv_Flags_GameBtn"
+                android:layout_below="@+id/Cv_Geography_GameBtn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
@@ -272,12 +336,70 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Cv_btnLearnFlags"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Cv_btnRemoveAds"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/play_icon"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="265dp"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="255dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/vertical_dotted_line" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_learn"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/btnLearnFlags"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="@string/learn_flags"
+                    android:textColor="@color/teal_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Cv_btnMultiPlayer"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                android:layout_below="@+id/Cv_btnRemoveAds"
+                android:layout_below="@+id/Cv_btnLearnFlags"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"

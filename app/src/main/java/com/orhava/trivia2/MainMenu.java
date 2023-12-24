@@ -1,9 +1,6 @@
 package com.orhava.trivia2;
 
 
-
-import static com.orhava.trivia2.Avatar_Name.avatarPremiumChoice;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +24,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.android.billingclient.api.AcknowledgePurchaseParams;
+import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -35,8 +34,6 @@ import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.QueryProductDetailsParams;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
@@ -55,7 +52,6 @@ import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.Nullabl
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.util.Locale;
 import java.util.Objects;
 
@@ -73,10 +69,12 @@ public class MainMenu extends AppCompatActivity  {
     private TextView txtNameAndPoints,name_of_language;
     private ImageView imgViewShowAvatar;
     private FirebaseUser user;
-    private Button btnShareGame,btnRateUs,btnFunFacts,btnMoreApps, btnRemoveAds;
+    private Button btnShareGame,btnRateUs,btnFunFacts,btnMoreApps, btnRemoveAds, btnLearnFlags, Geography_GameBtn;
     private ImageButton btnHebrew, btnEnglish, Philippines_Language, India_Language, Indonesia_Language, Malaysia_Language, Spain_Language, bangladesh_Language,Brazil_Language;
     private BillingClient billingClient;
     private ProductDetails productDetails;
+
+
 
 
 
@@ -127,6 +125,17 @@ public class MainMenu extends AppCompatActivity  {
 
     }
 
+    // Add this line at the top of your class
+    private final AcknowledgePurchaseResponseListener acknowledgePurchaseResponseListener = billingResult -> {
+        // Handle the result of the acknowledgment
+        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+            // Acknowledgment successful
+            Log.d("BillingClient", "Purchase acknowledged successfully");
+        } else {
+            // Acknowledgment failed, handle the error
+            Log.e("BillingClient", "Error acknowledging purchase: " + billingResult.getResponseCode());
+        }
+    };
 
 
     public void onRemoveAdsButtonClick(View view) {
@@ -226,10 +235,23 @@ public class MainMenu extends AppCompatActivity  {
     private void handlePurchase(Purchase purchase) {
         if ( purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
             PurchaseManager.setRemoveAdsPurchased(this, true);
+
+            acknowledgePurchase(purchase);
+
             // Update your app's state to remove ads
             Log.d("BillingClient", "Remove Ads purchased successfully");
         }
     }
+
+    private void acknowledgePurchase(Purchase purchase) {
+        AcknowledgePurchaseParams acknowledgePurchaseParams =
+                AcknowledgePurchaseParams.newBuilder()
+                        .setPurchaseToken(purchase.getPurchaseToken())
+                        .build();
+
+        billingClient.acknowledgePurchase(acknowledgePurchaseParams, acknowledgePurchaseResponseListener);
+    }
+
 
     private void FunFacts() {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
@@ -467,6 +489,40 @@ public class MainMenu extends AppCompatActivity  {
 
 
     });
+
+        btnLearnFlags.setOnClickListener(view -> {
+            if (!flag){
+                mp.setVolume(0,0);
+            }
+            else{
+                mp.setVolume(0,1);
+            }
+
+            mp.start();
+
+            startActivity(new Intent(MainMenu.this, LearnFlagsActivity.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
+
+        });
+
+        Geography_GameBtn.setOnClickListener(view -> {
+            if (!flag){
+                mp.setVolume(0,0);
+            }
+            else{
+                mp.setVolume(0,1);
+            }
+
+            mp.start();
+
+            startActivity(new Intent(MainMenu.this, Menu_Geography_Game.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
+
+        });
+
+
 
 
         btnRemoveAds.setOnClickListener(view -> {
@@ -791,7 +847,7 @@ public class MainMenu extends AppCompatActivity  {
         btnMoreApps= findViewById(R.id.btnMoreApps);
         btnRemoveAds = findViewById(R.id.btnRemoveAds);
         name_of_language= findViewById(R.id.name_of_language);
-
+        Geography_GameBtn = findViewById(R.id.Geography_GameBtn);
         Philippines_Language=findViewById(R.id.Philippines_Language);
         India_Language=findViewById(R.id.India_Language);
         Indonesia_Language=findViewById(R.id.Indonesia_Language);
@@ -799,6 +855,8 @@ public class MainMenu extends AppCompatActivity  {
         Spain_Language=findViewById(R.id.Spain_Language);
         bangladesh_Language=findViewById(R.id.bangladesh_Language);
         Brazil_Language=findViewById(R.id.Brazil_Language);
+
+        btnLearnFlags= findViewById(R.id.btnLearnFlags);
 
 
     }

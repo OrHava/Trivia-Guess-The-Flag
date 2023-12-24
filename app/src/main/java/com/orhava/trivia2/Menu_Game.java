@@ -112,6 +112,7 @@ void savePrefs(){
     SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
     int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
     bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewNovice));
+
     NovicePointsForDataBase= scoreNewNovice;
     int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
     bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLearner));

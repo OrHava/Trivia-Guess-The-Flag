@@ -53,7 +53,24 @@ public class Results extends AppCompatActivity {
         String passStatus;
        mp2 = MediaPlayer.create(this, R.raw.goodresult);
        mp3 = MediaPlayer.create(this, R.raw.lose);
-        if (Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59) {
+        if (Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreApprentice > Menu_Game.totalQuestions * 0.59||
+                Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59
+                || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59
+                || Game.scoreNovice_2 > Menu_Game.totalQuestions * 0.59
+
+                || Game.scoreLearner_2 > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreApprentice_2 > Menu_Game.totalQuestions * 0.59||
+                Game.scoreCompetent_2 > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion_2 > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreExpert_2 > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster_2 > Menu_Game.totalQuestions * 0.59 ||
+                Game.scoreLegendary_2 > Menu_Game.totalQuestions * 0.59
+
+
+        ) {
             passStatus = "Passed";
             layout.setBackgroundColor(Color.BLUE);
                 if (!MainMenu.flag){
@@ -140,6 +157,37 @@ public class Results extends AppCompatActivity {
             resultTxt.setText(String.format("Best Score %s", Game.scoreStepOnLego));
 
         }
+        if(Menu_Game.WhichGame==20){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreNovice_2));
+
+        }
+        if (Menu_Game.WhichGame==21){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreLearner_2));
+        }
+        if(Menu_Game.WhichGame==22){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreApprentice_2));
+
+        }
+        if(Menu_Game.WhichGame==23){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreCompetent_2));
+
+        }
+        if(Menu_Game.WhichGame==24){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreChampion_2));
+
+        }
+        if(Menu_Game.WhichGame==25){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreExpert_2));
+
+        }
+        if(Menu_Game.WhichGame==26){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreMaster_2));
+
+        }
+        if(Menu_Game.WhichGame==27){
+            resultTxt.setText(String.format("Best Score %s", Game.scoreLegendary_2));
+
+        }
 
     }
 
@@ -204,6 +252,36 @@ public class Results extends AppCompatActivity {
         else  if (Menu_Game.WhichGame==13){
             nextLevel.setVisibility(View.GONE);
         }
+
+        if(Game.scoreNovice_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==20 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+        else if(Game.scoreLearner_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==21 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+        else if(Game.scoreApprentice_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==22 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+        else if(Game.scoreCompetent_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==23 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+        else if(Game.scoreChampion_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==24 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+        else  if(Game.scoreExpert_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==25 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+        else if(Game.scoreMaster_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==26 ){
+            nextLevel.setVisibility(View.GONE);
+        }
+
+        else  if(Game.scoreLegendary_2 < Menu_Game.totalQuestions * 0.59 && Menu_Game.WhichGame==27){
+            nextLevel.setVisibility(View.GONE);
+        }
+
 
         nextLevel.setOnClickListener(view -> {
             if (!MainMenu.flag){
@@ -280,12 +358,50 @@ public class Results extends AppCompatActivity {
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
-            else {
+            else if (Menu_Game.WhichGame==12){
                     Menu_Game.totalQuestions = QuestionAnswerStepOnLego.question.length;
                 Menu_Game.WhichGame=13;
                 startActivity(new Intent(Results.this, Game.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
+
+
+            if (Menu_Game.WhichGame==20){
+                Menu_Game.WhichGame=21;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==21){
+                Menu_Game.WhichGame=22;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==22){
+                Menu_Game.WhichGame=23;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==23){
+                Menu_Game.WhichGame=24;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==24){
+                Menu_Game.WhichGame=25;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==25){
+                Menu_Game.WhichGame=26;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+            else if (Menu_Game.WhichGame==26){
+                Menu_Game.WhichGame=27;
+                startActivity(new Intent(Results.this, Game.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            }
+
 
 
         });
@@ -316,7 +432,14 @@ public class Results extends AppCompatActivity {
 
             mp.start();
 
-            startActivity(new Intent(Results.this, Menu_Game.class));
+            if(   Menu_Game.WhichGame >= 20 && Menu_Game.WhichGame <= 27  ){
+                startActivity(new Intent(Results.this, Menu_Geography_Game.class));
+            }
+            else{
+                startActivity(new Intent(Results.this, Menu_Game.class));
+            }
+
+
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
 

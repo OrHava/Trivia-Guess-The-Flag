@@ -330,15 +330,20 @@
     <string name="rate_us">Rate Us</string>
     <string name="fun_facts">Fun Facts</string>
     <string name="more_apps">More Apps</string>
+    <string name="Guess_The_Country">Guess the Country At Number</string>
     <string name="Marshall_Islands">Marshall Islands</string>
     <string name="Saint_Kitts_and_Nevis">Saint Kitts and Nevis</string>
     <string name="Bosnia_and_Herzegovina">Bosnia and Herzegovina</string>
     <string name="Algeria">Algeria</string>
+    <string name="Yemen">Yemen</string>
+    <string name="United_States_Of_America">United States Of America</string>
     <string name="Western_Sahara">Western Sahara</string>
     <string name="death_march">Death March</string>
     <string name="step_on_lego">Step on Lego</string>
     <string name="delete_account">Delete Account</string>
     <string name="remove_ads">Remove Ads</string>
+    <string name="learn_flags">Learn Flags</string>
+    <string name="geography_game">Geography Game</string>
 
 
 </resources>

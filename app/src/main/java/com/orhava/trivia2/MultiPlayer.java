@@ -55,6 +55,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_player);
         Objects.requireNonNull(getSupportActionBar()).hide();
+        Menu_Game.WhichGame=0;
         user= FirebaseAuth.getInstance().getCurrentUser();
         isItMultiPlayer=true;
         amountOfUsers=findViewById(R.id.amountOfUsers);

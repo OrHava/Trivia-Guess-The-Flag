@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -32,8 +33,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,7 +51,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private TextView questionTextView,totalQuestionsTextView,mTextField,whichGameTxt,whichGame2Txt;  //mTextField to use for the timer
     private Button ansA, ansB, ansC, ansD,submitBtn;
     private String selectedAns = " ";
-    protected static int scoreMultiPlayer=0,scoreNovice = 0,scoreLearner = 0,scoreApprentice = 0,scoreCompetent = 0,scoreChampion = 0,scoreExpert = 0,scoreMaster = 0,scoreLegendary = 0,scoreDivine = 0,scoreMasterYoda = 0,scoreBabyYoda = 0, scoreDeathMarch =0 , scoreStepOnLego = 0;
+    protected static int scoreMultiPlayer=0,scoreNovice = 0,scoreNovice_2 = 0,scoreLearner_2 = 0,scoreApprentice_2 = 0,scoreCompetent_2 = 0,scoreChampion_2 = 0,scoreExpert_2 = 0,scoreMaster_2 = 0,scoreLegendary_2 = 0,scoreLearner = 0,scoreApprentice = 0,scoreCompetent = 0,scoreChampion = 0,scoreExpert = 0,scoreMaster = 0,scoreLegendary = 0,scoreDivine = 0,scoreMasterYoda = 0,scoreBabyYoda = 0, scoreDeathMarch =0 , scoreStepOnLego = 0;
     private static int indexOfQuestions;
     private ImageView iv,CorrectOrWrong,whichGameImage,whichGameImage2,whichGameImage3;
     private final int[] randomNumbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -92,6 +91,34 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         } else {
             btnMute.setImageResource( R.drawable.mute_50);
+        }
+
+        if(Menu_Game.WhichGame >= 20 && Menu_Game.WhichGame <= 27){
+
+
+            totalQuestionsTextView.setVisibility(View.GONE);
+            btnMute.setVisibility(View.GONE);
+            whichGameTxt.setVisibility(View.GONE);
+            whichGame2Txt.setVisibility(View.GONE);
+            whichGameImage2.setVisibility(View.GONE);
+            whichGameImage.setVisibility(View.GONE);
+            whichGameImage3.setVisibility(View.GONE);
+            ImageButton nextButton = findViewById(R.id.navToMain);
+             nextButton.setVisibility(View.GONE);
+
+            questionTextView.setTextSize(18);
+            // Set the new height in pixels (adjust this value as needed)
+            int newHeightInPixels = 1000;
+
+// Get the existing LayoutParams
+            ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
+
+// Update the height of the LayoutParams
+            layoutParams.height = newHeightInPixels;
+
+// Set the updated LayoutParams back to the ImageView
+            iv.setLayoutParams(layoutParams);
+
         }
         whichGame();
         Mute_UnMute();
@@ -194,18 +221,26 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         mp2 = MediaPlayer.create(this, R.raw.winsound);
         multiPlayerHelper=0;
         QuestionAnswerApprentice.initializeData(this);
+        QuestionAnswerApprentice_2.initializeData(this);
         QuestionAnswerBabyYoda.initializeData(this);
         QuestionAnswerDeathMarch.initializeData(this);
         QuestionAnswerStepOnLego.initializeData(this);
         QuestionAnswerChampion.initializeData(this);
+        QuestionAnswerChampion_2.initializeData(this);
         QuestionAnswerCompetent.initializeData(this);
+        QuestionAnswerCompetent_2.initializeData(this);
         QuestionAnswerDivine.initializeData(this);
         QuestionAnswerExpert.initializeData(this);
+        QuestionAnswerExpert_2.initializeData(this);
         QuestionAnswerLearner.initializeData(this);
+        QuestionAnswerLearner_2.initializeData(this);
         QuestionAnswerLegendary.initializeData(this);
+        QuestionAnswerLegendary_2.initializeData(this);
         QuestionAnswerMaster.initializeData(this);
+        QuestionAnswerMaster_2.initializeData(this);
         QuestionAnswerMasterYoda.initializeData(this);
         QuestionAnswerNovice.initializeData(this);
+        QuestionAnswerNovice_2.initializeData(this);
 
     }
     void restart(){
@@ -228,6 +263,14 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         scoreStepOnLego =0;
         scoreDeathMarch=0;
         scoreMultiPlayer=0;
+        scoreNovice_2 =0;
+        scoreLearner_2 = 0;
+        scoreApprentice_2 = 0;
+        scoreCompetent_2 = 0;
+       scoreChampion_2 = 0;
+       scoreExpert_2 = 0;
+       scoreMaster_2 = 0;
+       scoreLegendary_2 = 0;
     }
 
 
@@ -443,42 +486,42 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
 void whichGame(){
-if( Menu_Game.WhichGame==1){
+if( Menu_Game.WhichGame==1 || Menu_Game.WhichGame==20){
     whichGameTxt.setText(R.string.novice);
     whichGame2Txt.setText(R.string.Level1);
     whichGameImage.setImageResource(R.drawable.novice);
 }
-else if(Menu_Game.WhichGame==2){
+else if(Menu_Game.WhichGame==2 || Menu_Game.WhichGame==21){
     whichGameTxt.setText(R.string.learner);
     whichGame2Txt.setText(R.string.Level2);
     whichGameImage.setImageResource(R.drawable.learner);
 }
-else if(Menu_Game.WhichGame==3){
+else if(Menu_Game.WhichGame==3 || Menu_Game.WhichGame==22){
     whichGameTxt.setText(R.string.apprentice);
     whichGame2Txt.setText(R.string.Level3);
     whichGameImage.setImageResource(R.drawable.apprentice);
 }
-else if(Menu_Game.WhichGame==4){
+else if(Menu_Game.WhichGame==4 || Menu_Game.WhichGame==23){
     whichGameTxt.setText(R.string.competent);
     whichGame2Txt.setText(R.string.Level4);
     whichGameImage.setImageResource(R.drawable.competent);
 }
-else if(Menu_Game.WhichGame==5){
+else if(Menu_Game.WhichGame==5 || Menu_Game.WhichGame==24){
     whichGameTxt.setText(R.string.champion);
     whichGame2Txt.setText(R.string.Level5);
     whichGameImage.setImageResource(R.drawable.champion);
 }
-else if(Menu_Game.WhichGame==6){
+else if(Menu_Game.WhichGame==6 || Menu_Game.WhichGame==25){
     whichGameTxt.setText(R.string.expert);
     whichGame2Txt.setText(R.string.Level6);
     whichGameImage.setImageResource(R.drawable.expert);
 }
-else if(Menu_Game.WhichGame==7){
+else if(Menu_Game.WhichGame==7|| Menu_Game.WhichGame==26 ){
     whichGameTxt.setText(R.string.master);
     whichGame2Txt.setText(R.string.Level7);
     whichGameImage.setImageResource(R.drawable.master);
 }
-else if(Menu_Game.WhichGame==8){
+else if(Menu_Game.WhichGame==8|| Menu_Game.WhichGame==27){
     whichGameTxt.setText(R.string.legendary);
     whichGame2Txt.setText(R.string.Level8);
     whichGameImage.setImageResource(R.drawable.legendary);
@@ -567,7 +610,17 @@ else if(Menu_Game.WhichGame==888){
 
                     }
                     else{
-                        startActivity(new Intent(Game.this, Menu_Game.class));
+                        if(Menu_Game.WhichGame == 20 ||
+                                Menu_Game.WhichGame == 21 ||   Menu_Game.WhichGame == 22 ||
+                        Menu_Game.WhichGame == 23 ||  Menu_Game.WhichGame == 24 ||
+                                Menu_Game.WhichGame == 25 || Menu_Game.WhichGame == 26||  Menu_Game.WhichGame == 27){
+                            startActivity(new Intent(Game.this, Menu_Geography_Game.class));
+
+                        }
+                        else{
+                            startActivity(new Intent(Game.this, Menu_Game.class));
+                        }
+
                     }
                     overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
@@ -606,7 +659,7 @@ else if(Menu_Game.WhichGame==888){
         @Override
         public void onFinish() {
             Log.e("Times up", "Times up");
-            if ((indexOfQuestions > 9 || indexOfQuestions < 0) && ( Menu_Game.WhichGame!=11)) {
+            if ((indexOfQuestions > 9 || indexOfQuestions < 0 ) && ( Menu_Game.WhichGame!=11)) {
                 cancel();
                 finishQuiz();
 
@@ -659,7 +712,11 @@ else if(Menu_Game.WhichGame==888){
 
     private void configureNextButton() {
         ImageButton nextButton = findViewById(R.id.navToMain);
-        nextButton.setOnClickListener(view -> exitByBackKey());
+        nextButton.setOnClickListener(view ->
+
+                exitByBackKey()
+
+        );
 
     }
 
@@ -725,6 +782,34 @@ else if(Menu_Game.WhichGame==888){
                 else if(Menu_Game.WhichGame==13){
                     loadClass(QuestionAnswerStepOnLego.correctAnswwrs[randomNumbers[indexOfQuestions]],13);
                 }
+
+                else if(Menu_Game.WhichGame==20){
+                    loadClass(QuestionAnswerNovice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],20);
+                }
+
+                else if(Menu_Game.WhichGame==21){
+                    loadClass(QuestionAnswerLearner_2.correctAnswwrs[randomNumbers[indexOfQuestions]],21);
+                }
+                else if(Menu_Game.WhichGame==22){
+                    loadClass(QuestionAnswerApprentice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],22);
+                }
+                else if(Menu_Game.WhichGame==23){
+                    loadClass(QuestionAnswerCompetent_2.correctAnswwrs[randomNumbers[indexOfQuestions]],23);
+                }
+                else if(Menu_Game.WhichGame==24){
+                    loadClass(QuestionAnswerChampion_2.correctAnswwrs[randomNumbers[indexOfQuestions]],24);
+                }
+                else if(Menu_Game.WhichGame==25){
+                    loadClass(QuestionAnswerNovice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],25);
+                }
+                else if(Menu_Game.WhichGame==26){
+                    loadClass(QuestionAnswerNovice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],26);
+                }
+                else if(Menu_Game.WhichGame==27){
+                    loadClass(QuestionAnswerLegendary_2.correctAnswwrs[randomNumbers[indexOfQuestions]],27);
+                }
+
+
 
                 else if(Menu_Game.WhichGame==888){
                     if(multiPlayerHelper==1){
@@ -858,6 +943,30 @@ else if(Menu_Game.WhichGame==888){
             }
             else if(Menu_Game.WhichGame==13){
                 scoreStepOnLego++;
+            }
+            else if(Menu_Game.WhichGame==20){
+                scoreNovice_2++;
+            }
+            else if(Menu_Game.WhichGame==21){
+                scoreLearner_2++;
+            }
+            else if(Menu_Game.WhichGame==22){
+                scoreApprentice_2++;
+            }
+            else if(Menu_Game.WhichGame==23){
+                scoreCompetent_2++;
+            }
+            else if(Menu_Game.WhichGame==24){
+                scoreChampion_2++;
+            }
+            else if(Menu_Game.WhichGame==25){
+                scoreExpert_2++;
+            }
+            else if(Menu_Game.WhichGame==26){
+                scoreMaster_2++;
+            }
+            else if(Menu_Game.WhichGame==27){
+                scoreLegendary_2++;
             }
             else if(Menu_Game.WhichGame==888){
                 scoreMultiPlayer++;
@@ -1075,6 +1184,85 @@ else if(Menu_Game.WhichGame==888){
             ansD.setText(QuestionAnswerStepOnLego.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
             iv.setImageResource(QuestionAnswerStepOnLego.images[randomNumbers[indexOfQuestions]]);
         }
+
+        if(Menu_Game.WhichGame==20){
+
+            questionTextView.setText(QuestionAnswerNovice_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerNovice_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if (Menu_Game.WhichGame==21){
+            questionTextView.setText(QuestionAnswerLearner_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerLearner_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerLearner_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerLearner_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerLearner_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerLearner_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+
+        if(Menu_Game.WhichGame==22){
+            questionTextView.setText(QuestionAnswerApprentice_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerApprentice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerApprentice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerApprentice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerApprentice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerApprentice_2.images[randomNumbers[indexOfQuestions]]);
+        }
+        if(Menu_Game.WhichGame==23){
+
+            questionTextView.setText(QuestionAnswerCompetent_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerCompetent_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerCompetent_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerCompetent_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerCompetent_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerCompetent_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if(Menu_Game.WhichGame==24){
+
+            questionTextView.setText(QuestionAnswerChampion_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerChampion_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerChampion_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerChampion_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerChampion_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerChampion_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if(Menu_Game.WhichGame==25){
+
+            questionTextView.setText(QuestionAnswerNovice_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerNovice_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if(Menu_Game.WhichGame==26){
+
+            questionTextView.setText(QuestionAnswerNovice_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerNovice_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
+        if(Menu_Game.WhichGame==27){
+
+            questionTextView.setText(QuestionAnswerLegendary_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerLegendary_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerLegendary_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerLegendary_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerLegendary_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerLegendary_2.images[randomNumbers[indexOfQuestions]]);
+        }
+
         if(Menu_Game.WhichGame==888){
             if(multiPlayerHelper==0){
                 questionTextView.setText(QuestionAnswerNovice.question[randomNumbers[indexOfQuestions]]);
@@ -1201,7 +1389,56 @@ else if(Menu_Game.WhichGame==888){
         int oldScoreBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
         int oldScoreDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
         int oldScoreStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
+        int oldScoreNovice_2 = prefs.getInt("scoreNovice_2", 0); //0 is the default value
+        int oldScoreLearner_2 = prefs.getInt("scoreLearner_2", 0); //0 is the default value
+        int oldScoreApprentice_2 = prefs.getInt("scoreApprentice_2", 0); //0 is the default value
+        int oldScoreCompetent_2 = prefs.getInt("scoreCompetent_2", 0); //0 is the default value
+        int oldScoreChampion_2 = prefs.getInt("scoreChampion_2", 0); //0 is the default value
+        int oldScoreExpert_2 = prefs.getInt("scoreExpert_2", 0); //0 is the default value
+        int oldScoreMaster_2 = prefs.getInt("scoreMaster_2", 0); //0 is the default value
+        int oldScoreLegendary_2 = prefs.getInt("scoreLegendary_2", 0); //0 is the default value
 
+        if (scoreNovice_2 >oldScoreNovice_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreNovice_2", scoreNovice_2);
+            editor.apply();
+        }
+
+        if (scoreLearner_2 >oldScoreLearner_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreLearner_2", scoreLearner_2);
+            editor.apply();
+        }
+        if (scoreApprentice_2 >oldScoreApprentice_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreApprentice_2", scoreApprentice_2);
+            editor.apply();
+        }
+        if (scoreCompetent_2 >oldScoreCompetent_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreCompetent_2", scoreCompetent_2);
+            editor.apply();
+        }
+        if (scoreChampion_2 >oldScoreChampion_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreChampion_2", scoreChampion_2);
+            editor.apply();
+        }
+        if (scoreExpert_2 >oldScoreExpert_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreExpert_2", scoreExpert_2);
+            editor.apply();
+        }
+        if (scoreMaster_2 >oldScoreMaster_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreMaster_2", scoreMaster_2);
+            editor.apply();
+        }
+        if (scoreLegendary_2 >oldScoreLegendary_2){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("scoreLegendary_2", scoreLegendary_2);
+            editor.apply();
+        }
 
         if (scoreNovice >oldScoreNovice){
             SharedPreferences.Editor editor = prefs.edit();
@@ -1305,7 +1542,29 @@ else if(Menu_Game.WhichGame==888){
         }
        else{
             saveScore();
-            if( !isNetworkConnected(this) || Game.scoreNovice > Menu_Game.totalQuestions * 0.59 || Game.scoreLearner > Menu_Game.totalQuestions * 0.59 || Game.scoreApprentice > Menu_Game.totalQuestions * 0.59|| Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 || Game.scoreChampion > Menu_Game.totalQuestions * 0.59 || Game.scoreExpert > Menu_Game.totalQuestions * 0.59 || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 || Game.scoreLegendary > Menu_Game.totalQuestions * 0.59 || Game.scoreDivine > Menu_Game.totalQuestions * 0.59 || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 || Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 || Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59){
+            if( !isNetworkConnected(this) ||
+                    Game.scoreNovice > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreLearner > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreApprentice > Menu_Game.totalQuestions * 0.59||
+                    Game.scoreCompetent > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreChampion > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreExpert > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreMaster > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreLegendary > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreDivine > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreMasterYoda > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreBabyYoda > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreDeathMarch > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreStepOnLego > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreNovice_2 > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreLearner_2 > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreApprentice_2 > Menu_Game.totalQuestions * 0.59||
+                    Game.scoreCompetent_2 > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreChampion_2 > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreExpert_2 > Menu_Game.totalQuestions * 0.59
+                    || Game.scoreMaster_2 > Menu_Game.totalQuestions * 0.59 ||
+                    Game.scoreLegendary_2 > Menu_Game.totalQuestions * 0.59
+            ){
                 startActivity(new Intent(Game.this, Results.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
@@ -1402,6 +1661,9 @@ else if(Menu_Game.WhichGame==888){
     public void onDestroy() {
         removeUser();
         super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel(); // Cancel the timer to avoid leaks
+        }
 
     }
 

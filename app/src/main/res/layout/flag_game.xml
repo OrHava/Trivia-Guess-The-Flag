@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.orhava.trivia2.Game"
     android:background="@color/teal_200"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="24dp">
+    android:padding="10dp">
 
     <ImageButton
         android:id="@+id/mute_unmute"
@@ -107,7 +110,7 @@
         android:layout_width="400dp"
         android:layout_height="160dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+     android:layout_below="@+id/total_questions"
         android:contentDescription="Flags"
         tools:ignore="HardcodedText" />
 
@@ -122,8 +125,8 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
@@ -255,6 +258,4 @@
 
 
 </RelativeLayout>
-
-
 

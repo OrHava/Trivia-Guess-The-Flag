@@ -1,0 +1,127 @@
+<!-- res/layout/activity_slot_machine.xml -->
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/teal_200"
+    android:layout_height="match_parent"
+    tools:context=".Slot_Machine">
+
+    <ImageButton
+        android:id="@+id/navToMain"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/previous_smaller2"
+        android:text="Go To Menu"
+        android:textSize="10sp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <TextView
+        android:id="@+id/txtNameandPoints"
+        android:layout_width="230dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="5dp"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:gravity="center"
+        android:text="Machine Slot Game"
+        android:background="@drawable/button_background"
+        android:textColor="@color/teal_200"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/LlSlot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtNameandPoints"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <!-- Slot 1 -->
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/avatar_placeholder">
+
+            <!-- Slot Image -->
+            <ImageView
+                android:id="@+id/slot1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                tools:ignore="ContentDescription" />
+
+
+        </FrameLayout>
+
+        <!-- Slot 2 -->
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/avatar_placeholder">
+
+            <!-- Slot Image -->
+            <ImageView
+                android:id="@+id/slot2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                tools:ignore="ContentDescription" />
+
+
+        </FrameLayout>
+
+
+        <!-- Slot 3 -->
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/avatar_placeholder">
+
+            <!-- Slot Image -->
+            <ImageView
+                android:id="@+id/slot3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                tools:ignore="ContentDescription" />
+
+            <!-- No divider after the last slot -->
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LlSlot"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/teal_200"
+        android:onClick="startAnimation"
+        app:backgroundTint="@null"
+        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:text="Start" />
+
+</RelativeLayout>

@@ -1,11 +1,11 @@
 package com.orhava.trivia2;
 
-import static com.orhava.trivia2.MainMenu.flag;
+
+import static com.orhava.trivia2.MainMenu.isMuted;
+import static com.orhava.trivia2.Utils.amountOfGeneralPoints;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -96,7 +96,7 @@ public class LeaderBoard extends AppCompatActivity  {
     void getAllCodes(){
 
         List<Integer> scores = new ArrayList<>();
-        int personalScore = amountOfGeneralPoints();
+        int personalScore = amountOfGeneralPoints(this);
 
         if (user != null){
 
@@ -198,7 +198,7 @@ public class LeaderBoard extends AppCompatActivity  {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
         navToMainMenu2.setOnClickListener(view -> {
 
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -211,100 +211,97 @@ public class LeaderBoard extends AppCompatActivity  {
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });}
 
-    int amountOfGeneralPoints(){
-        int points;
 
-
-        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-        int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-        int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-        int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-        int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-        int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-        int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-        int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-        int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-        int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-        int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-        int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
-        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
-        points= scoreNewDeathMarch +scoreNewStepOnLego + scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
-        return points;
-    }
 
     void setPicture(ImageView image, int choice){
 
         if(choice==1){
-            image.setImageResource(R.mipmap.avater1_foreground);
+            image.setImageResource(R.drawable.avatar_1);
         }
         else if(choice==2){
-            image.setImageResource(R.mipmap.ic_avatar3_foreground);
+            image.setImageResource(R.drawable.avatar_2);
         }
         else if(choice==3){
-            image.setImageResource(R.mipmap.ic_avatar4_foreground);
+            image.setImageResource(R.drawable.avatar_3);
         }
 
+
         else if(choice==4){
-            image.setImageResource(R.mipmap.ic_avatar6_foreground);
+            image.setImageResource(R.drawable.avatar_4);
         }
 
         else if(choice==5){
-            image.setImageResource(R.mipmap.ic_avatar7_foreground);
+            image.setImageResource(R.drawable.avatar_5);
         }
 
         else if(choice==6){
-            image.setImageResource(R.mipmap.ic_avatar8_foreground);
+            image.setImageResource(R.drawable.avatar_6);
         }
 
         else if(choice==7){
-            image.setImageResource(R.mipmap.ic_avatar10_foreground);
+            image.setImageResource(R.drawable.avatar_7);
         }
 
         else if(choice==8){
-            image.setImageResource(R.mipmap.ic_avatar11_foreground);
+            image.setImageResource(R.drawable.avatar_8);
         }
 
         else if(choice==9){
-            image.setImageResource(R.mipmap.ic_avatar12_foreground);
+            image.setImageResource(R.drawable.avatar_9);
         }
 
         else if(choice==10){
-            image.setImageResource(R.mipmap.ic_avatar9_foreground);
+            image.setImageResource(R.drawable.avatar_10);
         }
 
         else if(choice==11){
-            image.setImageResource(R.mipmap.ic_avatar13_foreground);
+            image.setImageResource(R.drawable.avatar_11);
         }
         else if(choice==12){
-            image.setImageResource(R.mipmap.ic_avatar14_foreground);
+            image.setImageResource(R.drawable.avatar_12);
         }
         else if(choice==13 ){
-            image.setImageResource(R.mipmap.ic_avatar15_foreground);
+            image.setImageResource(R.drawable.avatar_19);
         }
 
-        else if(choice==14){
-            image.setImageResource(R.mipmap.ic_avatar16_foreground);
+        else if(choice==14 ){
+            image.setImageResource(R.drawable.avatar_14);
         }
         else if(choice==15 ){
-            image.setImageResource(R.mipmap.ic_avatar17_foreground);
+            image.setImageResource(R.drawable.avatar_15);
         }
         else if(choice==16 ){
-            image.setImageResource(R.mipmap.avaterprem1_foreground);
+            image.setImageResource(R.drawable.avatar_16);
         }
 
-        else if(choice==17){
-            image.setImageResource(R.mipmap.avaterprem3_foreground);
+        else if(choice==17 ){
+            image.setImageResource(R.drawable.avatar_17);
         }
         else if(choice==18 ){
-            image.setImageResource(R.mipmap.avaterprem2_foreground);
+            image.setImageResource(R.drawable.avatar_18);
         }
         else if(choice==19){
             image.setImageResource(R.mipmap.avatersecret_foreground);
         }
+
+        else if(choice==20){
+            image.setImageResource(R.drawable.avatar_13);
+        }
+        else if(choice==21){
+            image.setImageResource(R.drawable.avatar_20);
+        }
+        else if(choice==22){
+            image.setImageResource(R.drawable.avatar_21);
+        }
+
+
         else{
             image.setImageResource(R.mipmap.ic_emptyavatar_foreground);
         }
+
+
+
+
 
     }
 

@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/flagsVideoView"
         android:orientation="horizontal"
+        android:layoutDirection="ltr"
         android:gravity="center">
 
         <ImageButton

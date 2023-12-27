@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fun Facts!"
+                android:text="@string/fun_facts_title"
                 android:fontFamily="@font/alfa_slab_one"
                 android:id="@+id/funFactsTxt"
                 android:layout_centerHorizontal="true"
@@ -106,7 +106,7 @@ android:layout_marginTop="50dp"
                 android:textSize="16sp"
                 android:layout_centerHorizontal="true"
                 android:text="1. The Vatican City is the smallest country in the world, with an area of just 0.17 square miles."
-                />
+                tools:ignore="HardcodedText" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Cv_next"
@@ -159,7 +159,7 @@ android:layout_marginTop="50dp"
                     android:layout_centerHorizontal="true"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
-                    android:text="Next Fact"
+                    android:text="@string/next_fact"
 
                     android:textColor="@color/teal_200"
                     android:textSize="14sp"

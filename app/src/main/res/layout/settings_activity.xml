@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/RlMainMenu"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/globesnew123"
+    android:background="@color/teal_200"
     tools:context="com.orhava.trivia2.Game">
 
     <ImageButton
@@ -12,8 +13,9 @@
         android:id="@+id/returnAdsButton"
  android:layout_margin="20dp"
         android:layout_marginTop="10dp"
+
         android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
+        android:background="@color/teal_700"
         android:scaleType="fitCenter"
         android:src="@drawable/allow_ads"/>
 
@@ -237,6 +239,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/EasterEggBtn"
+        android:textColor="@color/black"
     android:layout_centerHorizontal="true"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/you_won_a_secret_avatar_press_avatar_to_use" />

@@ -1,5 +1,7 @@
 package com.orhava.trivia2;
 
+import static com.orhava.trivia2.MainMenu.isMuted;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +15,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -22,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -41,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.settings_activity);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal_200,getTheme())));
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal_700,getTheme())));
             actionBar.setDisplayHomeAsUpEnabled(true);
 
         }
@@ -65,18 +67,26 @@ public class SettingsActivity extends AppCompatActivity {
 
 
             AlertDialog.Builder alert = new AlertDialog.Builder(SettingsActivity.this);
-            alert.setTitle("Delete");
-            alert.setMessage("Are you sure you want to delete memory?");
-            alert.setPositiveButton("Yes", (dialog, which) -> {
+            alert.setTitle(R.string.delete);
+            alert.setMessage(R.string.are_you_sure_you_want_to_delete_memory);
+            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
                 SharedPreferences.Editor editor = getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE).edit();
                 editor.clear();
                 editor.apply();
-                Toast.makeText(SettingsActivity.this, "Game Memory Restarted", Toast.LENGTH_SHORT).show();
+                View rootLayout = findViewById(R.id.RlMainMenu);
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.game_memory_restarted, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
                 dialog.dismiss();
             });
 
-            alert.setNegativeButton("No", (dialog, which) -> {
-                Toast.makeText(SettingsActivity.this, "Game Memory Not Restarted", Toast.LENGTH_SHORT).show();
+            alert.setNegativeButton(R.string.no, (dialog, which) -> {
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.game_memory_not_restarted, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+
                 dialog.dismiss();
             });
 
@@ -88,17 +98,31 @@ public class SettingsActivity extends AppCompatActivity {
 
 
             AlertDialog.Builder alert = new AlertDialog.Builder(SettingsActivity.this);
-            alert.setTitle("Return Ads");
-            alert.setMessage("Are you sure you want to return ads?");
-            alert.setPositiveButton("Yes", (dialog, which) -> {
+            alert.setTitle(R.string.return_ads);
+            alert.setMessage(R.string.are_you_sure_you_want_to_return_ads);
+            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
                 PurchaseManager.setRemoveAdsPurchased(this, false);
 
-                Toast.makeText(SettingsActivity.this, "Game Ads Returned", Toast.LENGTH_SHORT).show();
+
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.game_ads_returned, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+
+
                 dialog.dismiss();
             });
 
-            alert.setNegativeButton("No", (dialog, which) -> {
-                Toast.makeText(SettingsActivity.this, "Game Ads Has Not Returned", Toast.LENGTH_SHORT).show();
+            alert.setNegativeButton(R.string.no, (dialog, which) -> {
+
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.game_ads_has_not_returned, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+
+
                 dialog.dismiss();
             });
 
@@ -110,9 +134,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             putValueInSharedPrefs(++Count);
             AlertDialog.Builder alert2 = new AlertDialog.Builder(SettingsActivity.this);
-            alert2.setTitle("About");
-            alert2.setMessage("The Game Developed by single developer named Or Hava, Great Thanks to stackoverflow, Indian Youtubers and my beautiful wife Gisele Hava");
-            alert2.setPositiveButton("Dismiss", (dialog, which) -> dialog.dismiss());
+            alert2.setTitle(R.string.about);
+            alert2.setMessage(R.string.this_game_has_been_meticulously_crafted_by_a_solo_developer_or_hava_special_thanks_go_to_the_invaluable_resources_on_stack_overflow_insightful_content_from_indian_youtubers_and_the_unwavering_support_of_my_wonderful_wife_gisele_hava_for_inquiries_or_collaboration_opportunities_feel_free_to_contact_me_at_or6562_gmail_com_explore_more_of_my_creations_by_visiting_more_apps);
+            alert2.setPositiveButton(R.string.dismiss, (dialog, which) -> dialog.dismiss());
 
 
             alert2.show();
@@ -125,7 +149,7 @@ public class SettingsActivity extends AppCompatActivity {
         EasterEggBtn.setOnClickListener(view -> {
 
             EasterEggAnim.playAnimation();
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp2.setVolume(0,0);
             }
             else{
@@ -142,7 +166,11 @@ public class SettingsActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 19);
                 editor.apply();
-                Toast.makeText(SettingsActivity.this, "You Successfully Applied the Secret Avatar", Toast.LENGTH_SHORT).show();
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.you_successfully_applied_the_secret_avatar, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             });
 
         });
@@ -173,15 +201,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void showDeleteAccountConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Confirm Delete Account");
-        builder.setMessage("Are you sure you want to delete your account? This action cannot be undone.");
+        builder.setTitle(R.string.confirm_delete_account);
+        builder.setMessage(R.string.are_you_sure_you_want_to_delete_your_account_this_action_cannot_be_undone);
 
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
             // Call a method to delete the account
             deleteAccount();
         });
 
-        builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
+        builder.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
 
         builder.show();
     }
@@ -202,7 +230,12 @@ public class SettingsActivity extends AppCompatActivity {
                             // Redirect to the sign-in screen or perform any other action
                         } else {
                             // Handle failure
-                            Toast.makeText(SettingsActivity.this, "Failed to delete account", Toast.LENGTH_SHORT).show();
+
+                            View rootLayout = findViewById(R.id.RlMainMenu);
+
+                            Snackbar snackbar = Snackbar.make(rootLayout, R.string.failed_to_delete_account, Snackbar.LENGTH_SHORT);
+                            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                            snackbar.show();
                         }
                     });
         }
@@ -230,7 +263,6 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         int newCurrentCounter = sharedPreferences2.getInt("DISMISS_BUTTON_CLICK_COUNT", 0); //0 is the default value
-      //  Toast.makeText(SettingsActivity.this, "Example Button is clicked " +newCurrentCounter+ " time(s)", Toast.LENGTH_SHORT).show();
         if(newCurrentCounter>=15){
             EasterEggBtn.setVisibility(View.VISIBLE);
 

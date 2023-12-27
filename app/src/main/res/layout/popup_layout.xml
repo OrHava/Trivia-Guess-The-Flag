@@ -1,0 +1,67 @@
+<!-- popup_layout.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imagePopup"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_reward"
+    android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/watch_an_ad_for_a_reward"
+        android:textColor="@color/teal_200"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@id/imagePopup"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:text="@string/do_you_want_to_watch_an_ad_and_get_a_reward_of_5_seconds_for_the_games_for_24_hours"
+        android:layout_below="@id/textTitle"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/textMessage"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnYes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yes"
+            android:textColor="@color/white"
+            android:backgroundTint="#30B8B7"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/no"
+            android:textColor="@color/white"
+            android:backgroundTint="#30B8B7"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</RelativeLayout>

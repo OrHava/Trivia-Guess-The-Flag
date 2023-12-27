@@ -37,12 +37,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="1">
+
+            <ImageButton
+                android:id="@+id/RewardBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/gold_shine"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_reward" />
+
+            <ImageButton
+                android:id="@+id/RewardBtn2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/gold_shine"
+                android:scaleType="fitXY"
+                android:src="@drawable/slot_machine_icon" />
+
+            <TextView
+                android:id="@+id/txtNameandPoints"
+                android:layout_width="230dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/holtwood_one_sc"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:textColor="@color/teal_200"
+                android:textSize="13sp"
+                android:textStyle="bold" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/Cv_Flags_GameBtn"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+      android:layout_marginTop="10dp"
+                android:layout_below="@+id/txtNameandPoints"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp">
 
@@ -89,6 +129,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/flags_game"
+
                     android:textColor="@color/teal_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -665,24 +706,11 @@
 
                 >
 
-                <TextView
-                    android:id="@+id/txtNameandPoints"
-                    android:layout_width="250dp"
-                    android:layout_height="70dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="100dp"
-                    android:fontFamily="@font/holtwood_one_sc"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/imgViewShowAvatar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/txtNameandPoints"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="30dp"
                     app:civ_border_width="4dp"

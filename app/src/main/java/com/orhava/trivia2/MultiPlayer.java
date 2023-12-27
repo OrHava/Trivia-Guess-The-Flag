@@ -1,5 +1,7 @@
 package com.orhava.trivia2;
 
+import static com.orhava.trivia2.MainMenu.isMuted;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,12 +46,13 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
     Button btnEnterCode;
     private String code="";
     private LottieAnimationView searchAnim;
-    public static boolean isItMultiPlayer;
+
     public static  String opponentUser="";
     public static String codeHelper="";
     public boolean connected=false;
     public int times=0,times2=0;
     MyRecyclerViewAdapter adapter;
+    public View rootLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +60,13 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
         Objects.requireNonNull(getSupportActionBar()).hide();
         Menu_Game.WhichGame=0;
         user= FirebaseAuth.getInstance().getCurrentUser();
-        isItMultiPlayer=true;
+
         amountOfUsers=findViewById(R.id.amountOfUsers);
         EnterCodeEdit=findViewById(R.id.EnterCodeEdit);
         btnEnterCode=findViewById(R.id.btnEnterCode);
         searchAnim = findViewById(R.id.searchAnim);
         navToMain=findViewById(R.id.navToMain);
+        rootLayout=findViewById(R.id.RlMainMenu);
         times=0;
         if (user != null) {
             String userId = user.getUid();
@@ -136,7 +140,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
         navToMain.setOnClickListener(view -> {
 
 
-            if (!MainMenu.flag) {
+            if (!isMuted) {
                 mp.setVolume(0, 0);
             } else {
                 mp.setVolume(0, 1);
@@ -370,8 +374,10 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
 
     @Override
     public void onItemClick(View view, int position) {
-      //  Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, R.string.To_Start_The_Game_Write_The_Same_Code, Toast.LENGTH_SHORT).show();
+
+        Snackbar snackbar = Snackbar.make(rootLayout, R.string.To_Start_The_Game_Write_The_Same_Code, Snackbar.LENGTH_SHORT);
+        snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+        snackbar.show();
 
     }
 
@@ -394,7 +400,7 @@ public class MultiPlayer extends AppCompatActivity implements MyRecyclerViewAdap
     {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
 
-        if (!MainMenu.flag){
+        if (!isMuted){
             mp.setVolume(0,0);
         }
         else{

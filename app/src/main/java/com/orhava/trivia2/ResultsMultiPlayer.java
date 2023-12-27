@@ -1,6 +1,7 @@
 package com.orhava.trivia2;
 
 
+import static com.orhava.trivia2.MainMenu.isMuted;
 import static com.orhava.trivia2.MultiPlayer.opponentUser;
 
 import android.annotation.SuppressLint;
@@ -85,7 +86,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         if (Game.scoreMultiPlayer > ScoreOtherUser ) {
             passStatus = "You Won";
             layout.setBackgroundColor(Color.BLUE);
-            if (!MainMenu.flag) {
+            if (!isMuted) {
                 mp2.setVolume(0, 0);
             } else {
                 mp2.setVolume(0, 1);
@@ -101,7 +102,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         else if(Game.scoreMultiPlayer == ScoreOtherUser){
             passStatus = "Its A Draw";
             layout.setBackgroundColor(Color.CYAN);
-            if (!MainMenu.flag) {
+            if (!isMuted) {
                 mp4.setVolume(0, 0);
             } else {
                 mp4.setVolume(0, 1);
@@ -116,7 +117,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         else {
             passStatus = "You Lost";
             layout.setBackgroundColor(Color.RED);
-            if (!MainMenu.flag) {
+            if (!isMuted) {
                 mp3.setVolume(0, 0);
             } else {
                 mp3.setVolume(0, 1);
@@ -276,7 +277,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
 
 
         restartQuizBtn.setOnClickListener(view -> {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -299,7 +300,7 @@ public class ResultsMultiPlayer extends AppCompatActivity {
         });
 
         FinishQuiz.setOnClickListener(view -> {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{

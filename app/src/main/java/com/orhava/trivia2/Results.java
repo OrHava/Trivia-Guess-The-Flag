@@ -1,6 +1,8 @@
 package com.orhava.trivia2;
 
 
+import static com.orhava.trivia2.MainMenu.isMuted;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
@@ -73,7 +75,7 @@ public class Results extends AppCompatActivity {
         ) {
             passStatus = "Passed";
             layout.setBackgroundColor(Color.BLUE);
-                if (!MainMenu.flag){
+                if (!isMuted){
                     mp2.setVolume(0,0);
                 }
                 else{
@@ -90,7 +92,7 @@ public class Results extends AppCompatActivity {
         } else {
             passStatus = "Failed";
             layout.setBackgroundColor(Color.RED);
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp3.setVolume(0,0);
             }
             else{
@@ -284,7 +286,7 @@ public class Results extends AppCompatActivity {
 
 
         nextLevel.setOnClickListener(view -> {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -409,7 +411,7 @@ public class Results extends AppCompatActivity {
 
 
         restartQuizBtn.setOnClickListener(view -> {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -423,7 +425,7 @@ public class Results extends AppCompatActivity {
         });
 
         FinishQuiz.setOnClickListener(view -> {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{

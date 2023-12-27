@@ -24,9 +24,6 @@ public class Score {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
 
     public int getPlace() {
         return place;

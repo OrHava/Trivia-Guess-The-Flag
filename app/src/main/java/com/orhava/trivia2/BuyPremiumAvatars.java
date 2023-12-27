@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +30,7 @@ import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.QueryProductDetailsParams;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.common.collect.ImmutableList;
 
 import java.util.Objects;
@@ -48,7 +48,7 @@ public class BuyPremiumAvatars extends AppCompatActivity {
     private ImageView imgViewAvatar;
     public static boolean avatarPremium14=false,avatarPremium15=false,avatarPremium16=false,avatarPremium17=false,avatarPremium18=false,avatarPremium19=false;
     static final String TAG = "InAppPurchaseTag";
-
+    public View rootLayout ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +71,17 @@ public class BuyPremiumAvatars extends AppCompatActivity {
         ButtonUse=findViewById(R.id.ButtonUse);
         ButtonUse.setVisibility(View.GONE);
         ButtonSell.setEnabled(false);
+        rootLayout = findViewById(R.id.RlMainMenu);
     }
 void start(){
     if (isConnected()){
         billingSetup();
     }
     else{
-        Toast.makeText(this, "No Internet Access to Buy Avatar", Toast.LENGTH_SHORT).show();
+
+        Snackbar snackbar = Snackbar.make(rootLayout, R.string.no_internet_access_to_buy_avatar, Snackbar.LENGTH_SHORT);
+        snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+        snackbar.show();
     }
 
 
@@ -178,45 +182,45 @@ void start(){
                             ButtonSell.setEnabled(true);
                             if (avatarPremiumChoice==1){
                                 productDetails = productDetailsList.get(0);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(0).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(0).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                               //  binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.ic_avatar15_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_19);
                             }
                             else if(avatarPremiumChoice==2){
                                 productDetails = productDetailsList.get(1);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(1).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(1).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                                // binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.ic_avatar16_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_14);
                             }
                             else if(avatarPremiumChoice==3){
                                 productDetails = productDetailsList.get(2);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(2).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(2).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                                // binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.ic_avatar17_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_15);
                             }
                             else if(avatarPremiumChoice==4){
                                 productDetails = productDetailsList.get(3);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(3).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(3).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                                 // binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.avaterprem1_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_16);
                             }
                             else if(avatarPremiumChoice==5){
                                 productDetails = productDetailsList.get(4);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(4).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(4).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                                 // binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.avaterprem3_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_17);
                             }
                             else if(avatarPremiumChoice==6){
                                 productDetails = productDetailsList.get(5);
-                                ButtonSell.setText("Price: "+ Objects.requireNonNull(productDetailsList.get(5).getOneTimePurchaseOfferDetails()).getFormattedPrice());
+                                ButtonSell.setText(getString(R.string.price)+ Objects.requireNonNull(productDetailsList.get(5).getOneTimePurchaseOfferDetails()).getFormattedPrice());
                                 // binding.textViewSell.setText(productDetails.getName());
                                 textViewSell.setText(productDetails.getName());
-                                imgViewAvatar.setImageResource(R.mipmap.avaterprem2_foreground);
+                                imgViewAvatar.setImageResource(R.drawable.avatar_18);
                             }
                         });
                     } else {

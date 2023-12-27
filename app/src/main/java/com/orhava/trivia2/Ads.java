@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.content.Context;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdError;
@@ -25,13 +25,11 @@ import io.reactivex.annotations.NonNull;
  */
 public class Ads extends AppCompatActivity {
 
-    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/8691691433"; //just testing not real ad, video
-    //private static final String AD_UNIT_ID = "ca-app-pub-8096185122491583/8714822405"; //real ad video
+
     private static final String TAG = "Ads";
     public static InterstitialAd mInterstitialAd;
-    private static Context applicationContext; // Add this line
 
-
+    private static Class<?> activityToStart; // Add this line
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +70,8 @@ public class Ads extends AppCompatActivity {
     }
 
 
-    public static void showInterstitialAd(Activity activity) {
+    public static void showInterstitialAd(Activity activity, Class<?> activityToStart) {
+        Ads.activityToStart = activityToStart;
         if (mInterstitialAd != null) {
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
@@ -93,13 +92,20 @@ public class Ads extends AppCompatActivity {
         }
     }
     private static void startNewActivity(Activity activity) {
-        activity.startActivity(new Intent(activity, Results.class));
-        // Add overridePendingTransition if you want to specify transition animations
+        if (activityToStart != null) {
+            activity.startActivity(new Intent(activity, activityToStart));
+            // Add overridePendingTransition if you want to specify transition animations
+        } else {
+            Log.e(TAG, "activityToStart is null");
+        }
     }
 
-
+    public static boolean isInterstitialAdReady() {
+        return mInterstitialAd != null;
+    }
     public static void preloadInterstitialAd(Context context) {
-        applicationContext = context.getApplicationContext();
+        // Add this line
+        Context applicationContext = context.getApplicationContext();
         MobileAds.initialize(applicationContext, initializationStatus -> {});
 
         AdRequest adRequest = new AdRequest.Builder().build();

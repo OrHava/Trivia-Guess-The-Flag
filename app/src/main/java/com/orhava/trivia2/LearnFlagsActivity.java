@@ -1,7 +1,8 @@
 package com.orhava.trivia2;
 
-import static com.orhava.trivia2.MainMenu.flag;
-import static com.orhava.trivia2.MainMenu.i;
+
+
+import static com.orhava.trivia2.MainMenu.isMuted;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -87,11 +88,7 @@ public class LearnFlagsActivity extends AppCompatActivity {
 
     private void backwardVideo() {
         int newPosition = flagsVideoView.getCurrentPosition() - SEEK_TIME;
-        if (newPosition >= 0) {
-            flagsVideoView.seekTo(newPosition);
-        } else {
-            flagsVideoView.seekTo(0);
-        }
+        flagsVideoView.seekTo(Math.max(newPosition, 0));
     }
 
     private void ButtonsNav() {
@@ -105,7 +102,7 @@ public class LearnFlagsActivity extends AppCompatActivity {
     private void configureNextButtonHelperSound() {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
 
-        if (!MainMenu.flag) {
+        if (!isMuted) {
             mp.setVolume(0, 0);
         } else {
             mp.setVolume(0, 1);
@@ -116,11 +113,11 @@ public class LearnFlagsActivity extends AppCompatActivity {
 
     private void Mute_UnMute() {
         mute_unmute.setOnClickListener(view -> {
-            i[0]++;
+            isMuted = !isMuted;
             new Handler();
 
-            if (i[0] % 2 == 0) {
-                flag = true;
+            if (isMuted) {
+
                 mute_unmute.setImageResource(R.drawable.unmute_50);
                 // Unmute the video
                 if (flagsVideoView != null) {
@@ -130,7 +127,7 @@ public class LearnFlagsActivity extends AppCompatActivity {
                     }
                 }
             } else {
-                flag = false;
+
                 mute_unmute.setImageResource(R.drawable.mute_50);
                 // Mute the video
                 if (flagsVideoView != null) {

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +13,7 @@ import java.util.Objects;
 
 public class Splash extends AppCompatActivity {
     LottieAnimationView lottieAnimationView;
-    TextView textBottom,textTop;
+
 
 
 
@@ -24,9 +23,6 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
-        textBottom=findViewById(R.id.bottomTxt);
-        textTop=findViewById(R.id.topTxt);
         lottieAnimationView=findViewById(R.id.lottie);
 
 

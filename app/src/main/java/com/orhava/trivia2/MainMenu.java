@@ -1,7 +1,15 @@
 package com.orhava.trivia2;
 
 
+import static com.orhava.trivia2.Ads.isInterstitialAdReady;
+import static com.orhava.trivia2.BuyPremiumAvatars.TAG;
+import static com.orhava.trivia2.Utils.amountOfGeneralPoints;
+import static com.orhava.trivia2.Utils.makeItFalse;
+import static com.orhava.trivia2.Utils.saveTimestamp;
+import static com.orhava.trivia2.Utils.setLocale;
+
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,12 +22,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -52,7 +63,6 @@ import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.Nullabl
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Locale;
 import java.util.Objects;
 
 public class MainMenu extends AppCompatActivity  {
@@ -61,8 +71,9 @@ public class MainMenu extends AppCompatActivity  {
     private ImageButton settingsBtn;
     @SuppressLint("StaticFieldLeak")
     public static ImageButton btnMute;
-    public static boolean flag=true;
-    public static final int[] i = {0};
+    public static boolean isMuted = true;
+
+
     private Button btnLeaderBoard,SignOut, flags_GameBtn,name_AvatarBtn,btnMultiPlayer;
     private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     private FirebaseAuth mAuth;
@@ -76,24 +87,36 @@ public class MainMenu extends AppCompatActivity  {
 
 
 
-
-
-
     //./gradlew signingReport to find hash
  //to release the game ./gradlew bundleRelease
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showCustomPopupExit();
+            }
+        });
+
+        // Retrieve the language code from SharedPreferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String langCode = preferences.getString("langCode", "");
+
+        // Set the locale if a language code is available
+        if (!langCode.isEmpty()) {
+            setLocale(langCode, this);
+        }
+
         setContentView(R.layout.activity_main_menu);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();
-        if (i[0] % 2==0) {
-            flag = true;
+        if (isMuted) {
+
             btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
-            flag = false;
             btnMute.setImageResource( R.drawable.mute_50);
         }
 
@@ -111,8 +134,12 @@ public class MainMenu extends AppCompatActivity  {
         FunFacts();
 
 
+
         if (isNetworkConnected(this)){
             initializeBillingClient();
+            Ads.preloadInterstitialAd(this);
+            RewardAd();
+            RewardAdSlotMachine();
         }
 
 
@@ -123,7 +150,161 @@ public class MainMenu extends AppCompatActivity  {
 
 
 
+
     }
+
+    private void RewardAd() {
+
+        ImageView RewardBtn = findViewById(R.id.RewardBtn);
+
+        // Load the shine animation
+        Animation shineAnimation = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
+
+        // Apply the animation to the ImageButton
+        RewardBtn.startAnimation(shineAnimation);
+
+        RewardBtn.setOnClickListener(v -> showCustomPopup());
+    }
+
+    private void RewardAdSlotMachine() {
+
+        ImageView RewardBtn = findViewById(R.id.RewardBtn2);
+
+        // Load the shine animation
+        Animation shineAnimation = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
+
+        // Apply the animation to the ImageButton
+        RewardBtn.startAnimation(shineAnimation);
+
+        RewardBtn.setOnClickListener(v -> showCustomPopupSlot_Machine());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void showCustomPopup() {
+        // Create a Dialog without a title
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_layout);
+      // Initialize views
+
+        Button btnYes = dialog.findViewById(R.id.btnYes);
+        Button btnNo = dialog.findViewById(R.id.btnNo);
+
+
+        // Handle button clicks
+        btnYes.setOnClickListener(v -> {
+            // Call the method to show the ad and give the reward
+            showAdAndGiveReward();
+            dialog.dismiss();
+        });
+
+        btnNo.setOnClickListener(v -> dialog.dismiss());
+
+        // Show the dialog
+        dialog.show();
+    }
+
+    private void showAdAndGiveReward() {
+        if(isInterstitialAdReady()){
+            saveTimestamp(this);
+            Ads.showInterstitialAd(this, MainMenu.class);
+        }
+        else{
+            View rootLayout = findViewById(R.id.RlMainMenu);
+
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
+        }
+
+
+    }
+
+
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        ChangeLanguage();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void showCustomPopupSlot_Machine() {
+        // Create a Dialog without a title
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_layout);
+        // Initialize views
+
+        Button btnYes = dialog.findViewById(R.id.btnYes);
+        Button btnNo = dialog.findViewById(R.id.btnNo);
+        TextView textTitle = dialog.findViewById(R.id.textTitle);
+        TextView textMessage = dialog.findViewById(R.id.textMessage);
+        ImageView imagePopup = dialog.findViewById(R.id.imagePopup);
+
+        textTitle.setText(R.string.slot_machine);
+        textMessage.setText(R.string.do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes);
+        imagePopup.setImageResource(R.drawable.slot_machine_icon);
+
+        // Handle button clicks
+        btnYes.setOnClickListener(v -> {
+            // Call the method to show the ad and give the reward
+
+            dialog.dismiss();
+
+            if(isInterstitialAdReady()){
+                Ads.showInterstitialAd(this, Slot_Machine.class);
+            }
+            else{
+                View rootLayout = findViewById(R.id.RlMainMenu);
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, view -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+            }
+
+
+
+        });
+
+        btnNo.setOnClickListener(v -> dialog.dismiss());
+
+        // Show the dialog
+        dialog.show();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void showCustomPopupExit() {
+        // Create a Dialog without a title
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_layout);
+        // Initialize views
+
+        Button btnYes = dialog.findViewById(R.id.btnYes);
+        Button btnNo = dialog.findViewById(R.id.btnNo);
+        TextView textTitle = dialog.findViewById(R.id.textTitle);
+        TextView textMessage = dialog.findViewById(R.id.textMessage);
+        ImageView imagePopup = dialog.findViewById(R.id.imagePopup);
+
+        textTitle.setText(R.string.are_you_sure_you_want_to_exit_app);
+        textMessage.setText(R.string.come_back_soon_we_will_miss_you);
+        imagePopup.setImageResource(R.drawable.new_icon_flag_circle);
+
+        // Handle button clicks
+        btnYes.setOnClickListener(v -> {
+            // Call the method to show the ad and give the reward
+
+            dialog.dismiss();
+            finishAffinity();
+        });
+
+        btnNo.setOnClickListener(v -> dialog.dismiss());
+
+        // Show the dialog
+        dialog.show();
+    }
+
 
     // Add this line at the top of your class
     private final AcknowledgePurchaseResponseListener acknowledgePurchaseResponseListener = billingResult -> {
@@ -219,8 +400,8 @@ public class MainMenu extends AppCompatActivity  {
             // Replace the rootLayout with the id of the root layout in your activity
             View rootLayout = findViewById(R.id.RlMainMenu);
 
-            Snackbar snackbar = Snackbar.make(rootLayout, "Ads are already removed.", Snackbar.LENGTH_SHORT);
-            snackbar.setAction("OK", v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.ads_are_already_removed, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
             snackbar.show();
         }
         else if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED) {
@@ -256,7 +437,7 @@ public class MainMenu extends AppCompatActivity  {
     private void FunFacts() {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
         btnFunFacts.setOnClickListener(view -> {
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -307,53 +488,10 @@ public class MainMenu extends AppCompatActivity  {
 
 
     }
-
-    public void setLocale(String langCode, Context context) {
-        Locale locale = new Locale(langCode);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.setLocale(locale);
-        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
-
-
-
-
-        // Save the language code and name in the SharedPreferences
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("langCode", langCode);
-        editor.putString("langName", getLanguageName(langCode, context));
-        editor.apply();
-
-        // Restart the activity to apply the new locale
-        Intent intent = new Intent(context, MainMenu.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(intent);
-    }
-
-    private static String getLanguageName(String langCode, Context context) {
-        switch (langCode) {
-            case "iw":
-                return context.getString(R.string.Hebrew);
-            case "en":
-                return context.getString(R.string.English);
-            case "bn":
-                return context.getString(R.string.Bengali);
-            case "fil":
-                return context.getString(R.string.Filipino);
-            case "gl":
-                return context.getString(R.string.Spanish);
-            case "hi":
-                return context.getString(R.string.Hindi);
-            case "in":
-                return context.getString(R.string.Indonesian);
-            case "ms":
-                return context.getString(R.string.Malay);
-            case "pt":
-                return context.getString(R.string.Portuguese);
-            default:
-                return langCode;
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.setLocale(Utils.getCurrentLangCode(this), this);
     }
 
 
@@ -363,8 +501,9 @@ public class MainMenu extends AppCompatActivity  {
         String langCode = preferences.getString("langCode", "");
         boolean localeSet = preferences.getBoolean("localeSet", false); // Retrieve the flag
 
-
         if (!localeSet && !langCode.isEmpty()) {
+
+
             setLocale(langCode, this);
             // Update the flag in the SharedPreferences
             SharedPreferences.Editor editor = preferences.edit();
@@ -376,6 +515,7 @@ public class MainMenu extends AppCompatActivity  {
         name_of_language.setText(langName);
         btnHebrew.setOnClickListener(view -> {
 
+            makeItFalse(this);
 
             setLocale("iw", MainMenu.this);
 
@@ -384,6 +524,7 @@ public class MainMenu extends AppCompatActivity  {
         });
 
         btnEnglish.setOnClickListener(view -> {
+            makeItFalse(this);
 
             setLocale("en", MainMenu.this);
 
@@ -393,42 +534,56 @@ public class MainMenu extends AppCompatActivity  {
 
 
         Philippines_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("fil", MainMenu.this);
             name_of_language.setText(R.string.Filipino);
 
         });
 
         India_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("hi", MainMenu.this);
 
             name_of_language.setText(R.string.Hindi);
 
         });
         Indonesia_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("in", MainMenu.this);
 
             name_of_language.setText(R.string.Indonesian);
 
         });
         Malaysia_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("ms", MainMenu.this);
 
             name_of_language.setText(R.string.Malay);
 
         });
         Spain_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("gl", MainMenu.this);
 
             name_of_language.setText(R.string.Spanish);
 
         });
         bangladesh_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("bn", MainMenu.this);
 
             name_of_language.setText(R.string.Bengali);
 
         });
         Brazil_Language.setOnClickListener(view -> {
+            makeItFalse(this);
+
             setLocale("pt", MainMenu.this);
 
             name_of_language.setText(R.string.Portuguese);
@@ -451,7 +606,7 @@ public class MainMenu extends AppCompatActivity  {
             int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
 
 
-            myRef1.setValue(new Score(prefs2.getString("autoSave", ""),amountOfGeneralPoints(), oldAvatarChoice));
+            myRef1.setValue(new Score(prefs2.getString("autoSave", ""),amountOfGeneralPoints(this), oldAvatarChoice));
         }
     }
 
@@ -461,7 +616,7 @@ public class MainMenu extends AppCompatActivity  {
     final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
     flags_GameBtn.setOnClickListener(view -> {
 
-        if (!flag){
+        if (!isMuted){
             mp.setVolume(0,0);
         }
         else{
@@ -475,7 +630,7 @@ public class MainMenu extends AppCompatActivity  {
     });
 
     name_AvatarBtn.setOnClickListener(view -> {
-        if (!flag){
+        if (!isMuted){
             mp.setVolume(0,0);
         }
         else{
@@ -491,7 +646,7 @@ public class MainMenu extends AppCompatActivity  {
     });
 
         btnLearnFlags.setOnClickListener(view -> {
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -507,7 +662,7 @@ public class MainMenu extends AppCompatActivity  {
         });
 
         Geography_GameBtn.setOnClickListener(view -> {
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -526,7 +681,7 @@ public class MainMenu extends AppCompatActivity  {
 
 
         btnRemoveAds.setOnClickListener(view -> {
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -545,7 +700,7 @@ public class MainMenu extends AppCompatActivity  {
 
         if(user != null && isNetworkConnected(this)) {
 
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -559,14 +714,28 @@ public class MainMenu extends AppCompatActivity  {
         }
 
         else if (!isNetworkConnected(this)){
-            Toast.makeText(this, R.string.Connect_to_Internet, Toast.LENGTH_SHORT).show();
+
+
+            View rootLayout = findViewById(R.id.RlMainMenu);
+
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.Connect_to_Internet, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
+
 
 
         }
 
         else{
-            //Toast.makeText(this, ""+R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, R.string.Connect_to_a_User, Toast.LENGTH_SHORT).show();
+
+
+
+            View rootLayout = findViewById(R.id.RlMainMenu);
+
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.Connect_to_a_User, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
+
 
         }
 
@@ -578,7 +747,7 @@ public class MainMenu extends AppCompatActivity  {
 
 
             if(user != null && isNetworkConnected(this) ){
-                if (!flag){
+                if (!isMuted){
                     mp.setVolume(0,0);
                 }
                 else{
@@ -591,14 +760,25 @@ public class MainMenu extends AppCompatActivity  {
             }
 
             else if (!isNetworkConnected(this)){
-                Toast.makeText(this, R.string.Please_Connect_to_Internet_To_Play_MultiPLayer, Toast.LENGTH_SHORT).show();
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.Please_Connect_to_Internet_To_Play_MultiPLayer, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+
 
 
             }
 
 
             else{
-                Toast.makeText(this, R.string.Please_Connect_to_a_User_To_Play_MultiPLayer, Toast.LENGTH_SHORT).show();
+
+                View rootLayout = findViewById(R.id.RlMainMenu);
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.Please_Connect_to_a_User_To_Play_MultiPLayer, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
 
 
@@ -640,7 +820,7 @@ public class MainMenu extends AppCompatActivity  {
                 if (idToken != null) {
                     // Got an ID token from Google. Use it to authenticate
                     // with Firebase.
-                    //Log.d(TAG, "Got ID token.");
+                    Log.d(TAG, "Got ID token.");
                 }
             } catch (ApiException e) {
                 // ...
@@ -752,81 +932,99 @@ public class MainMenu extends AppCompatActivity  {
         SharedPreferences prefs2 = PreferenceManager
                 .getDefaultSharedPreferences(this);
 
-        txtNameAndPoints.setText(getString(R.string.Hello2)+" "+prefs2.getString("autoSave", "")+ " "+getString(R.string.you_have)+"\n" +amountOfGeneralPoints() + " " +getString(R.string.Points2));
+        txtNameAndPoints.setText(getString(R.string.Hello2)+" "+prefs2.getString("autoSave", "")+ " "+getString(R.string.you_have)+"\n" +amountOfGeneralPoints(this) + " " +getString(R.string.Points2));
         SharedPreferences prefs3;
         prefs3 = MainMenu.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
+
         if(oldAvatarChoice==1){
-            imgViewShowAvatar.setImageResource(R.mipmap.avater1_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_1);
         }
         else if(oldAvatarChoice==2){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar3_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_2);
         }
         else if(oldAvatarChoice==3){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar4_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_3);
         }
 
+
+
         else if(oldAvatarChoice==4){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar6_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_4);
         }
 
         else if(oldAvatarChoice==5){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar7_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_5);
         }
 
         else if(oldAvatarChoice==6){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar8_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_6);
         }
 
         else if(oldAvatarChoice==7){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar10_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_7);
         }
 
         else if(oldAvatarChoice==8){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar11_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_8);
         }
 
         else if(oldAvatarChoice==9){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar12_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_9);
         }
 
         else if(oldAvatarChoice==10){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar9_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_10);
         }
 
         else if(oldAvatarChoice==11){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar13_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_11);
         }
         else if(oldAvatarChoice==12){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar14_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_12);
         }
         else if(oldAvatarChoice==13 ){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar15_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_19);
         }
 
-        else if(oldAvatarChoice==14){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar16_foreground);
+        else if(oldAvatarChoice==14 ){
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_14);
         }
         else if(oldAvatarChoice==15 ){
-            imgViewShowAvatar.setImageResource(R.mipmap.ic_avatar17_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_15);
         }
         else if(oldAvatarChoice==16 ){
-            imgViewShowAvatar.setImageResource(R.mipmap.avaterprem1_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_16);
         }
 
-        else if(oldAvatarChoice==17){
-            imgViewShowAvatar.setImageResource(R.mipmap.avaterprem3_foreground);
+        else if(oldAvatarChoice==17 ){
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_17);
         }
         else if(oldAvatarChoice==18 ){
-            imgViewShowAvatar.setImageResource(R.mipmap.avaterprem2_foreground);
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_18);
         }
         else if(oldAvatarChoice==19){
             imgViewShowAvatar.setImageResource(R.mipmap.avatersecret_foreground);
         }
+
+        else if(oldAvatarChoice==20){
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_13);
+        }
+        else if(oldAvatarChoice==21){
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_20);
+        }
+        else if(oldAvatarChoice==22){
+            imgViewShowAvatar.setImageResource(R.drawable.avatar_21);
+        }
+
+
         else{
             imgViewShowAvatar.setImageResource(R.mipmap.ic_emptyavatar_foreground);
         }
 
+
+
+        
     }
     void initialize(){
         flags_GameBtn = findViewById(R.id.Flags_GameBtn);
@@ -870,6 +1068,7 @@ public class MainMenu extends AppCompatActivity  {
     }
 
     private void updateUI(FirebaseUser currentUser) {
+        Log.d(TAG, "currentUser "+ currentUser);
     }
 
 
@@ -880,17 +1079,15 @@ public class MainMenu extends AppCompatActivity  {
 
 
         btnMute.setOnClickListener(view -> {
-            i[0]++;
+            isMuted = !isMuted;
             new Handler();
+            if (isMuted) {
 
-            if (i[0] % 2==0) {
-
-                flag = true;
                 btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
 
-                flag = false;
+
                 btnMute.setImageResource( R.drawable.mute_50);
             }
         });
@@ -905,28 +1102,6 @@ public class MainMenu extends AppCompatActivity  {
 
     }
 
-    int amountOfGeneralPoints(){
-        int points;
-
-
-        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-        int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-        int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-        int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-        int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-        int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-        int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-        int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-        int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-        int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-        int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-        int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
-        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
-
-        points=scoreNewDeathMarch +scoreNewStepOnLego + scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
-        return points;
-    }
 
 
 }

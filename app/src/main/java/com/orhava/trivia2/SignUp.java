@@ -2,14 +2,15 @@ package com.orhava.trivia2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,7 @@ public class SignUp extends AppCompatActivity {
     private TextInputEditText edit_email,edit_password;
     private MaterialButton button_register;
     private Button button_login;
+    private View rootLayout ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class SignUp extends AppCompatActivity {
         button_register=findViewById(R.id.button_register);
         button_login=findViewById(R.id.button_login);
         mAuth = FirebaseAuth.getInstance();
+        rootLayout = findViewById(R.id.RlMainMenu);
     }
 
     @Override
@@ -59,7 +62,10 @@ public class SignUp extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Toast.makeText(this, ""+R.string.User_is_already_connected, Toast.LENGTH_SHORT).show();
+
+            Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.User_is_already_connected), Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
         } else {
             reload();
         }
@@ -69,10 +75,17 @@ public class SignUp extends AppCompatActivity {
     public void reload() {
         button_register.setOnClickListener(view -> {
             if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() ){
-                Toast.makeText(this, ""+R.string.Enter_Email, Toast.LENGTH_SHORT).show();
+
+                Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Enter_Email), Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
             if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() ) {
-                Toast.makeText(this, ""+R.string.Enter_Password, Toast.LENGTH_SHORT).show();
+
+
+                Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Enter_Password), Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
 
             if(edit_password!=null && edit_email!=null && !(Objects.requireNonNull(edit_password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(edit_email.getText()).toString().isEmpty())){
@@ -88,8 +101,11 @@ public class SignUp extends AppCompatActivity {
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(SignUp.this, ""+R.string.Authentication_failed,
-                                            Toast.LENGTH_SHORT).show();
+
+
+                                    Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Authentication_failed), Snackbar.LENGTH_SHORT);
+                                    snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                                    snackbar.show();
                                     updateUI(null);
                                 }
                             }

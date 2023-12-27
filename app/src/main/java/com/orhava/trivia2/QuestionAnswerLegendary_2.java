@@ -14,49 +14,50 @@ public class QuestionAnswerLegendary_2 extends AppCompatActivity {
 
     public static void initializeData(Context context) {
         question = new String[]{
-                context.getString(R.string.Guess_The_Country) + " 43", //France Europe
-                context.getString(R.string.Guess_The_Country)+ "  1", //Russia Europe
-                context.getString(R.string.Guess_The_Country)+ " 17", //Turkey Europe
-                context.getString(R.string.Guess_The_Country)+ " 29", //China Asia
-                context.getString(R.string.Guess_The_Country)+ " 10", // Egypt Africa
-                context.getString(R.string.Guess_The_Country)+ " 7", // Suadai arbia Middle east
-                context.getString(R.string.Guess_The_Country)+ " 2", //USA North America
-                context.getString(R.string.Guess_The_Country)+ " 9", //Brazil south america
-                context.getString(R.string.Guess_The_Country)+ " 8", // Australia all Australia
-                context.getString(R.string.Guess_The_Country)+ " 3", // mexcio North America
+                context.getString(R.string.Guess_The_Country) + " 44", //Monaco Europe
+                context.getString(R.string.Guess_The_Country)+ "  24", //Macedonia Europe
+                context.getString(R.string.Guess_The_Country)+ " 29", //Gabon
+                context.getString(R.string.Guess_The_Country)+ " 30", //Buthan Asia
+                context.getString(R.string.Guess_The_Country)+ " 23", // Namibia Africa
+                context.getString(R.string.Guess_The_Country)+ " 16", // Zambia Africa
+                context.getString(R.string.Guess_The_Country)+ " 48", //Malawi Africa
+                context.getString(R.string.Guess_The_Country)+ " 4", //Suriname south america
+                context.getString(R.string.Guess_The_Country)+ " 44", // Liberia all Africa
+                context.getString(R.string.Guess_The_Country)+ " 8", //  Lesotho Africa
         };
 
         choices = new String[][]{
-                {context.getString(R.string.France), context.getString(R.string.Spain), context.getString(R.string.Italy), context.getString(R.string.Germany)},
-                {context.getString(R.string.Russia), context.getString(R.string.Ukraine), context.getString(R.string.Poland), context.getString(R.string.Denmark)},
-                {context.getString(R.string.Turkey), context.getString(R.string.Greece),context.getString(R.string.Iran), context.getString(R.string.Russia)},
-                {context.getString(R.string.China), context.getString(R.string.Mongolia), context.getString(R.string.India), context.getString(R.string.Indonesia)},
-                {context.getString(R.string.Egypt), context.getString(R.string.Algeria), context.getString(R.string.Sudan), context.getString(R.string.Libya)},
-                {context.getString(R.string.Saudi_Arabia), context.getString(R.string.Yemen), context.getString(R.string.United_Arab_Emirates), context.getString(R.string.Oman)},
-                {context.getString(R.string.United_States_Of_America), context.getString(R.string.Canada), context.getString(R.string.Mexico), context.getString(R.string.Papua_New_Guinea)},
-                {context.getString(R.string.Brazil), context.getString(R.string.Colombia), context.getString(R.string.Argentina), context.getString(R.string.Peru)},
-                {context.getString(R.string.Australia), context.getString(R.string.New_Zealand),context.getString(R.string.Papua_New_Guinea),context.getString(R.string.Malaysia)},
-                {context.getString(R.string.Mexico), context.getString(R.string.United_States_Of_America), context.getString(R.string.Canada), context.getString(R.string.Honduras)}
+                {context.getString(R.string.San_Marino), context.getString(R.string.Liechtenstein), context.getString(R.string.Monaco), context.getString(R.string.Luxembourg)},
+                {context.getString(R.string.Montenegro), context.getString(R.string.Albania), context.getString(R.string.Kosovo), context.getString(R.string.Macedonia)},
+                {context.getString(R.string.Equatorial_Guinea), context.getString(R.string.Gabon),context.getString(R.string.Sao_Tome_and_Príncipe), context.getString(R.string.Cameroon)},
+                {context.getString(R.string.Buthan), context.getString(R.string.Bangladesh), context.getString(R.string.Nepal), context.getString(R.string.Myanmar)},
+                {context.getString(R.string.Namibia), context.getString(R.string.Angola), context.getString(R.string.Zambia), context.getString(R.string.Mozambique)},
+                {context.getString(R.string.Burundi), context.getString(R.string.Rwanda), context.getString(R.string.Zambia), context.getString(R.string.Mozambique)},
+                {context.getString(R.string.Malawi), context.getString(R.string.Guinea), context.getString(R.string.Comoros), context.getString(R.string.Djibouti)},
+                {context.getString(R.string.French_Guiana), context.getString(R.string.Suriname), context.getString(R.string.Ecuador), context.getString(R.string.Guyana)},
+
+                {context.getString(R.string.Sierra_Leone), context.getString(R.string.Guinea_Bissau),context.getString(R.string.Gambia),context.getString(R.string.Liberia)},
+                {context.getString(R.string.Sao_Tome_and_Príncipe), context.getString(R.string.Equatorial_Guinea), context.getString(R.string.Lesotho), context.getString(R.string.Burkina_Faso)}
         };
 
         correctAnswwrs = new String[]{
-                context.getString(R.string.France),
-                context.getString(R.string.Russia),
-                context.getString(R.string.Turkey),
-                context.getString(R.string.China),
-                context.getString(R.string.Egypt),
-                context.getString(R.string.Saudi_Arabia),
-                context.getString(R.string.United_States_Of_America),
-                context.getString(R.string.Brazil),
-                context.getString(R.string.Australia),
-                context.getString(R.string.Mexico)
+                context.getString(R.string.Monaco),
+                context.getString(R.string.Macedonia),
+                context.getString(R.string.Gabon),
+                context.getString(R.string.Buthan),
+                context.getString(R.string.Namibia),
+                context.getString(R.string.Zambia),
+                context.getString(R.string.Malawi),
+                context.getString(R.string.Suriname),
+                context.getString(R.string.Liberia),
+                context.getString(R.string.Lesotho)
         };
 
         images = new int[]{
-                R.drawable.europe, R.drawable.europe, R.drawable.europe,
-                R.drawable.asia, R.drawable.africa, R.drawable.middle_east,
-                R.drawable.north_america, R.drawable.south_america, R.drawable.all_australia,
-                R.drawable.north_america
+                R.drawable.europe, R.drawable.europe, R.drawable.africa,
+                R.drawable.asia, R.drawable.africa, R.drawable.africa,
+                R.drawable.africa, R.drawable.south_america, R.drawable.africa,
+                R.drawable.africa
         };
     }
 }

@@ -6,10 +6,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -22,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +38,7 @@ public class SignIn extends AppCompatActivity {
     private Button signIn, forgotPass,btnEnterNormal;
     private MaterialButton login;
     private ImageView sign_in_button;
-
+    private View rootLayout ;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -63,7 +64,7 @@ public class SignIn extends AppCompatActivity {
     }
 
     private boolean isEmpty(EditText etText) {
-        return etText.getText().toString().trim().length() <= 0;
+        return etText.getText().toString().trim().length() == 0;
     }
 
 
@@ -76,6 +77,7 @@ public class SignIn extends AppCompatActivity {
         password=findViewById(R.id.password1);
         forgotPass =findViewById(R.id.forgotpass);
         btnEnterNormal=findViewById(R.id.btnEnterNormal);
+        rootLayout = findViewById(R.id.RlMainMenu);
 
     }
 
@@ -88,7 +90,13 @@ public class SignIn extends AppCompatActivity {
 
         forgotPass.setOnClickListener(view -> {
             if(Email == null || isEmpty(Email)){
-                Toast.makeText(SignIn.this, ""+R.string.Please_Provide_Email, Toast.LENGTH_SHORT).show();
+
+
+
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.Please_Provide_Email, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
             else{
 
@@ -99,10 +107,16 @@ public class SignIn extends AppCompatActivity {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Log.d(TAG, "Email sent.");
-                                Toast.makeText(SignIn.this, ""+getString(R.string.Password_Sent_to_Email)+Email.getText().toString()+" Make Sure to Check Your Spam Folder", Toast.LENGTH_SHORT).show();
+
+                                Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Password_Sent_to_Email)+Email.getText().toString()+getString(R.string.make_sure_to_check_your_spam_folder), Snackbar.LENGTH_SHORT);
+                                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                                snackbar.show();
                             }
                             else{
-                                Toast.makeText(SignIn.this,""+R.string.Password_Not_Sending_to_Email, Toast.LENGTH_SHORT).show();
+
+                                Snackbar snackbar = Snackbar.make(rootLayout, R.string.Password_Not_Sending_to_Email, Snackbar.LENGTH_SHORT);
+                                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                                snackbar.show();
                             }
                         });
 
@@ -146,10 +160,17 @@ public class SignIn extends AppCompatActivity {
 
     public void signupEmail(){
         if(Email==null || Objects.requireNonNull(Email.getText()).toString().isEmpty() ){
-            Toast.makeText(this, ""+R.string.Enter_Email, Toast.LENGTH_SHORT).show();
+
+
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.Enter_Email, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
         }
         if(password==null || Objects.requireNonNull(password.getText()).toString().isEmpty() ) {
-            Toast.makeText(this, ""+R.string.Enter_Password, Toast.LENGTH_SHORT).show();
+
+            Snackbar snackbar = Snackbar.make(rootLayout, R.string.Enter_Password, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
         }
         if(password!=null && Email!=null && !(Objects.requireNonNull(password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(Email.getText()).toString().isEmpty())){
 
@@ -165,8 +186,12 @@ public class SignIn extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(SignIn.this, ""+R.string.Authentication_failed,
-                                    Toast.LENGTH_SHORT).show();
+
+
+                            Snackbar snackbar = Snackbar.make(rootLayout, R.string.Authentication_failed, Snackbar.LENGTH_SHORT);
+                            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                            snackbar.show();
+
                             updateUI(null);
                         }
                     });
@@ -181,9 +206,9 @@ public class SignIn extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
-    // [END on_start_check_user]
 
-    // [START onactivityresult]
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -195,16 +220,21 @@ public class SignIn extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
-                Toast.makeText(this, ""+getString(R.string.firebaseAuthWithGoogle) + account.getId(), Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.firebaseAuthWithGoogle) + account.getId(), Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                Toast.makeText(this, ""+R.string.Google_sign_in_failed, Toast.LENGTH_SHORT).show();
+
+                Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Google_sign_in_failed) , Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         }
     }
-    // [END onactivityresult]
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(String idToken) {
@@ -250,7 +280,7 @@ public class SignIn extends AppCompatActivity {
 
 
     private void updateUI(FirebaseUser user) {
-
+        Log.d("user", "User "+ user);
     }
     private void gotoProfile(){
         Intent intent = new Intent(SignIn.this, MainMenu.class);

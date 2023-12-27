@@ -1,8 +1,10 @@
 package com.orhava.trivia2;
 
-import static com.orhava.trivia2.MainMenu.flag;
-import static com.orhava.trivia2.MainMenu.i;
 
+
+import static com.orhava.trivia2.MainMenu.isMuted;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -39,7 +41,7 @@ public class Fun_Facts extends AppCompatActivity {
         mute_unmute= findViewById(R.id.mute_unmute);
         Txt_Fact= findViewById(R.id.Txt_Fact);
         Btn_Next_Fact= findViewById(R.id.Btn_Next_Fact);
-        if (i[0] % 2==0) {
+        if (isMuted) {
             mute_unmute.setImageResource(R.drawable.unmute_50);
 
 
@@ -147,7 +149,7 @@ public class Fun_Facts extends AppCompatActivity {
     {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
 
-        if (!MainMenu.flag){
+        if (!isMuted){
             mp.setVolume(0,0);
         }
         else{
@@ -168,7 +170,7 @@ public class Fun_Facts extends AppCompatActivity {
 
 
     }
- //countries i didnt use yet for the quizs: greenland,peru,
+ //countries i didn't use yet for the quiz's: greenland,peru,
  // maldives,syria,thailand,chile,,iceland,singapore,ecuador,cambodia, mexico,bolivia,
     //peru,
     private void fetchImageForFact(String fact) {
@@ -184,7 +186,7 @@ public class Fun_Facts extends AppCompatActivity {
         for (String word : words) {
             try {
                 // Get the resource ID for the corresponding image
-                int imageResId = getResources().getIdentifier(word, "drawable", getPackageName());
+                @SuppressLint("DiscouragedApi") int imageResId = getResources().getIdentifier(word, "drawable", getPackageName());
 
                 // If the image resource exists, load it locally
                 if (imageResId != 0) {
@@ -207,16 +209,16 @@ public class Fun_Facts extends AppCompatActivity {
 
 
         mute_unmute.setOnClickListener(view -> {
-            i[0]++;
+            isMuted = !isMuted;
             new Handler();
 
-            if (i[0] % 2==0) {
+            if (isMuted) {
 
-                flag = true;
+
                 mute_unmute.setImageResource( R.drawable.unmute_50);
 
             } else {
-                flag = false;
+
                 mute_unmute.setImageResource( R.drawable.mute_50);
             }
         });

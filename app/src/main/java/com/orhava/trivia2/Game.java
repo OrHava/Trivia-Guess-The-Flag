@@ -1,10 +1,12 @@
 package com.orhava.trivia2;
 
 
-import static com.orhava.trivia2.MainMenu.flag;
-import static com.orhava.trivia2.MainMenu.i;
+import static com.orhava.trivia2.Ads.isInterstitialAdReady;
+
+import static com.orhava.trivia2.MainMenu.isMuted;
 import static com.orhava.trivia2.MultiPlayer.codeHelper;
 import static com.orhava.trivia2.MultiPlayer.opponentUser;
+import static com.orhava.trivia2.Utils.isRewardValid;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -25,6 +27,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +62,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private ImageButton btnMute;
     private final int[] randomNumbersBabyYoda = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19};
     private MyCountDownTimer countDownTimer = new MyCountDownTimer(10000 /* 10 Sec */, 1000);
+
+
     private ProgressBar progressBar;
     public static SharedPreferences prefs;
     private int multiPlayerHelper=0;
@@ -66,7 +71,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     public int times=0,times2=0;
     public MediaPlayer mp2 = null;
     private int counter;
-    public int avatarMultiPlayerChoice=0;
+
     public String NameMultiPlayer="";
     private FirebaseUser user;
 
@@ -86,38 +91,67 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         }
         restart();
         initialize();
-        if (i[0] % 2==0) {
+        if (isMuted) {
             btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
             btnMute.setImageResource( R.drawable.mute_50);
         }
 
+        if (isRewardValid(this) && Menu_Game.WhichGame!=888) {
+            // The reward is still valid, show a message or handle accordingly
+            countDownTimer = new MyCountDownTimer(15000 /* 10 Sec */, 1000);
+        }
+
         if(Menu_Game.WhichGame >= 20 && Menu_Game.WhichGame <= 27){
 
-
             totalQuestionsTextView.setVisibility(View.GONE);
-            btnMute.setVisibility(View.GONE);
             whichGameTxt.setVisibility(View.GONE);
             whichGame2Txt.setVisibility(View.GONE);
             whichGameImage2.setVisibility(View.GONE);
             whichGameImage.setVisibility(View.GONE);
             whichGameImage3.setVisibility(View.GONE);
-            ImageButton nextButton = findViewById(R.id.navToMain);
-             nextButton.setVisibility(View.GONE);
 
-            questionTextView.setTextSize(18);
+// Assuming iv, btnMute, and nextButton are defined in your layout XML
+            final ImageView iv = findViewById(R.id.flags);
+            final ImageButton btnMute = findViewById(R.id.mute_unmute);
+            final ImageButton nextButton = findViewById(R.id.navToMain);
+
+
             // Set the new height in pixels (adjust this value as needed)
             int newHeightInPixels = 1000;
 
-// Get the existing LayoutParams
+            // Get the existing LayoutParams
             ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
 
-// Update the height of the LayoutParams
+            // Update the height of the LayoutParams
             layoutParams.height = newHeightInPixels;
 
-// Set the updated LayoutParams back to the ImageView
+            // Set the updated LayoutParams back to the ImageView
             iv.setLayoutParams(layoutParams);
+
+
+
+            // Position btnMute on top of iv (adjust margins as needed)
+            RelativeLayout.LayoutParams btnMuteParams = new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            btnMuteParams.addRule(RelativeLayout.ALIGN_PARENT_START);
+            btnMuteParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            btnMuteParams.setMargins(16, 0, 0, 16);
+            btnMute.setLayoutParams(btnMuteParams);
+
+            // Position nextButton on top of iv (adjust margins as needed)
+            RelativeLayout.LayoutParams nextButtonParams = new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            nextButtonParams.addRule(RelativeLayout.ALIGN_PARENT_END);
+            nextButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            nextButtonParams.setMargins(0, 0, 16, 16);
+            nextButton.setLayoutParams(nextButtonParams);
+
 
         }
         whichGame();
@@ -129,6 +163,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
     }
+
+    // Method to add 5 seconds to the countdown duration
 
     private void CheckIfOtherPlayerQuizMultiPlayer() {
 
@@ -178,15 +214,15 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
         btnMute.setOnClickListener(view -> {
-            i[0]++;
+            isMuted = !isMuted;
             new Handler();
 
-            if (i[0] % 2==0) {
-                flag = true;
+            if (isMuted) {
+
                 btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
-                flag = false;
+
                 btnMute.setImageResource( R.drawable.mute_50);
             }
         });
@@ -297,151 +333,189 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
                         if(Objects.equals(dsp.getKey(), opponentUser)  && times2==0){
 
-                            avatarMultiPlayerChoice=dsp.getValue(Integer.class);
+                            Integer avatarMultiPlayerChoiceWrapper = dsp.getValue(Integer.class);
+
+// Check for null before unboxing
+
                             times2++;
                             if(oldAvatarChoice==1){
-                                whichGameImage2.setImageResource(R.mipmap.avater1_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_1);
                             }
                             else if(oldAvatarChoice==2){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar3_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_2);
                             }
                             else if(oldAvatarChoice==3){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar4_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_3);
                             }
 
+
+
                             else if(oldAvatarChoice==4){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar6_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_4);
                             }
 
                             else if(oldAvatarChoice==5){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar7_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_5);
                             }
 
                             else if(oldAvatarChoice==6){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar8_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_6);
                             }
 
                             else if(oldAvatarChoice==7){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar10_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_7);
                             }
 
                             else if(oldAvatarChoice==8){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar11_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_8);
                             }
 
                             else if(oldAvatarChoice==9){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar12_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_9);
                             }
 
                             else if(oldAvatarChoice==10){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar9_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_10);
                             }
 
                             else if(oldAvatarChoice==11){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar13_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_11);
                             }
                             else if(oldAvatarChoice==12){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar14_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_12);
                             }
                             else if(oldAvatarChoice==13 ){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar15_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_19);
                             }
 
-                            else if(oldAvatarChoice==14){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar16_foreground);
+                            else if(oldAvatarChoice==14 ){
+                                whichGameImage2.setImageResource(R.drawable.avatar_14);
                             }
                             else if(oldAvatarChoice==15 ){
-                                whichGameImage2.setImageResource(R.mipmap.ic_avatar17_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_15);
                             }
                             else if(oldAvatarChoice==16 ){
-                                whichGameImage2.setImageResource(R.mipmap.avaterprem1_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_16);
                             }
 
-                            else if(oldAvatarChoice==17){
-                                whichGameImage2.setImageResource(R.mipmap.avaterprem3_foreground);
+                            else if(oldAvatarChoice==17 ){
+                                whichGameImage2.setImageResource(R.drawable.avatar_17);
                             }
                             else if(oldAvatarChoice==18 ){
-                                whichGameImage2.setImageResource(R.mipmap.avaterprem2_foreground);
+                                whichGameImage2.setImageResource(R.drawable.avatar_18);
                             }
                             else if(oldAvatarChoice==19){
                                 whichGameImage2.setImageResource(R.mipmap.avatersecret_foreground);
                             }
+
+                            else if(oldAvatarChoice==20){
+                                whichGameImage2.setImageResource(R.drawable.avatar_13);
+                            }
+                            else if(oldAvatarChoice==21){
+                                whichGameImage2.setImageResource(R.drawable.avatar_20);
+                            }
+                            else if(oldAvatarChoice==22){
+                                whichGameImage2.setImageResource(R.drawable.avatar_21);
+                            }
+
+
                             else{
                                 whichGameImage2.setImageResource(R.mipmap.ic_emptyavatar_foreground);
                             }
 
-                            if(avatarMultiPlayerChoice==1){
-                                whichGameImage3.setImageResource(R.mipmap.avater1_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==2){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar3_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==3){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar4_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==4){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar6_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==5){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar7_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==6){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar8_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==7){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar10_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==8){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar11_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==9){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar12_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==10){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar9_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==11){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar13_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==12){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar14_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==13 ){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar15_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==14){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar16_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==15 ){
-                                whichGameImage3.setImageResource(R.mipmap.ic_avatar17_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==16 ){
-                                whichGameImage3.setImageResource(R.mipmap.avaterprem1_foreground);
-                            }
-
-                            else if(avatarMultiPlayerChoice==17){
-                                whichGameImage3.setImageResource(R.mipmap.avaterprem3_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==18 ){
-                                whichGameImage3.setImageResource(R.mipmap.avaterprem2_foreground);
-                            }
-                            else if(avatarMultiPlayerChoice==19){
-                                whichGameImage3.setImageResource(R.mipmap.avatersecret_foreground);
-                            }
-                            else{
-                                whichGameImage3.setImageResource(R.mipmap.ic_emptyavatar_foreground);
-                            }
 
 
+
+
+                            if (avatarMultiPlayerChoiceWrapper != null) {
+                                int avatarMultiPlayerChoice = avatarMultiPlayerChoiceWrapper;
+                                if(avatarMultiPlayerChoice==1){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_1);
+                                }
+                                else if(avatarMultiPlayerChoice==2){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_2);
+                                }
+                                else if(avatarMultiPlayerChoice==3){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_3);
+                                }
+
+
+                                else if(avatarMultiPlayerChoice==4){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_4);
+                                }
+
+                                else if(avatarMultiPlayerChoice==5){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_5);
+                                }
+
+                                else if(avatarMultiPlayerChoice==6){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_6);
+                                }
+
+                                else if(avatarMultiPlayerChoice==7){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_7);
+                                }
+
+                                else if(avatarMultiPlayerChoice==8){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_8);
+                                }
+
+                                else if(avatarMultiPlayerChoice==9){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_9);
+                                }
+
+                                else if(avatarMultiPlayerChoice==10){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_10);
+                                }
+
+                                else if(avatarMultiPlayerChoice==11){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_11);
+                                }
+                                else if(avatarMultiPlayerChoice==12){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_12);
+                                }
+                                else if(avatarMultiPlayerChoice==13 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_19);
+                                }
+
+                                else if(avatarMultiPlayerChoice==14 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_14);
+                                }
+                                else if(avatarMultiPlayerChoice==15 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_15);
+                                }
+                                else if(avatarMultiPlayerChoice==16 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_16);
+                                }
+
+                                else if(avatarMultiPlayerChoice==17 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_17);
+                                }
+                                else if(avatarMultiPlayerChoice==18 ){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_18);
+                                }
+                                else if(avatarMultiPlayerChoice==19){
+                                    whichGameImage3.setImageResource(R.mipmap.avatersecret_foreground);
+                                }
+
+                                else if(avatarMultiPlayerChoice==20){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_13);
+                                }
+                                else if(avatarMultiPlayerChoice==21){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_20);
+                                }
+                                else if(avatarMultiPlayerChoice==22){
+                                    whichGameImage3.setImageResource(R.drawable.avatar_21);
+                                }
+
+
+                                else{
+                                    whichGameImage3.setImageResource(R.mipmap.ic_emptyavatar_foreground);
+                                }
+
+
+
+                            }
 
 
 
@@ -592,6 +666,11 @@ else if(Menu_Game.WhichGame==888){
                         countDownTimer = null;
                     }
                     countDownTimer = new MyCountDownTimer(10000 /* 10 Sec */, 1000);
+                    if (isRewardValid(this) && Menu_Game.WhichGame!=888) {
+                        // The reward is still valid, show a message or handle accordingly
+                        countDownTimer = new MyCountDownTimer(15000 /* 10 Sec */, 1000);
+                    }
+
                     overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
                     if(mp3!=null){
@@ -675,7 +754,7 @@ else if(Menu_Game.WhichGame==888){
                 cancel();
                 final MediaPlayer mp3 = MediaPlayer.create(Game.this, R.raw.losesound);
                 CorrectOrWrong.setImageResource(R.drawable.cancel);
-                if (!MainMenu.flag){
+                if (!isMuted){
                     mp3.setVolume(0,0);
                 }
                 else{
@@ -800,10 +879,10 @@ else if(Menu_Game.WhichGame==888){
                     loadClass(QuestionAnswerChampion_2.correctAnswwrs[randomNumbers[indexOfQuestions]],24);
                 }
                 else if(Menu_Game.WhichGame==25){
-                    loadClass(QuestionAnswerNovice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],25);
+                    loadClass(QuestionAnswerExpert_2.correctAnswwrs[randomNumbers[indexOfQuestions]],25);
                 }
                 else if(Menu_Game.WhichGame==26){
-                    loadClass(QuestionAnswerNovice_2.correctAnswwrs[randomNumbers[indexOfQuestions]],26);
+                    loadClass(QuestionAnswerMaster_2.correctAnswwrs[randomNumbers[indexOfQuestions]],26);
                 }
                 else if(Menu_Game.WhichGame==27){
                     loadClass(QuestionAnswerLegendary_2.correctAnswwrs[randomNumbers[indexOfQuestions]],27);
@@ -896,7 +975,7 @@ else if(Menu_Game.WhichGame==888){
         mp2 = MediaPlayer.create(this, R.raw.winsound);
 
         if (selectedAns.equals(newAnswer) && Menu_Game.WhichGame==newWhichGame) {
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp2.setVolume(0,0);
             }
             else{
@@ -989,7 +1068,7 @@ else if(Menu_Game.WhichGame==888){
 
         }
         else if(Menu_Game.WhichGame==newWhichGame){
-            if (!MainMenu.flag){
+            if (!isMuted){
                 mp3.setVolume(0,0);
             }
             else{
@@ -1235,22 +1314,22 @@ else if(Menu_Game.WhichGame==888){
 
         if(Menu_Game.WhichGame==25){
 
-            questionTextView.setText(QuestionAnswerNovice_2.question[randomNumbers[indexOfQuestions]]);
-            ansA.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
-            ansB.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
-            ansC.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
-            ansD.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
-            iv.setImageResource(QuestionAnswerNovice_2.images[randomNumbers[indexOfQuestions]]);
+            questionTextView.setText(QuestionAnswerExpert_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerExpert_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerExpert_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerExpert_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerExpert_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerExpert_2.images[randomNumbers[indexOfQuestions]]);
         }
 
         if(Menu_Game.WhichGame==26){
 
-            questionTextView.setText(QuestionAnswerNovice_2.question[randomNumbers[indexOfQuestions]]);
-            ansA.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
-            ansB.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
-            ansC.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
-            ansD.setText(QuestionAnswerNovice_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
-            iv.setImageResource(QuestionAnswerNovice_2.images[randomNumbers[indexOfQuestions]]);
+            questionTextView.setText(QuestionAnswerMaster_2.question[randomNumbers[indexOfQuestions]]);
+            ansA.setText(QuestionAnswerMaster_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[0]]);
+            ansB.setText(QuestionAnswerMaster_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[1]]);
+            ansC.setText(QuestionAnswerMaster_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[2]]);
+            ansD.setText(QuestionAnswerMaster_2.choices[randomNumbers[indexOfQuestions]][randomNumbersQuestions[3]]);
+            iv.setImageResource(QuestionAnswerMaster_2.images[randomNumbers[indexOfQuestions]]);
         }
 
         if(Menu_Game.WhichGame==27){
@@ -1374,6 +1453,11 @@ else if(Menu_Game.WhichGame==888){
             countDownTimer=null;
         }
         countDownTimer = new MyCountDownTimer(10000 /* 10 Sec */, 1000);
+
+        if ( isRewardValid(this) && Menu_Game.WhichGame!=888) {
+            // The reward is still valid, show a message or handle accordingly
+            countDownTimer = new MyCountDownTimer(15000 /* 10 Sec */, 1000);
+        }
         prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
 
         int oldScoreNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
@@ -1570,9 +1654,9 @@ else if(Menu_Game.WhichGame==888){
             }
             else{
 
-                if (!PurchaseManager.isRemoveAdsPurchased(this)) {
+                if (!PurchaseManager.isRemoveAdsPurchased(this) && isInterstitialAdReady()) { //maybe isInterstitialAdReady fix the problem that if ad don't load
                     // Show ads
-                    Ads.showInterstitialAd(this);
+                    Ads.showInterstitialAd(this, Results.class);
                 }
                 else{
                     startActivity(new Intent(Game.this, Results.class));

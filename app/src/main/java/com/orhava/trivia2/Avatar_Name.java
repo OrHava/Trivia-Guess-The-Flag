@@ -6,7 +6,9 @@ import static com.orhava.trivia2.BuyPremiumAvatars.avatarPremium16;
 import static com.orhava.trivia2.BuyPremiumAvatars.avatarPremium17;
 import static com.orhava.trivia2.BuyPremiumAvatars.avatarPremium18;
 import static com.orhava.trivia2.BuyPremiumAvatars.avatarPremium19;
-import static com.orhava.trivia2.MainMenu.flag;
+
+import static com.orhava.trivia2.MainMenu.isMuted;
+import static com.orhava.trivia2.Utils.amountOfGeneralPoints;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,28 +18,30 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
 public class Avatar_Name extends AppCompatActivity {
 
     private ImageButton navToMainMenu2;
-    private   ImageButton btnPen,avatar3,avatar2,avatar4,avatar5,avatar6,avatar7,avatar8,avatar9,avatar10,avatar11,avatar12,avatar13,avatar14,avatar15,avatar16,avatar17,avatar18,avatar19;
+    private   ImageButton avatar20,avatar21,avatar22,btnPen,avatar3,avatar2,avatar4,avatar5,avatar6,avatar7,avatar8,avatar9,avatar10,avatar11,avatar12,avatar13,avatar14,avatar15,avatar16,avatar17,avatar18,avatar19;
     private ImageView profilePic;
     private  EditText txtName;
     private TextView txtPoints,txtAvatar14,txtAvatar15,txtAvatar16,txtAvatar17,txtAvatar18,txtAvatar19;
     public static int avatarPremiumChoice=0;
     private SharedPreferences prefs3;
-    public static String UserNameForDataBase= null;
+    public View rootLayout ;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -94,76 +98,88 @@ public class Avatar_Name extends AppCompatActivity {
         }
 
 
-        txtPoints.setText(getString(R.string.Pointss)+" "+ amountOfGeneralPoints());
+        txtPoints.setText(getString(R.string.Pointss)+" "+ amountOfGeneralPoints(this));
         prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
         int oldAvatarChoice = prefs3.getInt("AvatarChoice", 0); //0 is the default value
         if(oldAvatarChoice==1){
-            profilePic.setImageResource(R.mipmap.avater1_foreground);
+            profilePic.setImageResource(R.drawable.avatar_1);
         }
         else if(oldAvatarChoice==2){
-            profilePic.setImageResource(R.mipmap.ic_avatar3_foreground);
+            profilePic.setImageResource(R.drawable.avatar_2);
         }
         else if(oldAvatarChoice==3){
-            profilePic.setImageResource(R.mipmap.ic_avatar4_foreground);
+            profilePic.setImageResource(R.drawable.avatar_3);
         }
 
         else if(oldAvatarChoice==4){
-            profilePic.setImageResource(R.mipmap.ic_avatar6_foreground);
+            profilePic.setImageResource(R.drawable.avatar_4);
         }
 
         else if(oldAvatarChoice==5){
-            profilePic.setImageResource(R.mipmap.ic_avatar7_foreground);
+            profilePic.setImageResource(R.drawable.avatar_5);
         }
 
         else if(oldAvatarChoice==6){
-            profilePic.setImageResource(R.mipmap.ic_avatar8_foreground);
+            profilePic.setImageResource(R.drawable.avatar_6);
         }
 
         else if(oldAvatarChoice==7){
-            profilePic.setImageResource(R.mipmap.ic_avatar10_foreground);
+            profilePic.setImageResource(R.drawable.avatar_7);
         }
 
         else if(oldAvatarChoice==8){
-            profilePic.setImageResource(R.mipmap.ic_avatar11_foreground);
+            profilePic.setImageResource(R.drawable.avatar_8);
         }
 
         else if(oldAvatarChoice==9){
-            profilePic.setImageResource(R.mipmap.ic_avatar12_foreground);
+            profilePic.setImageResource(R.drawable.avatar_9);
         }
 
         else if(oldAvatarChoice==10){
-            profilePic.setImageResource(R.mipmap.ic_avatar9_foreground);
+            profilePic.setImageResource(R.drawable.avatar_10);
         }
 
         else if(oldAvatarChoice==11){
-            profilePic.setImageResource(R.mipmap.ic_avatar13_foreground);
+            profilePic.setImageResource(R.drawable.avatar_11);
         }
         else if(oldAvatarChoice==12){
-            profilePic.setImageResource(R.mipmap.ic_avatar14_foreground);
+            profilePic.setImageResource(R.drawable.avatar_12);
         }
         else if(oldAvatarChoice==13 && PremiumPoints1==1){
-            profilePic.setImageResource(R.mipmap.ic_avatar15_foreground);
+            profilePic.setImageResource(R.drawable.avatar_19);
         }
 
         else if(oldAvatarChoice==14 && PremiumPoints2==1){
-            profilePic.setImageResource(R.mipmap.ic_avatar16_foreground);
+            profilePic.setImageResource(R.drawable.avatar_14);
         }
         else if(oldAvatarChoice==15 && PremiumPoints3==1){
-            profilePic.setImageResource(R.mipmap.ic_avatar17_foreground);
+            profilePic.setImageResource(R.drawable.avatar_15);
         }
         else if(oldAvatarChoice==16 && PremiumPoints4==1){
-            profilePic.setImageResource(R.mipmap.avaterprem1_foreground);
+            profilePic.setImageResource(R.drawable.avatar_16);
         }
 
         else if(oldAvatarChoice==17 && PremiumPoints5==1){
-            profilePic.setImageResource(R.mipmap.avaterprem3_foreground);
+            profilePic.setImageResource(R.drawable.avatar_17);
         }
         else if(oldAvatarChoice==18 && PremiumPoints6==1){
-            profilePic.setImageResource(R.mipmap.avaterprem2_foreground);
+            profilePic.setImageResource(R.drawable.avatar_18);
         }
         else if(oldAvatarChoice==19){
             profilePic.setImageResource(R.mipmap.avatersecret_foreground);
         }
+
+        else if(oldAvatarChoice==20){
+            profilePic.setImageResource(R.drawable.avatar_13);
+        }
+        else if(oldAvatarChoice==21){
+            profilePic.setImageResource(R.drawable.avatar_20);
+        }
+        else if(oldAvatarChoice==22){
+            profilePic.setImageResource(R.drawable.avatar_21);
+        }
+
+
         else{
             profilePic.setImageResource(R.mipmap.ic_emptyavatar_foreground);
         }
@@ -198,162 +214,250 @@ public class Avatar_Name extends AppCompatActivity {
         avatar17=findViewById(R.id.avatar17);
         avatar18=findViewById(R.id.avatar18);
         avatar19=findViewById(R.id.avatar19);
+        avatar20=findViewById(R.id.avatar20);
+        avatar21=findViewById(R.id.avatar21);
+        avatar22=findViewById(R.id.avatar22);
         btnPen=findViewById(R.id.btnPen);
         txtName=findViewById(R.id.txtName); //maybe can make a problem
         txtPoints=findViewById(R.id.txtPoints);
+        rootLayout = findViewById(R.id.RlMainMenu);
     }
     void buyAvatar(){
 
         avatar3.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 10) {
+            if (amountOfGeneralPoints(this) >= 10) {
                 prefs3=Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 1);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.avater1_foreground);
+                profilePic.setImageResource(R.drawable.avatar_1);
             }
 
             else {
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
+
+
         });
 
         avatar2.setOnClickListener(view -> {
-            if (amountOfGeneralPoints()>=20){
+            if (amountOfGeneralPoints(this)>=20){
 
                 SharedPreferences prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 2);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar3_foreground);
+                profilePic.setImageResource(R.drawable.avatar_2);
+
+
+
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+
+
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
 
         avatar4.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 30) {
+            if (amountOfGeneralPoints(this) >= 30) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 3);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar4_foreground);
+                profilePic.setImageResource(R.drawable.avatar_3);
+
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar6.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 40) {
+            if (amountOfGeneralPoints(this) >= 40) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 4);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar6_foreground);
+                profilePic.setImageResource(R.drawable.avatar_4);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar5.setOnClickListener(view -> {
 
-            if (amountOfGeneralPoints() >= 50) {
+            if (amountOfGeneralPoints(this) >= 50) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 5);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar7_foreground);
+                profilePic.setImageResource(R.drawable.avatar_5);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar7.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 60) {
+            if (amountOfGeneralPoints(this) >= 60) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 6);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar8_foreground);
+                profilePic.setImageResource(R.drawable.avatar_6);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar9.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 70) {
+            if (amountOfGeneralPoints(this) >= 70) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 7);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar10_foreground);
+                profilePic.setImageResource(R.drawable.avatar_7);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar8.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 80) {
+            if (amountOfGeneralPoints(this) >= 80) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 8);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar11_foreground);
+                profilePic.setImageResource(R.drawable.avatar_8);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar10.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 90) {
+            if (amountOfGeneralPoints(this) >= 90) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 9);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar12_foreground);
+                profilePic.setImageResource(R.drawable.avatar_9);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar12.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 100) {
+            if (amountOfGeneralPoints(this) >= 100) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 10);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar9_foreground);
+                profilePic.setImageResource(R.drawable.avatar_10);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar11.setOnClickListener(view -> {
-            if (amountOfGeneralPoints() >= 110) {
+            if (amountOfGeneralPoints(this) >= 110) {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 11);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar13_foreground);
+                profilePic.setImageResource(R.drawable.avatar_11);
 
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
         avatar13.setOnClickListener(view -> {
-            if (amountOfGeneralPoints()>=120){
+            if (amountOfGeneralPoints(this)>=120){
 
                 SharedPreferences prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 12);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar3_foreground);
+                profilePic.setImageResource(R.drawable.avatar_12);
             }
             else{
-                Toast.makeText(Avatar_Name.this, R.string.You_Dont_have_Enough_Points, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
             }
         });
+
+
+        avatar21.setOnClickListener(view -> {
+            if (amountOfGeneralPoints(this)>=180){
+
+                SharedPreferences prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs3.edit();
+                editor.putInt("AvatarChoice", 20);
+                editor.apply();
+                profilePic.setImageResource(R.drawable.avatar_13);
+            }
+            else{
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+            }
+        });
+
+        avatar20.setOnClickListener(view -> {
+            if (amountOfGeneralPoints(this)>=200){
+
+                SharedPreferences prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs3.edit();
+                editor.putInt("AvatarChoice", 21);
+                editor.apply();
+                profilePic.setImageResource(R.drawable.avatar_20);
+            }
+            else{
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+            }
+        });
+
+        avatar22.setOnClickListener(view -> {
+            if (amountOfGeneralPoints(this)>=220){
+
+                SharedPreferences prefs3 = Avatar_Name.this.getSharedPreferences("myPrefsKeyAvatar", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs3.edit();
+                editor.putInt("AvatarChoice", 22);
+                editor.apply();
+                profilePic.setImageResource(R.drawable.avatar_21);
+            }
+            else{
+                Snackbar snackbar = Snackbar.make(rootLayout, R.string.You_Dont_have_Enough_Points, Snackbar.LENGTH_SHORT);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                snackbar.show();
+            }
+        });
+
         avatar15.setOnClickListener(view -> {
             avatarPremiumChoice=1;
             SharedPreferences prefs4 = Avatar_Name.this.getSharedPreferences("myPrefsAvatarPremium", Context.MODE_PRIVATE);
@@ -365,7 +469,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 13);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar15_foreground);
+                profilePic.setImageResource(R.drawable.avatar_19);
             }
             }
             else {
@@ -373,7 +477,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 13);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar15_foreground);
+                profilePic.setImageResource(R.drawable.avatar_19);
 
 
             }
@@ -391,7 +495,7 @@ public class Avatar_Name extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs3.edit();
                     editor.putInt("AvatarChoice", 14);
                     editor.apply();
-                    profilePic.setImageResource(R.mipmap.ic_avatar16_foreground);
+                    profilePic.setImageResource(R.drawable.avatar_14);
                 }
             }
             else {
@@ -399,7 +503,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 14);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar16_foreground);
+                profilePic.setImageResource(R.drawable.avatar_14);
 
 
             }
@@ -416,7 +520,7 @@ public class Avatar_Name extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs3.edit();
                     editor.putInt("AvatarChoice", 15);
                     editor.apply();
-                    profilePic.setImageResource(R.mipmap.ic_avatar17_foreground);
+                    profilePic.setImageResource(R.drawable.avatar_15);
                 }
             }
             else {
@@ -424,7 +528,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 15);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.ic_avatar17_foreground);
+                profilePic.setImageResource(R.drawable.avatar_15);
 
 
             }
@@ -441,7 +545,7 @@ public class Avatar_Name extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs3.edit();
                     editor.putInt("AvatarChoice", 16);
                     editor.apply();
-                    profilePic.setImageResource(R.mipmap.avaterprem1_foreground);
+                    profilePic.setImageResource(R.drawable.avatar_16);
                 }
             }
             else {
@@ -449,7 +553,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 16);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.avaterprem1_foreground);
+                profilePic.setImageResource(R.drawable.avatar_16);
 
 
             }
@@ -467,7 +571,7 @@ public class Avatar_Name extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs3.edit();
                     editor.putInt("AvatarChoice", 17);
                     editor.apply();
-                    profilePic.setImageResource(R.mipmap.avaterprem3_foreground);
+                    profilePic.setImageResource(R.drawable.avatar_17);
                 }
             }
             else {
@@ -475,7 +579,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 17);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.avaterprem3_foreground);
+                profilePic.setImageResource(R.drawable.avatar_17);
 
 
             }
@@ -492,7 +596,7 @@ public class Avatar_Name extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs3.edit();
                     editor.putInt("AvatarChoice", 18);
                     editor.apply();
-                    profilePic.setImageResource(R.mipmap.avaterprem2_foreground);
+                    profilePic.setImageResource(R.drawable.avatar_18);
                 }
             }
             else {
@@ -500,7 +604,7 @@ public class Avatar_Name extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs3.edit();
                 editor.putInt("AvatarChoice", 18);
                 editor.apply();
-                profilePic.setImageResource(R.mipmap.avaterprem2_foreground);
+                profilePic.setImageResource(R.drawable.avatar_18);
 
 
             }
@@ -509,27 +613,7 @@ public class Avatar_Name extends AppCompatActivity {
 
     }
 
-    int amountOfGeneralPoints(){
-        int points;
 
-
-        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-        int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-        int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-        int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-        int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-        int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-        int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-        int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-        int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-        int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-        int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-        int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-        int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
-        int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
-        points=scoreNewDeathMarch +scoreNewStepOnLego +scoreNewNovice+scoreNewLearner+scoreNewApprentice+scoreNewCompetent+scoreNewChampion+scoreNewExpert+scoreNewMaster+scoreNewLegendary+scoreNewDivine+scoreNewMasterYoda+scoreNewBabyYoda;
-       return points;
-    }
 
     void goToMain(){
 
@@ -537,7 +621,7 @@ public class Avatar_Name extends AppCompatActivity {
 
         navToMainMenu2.setOnClickListener(view -> {
 
-            if (!flag){
+            if (!isMuted){
                 mp.setVolume(0,0);
             }
             else{
@@ -592,8 +676,12 @@ public class Avatar_Name extends AppCompatActivity {
                     InputMethodManager imm = (InputMethodManager) view.getContext()
                             .getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                    Toast.makeText(Avatar_Name.this, getString(R.string.Hello)+ UserName, Toast.LENGTH_SHORT).show(); //fix because it show the old
-                    UserNameForDataBase= txtName.getText().toString();
+
+                    Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Hello)+ " "+UserName, Snackbar.LENGTH_SHORT);
+                    snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                    snackbar.show();
+
+
                 });
             }
 
@@ -607,7 +695,11 @@ public class Avatar_Name extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) view.getContext()
                     .getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            Toast.makeText(Avatar_Name.this, getString(R.string.Hello)+ UserName, Toast.LENGTH_SHORT).show();
+
+
+            Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.Hello)+ UserName, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
 
 
 

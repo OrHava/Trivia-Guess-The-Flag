@@ -1,8 +1,8 @@
 package com.orhava.trivia2;
 
 import static com.orhava.trivia2.Game.prefs;
-import static com.orhava.trivia2.MainMenu.flag;
-import static com.orhava.trivia2.MainMenu.i;
+
+import static com.orhava.trivia2.MainMenu.isMuted;
 import static com.orhava.trivia2.Menu_Game.totalQuestions;
 
 import android.content.Context;
@@ -15,12 +15,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
@@ -36,21 +37,30 @@ public class Menu_Geography_Game extends AppCompatActivity {
     public TextView bestScoreExpert;
     public TextView bestScoreMaster;
     public TextView bestScoreLegendary ;
-
+    public View rootLayout ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent intent = new Intent(Menu_Geography_Game.this, MainMenu.class);
+                startActivity(intent);
+                finish(); // Optional: If you want to finish the current activity
+            }
+        });
+
         setContentView(R.layout.activity_menu_geography_game);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();
         Menu_Game.WhichGame=0;
-        if (i[0] % 2==0) {
+        if (isMuted) {
 
-            flag = true;
+
             btnMute.setImageResource(R.drawable.unmute_50);
 
         } else {
-            flag = false;
+
             btnMute.setImageResource( R.drawable.mute_50);
         }
 
@@ -67,6 +77,7 @@ public class Menu_Geography_Game extends AppCompatActivity {
         Mute_UnMute();
         savePrefs();
         showAd();
+
     }
     void initialize(){
 
@@ -90,6 +101,8 @@ public class Menu_Geography_Game extends AppCompatActivity {
         bestScoreExpert =findViewById(R.id.bestScoreExpert);
         bestScoreMaster =findViewById(R.id.bestScoreMaster);
         bestScoreLegendary =findViewById(R.id.bestScoreLegendary);
+
+        rootLayout = findViewById(R.id.RlMainMenu);
 
     }
     void savePrefs(){
@@ -131,7 +144,10 @@ public class Menu_Geography_Game extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         }
         else{
-            Toast.makeText(Menu_Geography_Game.this, ""+getString(R.string.pass_six_points)+" "+score, Toast.LENGTH_SHORT).show();
+
+            Snackbar snackbar = Snackbar.make(rootLayout, getString(R.string.pass_six_points)+" "+score, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+            snackbar.show();
         }
     }
 
@@ -233,33 +249,27 @@ public class Menu_Geography_Game extends AppCompatActivity {
 
 
         btnMute.setOnClickListener(view -> {
-            i[0]++;
+            isMuted = !isMuted;
             new Handler();
 
-            if (i[0] % 2==0) {
-                flag = true;
+            if (isMuted) {
+
                 btnMute.setImageResource(R.drawable.unmute_50);
 
             } else {
-                flag = false;
+
                 btnMute.setImageResource( R.drawable.mute_50);
             }
         });
 
     }
 
-    @Override
-    public void onBackPressed() {
-        // Start the new activity when the back button is pressed
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
-        finish(); // Optional: If you want to finish the current activity
-    }
+
     void showAd(){
 
         if (!PurchaseManager.isRemoveAdsPurchased(this)) {
             // Show ads
-            // Your ad display logic here
+
 
             // Find the AdView element in your layout
             AdView adView = findViewById(R.id.adView);
@@ -280,7 +290,7 @@ public class Menu_Geography_Game extends AppCompatActivity {
     {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.modernclick);
 
-        if (!MainMenu.flag){
+        if (!isMuted){
             mp.setVolume(0,0);
         }
         else{

@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Slot_Machine"
+            android:exported="false" />
+        <activity
             android:name=".Menu_Geography_Game"
             android:exported="false" />
         <activity
@@ -80,6 +83,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Game"
+            android:configChanges="locale|orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait" />
 

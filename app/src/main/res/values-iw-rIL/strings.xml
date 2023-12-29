@@ -82,7 +82,7 @@
     <string name="No">לא</string>
     <string name="Chose_Option">\בחירת אופציה \</string>
     <string name="Question">\שאלה: \</string>
-    <string name="Best_Score">\ניקוד הכי גבוה\</string>
+
     <string name="Please_Provide_Email">הכנס איימל</string>
     <string name="Password_Sent_to_Email">\סיסמא נשלחה למייל \</string>
     <string name="Password_Not_Sending_to_Email">סיסמא לא נשלחה למייל</string>
@@ -97,7 +97,7 @@
     <string name="Hello">\שלום\</string>
     <string name="Pointss">\נקודות:\</string>
     <string name="Avatar_is_Usable2">אווטאר ניתן לשימוש</string>
-    <string name="Best_Score2">\ניקוד הכי גבוה \</string>
+
     <string name="pass_six_points">\אתה צריך לעבור ברמה הקודמת ב6 נקודות עכשיו יש לך רק: \</string>
     <string name="Guess">נחש את הדגל</string>
     <string name="Kuwait">כווית</string>
@@ -368,10 +368,10 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">האם ברצונך לשחק משחק מזל לזכות באוואטר פרימיום בעקבות צפייה בפרסומת של 5 שניות? לחץ כן.</string>
     <string name="go_to_home">לעבור לדף הבית</string>
     <string name="go_to_profile">לעבור לפרופיל</string>
-    <string name="you_won">ניצחת</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">ברכות, לך לפרופיל כדי לשים את האוואטר החדש שלך.</string>
     <string name="you_lose">אתה מפסיד</string>
     <string name="you_win">האתה ניצחת</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">אתה הפסדת הפעם, אך אל תדאג, יש לך אונלימיטד צאנסים. לעבור לדף הבית ולנסות שוב. :)</string>
-
+    <string name="start">לחץ כדי להתחיל</string>
 </resources>

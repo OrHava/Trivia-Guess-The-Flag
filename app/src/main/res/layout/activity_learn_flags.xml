@@ -48,7 +48,8 @@
         android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
-        tools:ignore="HardcodedText,SmallSp" />
+        tools:ignore="HardcodedText,SmallSp"
+        android:importantForAccessibility="no" />
     <LinearLayout
         android:id="@+id/controlButtonsLayout"
         android:layout_width="match_parent"
@@ -63,7 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_backward" />
+            android:src="@drawable/ic_backward"
+            android:importantForAccessibility="no" />
 
         <ImageButton
             android:id="@+id/pausePlayButton"
@@ -71,14 +73,16 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_pause"
-            android:contentDescription="Pause/Play Button" />
+            android:contentDescription="Pause/Play Button"
+            tools:ignore="HardcodedText" />
 
         <ImageButton
             android:id="@+id/forwardButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_forward" />
+            android:src="@drawable/ic_forward"
+            android:importantForAccessibility="no" />
     </LinearLayout>
 
 

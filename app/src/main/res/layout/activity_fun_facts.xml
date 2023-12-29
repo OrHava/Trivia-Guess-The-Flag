@@ -22,7 +22,8 @@
         android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
-        tools:ignore="HardcodedText,SmallSp" />
+        tools:ignore="HardcodedText,SmallSp"
+        android:importantForAccessibility="no" />
 
     <ImageButton
         android:id="@+id/mute_unmute"
@@ -74,14 +75,15 @@
                 android:id="@+id/IVFactImage"
                 android:scaleType="fitXY"
                 android:src="@drawable/fact_picture"
-                />
+                android:importantForAccessibility="no" />
 
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/factImageView"
                 android:layout_width="120dp"
                 android:layout_height="150dp"
-                android:paddingStart="10dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
                android:layout_below="@+id/IVFactImage"
                 android:layout_marginTop="40dp"
 
@@ -96,7 +98,8 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:paddingEnd="10dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
 android:layout_marginTop="50dp"
                 android:layout_marginStart="10dp"
                 android:textStyle="italic"

@@ -67,34 +67,34 @@ public class Avatar_Name extends AppCompatActivity {
         int PremiumPoints1 = prefs4.getInt("PremiumPoints1", 0); //0 is the default value
         if(PremiumPoints1==1){
             txtAvatar14.setText(R.string.Avatar_is_Usable2);
-            txtAvatar14.setTextSize(6);
+            txtAvatar14.setTextSize(11);
         }
 
         int PremiumPoints2 = prefs4.getInt("PremiumPoints2", 0); //0 is the default value
         if(PremiumPoints2==1){
             txtAvatar15.setText(R.string.Avatar_is_Usable2);
-            txtAvatar15.setTextSize(6);
+            txtAvatar15.setTextSize(11);
         }
         int PremiumPoints3 = prefs4.getInt("PremiumPoints3", 0); //0 is the default value
         if(PremiumPoints3==1){
             txtAvatar16.setText(R.string.Avatar_is_Usable2);
-            txtAvatar16.setTextSize(6);
+            txtAvatar16.setTextSize(11);
         }
         int PremiumPoints4 = prefs4.getInt("PremiumPoints4", 0); //0 is the default value
         if(PremiumPoints4==1){
             txtAvatar17.setText(R.string.Avatar_is_Usable2);
-            txtAvatar17.setTextSize(6);
+            txtAvatar17.setTextSize(11);
         }
 
         int PremiumPoints5 = prefs4.getInt("PremiumPoints5", 0); //0 is the default value
         if(PremiumPoints5==1){
             txtAvatar18.setText(R.string.Avatar_is_Usable2);
-            txtAvatar18.setTextSize(6);
+            txtAvatar18.setTextSize(11);
         }
         int PremiumPoints6 = prefs4.getInt("PremiumPoints6", 0); //0 is the default value
         if(PremiumPoints6==1){
             txtAvatar19.setText(R.string.Avatar_is_Usable2);
-            txtAvatar19.setTextSize(6);
+            txtAvatar19.setTextSize(11);
         }
 
 

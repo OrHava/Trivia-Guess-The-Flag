@@ -260,7 +260,7 @@ public class SignIn extends AppCompatActivity {
 
     // [START signin]
 
-    ActivityResultLauncher<Intent> ResultLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+   final ActivityResultLauncher<Intent> ResultLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if(result.getResultCode()== Activity.RESULT_OK){
             Intent intent=result.getData();
 

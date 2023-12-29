@@ -88,7 +88,7 @@
     <string name="No">Hindi</string>
     <string name="Chose_Option">\Chose Option \</string>
     <string name="Question">\Question: \</string>
-    <string name="Best_Score">\Best Score\ \</string>
+
     <string name="Please_Provide_Email">Mangyaring Magbigay ng Email</string>
     <string name="Password_Sent_to_Email">\Password Ipinadala sa Email \</string>
     <string name="Password_Not_Sending_to_Email">Hindi Ipinapadala ang Password sa Email</string>
@@ -103,7 +103,7 @@
     <string name="Hello">\Hello \</string>
     <string name="Pointss">\Points: \</string>
     <string name="Avatar_is_Usable2">Magagamit ang Avatar</string>
-    <string name="Best_Score2">\Best Score \</string>
+
     <string name="pass_six_points">\"Kailangan mong Pumasa sa Nakaraang Antas sa 6 na Puntos, Ngayon ay mayroon ka na lang \"</string>
     <string name="Guess">Hulaan ang bandila</string>
     <string name="Kuwait">Kuwait</string>
@@ -373,11 +373,11 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Gusto mo bang maglaro ng laro ng pagkakataon para manalo ng premium avatar sa pamamagitan ng panonood ng 5 segundo ad? I-click ang yes.</string>
     <string name="go_to_home">Pumunta sa Bahay</string>
     <string name="go_to_profile">Pumunta sa Profile</string>
-    <string name="you_won">Panalo Ka</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">Congratulations, pumunta sa Profile para ilagay ang iyong bagong avatar.</string>
     <string name="you_lose">Natalo ka</string>
     <string name="you_win">Panalo Ka</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">Natalo ka ngayong beses, pero huwag mag-alala, marami kang pagkakataon, pumunta sa home page at subukan muli. :)</string>
-
+    <string name="start">Simula</string>
 
 </resources>

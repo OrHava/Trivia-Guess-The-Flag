@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flags Game of All Countries</string>
+
 
     <string name="flags_game">Jogo das bandeiras</string>
     <string name="name_and_avatar">Nome e Avatar</string>
     <string name="mute_or_unmute">Silenciar ou Ativar Som</string>
-    <string name="setting_icon" translatable="false">Ícone de configurações</string>
 
 
-    <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
+
 
 
     <string name="email">Email</string>
@@ -95,7 +93,7 @@
     <string name="No">Não</string>
     <string name="Chose_Option">\Escolha uma opção</string>
     <string name="Question">\Pergunta: </string>
-    <string name="Best_Score">\Melhor pontuação\ </string>
+
     <string name="Please_Provide_Email">Por favor, forneça um e-mail</string>
     <string name="Password_Sent_to_Email">\Senha enviada para o e-mail\ </string>
     <string name="Password_Not_Sending_to_Email">Senha não sendo enviada para o e-mail</string>
@@ -110,7 +108,7 @@
     <string name="Hello">\Olá </string>
     <string name="Pointss">\Pontos: </string>
     <string name="Avatar_is_Usable2">Avatar está disponível para uso</string>
-    <string name="Best_Score2">\Melhor pontuação\ </string>
+
     <string name="pass_six_points">"Você precisa passar no nível anterior com 6 pontos, agora você tem apenas "</string>
     <string name="Guess">Adivinhe a bandeira</string>
     <string name="Kuwait">Kuwait</string>
@@ -397,11 +395,11 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Você quer jogar um jogo de sorte para ganhar um avatar premium em troca de assistir a um anúncio de 5 segundos? Clique em sim.</string>
     <string name="go_to_home">Ir para a Página Inicial</string>
     <string name="go_to_profile">Ir para o Perfil</string>
-    <string name="you_won">Você Venceu</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">Parabéns, vá para o Perfil para colocar seu novo avatar.</string>
     <string name="you_lose">Você perdeu</string>
     <string name="you_win">Você venceu</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">Você perdeu desta vez, mas não se preocupe, você tem chances ilimitadas, vá para a página inicial e tente novamente. :)</string>
-
+    <string name="start">Começo</string>
 
 </resources>

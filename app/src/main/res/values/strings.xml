@@ -101,7 +101,6 @@
     <string name="No">No</string>
     <string name="Chose_Option">\Chose Option \</string>
     <string name="Question">\Question: \</string>
-    <string name="Best_Score">\Best Score\ \</string>
     <string name="Please_Provide_Email">Please Provide Email</string>
     <string name="Password_Sent_to_Email">\Password Sent to Email \</string>
     <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
@@ -116,7 +115,7 @@
     <string name="Hello">\Hello \</string>
     <string name="Pointss">\Points: \</string>
     <string name="Avatar_is_Usable2">Avatar is Usable</string>
-    <string name="Best_Score2">\Best Score \</string>
+
     <string name="pass_six_points">\You need to Pass Previous Level at 6 Points, Now you have only \</string>
     <string name="Guess">Guess the flag</string>
     <string name="Kuwait">Kuwait</string>
@@ -388,11 +387,12 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Do you want to play a game of chance to win premium avatar in exchange of watching 5 seconds ad? click yes.</string>
     <string name="go_to_home">Go To Home</string>
     <string name="go_to_profile">Go To Profile</string>
-    <string name="you_won">You Won</string>
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">Congratulation, Go to Profile to put your new avatar.</string>
     <string name="you_lose">You lose</string>
     <string name="you_win">You win</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">You lost this time, but don\'t worry you unlimited chances go to home page and try again. :)</string>
+    <string name="start">Start</string>
+    <string name="loading" translatable="false">Loading...</string>
 
 
 </resources>

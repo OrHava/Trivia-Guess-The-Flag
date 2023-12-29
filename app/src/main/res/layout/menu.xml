@@ -68,7 +68,8 @@
 
 
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/bestScoreNovice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,12 +77,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Novice"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame1Cv"
@@ -134,19 +133,20 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreLearner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame1Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Learner"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame2Cv"
@@ -202,19 +202,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/bestScoreApprentice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame2Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Apprentice"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame3Cv"
@@ -269,19 +269,20 @@
 
 
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreCompetent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame3Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Competent"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame4Cv"
@@ -333,19 +334,22 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
+
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreChampion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame4Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Champion"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame5Cv"
@@ -399,19 +403,20 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreExpert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame5Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Expert"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame6Cv"
@@ -465,19 +470,20 @@
 
 
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreMaster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame6Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Master"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame7Cv"
@@ -530,19 +536,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/bestScoreLegendary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame7Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Legendary"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame8Cv"
@@ -595,19 +601,20 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/bestScoreDivine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame8Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Divine"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame9Cv"
@@ -659,19 +666,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/bestScoreMasterYoda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame9Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Master Yoda"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame10Cv"
@@ -723,19 +730,20 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreBabyYoda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame10Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Baby Yoda"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
 
 
             <androidx.cardview.widget.CardView
@@ -788,19 +796,21 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
+
+
+            <LinearLayout
                 android:id="@+id/bestScoreDeathMarch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame11Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Death March"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
+
 
 
             <androidx.cardview.widget.CardView
@@ -856,26 +866,27 @@
 
 
 
-            <TextView
-                android:id="@+id/bestScoreStepOnLego"
+
+            <LinearLayout
+                android:id="@+id/BestScoreStepOnLego"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/navToGame12Cv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Best Score Step On Lego"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="-10dp"
+                android:orientation="horizontal">
+
+                <!-- Add star icons dynamically here based on the score -->
+            </LinearLayout>
+
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/navToGame13Cv"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                android:layout_below="@+id/bestScoreStepOnLego"
+                android:layout_below="@+id/BestScoreStepOnLego"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
 

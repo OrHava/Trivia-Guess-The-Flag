@@ -31,7 +31,7 @@
         android:layout_below="@+id/EnterCodeEdit"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/btnEnterCode"
+        android:layout_toEndOf="@+id/btnEnterCode"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/searching" />
 
@@ -82,7 +82,8 @@
         android:hint="@string/enter_code"
         android:inputType="number"
         android:maxLength="10"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btnEnterCode"

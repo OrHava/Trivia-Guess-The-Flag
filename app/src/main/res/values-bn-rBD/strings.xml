@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flags Game of All Countries</string>
+
 
     <string name="flags_game">পতাকা খেলা</string>
     <string name="name_and_avatar">নাম এবং অবতার</string>
     <string name="mute_or_unmute">মিউট বা আনমিউট</string>
-    <string name="setting_icon" translatable="false">সেটিং আইকন</string>
-    <string name="game_services_project_id" translatable="false">578522315755</string>
-    <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
     <string name="email">ইমেল</string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="login">লগ ইন</string>
@@ -87,7 +84,7 @@
     <string name="No">না</string>
     <string name="Chose_Option">\বিকল্প বেছে নিন \</string>
     <string name="Question">\প্রশ্ন: \</string>
-    <string name="Best_Score">\সেরা স্কোর\ \</string>
+
     <string name="Please_Provide_Email">ইমেল প্রদান করুন</string>
     <string name="Password_Sent_to_Email">\ইমেইলে পাসওয়ার্ড পাঠানো হয়েছে \</string>
     <string name="Password_Not_Sending_to_Email">ইমেইলে পাসওয়ার্ড পাঠানো হচ্ছে না</string>
@@ -102,7 +99,7 @@
     <string name="Hello">\হ্যালো \</string>
     <string name="Pointss">\পয়েন্ট: \</string>
     <string name="Avatar_is_Usable2">অবতার ব্যবহারযোগ্য</string>
-    <string name="Best_Score2">\সেরা স্কোর \</string>
+
     <string name="pass_six_points">\"আপনাকে 6 পয়েন্টে পূর্ববর্তী স্তর পাস করতে হবে, এখন আপনার কাছে আছে \"</string>
     <string name="Guess">পতাকা অনুমান করুন</string>
     <string name="Kuwait">কুয়েত</string>
@@ -379,11 +376,11 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">আপনি কি একটি সুযোগ খেলতে চান যাতে আপনি 5 সেকেন্ড এড দেখার মূল্যে প্রিমিয়াম অ্যাভাটার জিততে পারেন? হ্যাঁ ক্লিক করুন।</string>
     <string name="go_to_home">হোম যান</string>
     <string name="go_to_profile">প্রোফাইলে যান</string>
-    <string name="you_won">আপনি জিতেছেন</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">অভিনন্দন, আপনি আপনার নতুন অ্যাভাটার সেট করতে প্রোফাইলে যান।</string>
     <string name="you_lose">আপনি হারিয়েছেন</string>
     <string name="you_win">আপনি জিতেছেন</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">আপনি এই বার হারিয়েছেন, তারপরে চিন্তা করবেন না, আপনার অসীম সুযোগ আছে, হোম পেজে যান এবং আবার চেষ্টা করুন। :)</string>
-
+    <string name="start">শুরু</string>
 
 </resources>

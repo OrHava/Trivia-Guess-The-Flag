@@ -3,7 +3,6 @@ package com.orhava.trivia2;
 import static com.orhava.trivia2.Game.prefs;
 import static com.orhava.trivia2.MainMenu.isMuted;
 
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,8 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +27,6 @@ import java.util.Objects;
 
 public class Menu_Game extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
-    public static TextView bestScoreNovice, bestScoreLearner, bestScoreApprentice,bestScoreCompetent,bestScoreChampion,bestScoreExpert,bestScoreMaster,bestScoreLegendary,bestScoreDivine,bestScoreMasterYoda,bestScoreBabyYoda, bestScoreDeathMarch, BestScoreStepOnLego;
     public static int WhichGame=0;
     public static int totalQuestions = 0;
     private Button nextButton1,nextButton2,nextButton3,nextButton4,nextButton5,nextButton6,nextButton7,nextButton8,nextButton9,nextButton10,nextButton11,nextButton12,nextButton13;
@@ -107,65 +106,65 @@ public class Menu_Game extends AppCompatActivity {
         });
 
     }
+    void displayStarRating(int score, LinearLayout starsLayout) {
+        starsLayout.removeAllViews(); // Clear existing views if any
 
-void savePrefs(){
+        // Define the size of the stars (adjust as needed)
+        int starSize = getResources().getDimensionPixelSize(R.dimen.star_size);
+
+        if(score>10){
+
+            score=score/2;
+        }
+
+        int numStars = score ;
+
+        for (int i = 0; i < 10; i++) {
+            ImageView starImageView = new ImageView(this);
+
+            if (i < numStars) {
+                // Show a filled star
+                starImageView.setImageResource(R.drawable.ic_star);
+            } else {
+                // Show an empty star
+                starImageView.setImageResource(R.drawable.ic_star_empty);
+            }
+
+            // Set layout parameters for the star icon
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(starSize, starSize);
+            starImageView.setLayoutParams(layoutParams);
+
+            // Add the star icon to the layout
+            starsLayout.addView(starImageView);
+        }
+    }
+
+
+
+    void savePrefs(){
 
     SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-    int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-    bestScoreNovice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewNovice));
 
 
-    int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-    bestScoreLearner.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLearner));
+        displayStarRating(prefs.getInt("scoreNovice", 0), findViewById(R.id.bestScoreNovice));
+        displayStarRating(prefs.getInt("scoreLearner", 0), findViewById(R.id.bestScoreLearner));
+        displayStarRating(prefs.getInt("scoreApprentice", 0), findViewById(R.id.bestScoreApprentice));
+        displayStarRating(prefs.getInt("scoreCompetent", 0), findViewById(R.id.bestScoreCompetent));
+        displayStarRating(prefs.getInt("scoreChampion", 0), findViewById(R.id.bestScoreChampion));
+        displayStarRating(prefs.getInt("scoreExpert", 0), findViewById(R.id.bestScoreExpert));
+        displayStarRating(prefs.getInt("scoreMaster", 0), findViewById(R.id.bestScoreMaster));
+        displayStarRating(prefs.getInt("scoreLegendary", 0), findViewById(R.id.bestScoreLegendary));
+        displayStarRating(prefs.getInt("scoreDivine", 0), findViewById(R.id.bestScoreDivine));
+        displayStarRating(prefs.getInt("scoreMasterYoda", 0), findViewById(R.id.bestScoreMasterYoda));
+        displayStarRating(prefs.getInt("scoreBabyYoda", 0), findViewById(R.id.bestScoreBabyYoda));
+        displayStarRating(prefs.getInt("scoreDeathMarch", 0), findViewById(R.id.bestScoreDeathMarch));
+        displayStarRating(prefs.getInt("scoreStepOnLego", 0), findViewById(R.id.BestScoreStepOnLego));
 
-    int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-    bestScoreApprentice.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewApprentice));
 
-    int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-    bestScoreCompetent.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewCompetent));
-
-    int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-    bestScoreChampion.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewChampion));
-
-    int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-    bestScoreExpert.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewExpert));
-
-    int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-    bestScoreMaster.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMaster));
-
-    int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-    bestScoreLegendary.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewLegendary));
-
-    int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-    bestScoreDivine.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewDivine));
-
-    int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-    bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewMasterYoda));
-
-    int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-    bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewBabyYoda));
-
-    int scoreNewDeathMarch = prefs.getInt("scoreDeathMarch", 0); //0 is the default value
-    bestScoreDeathMarch.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewDeathMarch));
-
-    int scoreNewStepOnLego = prefs.getInt("scoreStepOnLego", 0); //0 is the default value
-    BestScoreStepOnLego.setText(String.format(getString(R.string.Best_Score2)+" %s", scoreNewStepOnLego));
 }
    void initialize(){
 
-       bestScoreNovice =findViewById(R.id.bestScoreNovice);
-       bestScoreLearner =findViewById(R.id.bestScoreLearner);
-       bestScoreApprentice =findViewById(R.id.bestScoreApprentice);
-       bestScoreCompetent =findViewById(R.id.bestScoreCompetent);
-       bestScoreChampion =findViewById(R.id.bestScoreChampion);
-       bestScoreExpert =findViewById(R.id.bestScoreExpert);
-       bestScoreMaster =findViewById(R.id.bestScoreMaster);
-       bestScoreLegendary =findViewById(R.id.bestScoreLegendary);
-       bestScoreDivine =findViewById(R.id.bestScoreDivine);
-       bestScoreMasterYoda =findViewById(R.id.bestScoreMasterYoda);
-       bestScoreBabyYoda =findViewById(R.id.bestScoreBabyYoda);
-       bestScoreDeathMarch =findViewById(R.id.bestScoreDeathMarch);
-       BestScoreStepOnLego =findViewById(R.id.bestScoreStepOnLego);
+
        navToMainMenu=findViewById(R.id.navToMainMenu);
        btnMute=findViewById(R.id.mute_unmute);
        nextButton1= findViewById(R.id.navToGame1);

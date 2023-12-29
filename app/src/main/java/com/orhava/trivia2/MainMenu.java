@@ -877,12 +877,6 @@ public class MainMenu extends AppCompatActivity  {
             SignOut.setOnClickListener(view -> {
 
 
-
-
-
-
-
-
                 if(user != null){
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(MainMenu.this, SignIn.class));

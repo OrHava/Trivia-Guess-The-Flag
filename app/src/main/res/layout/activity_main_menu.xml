@@ -48,7 +48,8 @@
                 android:adjustViewBounds="true"
                 android:background="@drawable/gold_shine"
                 android:scaleType="fitXY"
-                android:src="@drawable/icon_reward" />
+                android:src="@drawable/icon_reward"
+                android:importantForAccessibility="no" />
 
             <ImageButton
                 android:id="@+id/RewardBtn2"
@@ -61,14 +62,15 @@
                 android:adjustViewBounds="true"
                 android:background="@drawable/gold_shine"
                 android:scaleType="fitXY"
-                android:src="@drawable/slot_machine_icon" />
+                android:src="@drawable/slot_machine_icon"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/txtNameandPoints"
                 android:layout_width="230dp"
                 android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginHorizontal="5dp"
                 android:fontFamily="@font/holtwood_one_sc"
                 android:gravity="center"
@@ -828,7 +830,7 @@
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
                         android:src="@drawable/malaysia"
-                        tools:ignore="ContentDescription" />
+                        tools:ignore="ContentDescription,TooManyViews" />
 
                     <ImageButton
                         android:id="@+id/Spain_Language"

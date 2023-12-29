@@ -28,7 +28,8 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="@string/points1"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/profilePic"
@@ -36,13 +37,14 @@
             android:layout_height="100dp"
             android:layout_centerInParent="true"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_emptyavatar_foreground" />
+            android:src="@mipmap/ic_emptyavatar_foreground"
+            android:importantForAccessibility="no" />
 
 
         <EditText
             android:id="@+id/txtName"
             android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/profilePic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
@@ -54,20 +56,21 @@
             android:inputType="textPersonName"
             android:maxLength="20"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:importantForAutofill="no" />
 
         <ImageButton
             android:id="@+id/btnPen"
             android:layout_width="50dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/profilePic"
-            android:layout_alignRight="@+id/txtName"
+            android:layout_alignEnd="@+id/txtName"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="-50dp"
+            android:layout_marginEnd="-50dp"
             android:backgroundTint="@color/white"
             android:src="@mipmap/ic_pennew"
 
-            />
+            android:importantForAccessibility="no" />
 
         <ImageButton
             android:id="@+id/navToMainMenu2"
@@ -81,8 +84,8 @@
             android:text="Go To Menu"
             android:textSize="10sp"
             android:background="@android:color/transparent"
-
-            tools:ignore="HardcodedText,SmallSp" />
+            tools:ignore="HardcodedText,SmallSp"
+            android:importantForAccessibility="no" />
 
 
 
@@ -105,7 +108,7 @@
 
            <RelativeLayout
                android:layout_width="match_parent"
-               android:layout_height="match_parent"
+               android:layout_height="wrap_content"
                >
 
 
@@ -126,8 +129,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar2"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_10_points1"
                    android:textColor="@color/white"
@@ -139,8 +142,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar2"
-                   android:layout_marginLeft="50dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_marginStart="50dp"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_30_points1"
                    android:textColor="@color/white"
@@ -163,8 +166,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar5"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_40_points1"
                    android:textColor="@color/white"
@@ -176,8 +179,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar5"
-                   android:layout_marginLeft="50dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_marginStart="50dp"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_60_points1"
                    android:textColor="@color/white"
@@ -200,8 +203,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar8"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_70_points1"
                    android:textColor="@color/white"
@@ -213,8 +216,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar8"
-                   android:layout_marginLeft="50dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_marginStart="50dp"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_90_points1"
                    android:textColor="@color/white"
@@ -243,10 +246,11 @@
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar15"
                    android:layout_marginTop="0dp"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:gravity="center"
+                   android:singleLine="true"
                    android:text="@string/press_to_buy1"
                    android:textAlignment="center"
                    android:textColor="@color/white"
@@ -260,9 +264,10 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar15"
-                   android:layout_marginLeft="50dp"
+                   android:layout_marginStart="50dp"
                    android:layout_marginTop="0dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:singleLine="true"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:gravity="center"
                    android:text="@string/press_to_buy1"
@@ -288,8 +293,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar11"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_100_points1"
                    android:textColor="@color/white"
@@ -301,8 +306,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar11"
-                   android:layout_marginLeft="50dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_marginStart="50dp"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:background="@android:color/transparent"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_120_points1"
@@ -326,8 +331,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar20"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_180_points"
                    android:textColor="@color/white"
@@ -339,8 +344,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar20"
-                   android:layout_marginLeft="50dp"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_marginStart="50dp"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:background="@android:color/transparent"
                    android:fontFamily="@font/alfa_slab_one"
                    android:text="@string/_220_points"
@@ -360,7 +365,7 @@
                    android:textColor="@color/white"
                    android:textSize="11sp"
 
-
+                   android:singleLine="true"
                    android:textStyle="bold" />
 
                <TextView
@@ -368,14 +373,15 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar17"
-                   android:layout_marginRight="50dp"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_marginEnd="50dp"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:gravity="center"
+
                    android:text="@string/press_to_buy1"
                    android:textColor="@color/white"
                    android:textSize="11sp"
-
+                   android:singleLine="true"
 
                    android:textStyle="bold" />
 
@@ -383,15 +389,15 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/avatar17"
-                   android:layout_marginLeft="50dp"
+                   android:layout_marginStart="50dp"
                    android:id="@+id/txtAvatar19"
-                   android:layout_toRightOf="@+id/avatar2"
+                   android:layout_toEndOf="@+id/avatar2"
                    android:fontFamily="@font/alfa_slab_one"
                    android:gravity="center"
                    android:text="@string/press_to_buy1"
                    android:textColor="@color/white"
                    android:textSize="11sp"
-
+                   android:singleLine="true"
                    android:textStyle="bold" />
 
 
@@ -403,32 +409,35 @@
                    android:layout_marginTop="30dp"
                    android:scaleType="fitXY"
                    android:background="@android:color/transparent"
-                   android:src="@drawable/avatar_2" />
+                   android:src="@drawable/avatar_2"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
                    android:id="@+id/avatar3"
                    android:layout_width="100dp"
                    android:layout_height="100dp"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:layout_marginTop="30dp"
-                   android:layout_marginRight="30dp"
+                   android:layout_marginEnd="30dp"
                    android:scaleType="fitXY"
-                   android:layout_toLeftOf="@+id/avatar2"
+                   android:layout_toStartOf="@+id/avatar2"
                    android:background="@android:color/transparent"
-                   android:src="@drawable/avatar_1" />
+                   android:src="@drawable/avatar_1"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar4"
                    android:layout_width="100dp"
                    android:layout_height="100dp"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:layout_marginTop="30dp"
                    android:scaleType="fitXY"
                    android:background="@android:color/transparent"
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar2"
-                   android:src="@drawable/avatar_3" />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar2"
+                   android:src="@drawable/avatar_3"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -441,7 +450,8 @@
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
-                   android:src="@drawable/avatar_5" />
+                   android:src="@drawable/avatar_5"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -449,28 +459,30 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar2"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
-                   android:layout_marginRight="30dp"
-                   android:layout_toLeftOf="@+id/avatar5"
-                   android:src="@drawable/avatar_4" />
+                   android:layout_marginEnd="30dp"
+                   android:layout_toStartOf="@+id/avatar5"
+                   android:src="@drawable/avatar_4"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar7"
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar2"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar5"
-                   android:src="@drawable/avatar_6" />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar5"
+                   android:src="@drawable/avatar_6"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar8"
@@ -482,7 +494,8 @@
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
-                   android:src="@drawable/avatar_8" />
+                   android:src="@drawable/avatar_8"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -490,28 +503,30 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar5"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
-                   android:layout_marginRight="30dp"
-                   android:layout_toLeftOf="@+id/avatar8"
-                   android:src="@drawable/avatar_7" />
+                   android:layout_marginEnd="30dp"
+                   android:layout_toStartOf="@+id/avatar8"
+                   android:src="@drawable/avatar_7"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar10"
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar5"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar8"
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar8"
                    android:background="@android:color/transparent"
-                   android:src="@drawable/avatar_9" />
+                   android:src="@drawable/avatar_9"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar11"
@@ -523,7 +538,8 @@
                    android:background="@android:color/transparent"
                    android:layout_centerHorizontal="true"
                    android:layout_marginTop="40dp"
-                   android:src="@drawable/avatar_11" />
+                   android:src="@drawable/avatar_11"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -531,14 +547,15 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar8"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
                    android:layout_marginTop="40dp"
-                   android:layout_marginRight="30dp"
-                   android:layout_toLeftOf="@+id/avatar8"
-                   android:src="@drawable/avatar_10" />
+                   android:layout_marginEnd="30dp"
+                   android:layout_toStartOf="@+id/avatar8"
+                   android:src="@drawable/avatar_10"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar13"
@@ -546,13 +563,14 @@
                    android:layout_height="100dp"
                    android:background="@android:color/transparent"
                    android:layout_below="@+id/avatar8"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:scaleType="fitXY"
 
                    android:layout_marginTop="40dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar8"
-                   android:src="@drawable/avatar_12" />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar8"
+                   android:src="@drawable/avatar_12"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -565,7 +583,8 @@
                    android:background="@android:color/transparent"
                    android:layout_centerHorizontal="true"
                    android:layout_marginTop="40dp"
-                   android:src="@drawable/avatar_20" />
+                   android:src="@drawable/avatar_20"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -573,14 +592,15 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar13"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
                    android:layout_marginTop="40dp"
-                   android:layout_marginRight="30dp"
-                   android:layout_toLeftOf="@+id/avatar8"
-                   android:src="@drawable/avatar_13"   />
+                   android:layout_marginEnd="30dp"
+                   android:layout_toStartOf="@+id/avatar8"
+                   android:src="@drawable/avatar_13"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar22"
@@ -588,13 +608,14 @@
                    android:layout_height="100dp"
                    android:background="@android:color/transparent"
                    android:layout_below="@+id/avatar13"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:scaleType="fitXY"
 
                    android:layout_marginTop="40dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar8"
-                   android:src="@drawable/avatar_21"  />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar8"
+                   android:src="@drawable/avatar_21"
+                   android:importantForAccessibility="no" />
 
 
 
@@ -609,7 +630,8 @@
                    android:layout_marginTop="40dp"
                    android:background="@android:color/transparent"
 
-                   android:src="@drawable/avatar_14" />
+                   android:src="@drawable/avatar_14"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -617,15 +639,15 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar21"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:background="@android:color/transparent"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
-                   android:layout_marginRight="30dp"
-                   android:layout_toLeftOf="@+id/avatar14"
+                   android:layout_marginEnd="30dp"
+                   android:layout_toStartOf="@+id/avatar14"
                    android:src="@drawable/avatar_19"
-                />
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar16"
@@ -633,13 +655,14 @@
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar21"
                    android:background="@android:color/transparent"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:layout_marginTop="40dp"
                    android:scaleType="fitXY"
 
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar14"
-                   android:src="@drawable/avatar_15" />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar14"
+                   android:src="@drawable/avatar_15"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar17"
@@ -651,7 +674,8 @@
                    android:scaleType="fitXY"
 
                    android:layout_marginTop="40dp"
-                   android:src="@drawable/avatar_17"  />
+                   android:src="@drawable/avatar_17"
+                   android:importantForAccessibility="no" />
 
 
                <ImageButton
@@ -659,28 +683,30 @@
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar14"
-                   android:layout_marginLeft="5dp"
+                   android:layout_marginStart="5dp"
                    android:layout_marginTop="40dp"
-                   android:layout_marginRight="30dp"
+                   android:layout_marginEnd="30dp"
                    android:scaleType="fitXY"
 
                    android:background="@android:color/transparent"
-                   android:layout_toLeftOf="@+id/avatar17"
-                   android:src="@drawable/avatar_16" />
+                   android:layout_toStartOf="@+id/avatar17"
+                   android:src="@drawable/avatar_16"
+                   android:importantForAccessibility="no" />
 
                <ImageButton
                    android:id="@+id/avatar19"
                    android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:layout_below="@+id/avatar14"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginStart="30dp"
                    android:scaleType="fitXY"
 
                    android:layout_marginTop="40dp"
                    android:background="@android:color/transparent"
-                   android:layout_marginRight="5dp"
-                   android:layout_toRightOf="@+id/avatar17"
-                   android:src="@drawable/avatar_18"  />
+                   android:layout_marginEnd="5dp"
+                   android:layout_toEndOf="@+id/avatar17"
+                   android:src="@drawable/avatar_18"
+                   android:importantForAccessibility="no" />
 
 
 

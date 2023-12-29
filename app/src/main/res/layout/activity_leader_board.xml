@@ -15,7 +15,6 @@
             android:id="@+id/navToMainMenu2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -25,7 +24,9 @@
             android:padding="1dp"
             android:scaleType="center"
             android:src="@drawable/previous_smaller2"
-            android:text="Go To Menu" />
+            android:text="Go To Menu"
+            android:importantForAccessibility="no"
+            tools:ignore="HardcodedText" />
 
 
         <TextView
@@ -55,7 +56,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/first_place" />
+            android:src="@drawable/first_place"
+            android:importantForAccessibility="no" />
 
         <ImageView
             android:layout_width="50dp"
@@ -65,7 +67,8 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/second_place" />
+            android:src="@drawable/second_place"
+            android:importantForAccessibility="no" />
 
         <ImageView
             android:id="@+id/ImgThirdPlace"
@@ -76,7 +79,8 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/third_place" />
+            android:src="@drawable/third_place"
+            android:importantForAccessibility="no" />
 
 
         <RelativeLayout
@@ -100,7 +104,8 @@
                 android:layout_marginBottom="-35dp"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/world_map_icon_for_leaderboard" />
+                android:src="@mipmap/world_map_icon_for_leaderboard"
+                android:importantForAccessibility="no" />
 
         </RelativeLayout>
 
@@ -124,7 +129,8 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/FirstPlaceScore"
@@ -147,7 +153,8 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/world_map_icon_for_leaderboard" />
+                android:src="@mipmap/world_map_icon_for_leaderboard"
+                android:importantForAccessibility="no" />
 
 
             <ImageView
@@ -160,7 +167,8 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/world_map_icon_for_leaderboard" />
+                android:src="@mipmap/world_map_icon_for_leaderboard"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/SecondPlace"
@@ -268,7 +276,8 @@
                 android:scaleType="fitXY"
                 android:layout_toEndOf="@+id/Personal_place_textView"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/world_map_icon_for_leaderboard" />
+                android:src="@mipmap/world_map_icon_for_leaderboard"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/Personal_username_textView"

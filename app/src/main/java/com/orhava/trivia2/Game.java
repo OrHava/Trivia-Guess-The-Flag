@@ -1448,6 +1448,8 @@ else if(Menu_Game.WhichGame==888){
 
     void finishQuiz() {
 
+
+        submitBtn.setEnabled(false);
         countDownTimer.cancel();
         if (countDownTimer!=null){
             countDownTimer=null;
@@ -1625,7 +1627,7 @@ else if(Menu_Game.WhichGame==888){
 
         }
        else{
-            saveScore();
+            //saveScore();
             if( !isNetworkConnected(this) ||
                     Game.scoreNovice > Menu_Game.totalQuestions * 0.59 ||
                     Game.scoreLearner > Menu_Game.totalQuestions * 0.59 ||
@@ -1688,48 +1690,6 @@ else if(Menu_Game.WhichGame==888){
         }
     }
 
-    void saveScore( ){
-
-        //getting preferences
-        if(Menu_Game.bestScoreNovice!=null && Menu_Game.bestScoreLearner!=null&& Menu_Game.bestScoreApprentice!=null&& Menu_Game.bestScoreCompetent!=null&& Menu_Game.bestScoreChampion!=null&& Menu_Game.bestScoreExpert!=null&& Menu_Game.bestScoreMaster!=null&& Menu_Game.bestScoreLegendary!=null&& Menu_Game.bestScoreDivine!=null&& Menu_Game.bestScoreMasterYoda!=null&& Menu_Game.bestScoreBabyYoda!=null){
-            SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-            int scoreNewNovice = prefs.getInt("scoreNovice", 0); //0 is the default value
-            Menu_Game.bestScoreNovice.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewNovice));
-
-            int scoreNewLearner = prefs.getInt("scoreLearner", 0); //0 is the default value
-            Menu_Game.bestScoreLearner.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewLearner));
-
-            int scoreNewApprentice = prefs.getInt("scoreApprentice", 0); //0 is the default value
-            Menu_Game.bestScoreApprentice.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewApprentice));
-
-            int scoreNewCompetent = prefs.getInt("scoreCompetent", 0); //0 is the default value
-            Menu_Game.bestScoreCompetent.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewCompetent));
-
-            int scoreNewChampion = prefs.getInt("scoreChampion", 0); //0 is the default value
-            Menu_Game.bestScoreChampion.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewChampion));
-
-            int scoreNewExpert = prefs.getInt("scoreExpert", 0); //0 is the default value
-            Menu_Game.bestScoreExpert.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewExpert));
-
-            int scoreNewMaster = prefs.getInt("scoreMaster", 0); //0 is the default value
-            Menu_Game.bestScoreMaster.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewMaster));
-
-            int scoreNewLegendary = prefs.getInt("scoreLegendary", 0); //0 is the default value
-            Menu_Game.bestScoreLegendary.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewLegendary));
-
-            int scoreNewDivine = prefs.getInt("scoreDivine", 0); //0 is the default value
-            Menu_Game.bestScoreDivine.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewDivine));
-
-            int scoreNewMasterYoda = prefs.getInt("scoreMasterYoda", 0); //0 is the default value
-            Menu_Game.bestScoreMasterYoda.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewMasterYoda));
-
-            int scoreNewBabyYoda = prefs.getInt("scoreBabyYoda", 0); //0 is the default value
-            Menu_Game.bestScoreBabyYoda.setText(String.format(getString(R.string.Best_Score)+"%s", scoreNewBabyYoda));
-
-        }
-
-
-    }
 
 
 

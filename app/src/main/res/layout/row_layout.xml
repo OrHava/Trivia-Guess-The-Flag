@@ -7,8 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:id="@+id/Cv_Flags_GameBtn"
         android:layout_width="450dp"
         android:layout_height="90dp"
@@ -27,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:text="Place"
+                android:text="@string/loading"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -39,6 +38,7 @@
                 android:layout_height="70dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
+                android:importantForAccessibility="no"
                 android:layout_toEndOf="@+id/place_textView"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/world_map_icon_for_leaderboard" />
@@ -51,7 +51,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/ImgCountry"
                 android:maxLines="1"
-                android:text="Username"
+                android:text="@string/loading"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -66,7 +66,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/ImgCountry"
                 android:maxLines="1"
-                android:text="Score"
+                android:text="@string/loading"
                 android:textAlignment="viewStart"
                 android:textColor="@color/teal_200"
                 android:textSize="18sp"

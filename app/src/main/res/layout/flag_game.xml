@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="" />
+        android:text=""
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/whichGame2Txt"
@@ -48,6 +49,7 @@
         android:id="@+id/whichGameImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:importantForAccessibility="no"
         android:layout_below="@+id/whichGame2Txt"
         android:layout_centerHorizontal="true" />
 
@@ -59,18 +61,20 @@
         android:id="@+id/whichGameImage2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:importantForAccessibility="no"
         android:scaleType="fitXY"
         android:layout_below="@+id/whichGame2Txt"
         android:layout_centerHorizontal="false"
-     android:layout_marginRight="50dp"
-        android:layout_alignRight="@+id/whichGameImage" />
+     android:layout_marginEnd="50dp"
+        android:layout_alignEnd="@+id/whichGameImage" />
     <ImageView
         android:id="@+id/whichGameImage3"
         android:layout_width="50dp"
-        android:layout_alignLeft="@+id/whichGameImage"
+        android:layout_alignStart="@+id/whichGameImage"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        android:layout_marginLeft="50dp"
+        android:importantForAccessibility="no"
+        android:layout_marginStart="50dp"
         android:layout_below="@+id/whichGame2Txt"
         android:layout_centerHorizontal="false"
          />
@@ -160,7 +164,7 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/ans_B"
@@ -173,7 +177,7 @@
                 android:layout_marginEnd="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                tools:ignore="HardcodedText" />
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
         <!-- Horizontal LinearLayout for Buttons C and D -->
@@ -195,13 +199,12 @@
                 android:layout_marginEnd="10dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                tools:ignore="HardcodedText" />
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/ans_D"
                 android:layout_width="150dp"
                 android:layout_height="90dp"
-                android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Ans D"
@@ -209,7 +212,7 @@
                 android:layout_marginEnd="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                tools:ignore="HardcodedText" />
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
     </RelativeLayout>

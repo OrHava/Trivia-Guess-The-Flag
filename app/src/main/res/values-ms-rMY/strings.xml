@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flags Game of All Countries</string>
+
 
 
     <string name="flags_game">Permainan Bendera</string>
     <string name="name_and_avatar">Nama dan Avatar</string>
     <string name="mute_or_unmute">Senyap atau Buka suara</string>
-    <string name="setting_icon" translatable="false">Ikon tetapan</string>
 
-
-    <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
 
 
     <string name="email">Email</string>
@@ -109,7 +105,7 @@
     <string name="No">Tidak</string>
     <string name="Chose_Option">\Pilih Pilihan </string>
     <string name="Question">\Soalan: </string>
-    <string name="Best_Score">\Skor Terbaik\ </string>
+
     <string name="Please_Provide_Email">Sila Berikan Email</string>
     <string name="Password_Sent_to_Email">\Kata Laluan Dihantar ke Email </string>
     <string name="Password_Not_Sending_to_Email">Kata Laluan Tidak Dihantar ke Email</string>
@@ -128,7 +124,7 @@
 
 
     <string name="Avatar_is_Usable2">Avatar Boleh Digunakan</string>
-    <string name="Best_Score2">\Skor Terbaik </string>
+
     <string name="pass_six_points">"Anda perlu lulus Tahap Sebelumnya dengan 6 Mata, Kini anda hanya ada "</string>
     <string name="Guess">Tebak Bendera</string>
     <string name="Kuwait">Kuwait</string>
@@ -410,11 +406,11 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Adakah anda mahu bermain permainan nasib untuk memenangi avatar premium dengan menukar dengan menonton iklan selama 5 saat? Klik ya.</string>
     <string name="go_to_home">Pergi ke Laman Utama</string>
     <string name="go_to_profile">Pergi ke Profil</string>
-    <string name="you_won">Anda Menang</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">Tahniah, Pergi ke Profil untuk meletakkan avatar baru anda.</string>
     <string name="you_lose">Anda kalah</string>
     <string name="you_win">Anda menang</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">Anda kalah kali ini, tetapi jangan risau, anda mempunyai peluang tanpa had. Pergi ke laman utama dan cuba lagi. :)</string>
-
+    <string name="start">Mula</string>
 
 </resources>

@@ -1,4 +1,4 @@
 <resources>
-    <dimen name="avatar_width">150dp</dimen> <!-- Set your desired width -->
-    <dimen name="avatar_height">150dp</dimen> <!-- Set your desired height -->
+    <dimen name="star_size">16dp</dimen>
+
 </resources>

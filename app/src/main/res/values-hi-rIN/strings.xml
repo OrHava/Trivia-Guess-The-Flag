@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flags Game of All Countries</string>
+
 
     <string name="flags_game">झंडे का खेल</string>
     <string name="name_and_avatar">नाम और अवतार</string>
     <string name="mute_or_unmute">म्यूट या अनम्यूट करें</string>
-    <string name="setting_icon" translatable="false">सेटिंग आइकन</string>
-    <string name="game_services_project_id" translatable="false"> 578522315755 </string>
-    <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
     <string name="email">ईमेल</string>
     <string name = "password"> पासवर्ड </string>
     <string name="login">लॉग इन करें</string>
@@ -87,7 +84,7 @@
     <string name="No">नहीं</string>
     <string name="Chose_Option">\विकल्प चुना \</string>
     <string name="Question">\सवाल: \</string>
-    <string name="Best_Score">\सर्वश्रेष्ठ अंक\ \</string>
+
     <string name="Please_Provide_Email">कृपया ईमेल प्रदान करें</string>
     <string name="Password_Sent_to_Email">\पासवर्ड ईमेल पर भेजा गया \</string>
     <string name="Password_Not_Sending_to_Email">पासवर्ड ईमेल पर नहीं भेजा जा रहा है</string>
@@ -102,7 +99,7 @@
     <string name="Hello">\नमस्ते \</string>
     <string name="Pointss">\अंक: \</string>
     <string name="Avatar_is_Usable2">अवतार प्रयोग करने योग्य है</string>
-    <string name="Best_Score2">\सर्वश्रेष्ठ अंक \</string>
+
     <string name="pass_six_points">\"आपको पिछले स्तर को 6 अंकों पर पास करने की आवश्यकता है, अब आपके पास केवल है \"</string>
     <string name="Guess">झंडे का अनुमान लगाओ</string>
     <string name="Kuwait">कुवैट</string>
@@ -373,11 +370,11 @@
     <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">क्या आप 5 सेकंड के विज्ञापन देखने के बदले प्रीमियम अवतार जीतने के लिए एक यात्रा खेलना चाहते हैं? हाँ पर क्लिक करें।</string>
     <string name="go_to_home">होम पर जाएं</string>
     <string name="go_to_profile">प्रोफाइल पर जाएं</string>
-    <string name="you_won">आप जीते हैं</string>
+
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">बधाई हो, नए अवतार को डालने के लिए प्रोफ़ाइल पर जाएं।</string>
     <string name="you_lose">आप हार गए</string>
     <string name="you_win">आप जीते हैं</string>
     <string name="you_lost_this_time_but_don_t_worry_you_unlimited_chances_go_to_home_page_and_try_again">इस बार आप हार गए, लेकिन चिंता न करें, आपके अनगिनत अवसर हैं, होम पेज पर जाएं और पुनः प्रयास करें। :)</string>
-
+    <string name="start">शुरुआत</string>
 
 </resources>

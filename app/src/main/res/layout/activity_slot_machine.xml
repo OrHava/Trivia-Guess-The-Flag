@@ -20,6 +20,7 @@
         android:src="@drawable/previous_smaller2"
         android:text="Go To Menu"
         android:textSize="10sp"
+        android:importantForAccessibility="no"
         tools:ignore="HardcodedText,SmallSp" />
 
     <TextView
@@ -31,7 +32,7 @@
         android:layout_marginHorizontal="5dp"
         android:fontFamily="@font/holtwood_one_sc"
         android:gravity="center"
-        android:text="Machine Slot Game"
+        android:text="@string/slot_machine"
         android:background="@drawable/button_background"
         android:textColor="@color/teal_200"
         android:textSize="13sp"
@@ -122,6 +123,6 @@
         app:backgroundTint="@null"
         android:textStyle="bold"
         android:background="@drawable/button_background"
-        android:text="Start" />
+        android:text="@string/start" />
 
 </RelativeLayout>

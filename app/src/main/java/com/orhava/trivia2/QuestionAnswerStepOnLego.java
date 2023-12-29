@@ -30,7 +30,7 @@ public class QuestionAnswerStepOnLego extends AppCompatActivity {
         };
 
         choices = new String[][]{
-                {context.getString(R.string.Bhutan), context.getString(R.string.Latvia), context.getString(R.string.Marshall_Islands), context.getString(R.string.Saint_Kitts_and_Nevis)},
+                {context.getString(R.string.Bolivia), context.getString(R.string.Chile), context.getString(R.string.Ecuador), context.getString(R.string.Peru)},
                 {context.getString(R.string.Cape_Verde), context.getString(R.string.Seychelles), context.getString(R.string.Sierra_Leone), context.getString(R.string.Solomon_Islands)},
                 {context.getString(R.string.Denmark), context.getString(R.string.Finland), context.getString(R.string.Sweden), context.getString(R.string.Norway)},
                 {context.getString(R.string.Bosnia_and_Herzegovina), context.getString(R.string.Botswana), context.getString(R.string.Eswatini), context.getString(R.string.Lesotho)},
@@ -43,7 +43,7 @@ public class QuestionAnswerStepOnLego extends AppCompatActivity {
         };
 
         correctAnswwrs = new String[]{
-                context.getString(R.string.Bhutan),
+                context.getString(R.string.Bolivia), //here
                 context.getString(R.string.Seychelles),
                 context.getString(R.string.Norway),
                 context.getString(R.string.Eswatini),
@@ -58,7 +58,7 @@ public class QuestionAnswerStepOnLego extends AppCompatActivity {
         };
 
         images = new int[]{
-                R.drawable.bhutan, R.drawable.seychelles, R.drawable.norway,
+                R.drawable.bolivia, R.drawable.seychelles, R.drawable.norway,
                 R.drawable.eswatini, R.drawable.mozambique, R.drawable.myanmar,
                 R.drawable.algeria, R.drawable.comoros, R.drawable.malawi,
                 R.drawable.lesotho,

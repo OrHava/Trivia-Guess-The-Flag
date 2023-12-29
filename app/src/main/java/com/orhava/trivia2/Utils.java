@@ -66,10 +66,6 @@ public class Utils {
             editor.putBoolean("localeSet", true);
             editor.apply();
 
-//            // Restart the activity to apply the new locale
-//            Intent intent = new Intent(context, MainMenu.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            context.startActivity(intent);
             ((Activity) context).recreate();
         } else {
             editor.apply();

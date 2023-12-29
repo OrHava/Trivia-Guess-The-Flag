@@ -15,11 +15,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "578522315755-7j02nnavkvnlev471mhhigjauf6c4kuq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orhava.trivia2",
+            "certificate_hash": "3f4d375f48a47fc6519b7f9c56ffc6652c492ca9"
+          }
+        },
+        {
           "client_id": "578522315755-7vllh55accc5gci1i7v51hffq0pd6ptj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.orhava.trivia2",
             "certificate_hash": "9f8f8eeb6a87ef06f1c1bf6e75450d5a4e33bc5a"
+          }
+        },
+        {
+          "client_id": "578522315755-85nvmsk0j008n9edmn4sb937f2u6o84g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orhava.trivia2",
+            "certificate_hash": "d067ef9d551717cabcb0554aafe9366595295c5c"
+          }
+        },
+        {
+          "client_id": "578522315755-8tpko1mfo5qave1iv4rogpefvu98j3or.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orhava.trivia2",
+            "certificate_hash": "924d8cd6c756c85c313ba4220cb283a9dd2018a5"
           }
         },
         {
@@ -41,7 +65,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-8096185122491583~9313039466"
     }
   ],
   "configuration_version": "1"

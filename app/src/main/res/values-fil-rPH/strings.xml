@@ -6,7 +6,6 @@
     <string name="name_and_avatar">Pangalan at Avatar</string>
     <string name="mute_or_unmute">I-mute O Unmute</string>
     <string name="setting_icon" translatable="false">Icon ng setting</string>
-    <string name="game_services_project_id" translatable="false"> 578522315755 </string>
     <string name="Google_id" translatable="false">578522315755-17o5i3uhpp124lr5ssrhvokptpjivoca.apps.googleusercontent.com</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

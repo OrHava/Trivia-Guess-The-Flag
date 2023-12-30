@@ -10,8 +10,8 @@ android {
         applicationId 'com.orhava.trivia2'
         minSdk 23
         targetSdk 34
-        versionCode 19
-        versionName '19'
+        versionCode 20
+        versionName '20'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 

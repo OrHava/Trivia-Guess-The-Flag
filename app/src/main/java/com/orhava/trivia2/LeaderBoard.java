@@ -79,17 +79,43 @@ public class LeaderBoard extends AppCompatActivity  {
 
 
     private void censorUsername(Score score) {
-        HashSet<String> badWords = new HashSet<>(Arrays.asList("fuck","Dick","rape","weed", "cocaine"));
+        if (score.getUsername() == null) {
+            // Handle the case when the username is null, if needed.
+            // For example, set a default username or throw an exception.
+            return;
+        }
+
+        HashSet<String> badWords = new HashSet<>(Arrays.asList(
+                "fuck", "shit", "ass", "bitch", "bastard", "cock", "cunt", "dick", "pussy", "whore", "slut",
+                "fag", "nigger", "kike", "chink", "spic", "dyke", "faggot", "retard", "idiot", "stupid",
+                "rape", "murder", "kill", "suicide", "terrorist", "bomb", "gun", "drugs", "weed", "cocaine",
+                "meth", "heroin", "opium", "crack", "acid", "ecstasy", "marijuana", "joint", "blunt", "hash",
+                "needle", "methamphetamine", "amphetamines", "morphine", "oxycodone", "codeine", "cannabis",
+                "hashish", "LSD", "magic mushrooms", "psilocybin", "MDMA", "molly", "MDA", "rohypnol", "roofies",
+                "ecstacy", "herpes", "gonorrhea", "syphilis", "chlamydia", "AIDS", "HIV", "vagina",
+                "penis", "breast", "sex", "intercourse", "orgasm", "masturbate", "clitoris", "anus", "testicles",
+                "erect", "erection", "ejaculate", "sperm", "menstruation", "menstrual", "tampon", "condom",
+                "contraception", "birth control", "pregnant", "abortion", "prostitute", "escort", "pimp",
+                "whorehouse", "brothel", "strip club", "porn", "pornography", "adult", "nude", "naked", "xxx",
+                "swastika", "racist", "bigot", "homophobic", "xenophobic", "antisemitic", "hate", "hateful",
+              "obscene", "vulgar", "profanity",
+                "anus", "blowjob", "bukkake", "clit", "cunnilingus", "dildo", "fellatio", "fisting", "masturbation",
+                "nipples", "orgy", "penetration", "rimjob", "sexting", "sodomy", "threesome", "vibrator", "asshole",
+                "bukake", "cum", "erotic", "kinky", "nude", "pee", "porn", "pussy", "sexy", "suck", "tits"
+                // Add more words as needed
+        ));
+
         StringBuilder censoredUsername = new StringBuilder(score.getUsername());
+
         for (int i = 0; i < censoredUsername.length(); i++) {
             for (String badWord : badWords) {
-                if (i+ badWord.length() <= censoredUsername.length() && censoredUsername.substring(i, i + badWord.length()).equalsIgnoreCase(badWord))
-                {
+                if (i + badWord.length() <= censoredUsername.length() && censoredUsername.substring(i, i + badWord.length()).equalsIgnoreCase(badWord)) {
                     censoredUsername.replace(i, i + badWord.length(), "*****");
                     break;
                 }
             }
         }
+
         score.setUsername(censoredUsername.toString());
     }
 

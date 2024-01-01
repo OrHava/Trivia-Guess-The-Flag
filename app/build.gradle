@@ -10,8 +10,8 @@ android {
         applicationId 'com.orhava.trivia2'
         minSdk 23
         targetSdk 34
-        versionCode 20
-        versionName '20'
+        versionCode 23
+        versionName '23'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
@@ -19,8 +19,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
 

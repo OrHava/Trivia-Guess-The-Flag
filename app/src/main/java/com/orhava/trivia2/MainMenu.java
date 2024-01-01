@@ -678,9 +678,7 @@ public class MainMenu extends AppCompatActivity  {
         });
 
 
-
-
-        btnRemoveAds.setOnClickListener(view -> {
+         btnRemoveAds.setOnClickListener(view -> {
             if (!isMuted){
                 mp.setVolume(0,0);
             }
@@ -689,11 +687,26 @@ public class MainMenu extends AppCompatActivity  {
             }
 
             mp.start();
+             if( isNetworkConnected(this)) {
+                 onRemoveAdsButtonClick(view);
+             }
 
-            onRemoveAdsButtonClick(view);
+             else {
+
+                 View rootLayout = findViewById(R.id.RlMainMenu);
+                 Snackbar snackbar = Snackbar.make(rootLayout, "Connect To Internet", Snackbar.LENGTH_SHORT);
+                 snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
+                 snackbar.show();
+
+
+
+             }
+
 
 
         });
+
+
 
 
     btnLeaderBoard.setOnClickListener(view -> {

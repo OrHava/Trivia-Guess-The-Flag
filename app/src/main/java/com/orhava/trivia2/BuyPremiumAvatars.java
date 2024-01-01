@@ -71,7 +71,7 @@ public class BuyPremiumAvatars extends AppCompatActivity {
         ButtonUse=findViewById(R.id.ButtonUse);
         ButtonUse.setVisibility(View.GONE);
         ButtonSell.setEnabled(false);
-        rootLayout = findViewById(R.id.RlMainMenu);
+        rootLayout = findViewById(R.id.rootLayout);
     }
 void start(){
     if (isConnected()){

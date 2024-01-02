@@ -1,11 +1,9 @@
 package com.orhava.trivia2;
 
 
-import static com.orhava.trivia2.Ads.isInterstitialAdReady;
 import static com.orhava.trivia2.BuyPremiumAvatars.TAG;
 import static com.orhava.trivia2.Utils.amountOfGeneralPoints;
 import static com.orhava.trivia2.Utils.makeItFalse;
-import static com.orhava.trivia2.Utils.saveTimestamp;
 import static com.orhava.trivia2.Utils.setLocale;
 
 import android.annotation.SuppressLint;
@@ -23,8 +21,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -137,9 +133,7 @@ public class MainMenu extends AppCompatActivity  {
 
         if (isNetworkConnected(this)){
             initializeBillingClient();
-            Ads.preloadInterstitialAd(this);
-            RewardAd();
-            RewardAdSlotMachine();
+
         }
 
 
@@ -153,72 +147,6 @@ public class MainMenu extends AppCompatActivity  {
 
     }
 
-    private void RewardAd() {
-
-        ImageView RewardBtn = findViewById(R.id.RewardBtn);
-
-        // Load the shine animation
-        Animation shineAnimation = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
-
-        // Apply the animation to the ImageButton
-        RewardBtn.startAnimation(shineAnimation);
-
-        RewardBtn.setOnClickListener(v -> showCustomPopup());
-    }
-
-    private void RewardAdSlotMachine() {
-
-        ImageView RewardBtn = findViewById(R.id.RewardBtn2);
-
-        // Load the shine animation
-        Animation shineAnimation = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
-
-        // Apply the animation to the ImageButton
-        RewardBtn.startAnimation(shineAnimation);
-
-        RewardBtn.setOnClickListener(v -> showCustomPopupSlot_Machine());
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void showCustomPopup() {
-        // Create a Dialog without a title
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.popup_layout);
-      // Initialize views
-
-        Button btnYes = dialog.findViewById(R.id.btnYes);
-        Button btnNo = dialog.findViewById(R.id.btnNo);
-
-
-        // Handle button clicks
-        btnYes.setOnClickListener(v -> {
-            // Call the method to show the ad and give the reward
-            showAdAndGiveReward();
-            dialog.dismiss();
-        });
-
-        btnNo.setOnClickListener(v -> dialog.dismiss());
-
-        // Show the dialog
-        dialog.show();
-    }
-
-    private void showAdAndGiveReward() {
-        if(isInterstitialAdReady()){
-            saveTimestamp(this);
-            Ads.showInterstitialAd(this, MainMenu.class);
-        }
-        else{
-            View rootLayout = findViewById(R.id.RlMainMenu);
-
-            Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
-            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
-            snackbar.show();
-        }
-
-
-    }
 
 
 
@@ -228,50 +156,7 @@ public class MainMenu extends AppCompatActivity  {
         ChangeLanguage();
     }
 
-    @SuppressLint("SetTextI18n")
-    private void showCustomPopupSlot_Machine() {
-        // Create a Dialog without a title
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.popup_layout);
-        // Initialize views
 
-        Button btnYes = dialog.findViewById(R.id.btnYes);
-        Button btnNo = dialog.findViewById(R.id.btnNo);
-        TextView textTitle = dialog.findViewById(R.id.textTitle);
-        TextView textMessage = dialog.findViewById(R.id.textMessage);
-        ImageView imagePopup = dialog.findViewById(R.id.imagePopup);
-
-        textTitle.setText(R.string.slot_machine);
-        textMessage.setText(R.string.do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes);
-        imagePopup.setImageResource(R.drawable.slot_machine_icon);
-
-        // Handle button clicks
-        btnYes.setOnClickListener(v -> {
-            // Call the method to show the ad and give the reward
-
-            dialog.dismiss();
-
-            if(isInterstitialAdReady()){
-                Ads.showInterstitialAd(this, Slot_Machine.class);
-            }
-            else{
-                View rootLayout = findViewById(R.id.RlMainMenu);
-
-                Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
-                snackbar.setAction(R.string.ok, view -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
-                snackbar.show();
-            }
-
-
-
-        });
-
-        btnNo.setOnClickListener(v -> dialog.dismiss());
-
-        // Show the dialog
-        dialog.show();
-    }
 
     @SuppressLint("SetTextI18n")
     private void showCustomPopupExit() {

@@ -8,6 +8,34 @@
     android:id="@+id/backgroundResults">
 
 
+    <ImageButton
+        android:id="@+id/RewardBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/gold_shine"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_reward"
+        android:importantForAccessibility="no" />
+
+    <ImageButton
+        android:id="@+id/RewardBtn2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/gold_shine"
+        android:scaleType="fitXY"
+        android:src="@drawable/slot_machine_icon"
+        android:importantForAccessibility="no" />
+
+
     <TextView
         android:id="@+id/resultWINlOSETxt"
         android:layout_width="wrap_content"

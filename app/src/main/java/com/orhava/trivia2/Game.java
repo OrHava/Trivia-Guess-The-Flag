@@ -103,19 +103,20 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             countDownTimer = new MyCountDownTimer(15000 /* 10 Sec */, 1000);
         }
 
+
+        whichGame();
+        Mute_UnMute();
+        configureNextButton();
+        loadNewQuestion();
+        Ads.preloadInterstitialAd(this);
+
         if(Menu_Game.WhichGame >= 20 && Menu_Game.WhichGame <= 27){
 
-            totalQuestionsTextView.setVisibility(View.GONE);
-            whichGameTxt.setVisibility(View.GONE);
-            whichGame2Txt.setVisibility(View.GONE);
-            whichGameImage2.setVisibility(View.GONE);
-            whichGameImage.setVisibility(View.GONE);
-            whichGameImage3.setVisibility(View.GONE);
+
 
 // Assuming iv, btnMute, and nextButton are defined in your layout XML
             final ImageView iv = findViewById(R.id.flags);
-            final ImageButton btnMute = findViewById(R.id.mute_unmute);
-            final ImageButton nextButton = findViewById(R.id.navToMain);
+
 
 
             // Set the new height in pixels (adjust this value as needed)
@@ -132,33 +133,9 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
 
-            // Position btnMute on top of iv (adjust margins as needed)
-            RelativeLayout.LayoutParams btnMuteParams = new RelativeLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            btnMuteParams.addRule(RelativeLayout.ALIGN_PARENT_START);
-            btnMuteParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            btnMuteParams.setMargins(16, 0, 0, 16);
-            btnMute.setLayoutParams(btnMuteParams);
-
-            // Position nextButton on top of iv (adjust margins as needed)
-            RelativeLayout.LayoutParams nextButtonParams = new RelativeLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            nextButtonParams.addRule(RelativeLayout.ALIGN_PARENT_END);
-            nextButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            nextButtonParams.setMargins(0, 0, 16, 16);
-            nextButton.setLayoutParams(nextButtonParams);
 
 
         }
-        whichGame();
-        Mute_UnMute();
-        configureNextButton();
-        loadNewQuestion();
-        Ads.preloadInterstitialAd(this);
 
 
 

@@ -1,272 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
-<RelativeLayout
+<ScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/yourRelativeLayout"
-    tools:context="com.orhava.trivia2.Game"
-    android:background="@color/teal_200"
-    android:padding="10dp">
-
-    <ImageButton
-        android:id="@+id/mute_unmute"
-        android:layout_width="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_height="60dp"
-        android:contentDescription="@string/mute_or_unmute"
-        android:src="@drawable/unmute_50"
-        android:background="@android:color/transparent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/whichGameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text=""
-        tools:ignore="RelativeOverlap" />
-
-    <TextView
-        android:id="@+id/whichGame2Txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/whichGameTxt"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="" />
-
-    <ImageView
-        android:id="@+id/whichGameImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:importantForAccessibility="no"
-        android:layout_below="@+id/whichGame2Txt"
-        android:layout_centerHorizontal="true" />
-
-
-
-
-
-    <ImageView
-        android:id="@+id/whichGameImage2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:importantForAccessibility="no"
-        android:scaleType="fitXY"
-        android:layout_below="@+id/whichGame2Txt"
-        android:layout_centerHorizontal="false"
-     android:layout_marginEnd="50dp"
-        android:layout_alignEnd="@+id/whichGameImage" />
-    <ImageView
-        android:id="@+id/whichGameImage3"
-        android:layout_width="50dp"
-        android:layout_alignStart="@+id/whichGameImage"
-        android:layout_height="50dp"
-        android:scaleType="fitXY"
-        android:importantForAccessibility="no"
-        android:layout_marginStart="50dp"
-        android:layout_below="@+id/whichGame2Txt"
-        android:layout_centerHorizontal="false"
-         />
-
-
-    <ImageButton
-        android:id="@+id/navToMain"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/previous_smaller2"
-        android:text="Go To Menu"
-        android:textSize="10sp"
-        tools:ignore="ContentDescription,HardcodedText,SmallSp" />
-
-
-    <TextView
-        android:id="@+id/total_questions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:paddingTop="20dp"
-        android:text="Total Questions "
-        android:textSize="20sp"
-        tools:ignore="HardcodedText" />
-
-
-    <ImageView
-        android:id="@+id/flags"
-        android:layout_width="400dp"
-        android:layout_height="160dp"
-        android:layout_centerHorizontal="true"
-     android:layout_below="@+id/total_questions"
-        android:contentDescription="Flags"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/flags"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="This will be the question"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText" />
-
+    android:background="@color/teal_200">
     <RelativeLayout
-        android:id="@+id/choices_layout"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/question">
+        android:id="@+id/yourRelativeLayout"
+        tools:context="com.orhava.trivia2.Game"
+        android:background="@color/teal_200"
+        android:padding="10dp">
 
-        <!-- Horizontal LinearLayout for Buttons A and B -->
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/mute_unmute"
+            android:layout_width="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/mute_or_unmute"
+            android:src="@drawable/unmute_50"
+            android:background="@android:color/transparent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/whichGameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text=""
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/whichGame2Txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/whichGameTxt"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/whichGameImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:importantForAccessibility="no"
+            android:layout_below="@+id/whichGame2Txt"
+            android:layout_centerHorizontal="true" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/whichGameImage2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/whichGame2Txt"
+            android:layout_centerHorizontal="false"
+            android:layout_marginEnd="50dp"
+            android:layout_alignEnd="@+id/whichGameImage" />
+        <ImageView
+            android:id="@+id/whichGameImage3"
+            android:layout_width="50dp"
+            android:layout_alignStart="@+id/whichGameImage"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:importantForAccessibility="no"
+            android:layout_marginStart="50dp"
+            android:layout_below="@+id/whichGame2Txt"
+            android:layout_centerHorizontal="false"
+            />
+
+
+        <ImageButton
+            android:id="@+id/navToMain"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/previous_smaller2"
+            android:text="Go To Menu"
+            android:textSize="10sp"
+            tools:ignore="ContentDescription,HardcodedText,SmallSp" />
+
+
+        <TextView
+            android:id="@+id/total_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:paddingTop="20dp"
+            android:text="Total Questions "
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
+
+
+        <ImageView
+            android:id="@+id/flags"
+            android:layout_width="400dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/total_questions"
+            android:contentDescription="Flags"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/flags"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="This will be the question"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <RelativeLayout
+            android:id="@+id/choices_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/liner_layout"
-            android:gravity="center">
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/question">
 
-            <Button
-                android:id="@+id/ans_A"
-                android:layout_width="150dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Ans A"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                tools:ignore="ButtonStyle,HardcodedText" />
+            <!-- Horizontal LinearLayout for Buttons A and B -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/liner_layout"
+                android:gravity="center">
 
-            <Button
-                android:id="@+id/ans_B"
-                android:layout_width="150dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Ans B"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                tools:ignore="ButtonStyle,HardcodedText" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/ans_A"
+                    android:layout_width="150dp"
+                    android:layout_height="90dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Ans A"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    tools:ignore="ButtonStyle,HardcodedText" />
 
-        <!-- Horizontal LinearLayout for Buttons C and D -->
-        <LinearLayout
+                <Button
+                    android:id="@+id/ans_B"
+                    android:layout_width="150dp"
+                    android:layout_height="90dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Ans B"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    tools:ignore="ButtonStyle,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Horizontal LinearLayout for Buttons C and D -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/liner_layout"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/ans_C"
+                    android:layout_width="150dp"
+                    android:layout_height="90dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Ans C"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    tools:ignore="ButtonStyle,HardcodedText" />
+
+                <Button
+                    android:id="@+id/ans_D"
+                    android:layout_width="150dp"
+                    android:layout_height="90dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Ans D"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    tools:ignore="ButtonStyle,HardcodedText" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/liner_layout"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_below="@id/choices_layout"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/teal_200"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/submit"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:background="@drawable/button_background" />
 
-            <Button
-                android:id="@+id/ans_C"
-                android:layout_width="150dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Ans C"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="10dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                tools:ignore="ButtonStyle,HardcodedText" />
 
-            <Button
-                android:id="@+id/ans_D"
-                android:layout_width="150dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Ans D"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                tools:ignore="ButtonStyle,HardcodedText" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submit_btn"
+            android:layout_marginTop="28dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/press_start_2p"
+            android:text=""
+            android:textSize="25sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/submit_btn"
+            android:max="100"
+            android:layout_marginTop="2dp"
+            android:layout_centerHorizontal="true"
+            android:progress="100"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:indeterminate="false" />
+
+
+        <ImageView
+            android:id="@+id/CorrectOrWrong"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/submit_btn"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Flags"
+            android:layout_marginStart="200dp"
+            tools:ignore="HardcodedText" />
+
 
     </RelativeLayout>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/submit_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/choices_layout"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/teal_200"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/submit"
-        android:textStyle="bold"
-        app:backgroundTint="@null"
-        android:background="@drawable/button_background" />
 
-
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/submit_btn"
-        android:layout_marginTop="28dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/press_start_2p"
-        android:text=""
-        android:textSize="25sp" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_below="@+id/submit_btn"
-        android:max="100"
-        android:layout_marginTop="2dp"
-        android:layout_centerHorizontal="true"
-        android:progress="100"
-        android:progressDrawable="@drawable/circular_progress_bar"
-        android:indeterminate="false" />
-
-
-    <ImageView
-        android:id="@+id/CorrectOrWrong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/submit_btn"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="Flags"
-        android:layout_marginStart="200dp"
-        tools:ignore="HardcodedText" />
-
-
-</RelativeLayout>
+</ScrollView>
 

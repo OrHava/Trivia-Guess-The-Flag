@@ -38,39 +38,13 @@
             android:layout_height="wrap_content"
             android:stretchColumns="1">
 
-            <ImageButton
-                android:id="@+id/RewardBtn"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/gold_shine"
-                android:scaleType="fitXY"
-                android:src="@drawable/icon_reward"
-                android:importantForAccessibility="no" />
-
-            <ImageButton
-                android:id="@+id/RewardBtn2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="10dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/gold_shine"
-                android:scaleType="fitXY"
-                android:src="@drawable/slot_machine_icon"
-                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/txtNameandPoints"
                 android:layout_width="230dp"
                 android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="5dp"
                 android:fontFamily="@font/holtwood_one_sc"
                 android:gravity="center"

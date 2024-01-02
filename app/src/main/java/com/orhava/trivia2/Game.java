@@ -2,7 +2,6 @@ package com.orhava.trivia2;
 
 
 import static com.orhava.trivia2.Ads.isInterstitialAdReady;
-
 import static com.orhava.trivia2.MainMenu.isMuted;
 import static com.orhava.trivia2.MultiPlayer.codeHelper;
 import static com.orhava.trivia2.MultiPlayer.opponentUser;
@@ -27,7 +26,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -102,8 +100,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             // The reward is still valid, show a message or handle accordingly
             countDownTimer = new MyCountDownTimer(15000 /* 10 Sec */, 1000);
         }
-
-
+        CorrectOrWrong.setAlpha(0.0f);
+        CorrectOrWrong.setVisibility(View.GONE);
         whichGame();
         Mute_UnMute();
         configureNextButton();
@@ -730,6 +728,8 @@ else if(Menu_Game.WhichGame==888){
                 indexOfQuestions++;
                 cancel();
                 final MediaPlayer mp3 = MediaPlayer.create(Game.this, R.raw.losesound);
+                CorrectOrWrong.setAlpha(1.0f);
+                CorrectOrWrong.setVisibility(View.VISIBLE);
                 CorrectOrWrong.setImageResource(R.drawable.cancel);
                 if (!isMuted){
                     mp3.setVolume(0,0);
@@ -744,6 +744,8 @@ else if(Menu_Game.WhichGame==888){
                 handler3.postDelayed(() -> {
                     countDownTimer.cancel();
                     loadNewQuestion();
+                    CorrectOrWrong.setAlpha(0.0f);
+                    CorrectOrWrong.setVisibility(View.GONE);
                 }, 1000);
             }
 
@@ -1027,8 +1029,8 @@ else if(Menu_Game.WhichGame==888){
             else if(Menu_Game.WhichGame==888){
                 scoreMultiPlayer++;
             }
-
-
+            CorrectOrWrong.setAlpha(1.0f);
+            CorrectOrWrong.setVisibility(View.VISIBLE);
             CorrectOrWrong.setImageResource(R.drawable.check);
             if(ansA.getText().toString().equals(selectedAns)){
                 ansA.setBackgroundColor(Color.GREEN);
@@ -1053,6 +1055,8 @@ else if(Menu_Game.WhichGame==888){
             }
 
             mp3.start();
+            CorrectOrWrong.setVisibility(View.VISIBLE);
+            CorrectOrWrong.setAlpha(1.0f);
             CorrectOrWrong.setImageResource(R.drawable.cancel);
 
             if(ansA.getText().toString().equals(selectedAns)){
@@ -1084,6 +1088,8 @@ else if(Menu_Game.WhichGame==888){
 
 
         }
+
+
     }
 
 
@@ -1097,7 +1103,7 @@ else if(Menu_Game.WhichGame==888){
         ansB.setBackgroundColor(Color.WHITE);
         ansC.setBackgroundColor(Color.WHITE);
         ansD.setBackgroundColor(Color.WHITE);
-        CorrectOrWrong.setImageResource(R.color.teal_200);
+        CorrectOrWrong.setAlpha(0.0f);
         countDownTimer.cancel();
         if (Menu_Game.WhichGame==888){
             CheckIfOtherPlayerQuizMultiPlayer();

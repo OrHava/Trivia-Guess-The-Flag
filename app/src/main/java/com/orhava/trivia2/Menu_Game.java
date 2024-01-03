@@ -16,7 +16,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -36,14 +35,7 @@ public class Menu_Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Intent intent = new Intent(Menu_Game.this, MainMenu.class);
-                startActivity(intent);
-                finish(); // Optional: If you want to finish the current activity
-            }
-        });
+
 
         setContentView(R.layout.menu);
         Objects.requireNonNull(getSupportActionBar()).hide();

@@ -7,7 +7,6 @@ import static com.orhava.trivia2.Utils.makeItFalse;
 import static com.orhava.trivia2.Utils.setLocale;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,13 +19,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -66,7 +63,7 @@ public class MainMenu extends AppCompatActivity  {
 
     private ImageButton settingsBtn;
     @SuppressLint("StaticFieldLeak")
-    public static ImageButton btnMute;
+    public  ImageButton btnMute;
     public static boolean isMuted = true;
 
 
@@ -89,12 +86,6 @@ public class MainMenu extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                showCustomPopupExit();
-            }
-        });
 
         // Retrieve the language code from SharedPreferences
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -158,37 +149,7 @@ public class MainMenu extends AppCompatActivity  {
 
 
 
-    @SuppressLint("SetTextI18n")
-    private void showCustomPopupExit() {
-        // Create a Dialog without a title
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.popup_layout);
-        // Initialize views
 
-        Button btnYes = dialog.findViewById(R.id.btnYes);
-        Button btnNo = dialog.findViewById(R.id.btnNo);
-        TextView textTitle = dialog.findViewById(R.id.textTitle);
-        TextView textMessage = dialog.findViewById(R.id.textMessage);
-        ImageView imagePopup = dialog.findViewById(R.id.imagePopup);
-
-        textTitle.setText(R.string.are_you_sure_you_want_to_exit_app);
-        textMessage.setText(R.string.come_back_soon_we_will_miss_you);
-        imagePopup.setImageResource(R.drawable.new_icon_flag_circle);
-
-        // Handle button clicks
-        btnYes.setOnClickListener(v -> {
-            // Call the method to show the ad and give the reward
-
-            dialog.dismiss();
-            finishAffinity();
-        });
-
-        btnNo.setOnClickListener(v -> dialog.dismiss());
-
-        // Show the dialog
-        dialog.show();
-    }
 
 
     // Add this line at the top of your class

@@ -16,7 +16,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -33,15 +32,6 @@ public class Menu_Geography_Game extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Intent intent = new Intent(Menu_Geography_Game.this, MainMenu.class);
-                startActivity(intent);
-                finish(); // Optional: If you want to finish the current activity
-            }
-        });
-
         setContentView(R.layout.activity_menu_geography_game);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initialize();

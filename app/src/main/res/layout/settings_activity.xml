@@ -16,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="Version 25.0" />
+        android:text="Version 26.0" />
 
 
     <ImageButton

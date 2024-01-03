@@ -46,7 +46,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Game extends AppCompatActivity implements View.OnClickListener {
+public class Game extends AppCompatActivity implements View.OnClickListener  {
 
 
     private TextView questionTextView,totalQuestionsTextView,mTextField,whichGameTxt,whichGame2Txt;  //mTextField to use for the timer
@@ -72,6 +72,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     public String NameMultiPlayer="";
     private FirebaseUser user;
+    private boolean isAppInForeground = true;
 
 
 
@@ -106,7 +107,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         Mute_UnMute();
         configureNextButton();
         loadNewQuestion();
-        Ads.preloadInterstitialAd(this);
+        if(isAppInForeground && isNetworkConnected(this)){
+            Ads.preloadInterstitialAd(this);
+
+        }
 
         if(Menu_Game.WhichGame >= 20 && Menu_Game.WhichGame <= 27){
 
@@ -137,6 +141,19 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
 
 
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isAppInForeground = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isAppInForeground = false;
     }
 
     // Method to add 5 seconds to the countdown duration
@@ -1639,7 +1656,7 @@ else if(Menu_Game.WhichGame==888){
             }
             else{
 
-                if (!PurchaseManager.isRemoveAdsPurchased(this) && isInterstitialAdReady()) { //maybe isInterstitialAdReady fix the problem that if ad don't load
+                if (!PurchaseManager.isRemoveAdsPurchased(this) && isInterstitialAdReady() && isAppInForeground) { //maybe isInterstitialAdReady fix the problem that if ad don't load
                     // Show ads
                     Ads.showInterstitialAd(this, Results.class);
                 }

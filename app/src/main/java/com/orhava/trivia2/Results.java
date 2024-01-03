@@ -1,7 +1,6 @@
 package com.orhava.trivia2;
 
 
-import static com.orhava.trivia2.Ads.isInterstitialAdReady;
 import static com.orhava.trivia2.MainMenu.isMuted;
 import static com.orhava.trivia2.Utils.saveTimestamp;
 
@@ -28,7 +27,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
@@ -50,7 +48,7 @@ public class Results extends AppCompatActivity {
 
         if (isNetworkConnected(this)){
 
-            Ads.preloadInterstitialAd(this);
+
             RewardAd();
             RewardAdSlotMachine();
         }
@@ -128,17 +126,10 @@ public class Results extends AppCompatActivity {
     }
 
     private void showAdAndGiveReward() {
-        if(isInterstitialAdReady()){
-            saveTimestamp(this);
-            Ads.showInterstitialAd(this, MainMenu.class);
-        }
-        else{
-            View rootLayout = findViewById(R.id.RlMainMenu);
 
-            Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
-            snackbar.setAction(R.string.ok, v -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
-            snackbar.show();
-        }
+            saveTimestamp(this);
+
+
 
 
     }
@@ -166,16 +157,9 @@ public class Results extends AppCompatActivity {
 
             dialog.dismiss();
 
-            if(isInterstitialAdReady()){
-                Ads.showInterstitialAd(this, Slot_Machine.class);
-            }
-            else{
-                View rootLayout = findViewById(R.id.backgroundResults);
+                startActivity(new Intent(Results.this, Slot_Machine.class));
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
-                Snackbar snackbar = Snackbar.make(rootLayout, R.string.ad_not_been_loaded_yet, Snackbar.LENGTH_SHORT);
-                snackbar.setAction(R.string.ok, view -> snackbar.dismiss()); // Optional: Add an action for the user to dismiss the message
-                snackbar.show();
-            }
 
 
 

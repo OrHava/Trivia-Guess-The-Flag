@@ -353,7 +353,7 @@
     <string name="geography_game">Geography Game</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="do_you_want_to_watch_an_ad_and_get_a_reward_of_5_seconds_for_the_games_for_24_hours">Do you want to watch an ad and get a reward of 5 seconds for the games for 24 hours?</string>
+    <string name="do_you_want_to_watch_an_ad_and_get_a_reward_of_5_seconds_for_the_games_for_24_hours">Do you want to get a reward of 5 seconds for the games for 24 hours?</string>
     <string name="watch_an_ad_for_a_reward">Watch an Ad for a Reward</string>
     <string name="delete">Delete</string>
     <string name="are_you_sure_you_want_to_delete_memory">Are you sure you want to delete memory?</string>
@@ -384,7 +384,7 @@
     <string name="_200_points">200 Points</string>
     <string name="logo">Logo</string>
     <string name="slot_machine">Slot Machine</string>
-    <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Do you want to play a game of chance to win premium avatar in exchange of watching 5 seconds ad? click yes.</string>
+    <string name="do_you_want_to_play_a_game_of_chance_to_win_premium_avatar_in_exchange_of_watching_5_seconds_ad_click_yes">Do you want to play a game of chance to win premium avatar? click yes.</string>
     <string name="go_to_home">Go To Home</string>
     <string name="go_to_profile">Go To Profile</string>
     <string name="congratulation_go_to_profile_to_put_your_new_avatar">Congratulation, Go to Profile to put your new avatar.</string>

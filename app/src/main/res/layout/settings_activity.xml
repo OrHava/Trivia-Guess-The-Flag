@@ -7,6 +7,18 @@
     android:background="@color/teal_200"
     tools:context="com.orhava.trivia2.Game">
 
+    <TextView
+        android:id="@+id/txtGameVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:text="Version 25.0" />
+
+
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"

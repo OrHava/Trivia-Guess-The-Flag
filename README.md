@@ -34,8 +34,8 @@ Email: Or6562@gmail.com
 
 
 ------------
-## Old Screenshots
-![P](https://user-images.githubusercontent.com/116579286/222568386-ddaff2c0-0e9d-4879-b691-9b250c3fc2a0.png)
 ## Screenshots
 ![ezgif com-animated-gif-maker](https://github.com/OrHava/Trivia-Guess-The-Flag/assets/116579286/25cae95f-25de-4f3e-a45d-f2f78873cc09)
 >
+## Old Screenshots
+![P](https://user-images.githubusercontent.com/116579286/222568386-ddaff2c0-0e9d-4879-b691-9b250c3fc2a0.png)

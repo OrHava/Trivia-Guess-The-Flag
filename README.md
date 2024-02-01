@@ -34,4 +34,7 @@ Email: Or6562@gmail.com
 
 
 ------------
+## Old Screenshots
 ![P](https://user-images.githubusercontent.com/116579286/222568386-ddaff2c0-0e9d-4879-b691-9b250c3fc2a0.png)
+## Screenshots
+<img src="https://i.imgur.com/n33KSSM.gif" alt="Guess The Flag App" style="width: 250px;"/>

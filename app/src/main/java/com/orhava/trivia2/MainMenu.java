@@ -34,10 +34,12 @@ import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.PendingPurchasesParams;
 import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.QueryProductDetailsParams;
+import com.android.billingclient.api.QueryPurchasesParams;
 import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
@@ -209,7 +211,10 @@ public class MainMenu extends AppCompatActivity  {
     private void initializeBillingClient() {
         billingClient = BillingClient.newBuilder(this)
                 .setListener(purchasesUpdatedListener)
-                .enablePendingPurchases()
+                .enablePendingPurchases(
+                        PendingPurchasesParams.newBuilder()
+                                .enableOneTimeProducts()
+                                .build())
                 .build();
 
         billingClient.startConnection(new BillingClientStateListener() {
@@ -218,6 +223,9 @@ public class MainMenu extends AppCompatActivity  {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     // BillingClient is ready
                     Log.d("BillingClient", "Billing client setup finished");
+                    // Restore any existing entitlement (e.g. after a reinstall) and
+                    // acknowledge purchases that were completed but not yet acknowledged.
+                    restorePurchases();
                 } else {
                     // Handle error
                     Log.e("BillingClient", "Error code: " + billingResult.getResponseCode());
@@ -263,11 +271,37 @@ public class MainMenu extends AppCompatActivity  {
         if ( purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
             PurchaseManager.setRemoveAdsPurchased(this, true);
 
-            acknowledgePurchase(purchase);
+            if (!purchase.isAcknowledged()) {
+                acknowledgePurchase(purchase);
+            }
 
             // Update your app's state to remove ads
             Log.d("BillingClient", "Remove Ads purchased successfully");
         }
+    }
+
+    /**
+     * Queries Google Play for the user's owned in-app products and restores the
+     * "remove ads" entitlement. This runs every time the billing client connects,
+     * so a user who reinstalls the app (or clears data) keeps what they paid for,
+     * and any purchase that was completed but not acknowledged gets acknowledged
+     * here instead of being auto-refunded by Google after 3 days.
+     */
+    private void restorePurchases() {
+        if (billingClient == null || !billingClient.isReady()) {
+            return;
+        }
+        billingClient.queryPurchasesAsync(
+                QueryPurchasesParams.newBuilder()
+                        .setProductType(BillingClient.ProductType.INAPP)
+                        .build(),
+                (billingResult, purchases) -> {
+                    if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                        for (Purchase purchase : purchases) {
+                            handlePurchase(purchase);
+                        }
+                    }
+                });
     }
 
     private void acknowledgePurchase(Purchase purchase) {
@@ -730,8 +764,13 @@ public class MainMenu extends AppCompatActivity  {
                 .build();
         GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        if (user != null || acct!=null) {
+        // Anonymous (guest) users have nothing to sign out of, so treat them like
+        // signed-out users: offer an optional "Sign In" to link/restore a real account.
+        boolean hasRealAccount = (user != null && !user.isAnonymous()) || acct != null;
 
+        if (hasRealAccount) {
+
+            SignOut.setText(R.string.sign_out);
             SignOut.setVisibility(View.VISIBLE);
             SignOut.setOnClickListener(view -> {
 

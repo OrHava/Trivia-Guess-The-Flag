@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <!--
+        Modernized 2026 palette. The original design used a single bright color
+        (teal_200) for BOTH the page background AND text on white cards, which made
+        button labels almost unreadable. The roles are now split:
+          - teal_200 : refined brand teal, used for page backgrounds & accents
+          - brand_text : deep teal used for text/icons on white surfaces (high contrast)
+        Names of the original colors are preserved so every existing reference keeps
+        working; only their values are refreshed.
+    -->
+    <color name="purple_200">#FFC9B4FF</color>
+    <color name="purple_500">#FF7C4DFF</color>
+    <color name="purple_700">#FF5A32D6</color>
+
+    <!-- Brand teal (page backgrounds, accents, theme colorSecondary) -->
+    <color name="teal_200">#FF12A594</color>
+    <color name="teal_700">#FF0E7D70</color>
+
+    <!-- Readable text/icon color on white cards (contrast ~6:1 on #FFFFFF) -->
+    <color name="brand_text">#FF0B5D53</color>
+
+    <color name="black">#FF12121A</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

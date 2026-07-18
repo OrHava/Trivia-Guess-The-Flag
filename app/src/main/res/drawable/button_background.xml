@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- res/drawable/button_background.xml -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true">
+<!-- Modern tactile button: white rounded card with a teal border and a
+     touch ripple (API 21+). Keeps the same visual identity as before. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#4000BFA5">
+    <item android:id="@android:id/mask">
         <shape android:shape="rectangle">
             <solid android:color="@android:color/white" />
-            <corners android:radius="12dp" />
+            <corners android:radius="14dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@android:color/white" />
             <stroke android:color="@color/teal_700" android:width="4dp" />
-            <corners android:radius="12dp" />
+            <corners android:radius="14dp" />
         </shape>
     </item>
-</selector>
+</ripple>

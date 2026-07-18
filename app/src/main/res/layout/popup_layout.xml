@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/watch_an_ad_for_a_reward"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/brand_text"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -33,7 +33,7 @@
         android:id="@+id/textMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/brand_text"
         android:text="@string/do_you_want_to_watch_an_ad_and_get_a_reward_of_5_seconds_for_the_games_for_24_hours"
         android:layout_below="@id/textTitle"
         android:layout_marginTop="8dp"/>

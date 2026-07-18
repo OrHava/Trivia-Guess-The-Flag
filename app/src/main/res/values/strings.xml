@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Flags Game of All Countries</string>
+    <string name="splash_title" translatable="false">Guess The Flag</string>
+    <string name="enjoy_the_game">Enjoy the game</string>
 
     <!-- Preference Titles -->
     <string name="messages_header" translatable="false">Messages</string>

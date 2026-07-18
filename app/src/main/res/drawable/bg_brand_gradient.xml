@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable brand background: a soft vertical teal gradient. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#FF17B8A5"
+        android:centerColor="#FF12A594"
+        android:endColor="#FF0C7266" />
+</shape>

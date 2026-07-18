@@ -68,7 +68,7 @@
                 android:maxLines="1"
                 android:text="@string/loading"
                 android:textAlignment="viewStart"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/brand_text"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

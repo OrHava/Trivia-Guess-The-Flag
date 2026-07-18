@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Crisp vector foreground: a clean waving flag on a pole, sized to the
+     adaptive-icon safe zone (centre ~66 of 108). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Pole -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M40,30 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M37,31 h6 v48 a3,3 0 0,1 -6,0 Z" />
+
+    <!-- Waving flag -->
+    <path android:pathData="M43,32
+        C 54,26 60,40 71,34
+        L 71,58
+        C 60,64 54,50 43,56
+        Z">
+        <aapt:attr name="android:fillColor" xmlns:aapt="http://schemas.android.com/aapt">
+            <gradient
+                android:type="linear"
+                android:startX="43" android:startY="32"
+                android:endX="71" android:endY="58">
+                <item android:offset="0" android:color="#FFFFFFFF" />
+                <item android:offset="1" android:color="#FFE7FFFB" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Accent stripe on the flag -->
+    <path
+        android:fillColor="#FF19C3AE"
+        android:pathData="M46,40
+        C 55,35 60,46 68,42
+        L 68,49
+        C 60,53 55,42 46,47
+        Z" />
+</vector>

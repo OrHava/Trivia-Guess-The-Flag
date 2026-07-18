@@ -126,7 +126,9 @@ public class SignIn extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if(acct!=null || user != null){
+        // Anonymous (guest) users should still be able to reach the sign-in options
+        // to link/restore a real account, so only skip for a real signed-in account.
+        if(acct!=null || (user != null && !user.isAnonymous())){
             gotoProfile();
         }
 
@@ -271,8 +273,15 @@ public class SignIn extends AppCompatActivity {
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e);
+                // Google Sign In failed, update UI appropriately.
+                // statusCode 10 (DEVELOPER_ERROR) in production almost always means the
+                // Play App Signing SHA-1 is not registered in Firebase — see PLAY_COMPLIANCE.md.
+                Log.w(TAG, "Google sign in failed, statusCode=" + e.getStatusCode(), e);
+                Snackbar snackbar = Snackbar.make(rootLayout,
+                        getString(R.string.Google_sign_in_failed) + " (" + e.getStatusCode() + ")",
+                        Snackbar.LENGTH_LONG);
+                snackbar.setAction(R.string.ok, v -> snackbar.dismiss());
+                snackbar.show();
             }
         }
     });

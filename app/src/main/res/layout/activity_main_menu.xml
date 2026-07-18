@@ -15,7 +15,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="-5dp"
         android:adjustViewBounds="true"
-        android:backgroundTint="#30B8B7"
+        android:backgroundTint="@color/teal_200"
         android:clickable="false"
         android:drawableEnd="@mipmap/flag_round"
         android:fontFamily="@font/alfa_slab_one"
@@ -49,7 +49,7 @@
                 android:fontFamily="@font/holtwood_one_sc"
                 android:gravity="center"
                 android:background="@drawable/button_background"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/brand_text"
                 android:textSize="13sp"
                 android:textStyle="bold" />
             <androidx.cardview.widget.CardView
@@ -60,7 +60,8 @@
       android:layout_marginTop="10dp"
                 android:layout_below="@+id/txtNameandPoints"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
 
@@ -106,7 +107,7 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/flags_game"
 
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -122,7 +123,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_below="@+id/Cv_Flags_GameBtn"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
 
@@ -167,7 +169,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/geography_game"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -185,7 +187,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
                 <ImageView
@@ -230,7 +233,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/name_and_avatar"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -245,7 +248,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -288,7 +292,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/leaderboard"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -303,7 +307,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -346,7 +351,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/remove_ads"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -361,7 +366,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -404,7 +410,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/learn_flags"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -420,7 +426,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
                 <ImageView
@@ -464,7 +471,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/multiplayer"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -478,7 +485,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
                 <ImageView
@@ -522,7 +530,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/fun_facts"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -536,7 +544,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
                 <ImageView
@@ -581,7 +590,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/alfa_slab_one"
                     android:text="@string/more_apps"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/brand_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -598,13 +607,15 @@
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@android:color/transparent"
                 android:layout_marginTop="15dp"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
                 <androidx.cardview.widget.CardView
                     android:id="@+id/Cv_ShareGame"
                     android:layout_width="150dp"
                     android:layout_height="70dp"
                     android:backgroundTint="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -625,7 +636,7 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/alfa_slab_one"
                         android:text="@string/share"
-                        android:textColor="@color/teal_200"
+                        android:textColor="@color/brand_text"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -636,7 +647,8 @@
                     android:layout_height="70dp"
                     android:layout_marginStart="160dp"
                     android:backgroundTint="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
 
                     <ImageView
@@ -658,7 +670,7 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/alfa_slab_one"
                         android:text="@string/rate_us"
-                        android:textColor="@color/teal_200"
+                        android:textColor="@color/brand_text"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -886,7 +898,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/holtwood_one_sc"
             android:text="@string/sign_out"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/brand_text"
             android:textSize="12sp"
             android:textStyle="bold"
             android:visibility="invisible" />
